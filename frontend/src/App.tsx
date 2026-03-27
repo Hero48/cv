@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { School, ArrowLeft } from 'lucide-react';
+import { School, ArrowLeft, LogOut, User as UserIcon } from 'lucide-react';
 import ChatInterview from './components/ChatInterview';
 import CVEditor from './components/CVEditor';
+import Auth from './components/Auth';
 
 const API_BASE_URL = 'http://localhost:5000';
 
@@ -14,25 +15,53 @@ interface Template {
   preview_url: string;
 }
 
-type AppStep = 'gallery' | 'chat' | 'refine' | 'preview';
+interface User {
+    email: string;
+    id: number;
+}
+
+type AppStep = 'auth' | 'gallery' | 'chat' | 'refine' | 'preview';
 
 function App() {
-  const [step, setStep] = useState<AppStep>('gallery');
+  const [user, setUser] = useState<User | null>(null);
+  const [step, setStep] = useState<AppStep>('auth');
   const [templates, setTemplates] = useState<Template[]>([]);
   const [selectedTemplate, setSelectedTemplate] = useState<{id: string, category: string} | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/templates`)
+    // Check for existing session
+    axios.get(`${API_BASE_URL}/api/me`, { withCredentials: true })
       .then(res => {
-        setTemplates(res.data);
-        setLoading(false);
+        if (res.data.user) {
+          setUser(res.data.user);
+          setStep('gallery');
+        } else {
+          setStep('auth');
+        }
       })
-      .catch(err => {
-        console.error("Error fetching templates:", err);
-        setLoading(false);
-      });
+      .catch(() => setStep('auth'))
+      .finally(() => setLoading(false));
+
+    // Fetch templates in background
+    axios.get(`${API_BASE_URL}/api/templates`)
+      .then(res => setTemplates(res.data));
   }, []);
+
+  const handleAuthSuccess = (userData: User) => {
+    setUser(userData);
+    setStep('gallery');
+  };
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(`${API_BASE_URL}/api/logout`, {}, { withCredentials: true });
+      setUser(null);
+      setStep('auth');
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
 
   const handleSelectTemplate = (id: string, category: string) => {
     setSelectedTemplate({ id, category });
@@ -48,12 +77,18 @@ function App() {
     else if (step === 'refine') setStep('chat');
   };
 
+  if (loading) return (
+    <div className="min-h-screen bg-[#f6f6f6] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-4 border-brand-gold"></div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-[#f6f6f6] text-[#2d2f2f] font-body">
       {/* Header */}
       <header className="sticky top-0 z-50 flex justify-between items-center w-full px-6 py-4 bg-[#f6f6f6] border-b-4 border-[#2d2f2f]">
         <div className="flex items-center gap-2">
-          {step !== 'gallery' && (
+          {step !== 'gallery' && step !== 'auth' && (
             <button 
               onClick={handleBack}
               className="mr-2 p-2 hover:bg-stone-200 transition-colors"
@@ -64,16 +99,37 @@ function App() {
           <School className="text-[#715800] w-8 h-8" />
           <span className="text-2xl font-black tracking-tighter font-headline">EduCV</span>
         </div>
-        <div className="hidden md:flex items-center gap-6">
-          <button onClick={() => setStep('gallery')} className={`font-bold ${step === 'gallery' ? 'text-[#715800]' : ''}`}>Templates</button>
-          <a className="font-bold hover:bg-[#f8cd50] px-3 py-1 transition-all" href="#">Pricing</a>
-        </div>
+        
+        {user && (
+            <div className="hidden md:flex items-center gap-6">
+                <button onClick={() => setStep('gallery')} className={`font-bold ${step === 'gallery' ? 'text-[#715800]' : ''}`}>Templates</button>
+                <a className="font-bold hover:bg-[#f8cd50] px-3 py-1 transition-all" href="#">Pricing</a>
+                <div className="flex items-center gap-2 bg-brand-black text-white px-3 py-1 neo-shadow">
+                    <UserIcon size={16} />
+                    <span className="text-xs font-bold truncate max-w-[100px]">{user.email}</span>
+                </div>
+                <button onClick={handleLogout} className="text-red-600 hover:bg-red-50 p-2 transition-colors">
+                    <LogOut size={20} />
+                </button>
+            </div>
+        )}
+
+        {!user && step === 'auth' && (
+            <div className="text-[10px] font-black uppercase tracking-widest text-brand-gold">
+                Guest Mode
+            </div>
+        )}
+
         <button className="bg-brand-gold text-white px-6 py-2 font-black uppercase tracking-wider text-sm border-2 border-[#2d2f2f] neo-shadow neo-shadow-active">
           Help
         </button>
       </header>
 
       <main className="px-6 md:px-20 py-12">
+        {step === 'auth' && (
+          <Auth onAuthSuccess={handleAuthSuccess} />
+        )}
+
         {step === 'gallery' && (
           <>
             <div className="mb-12 border-l-8 border-brand-gold pl-6">
@@ -81,12 +137,7 @@ function App() {
               <p className="text-xl text-stone-600 font-medium">Choose a template that reflects your professional identity.</p>
             </div>
 
-            {loading ? (
-              <div className="flex justify-center items-center h-64">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-brand-gold"></div>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {templates.map(template => (
                   <div key={template.id} className="bg-white border-4 border-brand-black neo-shadow-lg flex flex-col group hover:-translate-y-2 transition-all">
                     <div className="aspect-[3/4] bg-stone-100 border-b-4 border-brand-black overflow-hidden relative">
@@ -109,8 +160,7 @@ function App() {
                     </div>
                   </div>
                 ))}
-              </div>
-            )}
+            </div>
           </>
         )}
 

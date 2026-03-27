@@ -26,8 +26,13 @@ db = SQLAlchemy(app)
 # Register Blueprints
 from routes.main import main_bp
 from routes.ai import ai_bp
+from routes.auth import auth_bp
 app.register_blueprint(main_bp)
 app.register_blueprint(ai_bp)
+app.register_blueprint(auth_bp)
+
+with app.app_context():
+    db.create_all()
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
