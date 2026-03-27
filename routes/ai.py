@@ -106,29 +106,73 @@ def refine_data():
         
     return render_template('refine.html', data=extracted_data)
 
+@ai_bp.route('/api/extracted_data')
+def get_extracted_data():
+    data = session.get('extracted_data')
+    if not data:
+        return jsonify({"error": "No data found"}), 404
+    return jsonify(data)
+
+@ai_bp.route('/api/refine', methods=['POST'])
+def refine_data_api():
+    # Extract structured data using Gemini
+    history = session.get('chat_history', [])
+    if not history:
+        return jsonify({"error": "No chat history found"}), 400
+        
+    model = genai.GenerativeModel(MODEL_NAME, generation_config={"response_mime_type": "application/json"})
+    
+    prompt = f"""
+    Based on the following chat history between an educator and a mentor, extract the CV details into a structured JSON object.
+    Required fields:
+    - full_name
+    - professional_summary
+    - contact (email, phone, location)
+    - experience (list of: company, role, dates, achievements[])
+    - education (list of: institution, degree, year)
+    - skills (list of strings)
+    
+    Chat History:
+    {json.dumps(history)}
+    """
+    
+    try:
+        response = model.generate_content(prompt)
+        extracted_data = json.loads(response.text)
+        session['extracted_data'] = extracted_data
+        session.pop('chat_history', None)
+        return jsonify(extracted_data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 @ai_bp.route('/preview', methods=['POST'])
 def preview_cv():
-    # Update extracted_data with user changes
+    # Update extracted_data with user changes (handles both form and json)
     data = session.get('extracted_data', {})
     if not data:
-        # If session was lost, try to recover at least basic structure
         data = {'contact': {}}
     
-    data['full_name'] = request.form.get('full_name')
+    if request.is_json:
+        # React frontend sends JSON
+        new_data = request.json
+        data.update(new_data)
+    else:
+        # Traditional form
+        data['full_name'] = request.form.get('full_name')
+        if 'contact' not in data:
+            data['contact'] = {}
+        data['contact']['location'] = request.form.get('location', '')
+        data['contact']['email'] = request.form.get('email', '')
+        data['contact']['phone'] = request.form.get('phone', '')
+        data['professional_summary'] = request.form.get('summary', '')
     
-    if 'contact' not in data:
-        data['contact'] = {}
-    data['contact']['location'] = request.form.get('location', '')
-    data['contact']['email'] = request.form.get('email', '')
-    data['contact']['phone'] = request.form.get('phone', '')
-    
-    data['professional_summary'] = request.form.get('summary', '')
     session['extracted_data'] = data
     
-    # Ensure selected_template is still there
     if not session.get('selected_template'):
-        return "Session expired or lost. Please go back to gallery.", 400
+        return jsonify({"error": "Session expired or lost. Please go back to gallery."}), 400
     
+    if request.is_json:
+        return jsonify({"success": True})
     return render_template('preview.html')
 
 @ai_bp.route('/render_cv')

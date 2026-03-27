@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { School, ArrowLeft } from 'lucide-react';
 import ChatInterview from './components/ChatInterview';
+import CVEditor from './components/CVEditor';
 
 const API_BASE_URL = 'http://localhost:5000';
 
@@ -42,6 +43,11 @@ function App() {
     setStep('refine');
   };
 
+  const handleBack = () => {
+    if (step === 'chat') setStep('gallery');
+    else if (step === 'refine') setStep('chat');
+  };
+
   return (
     <div className="min-h-screen bg-[#f6f6f6] text-[#2d2f2f] font-body">
       {/* Header */}
@@ -49,7 +55,7 @@ function App() {
         <div className="flex items-center gap-2">
           {step !== 'gallery' && (
             <button 
-              onClick={() => setStep(step === 'chat' ? 'gallery' : 'chat')}
+              onClick={handleBack}
               className="mr-2 p-2 hover:bg-stone-200 transition-colors"
             >
               <ArrowLeft size={24} />
@@ -117,16 +123,7 @@ function App() {
         )}
 
         {step === 'refine' && (
-          <div className="flex flex-col items-center justify-center h-64 border-4 border-dashed border-stone-300">
-            <h2 className="text-2xl font-black mb-4">Refinement Phase</h2>
-            <p className="text-stone-500 font-bold uppercase tracking-widest">Coming Soon: Interactive Editor</p>
-            <button 
-              onClick={() => setStep('gallery')}
-              className="mt-6 bg-brand-black text-white px-8 py-3 font-black uppercase tracking-widest neo-shadow-active"
-            >
-              Back to Start
-            </button>
-          </div>
+          <CVEditor onBack={handleBack} />
         )}
       </main>
     </div>
