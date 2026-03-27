@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 11</title>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Zilla+Slab:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parch: #F4EDDA;
+    --parch-dark: #E8DFC8;
+    --parch-deeper: #D5C9A8;
+    --rust: #8B3A2A;
+    --rust-mid: #A84830;
+    --rust-pale: #F2D5CC;
+    --ink: #1E150A;
+    --ink-mid: #3C2910;
+    --faded: #8A7A62;
+    --border: #C4B48A;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--parch-dark);
+    font-family: 'Zilla Slab', serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex; align-items: flex-start; justify-content: center;
+    background-image:
+      repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(180,160,100,0.12) 29px, rgba(180,160,100,0.12) 30px),
+      repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(180,160,100,0.08) 29px, rgba(180,160,100,0.08) 30px);
+  }
+  .card {
+    max-width: 880px; width: 100%;
+    background: var(--parch);
+    border: 2px solid var(--border);
+    box-shadow: 4px 4px 0 var(--parch-deeper), 8px 8px 0 var(--border), 0 20px 60px rgba(30,20,10,0.2);
+    animation: typeIn 0.6s ease;
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+  }
+  @keyframes typeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+  .masthead {
+    background: var(--rust);
+    padding: 10px 52px;
+    display: flex; justify-content: space-between; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .masthead .left { font-family: 'Special Elite', monospace; font-size: 0.65rem; color: rgba(255,255,255,0.6); letter-spacing: 3px; text-transform: uppercase; }
+  .masthead .right { font-family: 'Special Elite', monospace; font-size: 0.65rem; color: rgba(255,255,255,0.6); letter-spacing: 2px; }
+
+  .hero { padding: 44px 52px 36px; border-bottom: 3px double var(--border); position: relative; z-index: 1; }
+  .hero-top { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 24px; }
+  .stamp {
+    width: 90px; height: 90px; flex-shrink: 0;
+    border: 3px solid var(--rust);
+    background: var(--rust-pale);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .stamp::before {
+    content: '';
+    position: absolute; inset: 4px;
+    border: 1px dashed var(--rust);
+  }
+  .stamp .si { font-family: 'Special Elite', monospace; font-size: 24px; color: var(--rust); position: relative; z-index: 1; }
+  .stamp .sl { font-size: 0.55rem; letter-spacing: 2px; color: var(--rust); text-transform: uppercase; position: relative; z-index: 1; margin-top: 2px; }
+  .hero-text { flex: 1; }
+  .hero-text .eyebrow { font-family: 'Special Elite', monospace; font-size: 0.62rem; letter-spacing: 3px; color: var(--rust); text-transform: uppercase; margin-bottom: 8px; }
+  .hero-text h1 { font-size: 2.6rem; color: var(--ink); line-height: 1.05; font-weight: 600; margin-bottom: 8px; }
+  .hero-text .prog { font-size: 0.92rem; color: var(--faded); font-style: italic; margin-bottom: 14px; }
+  .tag-strip { display: flex; gap: 6px; flex-wrap: wrap; }
+  .vtag {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.68rem; color: var(--rust); border: 1px solid var(--rust);
+    padding: 3px 10px; letter-spacing: 1px;
+  }
+  .vtag.filled { background: var(--rust); color: white; }
+
+  .body { display: grid; grid-template-columns: 1fr 1fr; position: relative; z-index: 1; }
+  .col { padding: 36px 44px; }
+  .col:first-child { border-right: 2px solid var(--parch-deeper); }
+
+  .sec { margin-bottom: 30px; }
+  .sec-title {
+    font-family: 'Special Elite', monospace;
+    font-size: 0.72rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--rust); margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .sec-title::before { content: '§'; font-size: 1rem; }
+  .entry { margin-bottom: 18px; padding-left: 16px; border-left: 3px solid var(--parch-deeper); }
+  .entry:hover { border-left-color: var(--rust); transition: 0.3s; }
+  .entry .et { font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .entry .eo { font-size: 0.84rem; font-style: italic; color: var(--rust-mid); margin-bottom: 3px; }
+  .entry .ey { font-family: 'Special Elite', monospace; font-size: 0.65rem; color: var(--faded); letter-spacing: 2px; margin-bottom: 6px; }
+  .entry .ep { font-size: 0.84rem; color: var(--ink-mid); line-height: 1.7; font-weight: 300; }
+
+  .skills-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+  .sk { font-family: 'Special Elite', monospace; font-size: 0.7rem; background: var(--parch-dark); border: 1px solid var(--border); color: var(--ink-mid); padding: 4px 10px; }
+  .sk:hover { background: var(--rust); color: white; border-color: var(--rust); transition: 0.2s; }
+
+  .pos-item { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px dashed var(--border); }
+  .pos-item:last-child { border-bottom: none; }
+  .pos-item .pt { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+  .pos-item .po { font-size: 0.76rem; color: var(--faded); font-style: italic; margin-top: 2px; }
+  .pos-item .py { font-family: 'Special Elite', monospace; font-size: 0.62rem; color: var(--rust); }
+
+  .contact-row { display: flex; gap: 8px; align-items: center; margin-bottom: 9px; }
+  .contact-row .dash { color: var(--rust); font-family: 'Special Elite', monospace; }
+  .contact-row span { font-size: 0.83rem; color: var(--faded); }
+
+  .footer {
+    background: var(--parch-deeper); padding: 12px 52px;
+    border-top: 2px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .footer span { font-family: 'Special Elite', monospace; font-size: 0.62rem; color: var(--faded); letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="masthead">
+    <span class="left">∷ Official Academic Record ∷</span>
+    <span class="right">College of Education — Ghana — A.D. 2024</span>
+  </div>
+
+  <div class="hero">
+    <div class="hero-top">
+      <div class="stamp"><div class="si">BA</div><div class="sl">Student</div></div>
+      <div class="hero-text">
+        <div class="eyebrow">∷ Curriculum Vitae ∷ College of Education</div>
+        <h1>Bright Adjei-Mensah</h1>
+        <div class="prog">B.Ed. History & Religious Studies · Level 300 · University of Ghana, Legon</div>
+        <div class="tag-strip">
+          <span class="vtag filled">GPA 3.86</span>
+          <span class="vtag">Dean's List</span>
+          <span class="vtag">History Track</span>
+          <span class="vtag">Research Award</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="col">
+      <div class="sec">
+        <div class="sec-title">Educational Background</div>
+        <div class="entry">
+          <div class="et">B.Ed. History & Religious Studies</div>
+          <div class="eo">University of Ghana, Legon</div>
+          <div class="ey">2022 — PRESENT</div>
+          <div class="ep">Combines Ghanaian historiography with comparative religion pedagogy. Current research: "Oral History as a Pedagogical Resource in Basic School Social Studies."</div>
+        </div>
+        <div class="entry">
+          <div class="et">WASSCE · General Arts</div>
+          <div class="eo">Legon Presbyterian Boys' SHS</div>
+          <div class="ey">2019 — 2022 · AGGREGATE 7</div>
+          <div class="ep">Electives: History, Government, Christian Religious Studies. Best History Essay Prize — LEPREBOY 2022.</div>
+        </div>
+        <div class="entry">
+          <div class="et">BECE</div>
+          <div class="eo">Legon Presec JHS</div>
+          <div class="ey">2016 — 2019 · AGGREGATE 6</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Work & Experience</div>
+        <div class="entry">
+          <div class="et">History Student Teacher</div>
+          <div class="eo">Legon Presec SHS</div>
+          <div class="ey">SEPT — DEC 2024</div>
+          <div class="ep">Taught West African History and CRS to SHS Forms 1–3 using documentary clips and debate-style learning. Introduced source-based analysis methods.</div>
+        </div>
+        <div class="entry">
+          <div class="et">Museum Education Guide</div>
+          <div class="eo">Ghana National Museum, Accra</div>
+          <div class="ey">2023 — PRESENT</div>
+          <div class="ep">Conducts guided school tours and curates educational content for visiting student groups. Has guided over 600 students from 14 schools.</div>
+        </div>
+        <div class="entry">
+          <div class="et">Research Intern</div>
+          <div class="eo">Institute of African Studies, UG</div>
+          <div class="ey">SUMMER 2023</div>
+          <div class="ep">Assisted in transcribing and cataloguing oral history recordings for the Ghanaian Voices Archive project.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="sec">
+        <div class="sec-title">Positions Held</div>
+        <div class="pos-item">
+          <div><div class="pt">History & RME Dept. Rep.</div><div class="po">UG Level 300 · 2024</div></div>
+          <span class="py">2024</span>
+        </div>
+        <div class="pos-item">
+          <div><div class="pt">History Society President</div><div class="po">University of Ghana</div></div>
+          <span class="py">2023–24</span>
+        </div>
+        <div class="pos-item">
+          <div><div class="pt">Debate Team Captain</div><div class="po">LEPREBOY</div></div>
+          <span class="py">2021–22</span>
+        </div>
+        <div class="pos-item">
+          <div><div class="pt">Senior Prefect (Academic)</div><div class="po">LEPREBOY SHS</div></div>
+          <span class="py">2021</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Special Skills</div>
+        <div class="skills-wrap">
+          <span class="sk">Source Analysis</span>
+          <span class="sk">Oral Historiography</span>
+          <span class="sk">Academic Writing</span>
+          <span class="sk">Public Speaking</span>
+          <span class="sk">Debate Coaching</span>
+          <span class="sk">Twi · Ga</span>
+          <span class="sk">Museum Education</span>
+          <span class="sk">Archival Research</span>
+          <span class="sk">MS Office Suite</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-title">Correspondence</div>
+        <div class="contact-row"><span class="dash">—</span><span>b.adjei-mensah@st.ug.edu.gh</span></div>
+        <div class="contact-row"><span class="dash">—</span><span>+233 20 901 2345</span></div>
+        <div class="contact-row"><span class="dash">—</span><span>Accra, Greater Accra Region</span></div>
+        <div class="contact-row"><span class="dash">—</span><span>linkedin.com/in/brightadjei</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>∷ B.Ed. History & Religious Studies · University of Ghana ∷</span>
+    <span>Academic Year 2024 / 2025</span>
+  </div>
+</div>
+</body>
+</html>

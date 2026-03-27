@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 19 — Citrus & Slate</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --citrus:#c8e600;
+    --citrus-dim:#edf7a0;
+    --slate:#2b3a4a;
+    --slate-light:#3e5468;
+    --white:#fff;
+    --off:#f6f8fa;
+    --text:#1a252f;
+    --muted:#7a8f9e;
+    --border:#dde6ed;
+  }
+  body{background:var(--off);color:var(--text);font-family:'Inter',sans-serif;font-weight:300;}
+  .cv{max-width:920px;margin:0 auto;}
+
+  /* HEADER */
+  .header{display:grid;grid-template-columns:1fr auto;background:var(--slate);color:white;padding:0;}
+  .h-left{padding:60px 64px;border-right:1px solid rgba(255,255,255,0.08);}
+  .h-tag{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--citrus);margin-bottom:16px;}
+  .h-name{font-family:'Unbounded',sans-serif;font-size:clamp(30px,5vw,52px);font-weight:900;line-height:1.05;letter-spacing:-1px;margin-bottom:14px;}
+  .h-role{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:24px;}
+  .h-bio{font-size:13.5px;line-height:1.9;color:rgba(255,255,255,0.65);max-width:420px;}
+  .h-right{padding:60px 52px;display:flex;flex-direction:column;gap:24px;min-width:240px;}
+  .h-stat{display:flex;flex-direction:column;}
+  .hs-n{font-family:'Unbounded',sans-serif;font-size:42px;font-weight:900;color:var(--citrus);line-height:1;}
+  .hs-l{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:4px;}
+  .h-divider{width:1px;height:60px;background:rgba(255,255,255,0.1);align-self:center;}
+
+  /* CITRUS BAR */
+  .citrus-bar{height:5px;background:var(--citrus);}
+
+  /* CONTACT STRIP */
+  .contact-strip{background:var(--slate-light);padding:14px 64px;display:flex;gap:40px;flex-wrap:wrap;}
+  .cs-item{font-size:11.5px;color:rgba(255,255,255,0.6);}
+  .cs-item strong{color:var(--citrus);margin-right:6px;}
+
+  /* BODY */
+  .body{padding:52px 64px;}
+  .two-col{display:grid;grid-template-columns:1fr 300px;gap:60px;}
+  .sec-hd{font-family:'Unbounded',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--slate);margin-bottom:24px;display:flex;align-items:center;gap:14px;}
+  .sec-hd::after{content:'';flex:1;height:2px;background:var(--citrus);}
+  .section{margin-bottom:44px;}
+  .entry{padding:18px 0;border-bottom:1px solid var(--border);}
+  .entry:last-child{border-bottom:none;}
+  .e-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:4px;}
+  .e-title{font-family:'Unbounded',sans-serif;font-size:13px;font-weight:700;color:var(--text);line-height:1.3;}
+  .e-yr{font-size:9px;background:var(--citrus-dim);color:var(--slate);padding:3px 10px;font-weight:500;letter-spacing:1px;white-space:nowrap;border-radius:2px;}
+  .e-org{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:8px;}
+  .e-body{font-size:13px;line-height:1.85;color:#5a6e7e;}
+
+  /* RIGHT */
+  .r-card{background:white;border-radius:8px;padding:20px 22px;margin-bottom:14px;border-top:3px solid var(--citrus);}
+  .rc-hd{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+  .rc-item{font-size:13px;color:var(--text);padding:7px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;}
+  .rc-item:last-child{border-bottom:none;}
+  .rc-item .v{font-size:10px;color:var(--muted);}
+  .chip{display:inline-block;background:var(--citrus-dim);color:var(--slate);padding:5px 12px;border-radius:4px;font-size:11px;font-weight:500;margin:3px;}
+  @media(max-width:720px){.header{grid-template-columns:1fr;}.h-right{display:none;}.two-col{grid-template-columns:1fr;}.body{padding:36px 24px;}.contact-strip{padding:14px 24px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <div class="header">
+    <div class="h-left">
+      <div class="h-tag">Curriculum Vitae · 2024</div>
+      <h1 class="h-name">Nana Yaa<br>Quansah</h1>
+      <div class="h-role">English Language & Literature Teacher</div>
+      <div class="h-bio">A dynamic language educator who transforms English classrooms into spaces of creative expression, critical analysis and cultural dialogue — inspiring confident communicators across Ghana's secondary schools.</div>
+    </div>
+    <div class="h-right">
+      <div class="h-stat"><div class="hs-n">7</div><div class="hs-l">Yrs Teaching</div></div>
+      <div class="h-divider"></div>
+      <div class="h-stat"><div class="hs-n">4</div><div class="hs-l">Schools</div></div>
+      <div class="h-divider"></div>
+      <div class="h-stat"><div class="hs-n">95%</div><div class="hs-l">WASSCE Pass</div></div>
+    </div>
+  </div>
+  <div class="citrus-bar"></div>
+  <div class="contact-strip">
+    <div class="cs-item"><strong>Email</strong>nana.quansah@ges.edu.gh</div>
+    <div class="cs-item"><strong>Phone</strong>+233 24 123 9988</div>
+    <div class="cs-item"><strong>Location</strong>Ho, Volta Region</div>
+    <div class="cs-item"><strong>Licence</strong>GTLE Certified 2017</div>
+  </div>
+
+  <div class="body">
+    <div class="two-col">
+      <div>
+        <div class="section">
+          <div class="sec-hd">Experience</div>
+          <div class="entry">
+            <div class="e-top"><div class="e-title">Head of English Department</div><div class="e-yr">2022–Now</div></div>
+            <div class="e-org">Ho Technical SHS, Volta Region</div>
+            <div class="e-body">Lead a 5-teacher English department serving 1,200 students. Revamped the school's reading programme by introducing monthly author spotlights and student literary magazine. WASSCE English pass rate achieved 95% in 2023.</div>
+          </div>
+          <div class="entry">
+            <div class="e-top"><div class="e-title">English Language & Lit. Teacher</div><div class="e-yr">2019–2022</div></div>
+            <div class="e-org">Keta SHS, Volta Region</div>
+            <div class="e-body">Delivered Core English and Literature in English to SHS 1–3. Coached the school's debate team to the Volta Regional finals in 2021. Introduced a creative writing club with 55 members.</div>
+          </div>
+          <div class="entry">
+            <div class="e-top"><div class="e-title">English Teacher — JHS</div><div class="e-yr">2017–2019</div></div>
+            <div class="e-org">Ho Municipal M/A JHS</div>
+            <div class="e-body">Taught English Language and RME to JHS 1–3 students. BECE English results improved from 64% to 82% pass rate during my tenure through intensive writing workshops.</div>
+          </div>
+          <div class="entry">
+            <div class="e-top"><div class="e-title">Teaching Practice</div><div class="e-yr">2016–2017</div></div>
+            <div class="e-org">Akatsi College of Education</div>
+            <div class="e-body">Completed practicum at Akatsi SHS. Received distinction from supervising tutor for innovative oral literature dramatisation sessions.</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="sec-hd">Leadership & Service</div>
+          <div class="entry">
+            <div class="e-top"><div class="e-title">SRC Academic Secretary</div><div class="e-yr">2015–2016</div></div>
+            <div class="e-org">University of Education, Winneba</div>
+            <div class="e-body">Managed academic welfare for 8,400 students; introduced an annual essay competition that attracted entries from 6 Ghanaian universities.</div>
+          </div>
+          <div class="entry">
+            <div class="e-top"><div class="e-title">GES Literacy Champion</div><div class="e-yr">2023–Now</div></div>
+            <div class="e-org">Volta Regional Education Directorate</div>
+            <div class="e-body">Designated literacy champion for Ho Municipality; facilitates quarterly reading promotion campaigns in 10 schools.</div>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="r-card">
+          <div class="rc-hd">Education</div>
+          <div class="rc-item"><span>B.Ed. English Education<br><small style="color:var(--muted);font-size:11px;">UEW Winneba · 2013–2017</small></span><span class="v">2nd Upper</span></div>
+          <div class="rc-item"><span>WASSCE — General Arts<br><small style="color:var(--muted);font-size:11px;">Ho SHS · 2010–2013</small></span><span class="v">Agg. 7</span></div>
+          <div class="rc-item"><span>Cambridge CELTA<br><small style="color:var(--muted);font-size:11px;">British Council GH · 2020</small></span><span class="v">Pass A</span></div>
+        </div>
+        <div class="r-card">
+          <div class="rc-hd">Skills & Competencies</div>
+          <div>
+            <span class="chip">Literature Analysis</span>
+            <span class="chip">Creative Writing</span>
+            <span class="chip">Debate Coaching</span>
+            <span class="chip">IELTS Preparation</span>
+            <span class="chip">Oral Communication</span>
+            <span class="chip">Grammar Instruction</span>
+            <span class="chip">Curriculum Design</span>
+            <span class="chip">Research Writing</span>
+          </div>
+        </div>
+        <div class="r-card">
+          <div class="rc-hd">Achievements</div>
+          <div class="rc-item"><span>Best English Teacher</span><span class="v">Volta Region 2023</span></div>
+          <div class="rc-item"><span>Debate Coach of Year</span><span class="v">GES 2021</span></div>
+          <div class="rc-item"><span>CELTA Grade A</span><span class="v">British Council 2020</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+</body>
+</html>

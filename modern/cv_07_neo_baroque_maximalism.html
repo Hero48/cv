@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Neo-Baroque Maximalism</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --crimson:  #7B0D1E;
+    --burgundy: #4A0020;
+    --gold:     #D4AF37;
+    --gold2:    #B8960C;
+    --sapphire: #1C3F7C;
+    --emerald:  #1A4D2E;
+    --ivory:    #F5ECD7;
+    --black:    #0A0204;
+  }
+
+  body {
+    background: var(--crimson);
+    color: var(--ivory);
+    font-family: 'EB Garamond', serif;
+    font-size: 10.5pt;
+    line-height: 1.9;
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Canvas texture */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    pointer-events: none; z-index: 100;
+  }
+
+  .page { width: 210mm; min-height: 297mm; position: relative; overflow: hidden; }
+
+  /* Chiaroscuro vignette */
+  .vignette {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 30%, transparent 25%, rgba(10,2,4,0.65) 100%);
+    pointer-events: none; z-index: 2;
+  }
+
+  /* ── Gold shimmer keyframe ── */
+  @keyframes gold-shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .shimmer-gold {
+    background: linear-gradient(90deg, var(--gold), #F0D060, var(--gold2), var(--gold), #F5D860, var(--gold2));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gold-shimmer 4s linear infinite;
+  }
+
+  /* ── Ornamental corners ── */
+  .corner-ornament {
+    position: absolute;
+    width: 52px; height: 52px;
+    opacity: 0.55;
+    pointer-events: none; z-index: 5;
+  }
+
+  /* ═══════════════════════════
+     HEADER
+  ═══════════════════════════ */
+  .header {
+    background: linear-gradient(180deg, var(--burgundy) 0%, var(--crimson) 100%);
+    padding: 48px 54px 32px 54px;
+    text-align: center;
+    position: relative; z-index: 10;
+    border-bottom: 1px solid rgba(212,175,55,0.3);
+  }
+
+  .header::before, .header::after {
+    content: '';
+    position: absolute; left: 0; right: 0;
+    height: 3px;
+  }
+  .header::before { top: 0; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .header::after  { bottom: 0; background: linear-gradient(90deg, transparent, rgba(212,175,55,0.5), transparent); }
+
+  .pre-label {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 6.5pt;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 14px;
+    opacity: 0.8;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 60pt;
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  h1 .surname {
+    display: block;
+    font-size: 26pt;
+    font-style: normal;
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-top: 8px;
+    -webkit-text-fill-color: initial;
+    background: none;
+  }
+
+  .title-role {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 12pt;
+    color: rgba(245,236,215,0.65);
+    margin-top: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(212,175,55,0.2);
+  }
+
+  .contact-item {
+    font-family: 'EB Garamond', serif;
+    font-size: 9pt;
+    color: rgba(245,236,215,0.6);
+    text-align: center;
+  }
+
+  .contact-item strong {
+    display: block;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 5.5pt;
+    color: var(--gold);
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    margin-bottom: 2px;
+    opacity: 0.8;
+  }
+
+  /* Baroque ornamental divider SVG */
+  .baroque-divider {
+    text-align: center;
+    padding: 6px 0 0 0;
+    position: relative; z-index: 10;
+    background: var(--crimson);
+    border-bottom: 1px solid rgba(212,175,55,0.18);
+  }
+
+  .baroque-divider svg { display: block; margin: 0 auto; }
+
+  /* ═══════════════════════════
+     BODY LAYOUT
+  ═══════════════════════════ */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 1fr 192px;
+    position: relative; z-index: 10;
+  }
+
+  .main {
+    padding: 28px 36px 28px 54px;
+    border-right: 1px solid rgba(212,175,55,0.12);
+  }
+
+  .sidebar {
+    padding: 28px 24px 28px 20px;
+    background: rgba(74,0,32,0.45);
+  }
+
+  .section { margin-bottom: 24px; }
+
+  .section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 7.5pt;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-title::before { content: '❧'; font-size: 9pt; opacity: 0.7; }
+  .section-title::after  { content: ''; flex:1; height:1px; background: linear-gradient(90deg, rgba(212,175,55,0.35), transparent); }
+
+  .summary {
+    font-size: 10.5pt;
+    line-height: 1.9;
+    color: rgba(245,236,215,0.85);
+    font-style: italic;
+  }
+
+  .summary strong {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  /* Drop cap */
+  .drop-cap::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.4em;
+    font-weight: 600;
+    color: var(--gold);
+    float: left;
+    line-height: 0.72;
+    margin-right: 5px;
+    margin-top: 5px;
+  }
+
+  /* Entry — framed like a painting */
+  .entry {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    border: 1px solid rgba(212,175,55,0.2);
+    border-top: 1px solid rgba(212,175,55,0.4);
+    background: rgba(74,0,32,0.3);
+    position: relative;
+  }
+
+  /* Decorative top gradient */
+  .entry::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 20px;
+    background: linear-gradient(180deg, rgba(212,175,55,0.06), transparent);
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .entry-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 13pt;
+    color: var(--ivory);
+  }
+
+  .entry-date {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 8.5pt;
+    color: rgba(212,175,55,0.6);
+  }
+
+  .entry-co {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 6.5pt;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    color: rgba(212,175,55,0.75);
+    margin-bottom: 7px;
+  }
+
+  .entry-desc {
+    list-style: none;
+    font-size: 9pt;
+    color: rgba(245,236,215,0.72);
+    line-height: 1.75;
+  }
+
+  .entry-desc li { padding-left: 14px; position: relative; margin-bottom: 1px; }
+  .entry-desc li::before {
+    content: '◆';
+    position: absolute; left: 0;
+    color: var(--gold); font-size: 5pt; top: 4px; opacity: 0.6;
+  }
+
+  /* Pull quote style */
+  .pull-quote {
+    border-left: 4px solid var(--gold);
+    padding: 10px 16px;
+    margin: 14px 0;
+    background: rgba(212,175,55,0.04);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13pt;
+    color: rgba(245,236,215,0.8);
+    line-height: 1.7;
+  }
+
+  /* Sidebar */
+  .s-label {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 6.5pt;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(212,175,55,0.22);
+    margin-top: 20px;
+  }
+
+  .s-label:first-child { margin-top: 0; }
+
+  .skill-row { margin-bottom: 8px; }
+
+  .skill-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 9pt;
+    color: rgba(245,236,215,0.72);
+    margin-bottom: 3px;
+  }
+
+  .skill-bar {
+    height: 1px;
+    background: rgba(212,175,55,0.1);
+  }
+
+  .skill-fill {
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    box-shadow: 0 0 4px rgba(212,175,55,0.4);
+  }
+
+  .ivory-tag {
+    display: inline-block;
+    font-family: 'EB Garamond', serif;
+    font-size: 8pt;
+    color: rgba(245,236,215,0.65);
+    border: 1px solid rgba(212,175,55,0.22);
+    padding: 1px 8px;
+    margin: 2px 2px 2px 0;
+    font-style: italic;
+  }
+
+  .s-text {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 8.5pt;
+    color: rgba(245,236,215,0.58);
+    line-height: 1.65;
+  }
+
+  .s-stat {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 6pt;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    display: block;
+    margin-top: 6px; margin-bottom: 1px;
+    opacity: 0.75;
+  }
+
+  .edu-deg {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 10.5pt;
+    color: rgba(245,236,215,0.82);
+  }
+
+  .edu-school {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 8pt;
+    color: rgba(245,236,215,0.45);
+  }
+
+  /* Footer with ornamental rule */
+  .footer {
+    padding: 12px 54px;
+    border-top: 1px solid rgba(212,175,55,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--burgundy);
+    position: relative; z-index: 10;
+  }
+
+  .footer-text {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 8pt;
+    color: rgba(245,236,215,0.4);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-ornament {
+    color: var(--gold);
+    font-size: 10pt;
+    opacity: 0.45;
+    letter-spacing: 0.3em;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="vignette"></div>
+
+  <!-- Baroque corner ornaments -->
+  <svg class="corner-ornament" style="top:8px;left:8px;" viewBox="0 0 52 52" fill="none">
+    <path d="M4 48 Q4 4 48 4" stroke="#D4AF37" stroke-width="0.8"/>
+    <path d="M4 38 Q14 14 38 4" stroke="#D4AF37" stroke-width="0.5"/>
+    <circle cx="4" cy="4" r="3" fill="#D4AF37" opacity="0.6"/>
+    <circle cx="48" cy="48" r="2" fill="#D4AF37" opacity="0.3"/>
+    <path d="M8 4 Q4 8 4 12 Q8 8 12 4 Z" fill="#D4AF37" opacity="0.35"/>
+  </svg>
+  <svg class="corner-ornament" style="top:8px;right:8px;transform:scaleX(-1);" viewBox="0 0 52 52" fill="none">
+    <path d="M4 48 Q4 4 48 4" stroke="#D4AF37" stroke-width="0.8"/>
+    <path d="M4 38 Q14 14 38 4" stroke="#D4AF37" stroke-width="0.5"/>
+    <circle cx="4" cy="4" r="3" fill="#D4AF37" opacity="0.6"/>
+    <path d="M8 4 Q4 8 4 12 Q8 8 12 4 Z" fill="#D4AF37" opacity="0.35"/>
+  </svg>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="pre-label">— Curriculum Vitæ —</div>
+    <h1 class="shimmer-gold">Isabeau
+      <span class="surname">De Montfort</span>
+    </h1>
+    <div class="title-role">Creative Director &amp; Brand Alchemist</div>
+    <div class="contact-row">
+      <div class="contact-item"><strong>Missive</strong>isabeau.dm@grandatelier.fr</div>
+      <div class="contact-item"><strong>Voice</strong>+33 6 74 22 98 03</div>
+      <div class="contact-item"><strong>Maison</strong>grandatelier.fr</div>
+      <div class="contact-item"><strong>Domicile</strong>Paris, France</div>
+    </div>
+  </div>
+
+  <!-- Baroque divider -->
+  <div class="baroque-divider">
+    <svg width="500" height="18" viewBox="0 0 500 18" fill="none">
+      <line x1="0" y1="9" x2="195" y2="9" stroke="#D4AF37" stroke-width="0.5" opacity="0.4"/>
+      <path d="M195 9 Q210 2 220 9 Q230 16 240 9 Q250 2 260 9 Q270 16 280 9 Q290 2 295 9" stroke="#D4AF37" stroke-width="0.8" fill="none" opacity="0.7"/>
+      <circle cx="250" cy="9" r="3" fill="#D4AF37" opacity="0.7"/>
+      <polygon points="250,3 253,9 250,15 247,9" fill="#D4AF37" opacity="0.5"/>
+      <line x1="305" y1="9" x2="500" y2="9" stroke="#D4AF37" stroke-width="0.5" opacity="0.4"/>
+    </svg>
+  </div>
+
+  <div class="body-layout">
+
+    <!-- Main -->
+    <div class="main">
+
+      <div class="section">
+        <div class="section-title">Portrait</div>
+        <p class="summary drop-cap">
+          Creative director of <strong>twelve years</strong>' standing, I have spent my career building visual identities that endure. I believe in the power of richness — of ornament, narrative, and detail — in a world addicted to reduction. My work does not whisper. It declares.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Chronicle</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Executive Creative Director</div>
+            <div class="entry-date">2020 — Present</div>
+          </div>
+          <div class="entry-co">Grand Atelier Studio · Paris &amp; Milan</div>
+          <ul class="entry-desc">
+            <li>Founded independent luxury creative studio serving haute couture, fine jewellery, and cultural institutions</li>
+            <li>Built visual identities for 3 Paris Fashion Week houses over 4 consecutive seasons</li>
+            <li>Led campaigns for clients including a heritage maison with 200-year provenance</li>
+            <li>Team of 9: design, photography, motion, and copywriting — managing €2.1M portfolio annually</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Creative Director</div>
+            <div class="entry-date">2016 — 2020</div>
+          </div>
+          <div class="entry-co">Maison Vérité · Paris</div>
+          <ul class="entry-desc">
+            <li>Directed all creative output across brand, editorial, and digital for a luxury lifestyle agency</li>
+            <li>Grew client roster from 8 to 24 luxury accounts in 3 years under creative leadership</li>
+            <li>Won Cannes Lions Gold and 2× Silver for brand campaign visual direction</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Senior Art Director</div>
+            <div class="entry-date">2013 — 2016</div>
+          </div>
+          <div class="entry-co">Palais Creative Group · Paris</div>
+          <ul class="entry-desc">
+            <li>Art directed print and digital campaigns for luxury fashion and fragrance categories</li>
+            <li>Developed the studio's first systematic brand architecture framework</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Art Director</div>
+            <div class="entry-date">2011 — 2013</div>
+          </div>
+          <div class="entry-co">Atelier Lumière · Lyon</div>
+          <ul class="entry-desc">
+            <li>Designed brand identities, editorial layouts, and packaging for artisan and cultural clients</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pull-quote">
+        "Beauty is not ornamentation. It is the evidence of care — the visible proof that someone believed this was worth doing properly."
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <div class="s-label">Maîtrise</div>
+      <div class="skill-row">
+        <div class="skill-name">Creative Direction</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Brand Identity</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Editorial Design</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Art Direction</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Photography Direction</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:83%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Campaign Strategy</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+
+      <div class="s-label">Outils</div>
+      <div class="ivory-tag">InDesign</div>
+      <div class="ivory-tag">Illustrator</div>
+      <div class="ivory-tag">Photoshop</div>
+      <div class="ivory-tag">Figma</div>
+      <div class="ivory-tag">After Effects</div>
+      <div class="ivory-tag">Capture One</div>
+
+      <div class="s-label">Distinctions</div>
+      <span class="s-stat">MMXXIV</span>
+      <p class="s-text">Forbes 30 Creative Leaders — Europe</p>
+      <span class="s-stat">MMXXII</span>
+      <p class="s-text">Cannes Lions Gold — Brand Campaign</p>
+      <span class="s-stat">MMXX</span>
+      <p class="s-text">D&amp;AD Yellow Pencil — Typography</p>
+
+      <div class="s-label">Langues</div>
+      <div class="skill-row">
+        <div class="skill-name">Français</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">English</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Italiano</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+      </div>
+
+      <div class="s-label">Formation</div>
+      <div class="edu-deg">MFA Visual Communication</div>
+      <div class="edu-school">École des Beaux-Arts · 2011</div>
+      <br>
+      <div class="edu-deg">BA Graphic Design</div>
+      <div class="edu-school">ENSAD Paris · 2009</div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer baroque rule -->
+  <div class="baroque-divider" style="padding:4px 0;">
+    <svg width="500" height="14" viewBox="0 0 500 14" fill="none">
+      <line x1="0" y1="7" x2="220" y2="7" stroke="#D4AF37" stroke-width="0.4" opacity="0.3"/>
+      <circle cx="250" cy="7" r="2.5" fill="#D4AF37" opacity="0.5"/>
+      <polygon points="250,2 254,7 250,12 246,7" fill="#D4AF37" opacity="0.4"/>
+      <line x1="280" y1="7" x2="500" y2="7" stroke="#D4AF37" stroke-width="0.4" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">Isabeau De Montfort · Curriculum Vitæ · 2024</div>
+    <div class="footer-ornament">❧ ✦ ❧</div>
+    <div class="footer-text">Grand Atelier Studio · Paris</div>
+  </div>
+
+</div>
+</body>
+</html>

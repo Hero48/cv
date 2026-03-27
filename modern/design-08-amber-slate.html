@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 08 — Amber & Slate</title>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --amber:#e8a83a;
+    --amber-pale:#fdf3dc;
+    --slate:#3a4a5c;
+    --charcoal:#1e2831;
+    --ash:#f3f4f5;
+    --text:#2e3740;
+    --muted:#758697;
+    --border:#d8dde3;
+  }
+  body{background:var(--ash);color:var(--text);font-family:'IBM Plex Sans',sans-serif;font-weight:300;}
+  .cv{max-width:920px;margin:0 auto;}
+
+  /* MASTHEAD */
+  .masthead{background:var(--charcoal);color:white;padding:52px 64px;position:relative;overflow:hidden;}
+  .masthead::after{content:'EDUCATOR';position:absolute;right:-20px;top:50%;transform:translateY(-50%);font-family:'Italiana',serif;font-size:140px;color:rgba(255,255,255,0.03);pointer-events:none;white-space:nowrap;}
+  .mh-inner{position:relative;z-index:1;}
+  .mh-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;flex-wrap:wrap;gap:24px;}
+  .mh-name{font-family:'Italiana',serif;font-size:clamp(48px,7vw,80px);line-height:0.95;color:white;}
+  .mh-name-sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-top:10px;}
+  .mh-right{text-align:right;}
+  .mh-role{font-family:'Italiana',serif;font-size:22px;color:#ccc;margin-bottom:8px;}
+  .mh-info{font-size:11px;color:#888;line-height:2;}
+  .amber-line{height:3px;background:var(--amber);width:60px;margin:16px 0;}
+  .mh-bio{font-size:13.5px;line-height:1.9;color:#aab5c0;max-width:560px;}
+
+  /* AMBER STRIP */
+  .amber-strip{background:var(--amber);padding:14px 64px;display:flex;gap:48px;flex-wrap:wrap;}
+  .as-item{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--charcoal);font-weight:500;}
+
+  /* CONTENT */
+  .content{padding:56px 64px;display:grid;grid-template-columns:1fr 300px;gap:60px;}
+  .section{margin-bottom:44px;}
+  .sec-head{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--amber);border-bottom:2px solid var(--border);padding-bottom:12px;margin-bottom:28px;}
+  .entry{margin-bottom:24px;}
+  .e-row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:4px;}
+  .e-title{font-family:'Italiana',serif;font-size:20px;color:var(--charcoal);}
+  .e-badge{background:var(--amber-pale);color:var(--amber);font-size:10px;padding:3px 10px;white-space:nowrap;font-weight:500;}
+  .e-org{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:8px;}
+  .e-body{font-size:13px;line-height:1.8;color:#505c68;border-left:2px solid var(--border);padding-left:14px;}
+
+  /* Right col */
+  .r-box{background:white;border:1px solid var(--border);padding:22px;margin-bottom:16px;}
+  .r-box-head{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-bottom:16px;}
+  .edu-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+  .edu-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .edu-deg{font-family:'Italiana',serif;font-size:17px;color:var(--charcoal);margin-bottom:2px;}
+  .edu-info{font-size:11px;color:var(--muted);}
+  .skill-chip{display:inline-block;background:var(--amber-pale);border:1px solid rgba(232,168,58,0.3);color:var(--charcoal);padding:5px 12px;font-size:11px;margin:3px;border-radius:3px;}
+  .award-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;}
+  .award-dot{width:8px;height:8px;border-radius:50%;background:var(--amber);margin-top:5px;flex-shrink:0;}
+  .award-text{font-size:12.5px;line-height:1.5;color:var(--text);}
+  @media(max-width:700px){.content{grid-template-columns:1fr;}.masthead{padding:40px 24px;}.amber-strip{padding:14px 24px;}.content{padding:36px 24px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <div class="masthead">
+    <div class="mh-inner">
+      <div class="mh-top">
+        <div>
+          <div class="mh-name">Nana Yaw<br>Darkwa</div>
+          <div class="mh-name-sub">Physical Education & Health Teacher</div>
+        </div>
+        <div class="mh-right">
+          <div class="mh-role">Coach · Educator · Trainer</div>
+          <div class="mh-info">
+            nana.darkwa@ges.edu.gh<br>
+            +233 24 556 6677<br>
+            Kumasi, Ashanti Region
+          </div>
+        </div>
+      </div>
+      <div class="amber-line"></div>
+      <div class="mh-bio">Seven years of applied experience in physical and health education, athlete coaching and school wellness programme management. Passionate about using sport as a vehicle for character development and academic success.</div>
+    </div>
+  </div>
+  <div class="amber-strip">
+    <div class="as-item">B.Ed. Physical Education · UEW 2017</div>
+    <div class="as-item">GTLE Licensed</div>
+    <div class="as-item">Ghana Football Association Coaching Licence</div>
+    <div class="as-item">First Aid Certified</div>
+  </div>
+  <div class="content">
+    <div>
+      <div class="section">
+        <div class="sec-head">Professional Experience</div>
+        <div class="entry">
+          <div class="e-row"><div class="e-title">Head of Physical Education</div><div class="e-badge">2021–Present</div></div>
+          <div class="e-org">Kumasi Academy Senior High School</div>
+          <div class="e-body">Lead PE instruction for all year groups, manage a 6-teacher department, and oversee the school's inter-house sports programme. Grew school participation in regional athletics championships from 3 events to 11 events.</div>
+        </div>
+        <div class="entry">
+          <div class="e-row"><div class="e-title">PE & Health Teacher</div><div class="e-badge">2018–2021</div></div>
+          <div class="e-org">Asante Mampong D/A JHS</div>
+          <div class="e-body">Delivered health and physical education curriculum to Grades 7–9. Coached school football team to the Ashanti Regional quarter-finals in 2019.</div>
+        </div>
+        <div class="entry">
+          <div class="e-row"><div class="e-title">National Service — PE Teacher</div><div class="e-badge">2017–2018</div></div>
+          <div class="e-org">Ejisu M/A Primary & JHS</div>
+          <div class="e-body">Completed national service posting; established the school's first structured athletics club with 45 enrolled students.</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-head">Positions Held</div>
+        <div class="entry">
+          <div class="e-row"><div class="e-title">Regional PE Coordinator (Acting)</div><div class="e-badge">2023</div></div>
+          <div class="e-org">GES Ashanti Regional Directorate</div>
+          <div class="e-body">Served as acting coordinator for 6 months, overseeing inter-school games across 28 schools and managing budgets for regional sports festivals.</div>
+        </div>
+        <div class="entry">
+          <div class="e-row"><div class="e-title">Sports Captain</div><div class="e-badge">2015–2017</div></div>
+          <div class="e-org">University of Education, Winneba</div>
+          <div class="e-body">Led UEW delegation at Ghana Universities Sports Association (GUSA) games; team won bronze in football and silver in athletics.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="r-box">
+        <div class="r-box-head">Education</div>
+        <div class="edu-item">
+          <div class="edu-deg">B.Ed. Physical Education</div>
+          <div class="edu-info">University of Education, Winneba<br>2013–2017 · Second Class Upper</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">WASSCE — General Arts</div>
+          <div class="edu-info">Osei Tutu SHS, Akropong<br>2010–2013 · Aggregate 8</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">GFA Coaching Diploma</div>
+          <div class="edu-info">Ghana Football Association<br>2019 · Level C</div>
+        </div>
+      </div>
+      <div class="r-box">
+        <div class="r-box-head">Skills</div>
+        <span class="skill-chip">Sports Coaching</span>
+        <span class="skill-chip">Fitness Programming</span>
+        <span class="skill-chip">Health Education</span>
+        <span class="skill-chip">Event Management</span>
+        <span class="skill-chip">First Aid</span>
+        <span class="skill-chip">Team Leadership</span>
+      </div>
+      <div class="r-box">
+        <div class="r-box-head">Achievements</div>
+        <div class="award-row"><div class="award-dot"></div><div class="award-text">Best PE Teacher — GES Ashanti Metro (2022)</div></div>
+        <div class="award-row"><div class="award-dot"></div><div class="award-text">GUSA Athletics Bronze — UEW (2016)</div></div>
+        <div class="award-row"><div class="award-dot"></div><div class="award-text">Regional Athletics Coordinator Certificate (2023)</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

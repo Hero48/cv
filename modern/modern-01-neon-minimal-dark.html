@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kwesi Asante-Boadi — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root{--bg:#0c0c0f;--card:#13131a;--border:#1e1e2a;--neon:#00f5a0;--neon2:#00d4ff;--text:#e8e8f0;--muted:#606080;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);font-family:'Space Grotesk',sans-serif;color:var(--text);min-height:100vh;}
+  .hero{padding:80px 64px 60px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;border-bottom:1px solid var(--border);}
+  .hero-tag{font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--neon);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;}
+  .hero h1{font-size:4rem;font-weight:700;line-height:1.0;letter-spacing:-0.03em;}
+  .hero h1 span{color:var(--neon);}
+  .hero .role{font-size:1.05rem;color:var(--muted);margin-top:14px;line-height:1.6;}
+  .hero-stats{display:flex;flex-direction:column;gap:16px;}
+  .stat-box{background:var(--card);border:1px solid var(--border);padding:20px 24px;text-align:center;min-width:120px;}
+  .stat-box .n{font-family:'Space Mono',monospace;font-size:2.2rem;color:var(--neon);font-weight:700;}
+  .stat-box .l{font-size:0.72rem;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;margin-top:4px;}
+  .contact-bar{display:flex;gap:0;border-bottom:1px solid var(--border);}
+  .cb-item{padding:16px 28px;font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--muted);border-right:1px solid var(--border);letter-spacing:0.06em;}
+  .cb-item:first-child{color:var(--neon2);}
+  .main{display:grid;grid-template-columns:1fr 320px;}
+  .left{padding:52px 48px;border-right:1px solid var(--border);}
+  .right{padding:52px 36px;}
+  .sec{margin-bottom:48px;}
+  .sh{font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--neon);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .sh::after{content:'';flex:1;height:1px;background:var(--border);}
+  .card{background:var(--card);border:1px solid var(--border);padding:24px;margin-bottom:16px;transition:border-color 0.2s;}
+  .card:hover{border-color:var(--neon);}
+  .card-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .card h3{font-size:1.05rem;font-weight:600;color:var(--text);}
+  .card .yr{font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--neon2);background:rgba(0,212,255,0.08);padding:4px 10px;border:1px solid rgba(0,212,255,0.2);}
+  .card .org{font-size:0.85rem;color:var(--muted);margin:6px 0 10px;}
+  .card p{font-size:0.88rem;line-height:1.7;color:#9090b0;}
+  .tag{display:inline-block;background:rgba(0,245,160,0.08);border:1px solid rgba(0,245,160,0.2);color:var(--neon);padding:4px 10px;font-size:0.75rem;font-family:'Space Mono',monospace;margin:3px 3px 0 0;letter-spacing:0.04em;}
+  .progress-item{margin-bottom:18px;}
+  .pi-top{display:flex;justify-content:space-between;font-size:0.85rem;margin-bottom:6px;}
+  .pi-top .pname{color:var(--text);}
+  .pi-top .pval{font-family:'Space Mono',monospace;color:var(--neon);font-size:0.78rem;}
+  .bar-bg{height:3px;background:var(--border);}
+  .bar-fill{height:3px;background:linear-gradient(90deg,var(--neon),var(--neon2));}
+  .edu-row{border-left:2px solid var(--neon);padding:12px 16px;margin-bottom:12px;background:var(--card);}
+  .edu-row h3{font-size:0.92rem;font-weight:600;}
+  .edu-row .sub{font-size:0.8rem;color:var(--muted);margin:3px 0;}
+  .edu-row .yr{font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--neon2);}
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div>
+      <div class="hero-tag">// Educator · Innovator · Leader</div>
+      <h1>Kwesi<br><span>Asante-Boadi</span></h1>
+      <div class="role">STEM Teacher & Educational Technology Integration Specialist<br>University of Education, Winneba Graduate · GES Licensed</div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box"><div class="n">7+</div><div class="l">Years</div></div>
+      <div class="stat-box"><div class="n">400+</div><div class="l">Students</div></div>
+      <div class="stat-box"><div class="n">15</div><div class="l">Projects</div></div>
+    </div>
+  </div>
+  <div class="contact-bar">
+    <div class="cb-item">kwesi.asante@gmail.com</div>
+    <div class="cb-item">+233 20 111 2233</div>
+    <div class="cb-item">Accra, GR</div>
+    <div class="cb-item">github.com/kwesiasante</div>
+  </div>
+  <div class="main">
+    <div class="left">
+      <div class="sec">
+        <div class="sh">Experience</div>
+        <div class="card">
+          <div class="card-top"><h3>STEM Lead Teacher & EdTech Coordinator</h3><span class="yr">2021–Now</span></div>
+          <div class="org">Accra New Town Basic School Complex</div>
+          <p>Integrate robotics (micro:bit), coding (Scratch), and digital tools into JHS curriculum. Trained 20 teachers on Google Workspace. Led team to 2nd place in National STEM Olympiad.</p>
+        </div>
+        <div class="card">
+          <div class="card-top"><h3>Maths & Science Teacher</h3><span class="yr">2018–2021</span></div>
+          <div class="org">Nungua Municipal JHS</div>
+          <p>Delivered JHS Integrated Science and Maths. Introduced flipped classroom model using WhatsApp voice notes and offline videos. Raised school BECE science pass rate by 22%.</p>
+        </div>
+        <div class="card">
+          <div class="card-top"><h3>EdTech Trainer — Grassroots</h3><span class="yr">2016–2018</span></div>
+          <div class="org">e-Schools Ghana Initiative</div>
+          <p>Trained teachers in 9 public schools across Greater Accra in tablet-based instruction. Developed training modules used by 200+ teachers nationally.</p>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="sh">Skills</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <span class="tag">Scratch Programming</span>
+          <span class="tag">micro:bit & Arduino</span>
+          <span class="tag">Google Classroom</span>
+          <span class="tag">STEM Curriculum</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">Canva Pro</span>
+          <span class="tag">Python (Basic)</span>
+          <span class="tag">Teacher Training</span>
+          <span class="tag">Project-Based Learning</span>
+          <span class="tag">Video Production</span>
+        </div>
+      </div>
+    </div>
+    <div class="right">
+      <div class="sec">
+        <div class="sh">Education</div>
+        <div class="edu-row"><div class="yr">2012–2016</div><h3>B.Ed. Integrated Science</h3><div class="sub">University of Education, Winneba</div></div>
+        <div class="edu-row"><div class="yr">2020</div><h3>Google Certified Educator Lv.2</h3><div class="sub">Google for Education</div></div>
+        <div class="edu-row"><div class="yr">2022</div><h3>Cert. in STEM Education</h3><div class="sub">African STEM Leadership Institute</div></div>
+        <div class="edu-row"><div class="yr">2009–2012</div><h3>WASSCE — Science</h3><div class="sub">Achimota School, Accra</div></div>
+      </div>
+      <div class="sec">
+        <div class="sh">Proficiency</div>
+        <div class="progress-item">
+          <div class="pi-top"><span class="pname">STEM Teaching</span><span class="pval">97%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:97%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="pi-top"><span class="pname">EdTech Integration</span><span class="pval">93%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:93%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="pi-top"><span class="pname">Coding & Robotics</span><span class="pval">85%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="pi-top"><span class="pname">Research & Writing</span><span class="pval">80%</span></div>
+          <div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="sh">Positions</div>
+        <div class="card" style="padding:14px 16px;">
+          <div style="font-size:0.82rem;color:var(--muted);line-height:1.9;">
+            SRC Academic Secretary — UEW<br>
+            District ICT Coordinator — GES<br>
+            STEM Club Patron — Accra NT JHS<br>
+            National Service School Liaison
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

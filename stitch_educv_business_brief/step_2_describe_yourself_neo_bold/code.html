@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCV - Describe Yourself</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,700;6..72,800;6..72,900&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#2d2f2f",
+              "secondary": "#2d2f2f",
+              "on-primary-fixed": "#2d2f2f",
+              "on-secondary-container": "#2d2f2f",
+              "surface-container-highest": "#e5e7eb",
+              "on-tertiary-container": "#2d2f2f",
+              "on-secondary": "#ffffff",
+              "on-primary": "#ffffff",
+              "tertiary-fixed-dim": "#dcacfb",
+              "on-primary-container": "#2d2f2f",
+              "inverse-surface": "#2d2f2f",
+              "primary-fixed": "#f8cd50",
+              "inverse-primary": "#f8cd50",
+              "outline": "#2d2f2f",
+              "tertiary-fixed": "#dcacfb",
+              "on-surface-variant": "#2d2f2f",
+              "on-secondary-fixed": "#2d2f2f",
+              "background": "#f6f6f6",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#2d2f2f",
+              "secondary-fixed": "#f6f6f6",
+              "surface-tint": "#715800",
+              "secondary-fixed-dim": "#f6f6f6",
+              "surface-container-high": "#f6f6f6",
+              "primary": "#715800",
+              "surface-container-low": "#f6f6f6",
+              "on-surface": "#2d2f2f",
+              "on-background": "#2d2f2f",
+              "on-secondary-fixed-variant": "#2d2f2f",
+              "surface-variant": "#f6f6f6",
+              "surface-bright": "#f6f6f6",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#2d2f2f",
+              "surface-container": "#f6f6f6",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "secondary-container": "#f6f6f6",
+              "tertiary": "#dcacfb",
+              "primary-fixed-dim": "#f8cd50",
+              "on-tertiary-fixed": "#2d2f2f",
+              "surface": "#f6f6f6",
+              "inverse-on-surface": "#f6f6f6",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#dcacfb",
+              "error": "#ba1a1a",
+              "surface-dim": "#f6f6f6",
+              "primary-container": "#f8cd50"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Space Grotesk", "sans-serif"],
+              "label": ["Space Grotesk", "sans-serif"],
+              "serif": ["Playfair Display", "serif"]
+            },
+            borderRadius: {"none": "0px", "DEFAULT": "0px", "lg": "0px", "xl": "12px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #f6f6f6;
+        }
+        .serif-text {
+            font-family: 'Newsreader', serif;
+        }
+        .neo-shadow {
+            shadow-offset: 4px 4px;
+            box-shadow: 4px 4px 0px 0px rgba(45, 47, 47, 1);
+        }
+        .neo-shadow-active {
+            box-shadow: 0px 0px 0px 0px rgba(45, 47, 47, 1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 bg-[#f6f6f6] dark:bg-stone-900 border-b-4 border-[#2d2f2f] shadow-[4px_4px_0px_0px_rgba(45,47,47,1)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#715800] dark:text-[#f8cd50]" data-icon="school">school</span>
+<h1 class="font-headline font-black text-2xl tracking-tighter text-[#2d2f2f] dark:text-[#f6f6f6] uppercase">EduCV</h1>
+</div>
+<button class="text-[#2d2f2f] dark:text-stone-400 font-label font-bold text-sm hover:bg-[#f8cd50] hover:text-[#2d2f2f] transition-all px-4 py-2 border-2 border-transparent hover:border-[#2d2f2f]">Help</button>
+</header>
+<main class="flex-grow pt-32 pb-32 px-6 max-w-4xl mx-auto w-full">
+<!-- Progress Indicator -->
+<div class="mb-12 flex flex-col gap-2">
+<span class="font-label font-bold text-xs uppercase tracking-widest text-[#715800]">Step 2 of 3</span>
+<div class="w-full h-4 bg-white border-4 border-[#2d2f2f]">
+<div class="h-full bg-[#f8cd50] w-2/3 border-r-4 border-[#2d2f2f]"></div>
+</div>
+</div>
+<!-- Hero Section -->
+<div class="mb-10">
+<h2 class="serif-text text-5xl md:text-6xl font-black text-[#2d2f2f] mb-6 leading-tight">Describe Yourself</h2>
+<p class="text-lg text-[#2d2f2f] leading-relaxed max-w-2xl font-body">
+                Type or paste a few sentences about your teaching background and skills. Let our AI handle the rest.
+            </p>
+</div>
+<!-- AI Input Area -->
+<div class="relative group mb-10">
+<!-- Neo-Brutalist Border & Shadow -->
+<div class="relative bg-white border-4 border-[#2d2f2f] shadow-[8px_8px_0px_0px_rgba(45,47,47,1)] transition-all group-focus-within:translate-x-1 group-focus-within:translate-y-1 group-focus-within:shadow-none">
+<textarea class="w-full min-h-[300px] bg-white p-8 border-none focus:ring-0 text-xl font-body leading-relaxed text-[#2d2f2f] placeholder:text-[#2d2f2f]/30 resize-none" placeholder="My name is Abena Mensah. I am an English teacher with 8 years of experience in senior high schools. I specialize in literature analysis and student mentorship..."></textarea>
+<!-- Corner Decoration -->
+<div class="absolute top-0 right-0 p-4 opacity-50 group-focus-within:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-4xl" data-icon="psychology">psychology</span>
+</div>
+</div>
+</div>
+<!-- Guidance Chips -->
+<div class="mt-8">
+<span class="text-xs font-bold uppercase tracking-widest text-[#2d2f2f] mb-4 block">Try mentioning:</span>
+<div class="flex flex-wrap gap-4">
+<div class="bg-[#dcacfb] text-[#2d2f2f] px-5 py-3 font-label text-sm font-bold border-4 border-[#2d2f2f] shadow-[4px_4px_0px_0px_rgba(45,47,47,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all cursor-default">Years of Experience</div>
+<div class="bg-[#dcacfb] text-[#2d2f2f] px-5 py-3 font-label text-sm font-bold border-4 border-[#2d2f2f] shadow-[4px_4px_0px_0px_rgba(45,47,47,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all cursor-default">Subject Specialty</div>
+<div class="bg-[#dcacfb] text-[#2d2f2f] px-5 py-3 font-label text-sm font-bold border-4 border-[#2d2f2f] shadow-[4px_4px_0px_0px_rgba(45,47,47,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all cursor-default">Leadership Roles</div>
+<div class="bg-[#dcacfb] text-[#2d2f2f] px-5 py-3 font-label text-sm font-bold border-4 border-[#2d2f2f] shadow-[4px_4px_0px_0px_rgba(45,47,47,1)] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-none transition-all cursor-default">Certifications</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="mt-16 flex flex-col md:flex-row items-center justify-between gap-8">
+<button class="flex items-center gap-2 text-[#2d2f2f] font-bold uppercase tracking-widest text-sm hover:opacity-70 transition-opacity group">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+                Back to Templates
+            </button>
+<button class="w-full md:w-auto px-10 py-5 bg-[#f8cd50] text-[#2d2f2f] font-bold text-lg uppercase tracking-widest flex items-center justify-center gap-4 border-4 border-[#2d2f2f] shadow-[6px_6px_0px_0px_rgba(45,47,47,1)] active:shadow-none active:translate-x-1 active:translate-y-1 transition-all">
+                Generate My CV
+                <span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-[#f6f6f6] dark:bg-stone-900 border-t-4 border-[#2d2f2f] shadow-[0px_-4px_0px_0px_rgba(45,47,47,1)]">
+<a class="flex flex-col items-center justify-center text-[#2d2f2f] dark:text-stone-300 opacity-80 hover:bg-[#dcacfb] transition-colors p-2" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="description">description</span>
+<span class="font-label font-bold text-xs uppercase">Templates</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#f8cd50] text-[#2d2f2f] border-2 border-[#2d2f2f] rounded-xl px-4 py-1 shadow-[2px_2px_0px_0px_rgba(45,47,47,1)] scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mb-0.5" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span class="font-label font-bold text-xs uppercase">AI Input</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#2d2f2f] dark:text-stone-300 opacity-80 hover:bg-[#dcacfb] transition-colors p-2" href="#">
+<span class="material-symbols-outlined mb-1" data-icon="download">download</span>
+<span class="font-label font-bold text-xs uppercase">Download</span>
+</a>
+</nav>
+<!-- Aesthetic Decorative Elements -->
+<div class="fixed top-40 -left-20 w-64 h-64 bg-[#f8cd50]/20 -rotate-12 pointer-events-none -z-10 border-4 border-[#2d2f2f]"></div>
+<div class="fixed bottom-40 -right-20 w-80 h-80 bg-[#dcacfb]/20 rotate-12 pointer-events-none -z-10 border-4 border-[#2d2f2f]"></div>
+</body></html>

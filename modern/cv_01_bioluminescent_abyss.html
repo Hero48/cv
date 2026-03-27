@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Bioluminescent Abyss</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Syncopate:wght@400;700&family=Lora:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --void: #020408;
+    --deep: #050D1A;
+    --surface: #071428;
+    --glow: #00C8FF;
+    --teal: #00FFD1;
+    --violet: #A855F7;
+    --text: #E8F4FF;
+    --muted: #4A6580;
+    --halo: rgba(0,200,255,0.08);
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    background: var(--void);
+    color: var(--text);
+    font-family: 'Lora', serif;
+    font-size: 10.5pt;
+    line-height: 1.8;
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background glow blooms */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -100px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,200,255,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: 50px;
+    right: -80px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(168,85,247,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 0;
+    position: relative;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(180deg, #020D20 0%, var(--void) 100%);
+    padding: 52px 52px 40px 52px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,200,255,0.15);
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .name-block {}
+
+  .label-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: var(--glow);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    opacity: 0.7;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 58pt;
+    letter-spacing: 0.06em;
+    line-height: 0.9;
+    color: var(--text);
+  }
+
+  h1 span {
+    display: block;
+    font-size: 22pt;
+    letter-spacing: 0.18em;
+    color: var(--glow);
+    margin-top: 8px;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .contact-block {
+    text-align: right;
+  }
+
+  .contact-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--muted);
+    margin-bottom: 5px;
+    letter-spacing: 0.05em;
+  }
+
+  .contact-item strong {
+    color: var(--teal);
+    font-weight: 400;
+  }
+
+  /* Diagonal accent */
+  .diagonal-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glow), transparent);
+    margin: 0;
+    opacity: 0.3;
+  }
+
+  /* Main layout */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: calc(297mm - 200px);
+  }
+
+  /* Sidebar */
+  .sidebar {
+    background: var(--deep);
+    padding: 36px 24px 36px 28px;
+    border-right: 1px solid rgba(0,200,255,0.08);
+    position: relative;
+  }
+
+  .sidebar::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, rgba(0,200,255,0.2), rgba(0,255,209,0.1), transparent);
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .sidebar-label {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 6pt;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--glow);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(0,200,255,0.2);
+  }
+
+  .skill-item {
+    margin-bottom: 10px;
+  }
+
+  .skill-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--text);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .skill-bar {
+    height: 2px;
+    background: rgba(0,200,255,0.1);
+    border-radius: 1px;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--glow), var(--teal));
+    border-radius: 1px;
+  }
+
+  .sidebar-text {
+    font-size: 8pt;
+    color: var(--muted);
+    line-height: 1.7;
+    font-family: 'Lora', serif;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--teal);
+    border: 1px solid rgba(0,255,209,0.25);
+    padding: 2px 7px;
+    margin: 2px 2px 2px 0;
+    letter-spacing: 0.06em;
+  }
+
+  .coord {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* Main content */
+  .main {
+    padding: 36px 48px 36px 40px;
+  }
+
+  .section {
+    margin-bottom: 32px;
+    position: relative;
+  }
+
+  .section-label {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--glow);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,200,255,0.3), transparent);
+  }
+
+  .summary-text {
+    font-size: 10pt;
+    line-height: 1.85;
+    color: var(--text);
+    font-style: italic;
+  }
+
+  .summary-text strong {
+    color: var(--glow);
+    font-style: normal;
+  }
+
+  /* Experience entries */
+  .entry {
+    margin-bottom: 22px;
+    padding-left: 16px;
+    border-left: 1px solid rgba(0,200,255,0.15);
+    position: relative;
+  }
+
+  .entry::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 6px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--glow);
+    box-shadow: 0 0 8px var(--glow);
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3px;
+  }
+
+  .entry-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13pt;
+    font-weight: 400;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+
+  .entry-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  .entry-company {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 7pt;
+    color: var(--teal);
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+
+  .entry-desc {
+    font-size: 9pt;
+    color: rgba(232,244,255,0.75);
+    line-height: 1.75;
+  }
+
+  .entry-desc li {
+    margin-bottom: 3px;
+    padding-left: 12px;
+    list-style: none;
+    position: relative;
+  }
+
+  .entry-desc li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--glow);
+    opacity: 0.6;
+  }
+
+  /* Education */
+  .edu-entry {
+    margin-bottom: 14px;
+  }
+
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    color: var(--text);
+  }
+
+  .edu-school {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 16px 52px;
+    border-top: 1px solid rgba(0,200,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--glow);
+    opacity: 0.5;
+    box-shadow: 0 0 6px var(--glow);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-inner">
+      <div class="name-block">
+        <div class="label-tag">// CURRICULUM VITAE — DEPTH: 3000M</div>
+        <h1>MARINA<span>Voss-Delacroix</span></h1>
+      </div>
+      <div class="contact-block">
+        <div class="contact-item"><strong>EMAIL</strong> marina.vd@abyssalstudio.io</div>
+        <div class="contact-item"><strong>PHONE</strong> +44 7712 904 381</div>
+        <div class="contact-item"><strong>WEB</strong> abyssalstudio.io/portfolio</div>
+        <div class="contact-item"><strong>LOC</strong> London, United Kingdom</div>
+      </div>
+    </div>
+  </div>
+  <div class="diagonal-rule"></div>
+
+  <div class="body-layout">
+
+    <div class="sidebar">
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Core Skills</div>
+        <div class="skill-item">
+          <div class="skill-name">UX / Product Design</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Frontend Dev</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Motion Design</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Brand Identity</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Design Systems</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">User Research</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:74%"></div></div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Tools</div>
+        <div class="tag">Figma</div>
+        <div class="tag">Framer</div>
+        <div class="tag">React</div>
+        <div class="tag">GSAP</div>
+        <div class="tag">Three.js</div>
+        <div class="tag">Illustrator</div>
+        <div class="tag">After Effects</div>
+        <div class="tag">Webflow</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Languages</div>
+        <div class="skill-item">
+          <div class="skill-name">English</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">French</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">German</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:45%"></div></div>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Awards</div>
+        <span class="coord">// 2024</span>
+        <div class="sidebar-text">Awwwards SOTD — Meridian Platform Redesign</div>
+        <span class="coord">// 2023</span>
+        <div class="sidebar-text">D&AD Wood Pencil, Digital Design</div>
+        <span class="coord">// 2022</span>
+        <div class="sidebar-text">FWA Site of the Month — Deepform Studio</div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-label">Education</div>
+        <div class="edu-entry">
+          <div class="edu-degree">BA Interaction Design</div>
+          <div class="edu-school">Royal College of Art · 2015</div>
+        </div>
+        <div class="edu-entry">
+          <div class="edu-degree">Foundation Art & Design</div>
+          <div class="edu-school">Central Saint Martins · 2012</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="main">
+
+      <div class="section">
+        <div class="section-label">Profile</div>
+        <p class="summary-text">
+          Senior creative designer with <strong>9 years</strong> of experience crafting immersive digital experiences at the intersection of editorial design, motion, and technology. I build interfaces that feel alive — systems that balance <strong>aesthetic precision</strong> with human intuition. Fluent in both the language of design and the logic of code.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-label">Experience</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Lead Experience Designer</div>
+            <div class="entry-date">2022 — PRESENT</div>
+          </div>
+          <div class="entry-company">Meridian Digital Studio · London</div>
+          <ul class="entry-desc">
+            <li>Directed redesign of flagship SaaS platform serving 200k+ users, increasing engagement by 34%</li>
+            <li>Built and maintained a comprehensive design system across web, iOS, and Android</li>
+            <li>Led a cross-functional team of 6 designers and collaborated daily with engineering leads</li>
+            <li>Introduced motion design language that became the studio's visual signature</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Senior UI/UX Designer</div>
+            <div class="entry-date">2019 — 2022</div>
+          </div>
+          <div class="entry-company">Deepform Studio · Berlin</div>
+          <ul class="entry-desc">
+            <li>Designed award-winning interfaces for luxury fashion, culture, and editorial clients</li>
+            <li>Developed bespoke interaction prototypes in Framer and GSAP for client pitches</li>
+            <li>Collaborated with developers on Three.js WebGL environments for immersive campaigns</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">UX Designer</div>
+            <div class="entry-date">2016 — 2019</div>
+          </div>
+          <div class="entry-company">Volta Creative Agency · London</div>
+          <ul class="entry-desc">
+            <li>Owned end-to-end design for e-commerce clients from discovery to handoff</li>
+            <li>Conducted usability studies and translated research into actionable design decisions</li>
+            <li>Mentored two junior designers through structured feedback and critique sessions</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Junior Designer</div>
+            <div class="entry-date">2015 — 2016</div>
+          </div>
+          <div class="entry-company">Archipelago Studio · London</div>
+          <ul class="entry-desc">
+            <li>Supported senior designers on brand identity and web projects for cultural institutions</li>
+            <li>Produced print and digital assets for exhibition catalogues and marketing campaigns</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="section">
+        <div class="section-label">Selected Projects</div>
+        <div class="entry" style="border-left-color: rgba(168,85,247,0.2);">
+          <div class="entry-header">
+            <div class="entry-title" style="font-size:11pt;">Pelagic — Ocean Data Platform</div>
+            <div class="entry-date">2024</div>
+          </div>
+          <div class="entry-company" style="color: var(--violet);">Product Design + Frontend</div>
+          <p class="entry-desc" style="list-style:none; padding:0;">End-to-end redesign of a scientific ocean monitoring dashboard. Developed an immersive data visualisation layer using D3.js and Canvas, translating complex bathymetric data into navigable, beautiful interfaces.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">MARINA VOSS-DELACROIX · CURRICULUM VITAE · 2024</div>
+    <div class="footer-dot"></div>
+    <div class="footer-text">// REF-MVD-01 · LONDON · 51.5074°N 0.1278°W</div>
+  </div>
+
+</div>
+</body>
+</html>

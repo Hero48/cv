@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Akosua Agyemang — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root{--rose:#c9736a;--rose-light:#e8b0aa;--rose-pale:#fdf0ee;--charcoal:#2c2c2c;--dark:#1a1a1a;--offwhite:#fdfaf8;--muted:#8a7a78;--text:#2c2c2c;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#f0e8e6;font-family:'DM Sans',sans-serif;color:var(--text);padding:32px 20px;min-height:100vh;}
+  .page{max-width:960px;margin:0 auto;background:var(--offwhite);border-radius:20px;overflow:hidden;box-shadow:0 8px 60px rgba(180,80,60,0.15);}
+  .hero{background:var(--charcoal);padding:56px 60px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+  .hero-l .sup{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--rose-light);font-weight:600;margin-bottom:14px;}
+  .hero-l h1{font-family:'DM Serif Display',serif;font-size:3.6rem;color:white;line-height:1.05;}
+  .hero-l h1 em{font-style:italic;color:var(--rose-light);}
+  .hero-l .role{font-size:0.92rem;color:rgba(255,255,255,0.5);margin-top:12px;line-height:1.65;}
+  .hero-r{display:flex;flex-direction:column;gap:10px;}
+  .stat-pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:18px 24px;text-align:center;min-width:100px;}
+  .stat-pill .n{font-family:'DM Serif Display',serif;font-size:2.2rem;color:var(--rose-light);}
+  .stat-pill .l{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:2px;}
+  .rose-bar{height:5px;background:linear-gradient(90deg,var(--rose),var(--rose-light),var(--rose));}
+  .contact-strip{background:var(--rose);display:flex;gap:0;}
+  .cs-i{padding:13px 24px;font-size:0.8rem;color:rgba(255,255,255,0.8);border-right:1px solid rgba(255,255,255,0.2);}
+  .cs-i:first-child{font-weight:600;color:white;}
+  .cs-i:last-child{border-right:none;}
+  .body{display:grid;grid-template-columns:1fr 280px;padding:0;}
+  .main-col{padding:48px 48px;}
+  .side-col{padding:48px 36px;background:var(--rose-pale);border-left:1px solid rgba(200,120,100,0.15);}
+  .sh{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--rose);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+  .sh::after{content:'';flex:1;height:1px;background:rgba(200,120,100,0.2);}
+  .sec{margin-bottom:32px;}
+  .job{margin-bottom:20px;padding:16px 18px;border-radius:10px;background:white;border-left:3px solid var(--rose);}
+  .job-top{display:flex;justify-content:space-between;}
+  .job h3{font-size:0.97rem;font-weight:600;color:var(--charcoal);}
+  .yr-chip{background:var(--rose-pale);border:1px solid var(--rose-light);color:var(--rose);padding:3px 10px;border-radius:100px;font-size:0.72rem;font-weight:600;}
+  .job .org{font-size:0.83rem;color:var(--muted);margin:4px 0 8px;font-style:italic;}
+  .job p{font-size:0.85rem;line-height:1.68;color:#4a3838;}
+  .side-item{margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(200,120,100,0.15);}
+  .side-item h3{font-size:0.92rem;font-weight:600;color:var(--charcoal);}
+  .side-item .sub{font-size:0.8rem;font-style:italic;color:var(--muted);margin:2px 0;}
+  .side-item .yr{font-size:0.73rem;color:var(--rose);font-weight:700;margin-bottom:3px;}
+  .skill-bar-item{margin-bottom:12px;}
+  .sbi-name{font-size:0.82rem;font-weight:500;margin-bottom:5px;color:var(--charcoal);}
+  .bar-bg{height:5px;background:rgba(200,120,100,0.15);border-radius:3px;}
+  .bar-fill{height:5px;border-radius:3px;background:linear-gradient(90deg,var(--rose),var(--rose-light));}
+  .pos-item{font-size:0.84rem;padding:6px 0;border-bottom:1px solid rgba(200,120,100,0.15);color:var(--charcoal);display:flex;gap:8px;}
+  .pos-item::before{content:'✿';color:var(--rose);font-size:0.75rem;flex-shrink:0;}
+  .award-item{font-size:0.82rem;padding:5px 0;border-bottom:1px solid rgba(200,120,100,0.15);color:#4a3838;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div class="hero-l">
+      <div class="sup">// Curriculum Vitae · 2024</div>
+      <h1>Akosua <em>Agyemang</em></h1>
+      <div class="role">Home Economics & Nutritional Science Teacher · School Health Promoter · Life Skills Educator — Koforidua, Eastern Region</div>
+    </div>
+    <div class="hero-r">
+      <div class="stat-pill"><div class="n">7</div><div class="l">Yrs Exp.</div></div>
+      <div class="stat-pill"><div class="n">400+</div><div class="l">Students</div></div>
+      <div class="stat-pill"><div class="n">90%</div><div class="l">BECE Pass</div></div>
+    </div>
+  </div>
+  <div class="rose-bar"></div>
+  <div class="contact-strip">
+    <div class="cs-i">akosua.agyemang@ges.gov.gh</div>
+    <div class="cs-i">+233 50 445 5667</div>
+    <div class="cs-i">Koforidua, Eastern Region</div>
+  </div>
+  <div class="body">
+    <div class="main-col">
+      <div class="sec">
+        <div class="sh">Experience</div>
+        <div class="job">
+          <div class="job-top"><h3>Home Economics Teacher & Wellness Coordinator</h3><span class="yr-chip">2020–Now</span></div>
+          <div class="org">Koforidua Effiduase Municipal JHS</div>
+          <p>Teach Food & Nutrition and Clothing & Textiles for JHS 1–3. Lead a student-run school garden and catering enterprise. Developed school wellness programme covering nutrition, hygiene, and mental health.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>Home Economics Teacher</h3><span class="yr-chip">2018–2020</span></div>
+          <div class="org">Suhum Municipal Basic School</div>
+          <p>Delivered complete HE curriculum. Introduced an after-school Healthy Cooking Club that 35 students joined in its first term. Partnered with GHS for quarterly school health talks.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>Life Skills Trainer</h3><span class="yr-chip">2017–2018</span></div>
+          <div class="org">CARE International Ghana</div>
+          <p>Facilitated adolescent health and life skills workshops for girls aged 10–17 in 6 Eastern Region communities as part of a CARE-funded girls' empowerment programme.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>National Service Teacher</h3><span class="yr-chip">2016–2017</span></div>
+          <div class="org">Akropong Akuapem Methodist JHS</div>
+          <p>Taught HE and ran the school's first cooking demonstration for parents showing how to improve student lunch boxes using local food resources.</p>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="sh">Special Skills</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="background:var(--rose-pale);border:1px solid var(--rose-light);color:var(--rose);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Nutritional Science</span>
+          <span style="background:var(--rose-pale);border:1px solid var(--rose-light);color:var(--rose);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Food Safety (HACCP)</span>
+          <span style="background:var(--rose-pale);border:1px solid var(--rose-light);color:var(--rose);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Textiles & Design</span>
+          <span style="background:var(--rose-pale);border:1px solid var(--rose-light);color:var(--rose);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Adolescent Health</span>
+          <span style="background:var(--rose-pale);border:1px solid var(--rose-light);color:var(--rose);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">School Garden Management</span>
+          <span style="background:var(--rose-pale);border:1px solid var(--rose-light);color:var(--rose);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Life Skills Facilitation</span>
+          <span style="background:var(--rose-pale);border:1px solid var(--rose-light);color:var(--rose);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Canva & Google Workspace</span>
+        </div>
+      </div>
+    </div>
+    <div class="side-col">
+      <div class="sec">
+        <div class="sh">Education</div>
+        <div class="side-item"><div class="yr">2013–2017</div><h3>B.Ed. Home Economics</h3><div class="sub">University of Cape Coast</div></div>
+        <div class="side-item"><div class="yr">2021</div><h3>HACCP Food Safety Cert.</h3><div class="sub">Food & Drugs Authority Ghana</div></div>
+        <div class="side-item"><div class="yr">2022</div><h3>Cert. Adolescent Health</h3><div class="sub">CARE International / MOH Ghana</div></div>
+        <div class="side-item"><div class="yr">2010–2013</div><h3>WASSCE — Home Economics</h3><div class="sub">Koforidua Secondary Technical</div></div>
+      </div>
+      <div class="sec">
+        <div class="sh">Competency</div>
+        <div class="skill-bar-item"><div class="sbi-name">HE Instruction</div><div class="bar-bg"><div class="bar-fill" style="width:95%"></div></div></div>
+        <div class="skill-bar-item"><div class="sbi-name">Nutritional Science</div><div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div></div>
+        <div class="skill-bar-item"><div class="sbi-name">Health Education</div><div class="bar-bg"><div class="bar-fill" style="width:92%"></div></div></div>
+        <div class="skill-bar-item"><div class="sbi-name">Community Outreach</div><div class="bar-bg"><div class="bar-fill" style="width:86%"></div></div></div>
+      </div>
+      <div class="sec">
+        <div class="sh">Positions</div>
+        <div class="pos-item">SRC Caterer Rep — UCC</div>
+        <div class="pos-item">HE HOD — KEM JHS</div>
+        <div class="pos-item">District HE Coordinator</div>
+        <div class="pos-item">CARE Girls' Mentor Leader</div>
+      </div>
+      <div class="sec">
+        <div class="sh">Awards</div>
+        <div class="award-item">🏆 GES Eastern Best HE Teacher, 2023</div>
+        <div class="award-item">🌿 Healthy Schools Champion, GHS, 2022</div>
+        <div class="award-item">🎓 Best HE Graduate — UCC, 2017</div>
+        <div class="award-item">💛 CARE Girls' Programme Excellence, 2018</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

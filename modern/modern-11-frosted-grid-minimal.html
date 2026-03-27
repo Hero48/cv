@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Abena Asare — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{--bg:#eef2f7;--white:#ffffff;--blue:#2563eb;--blue-light:#dbeafe;--dark:#0f172a;--muted:#64748b;--border:#e2e8f0;--text:#0f172a;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);font-family:'Inter',sans-serif;color:var(--text);padding:32px 20px;min-height:100vh;}
+  .page{max-width:980px;margin:0 auto;}
+  .top-section{background:var(--white);border-radius:16px;padding:44px 48px;margin-bottom:16px;display:grid;grid-template-columns:1fr auto;gap:40px;border:1px solid var(--border);}
+  .ts-left h1{font-size:3rem;font-weight:700;letter-spacing:-0.04em;color:var(--dark);}
+  .ts-left h1 span{color:var(--blue);}
+  .ts-left .role{font-size:0.95rem;color:var(--muted);margin-top:10px;line-height:1.6;}
+  .ts-left .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .tag{background:var(--blue-light);color:var(--blue);padding:4px 12px;border-radius:6px;font-size:0.76rem;font-weight:600;letter-spacing:0.02em;}
+  .ts-right{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-content:start;}
+  .kpi{background:var(--bg);border-radius:10px;padding:16px 20px;text-align:center;border:1px solid var(--border);}
+  .kpi .n{font-size:2rem;font-weight:700;color:var(--blue);}
+  .kpi .l{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+  .contact-row{background:var(--blue);border-radius:10px;padding:14px 20px;margin-bottom:16px;display:flex;gap:0;}
+  .cr-i{padding:0 20px;font-size:0.8rem;color:rgba(255,255,255,0.75);border-right:1px solid rgba(255,255,255,0.15);}
+  .cr-i:first-child{padding-left:0;color:white;font-weight:600;}
+  .cr-i:last-child{border-right:none;}
+  .main-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .card{background:var(--white);border-radius:14px;padding:28px 32px;border:1px solid var(--border);}
+  .full{grid-column:1/-1;}
+  .sh{font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+  .sh::after{content:'';flex:1;height:1px;background:var(--border);}
+  .exp-item{margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--border);}
+  .exp-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .ei-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .ei-top h3{font-size:0.98rem;font-weight:600;color:var(--dark);}
+  .yr-badge{background:var(--blue-light);color:var(--blue);padding:3px 10px;border-radius:100px;font-size:0.72rem;font-weight:600;}
+  .ei-top .org{font-size:0.83rem;color:var(--muted);margin:4px 0 8px;}
+  .exp-item p{font-size:0.85rem;line-height:1.68;color:#334155;}
+  .edu-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;}
+  .edu-dot{width:8px;height:8px;background:var(--blue);border-radius:50%;flex-shrink:0;margin-top:5px;}
+  .edu-item h3{font-size:0.9rem;font-weight:600;color:var(--dark);}
+  .edu-item .sub{font-size:0.8rem;color:var(--muted);margin-top:2px;}
+  .edu-item .yr{font-size:0.72rem;color:var(--blue);font-weight:600;margin-bottom:3px;}
+  .skill-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);}
+  .skill-item:last-child{border-bottom:none;}
+  .skill-item span{font-size:0.85rem;}
+  .skill-bar{width:80px;height:4px;background:var(--bg);border-radius:2px;}
+  .skill-fill{height:4px;border-radius:2px;background:var(--blue);}
+  .pos-chip{display:inline-block;background:var(--bg);border:1px solid var(--border);padding:6px 12px;border-radius:8px;font-size:0.8rem;font-weight:500;margin:4px 4px 0 0;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-section">
+    <div class="ts-left">
+      <h1>Abena <span>Asare</span></h1>
+      <div class="role">JHS Mathematics Teacher · BECE Preparation Specialist · School Academic Coordinator · Accra, Greater Accra Region</div>
+      <div class="tag-row">
+        <span class="tag">UCC Graduate</span>
+        <span class="tag">GES Licensed</span>
+        <span class="tag">8 Yrs Experience</span>
+        <span class="tag">BECE Specialist</span>
+      </div>
+    </div>
+    <div class="ts-right">
+      <div class="kpi"><div class="n">8</div><div class="l">Years</div></div>
+      <div class="kpi"><div class="n">460+</div><div class="l">Students</div></div>
+      <div class="kpi"><div class="n">93%</div><div class="l">BECE Pass</div></div>
+      <div class="kpi"><div class="n">5</div><div class="l">Awards</div></div>
+    </div>
+  </div>
+
+  <div class="contact-row">
+    <div class="cr-i">abena.asare@ges.gov.gh</div>
+    <div class="cr-i">+233 54 223 3445</div>
+    <div class="cr-i">Accra, Greater Accra</div>
+    <div class="cr-i">abenaasare.edu.gh</div>
+  </div>
+
+  <div class="main-grid">
+    <div class="card full">
+      <div class="sh">Professional Experience</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div class="exp-item" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+          <div class="ei-top"><h3>Senior Maths Teacher & Academic Coordinator</h3><span class="yr-badge">2020–Now</span></div>
+          <div class="org">Accra Nima Municipal JHS</div>
+          <p>Lead Maths department; supervise 4 teachers. Developed school's BECE drill calendar. Achieved 93% Maths pass rate in 2023, highest in district history.</p>
+        </div>
+        <div class="exp-item" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+          <div class="ei-top"><h3>Mathematics Teacher</h3><span class="yr-badge">2017–2020</span></div>
+          <div class="org">Osu Basic School, Accra</div>
+          <p>Taught JHS 1–3 Maths; introduced weekly quiz system. Worked with ICT teacher to develop digital Maths flashcards used school-wide.</p>
+        </div>
+        <div class="exp-item" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+          <div class="ei-top"><h3>BECE Maths Tutor</h3><span class="yr-badge">2016–2017</span></div>
+          <div class="org">Shine Education Centre, Accra</div>
+          <p>Conducted intensive 12-week holiday BECE Maths coaching for 150+ candidates. Developed proprietary question bank of 500+ practice questions.</p>
+        </div>
+        <div class="exp-item" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
+          <div class="ei-top"><h3>National Service Teacher</h3><span class="yr-badge">2015–2016</span></div>
+          <div class="org">Madina Government JHS</div>
+          <p>Delivered full JHS Maths curriculum. Organised first school Maths Fair attracting students from 8 neighbouring schools.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="sh">Education</div>
+      <div class="edu-item"><div class="edu-dot"></div><div><div class="yr">2011–2015</div><h3>B.Ed. Mathematics Education</h3><div class="sub">University of Cape Coast — 2nd Class Upper</div></div></div>
+      <div class="edu-item"><div class="edu-dot"></div><div><div class="yr">2020</div><h3>Post-Diploma — Educational Management</h3><div class="sub">GIMPA, Accra (Part-Time)</div></div></div>
+      <div class="edu-item"><div class="edu-dot"></div><div><div class="yr">2022</div><h3>Google Certified Educator Lv.1</h3><div class="sub">Google for Education Programme</div></div></div>
+      <div class="edu-item"><div class="edu-dot"></div><div><div class="yr">2008–2011</div><h3>WASSCE — General Science</h3><div class="sub">Achimota Senior High School</div></div></div>
+    </div>
+
+    <div class="card">
+      <div class="sh">Skills</div>
+      <div class="skill-item"><span>Mathematics Instruction</span><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div>
+      <div class="skill-item"><span>BECE Exam Coaching</span><div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div></div>
+      <div class="skill-item"><span>Curriculum Planning</span><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-item"><span>Student Assessment</span><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
+      <div class="skill-item"><span>Google Workspace</span><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-item"><span>Data Analysis</span><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+      <div style="margin-top:20px;"><div class="sh">Positions Held</div>
+        <span class="pos-chip">SRC Treasurer — UCC</span>
+        <span class="pos-chip">Maths HOD</span>
+        <span class="pos-chip">Academic Coordinator</span>
+        <span class="pos-chip">GES Exam Panel Member</span>
+        <span class="pos-chip">District Maths Tutor</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Cold Architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Barlow:wght@300;400;500&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --white: #F4F7FA;
+    --ice: #DDE6F0;
+    --stone: #8A9BB0;
+    --concrete: #4A5868;
+    --void: #1A2230;
+    --black: #0C1118;
+    --red: #E8001D;
+    --text: #0C1118;
+    --text2: #4A5868;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  body {
+    background: var(--white);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 10pt;
+    line-height: 1.9;
+    width: 210mm;
+    min-height: 297mm;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Giant background number */
+  .bg-number {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 320pt;
+    color: var(--ice);
+    opacity: 0.35;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+    letter-spacing: -0.04em;
+  }
+
+  /* Red accent strip */
+  .red-strip {
+    height: 4px;
+    background: var(--red);
+    width: 100%;
+  }
+
+  /* Header */
+  .header {
+    padding: 44px 52px 36px 52px;
+    position: relative;
+    z-index: 1;
+    background: var(--white);
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72pt;
+    line-height: 0.85;
+    letter-spacing: 0.03em;
+    color: var(--black);
+  }
+
+  h1 .surname {
+    display: block;
+    font-size: 36pt;
+    color: var(--concrete);
+    letter-spacing: 0.08em;
+  }
+
+  .title-role {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: var(--concrete);
+    margin-top: 6px;
+    letter-spacing: 0.01em;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 28px;
+    text-align: right;
+  }
+
+  .contact-item {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 7pt;
+    color: var(--text2);
+    letter-spacing: 0.06em;
+    text-align: right;
+  }
+
+  .contact-item strong {
+    color: var(--black);
+    font-weight: 400;
+  }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid var(--concrete);
+    opacity: 0.25;
+    margin: 0;
+  }
+
+  hr.rule-red {
+    border: none;
+    border-top: 4px solid var(--red);
+    width: 60px;
+    margin: 0;
+  }
+
+  /* Body */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 1fr 190px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .main {
+    padding: 32px 40px 32px 52px;
+    border-right: 1px solid rgba(10,20,40,0.1);
+  }
+
+  .sidebar {
+    padding: 32px 28px 32px 24px;
+    background: var(--ice);
+    position: relative;
+  }
+
+  .section {
+    margin-bottom: 28px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 7pt;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text2);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--concrete);
+    opacity: 0.2;
+  }
+
+  .section-index {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 9pt;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+  }
+
+  .summary {
+    font-size: 10.5pt;
+    color: var(--text);
+    line-height: 1.85;
+    font-weight: 300;
+  }
+
+  .summary strong {
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .entry {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(10,20,40,0.08);
+  }
+
+  .entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+
+  .entry-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13pt;
+    color: var(--black);
+    letter-spacing: 0.01em;
+  }
+
+  .entry-date {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 7pt;
+    color: var(--stone);
+    letter-spacing: 0.08em;
+  }
+
+  .entry-company {
+    font-family: 'Barlow', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 500;
+    color: var(--concrete);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .entry-desc {
+    font-size: 9pt;
+    color: var(--text2);
+    line-height: 1.75;
+    font-weight: 300;
+    list-style: none;
+  }
+
+  .entry-desc li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  .entry-desc li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--stone);
+    font-size: 8pt;
+  }
+
+  /* Sidebar */
+  .s-section {
+    margin-bottom: 22px;
+  }
+
+  .s-title {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--concrete);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(10,20,40,0.15);
+  }
+
+  .skill-row {
+    margin-bottom: 8px;
+  }
+
+  .skill-name {
+    font-size: 8pt;
+    color: var(--black);
+    font-weight: 400;
+    margin-bottom: 3px;
+    font-family: 'Barlow', sans-serif;
+  }
+
+  .skill-bar {
+    height: 1px;
+    background: rgba(10,20,40,0.12);
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: var(--void);
+  }
+
+  .chip {
+    display: inline-block;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 6pt;
+    color: var(--concrete);
+    border: 1px solid rgba(74,88,104,0.35);
+    padding: 2px 7px;
+    margin: 2px 2px 2px 0;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 0;
+  }
+
+  .s-text {
+    font-size: 8pt;
+    color: var(--concrete);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .s-stat {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--stone);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 1px;
+  }
+
+  .edu-item {
+    margin-bottom: 10px;
+  }
+
+  .edu-deg {
+    font-family: 'DM Serif Display', serif;
+    font-size: 10pt;
+    color: var(--black);
+  }
+
+  .edu-school {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 7pt;
+    color: var(--stone);
+    letter-spacing: 0.05em;
+  }
+
+  /* Void section */
+  .void-section {
+    background: var(--void);
+    padding: 20px 52px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .void-section .section-title {
+    color: var(--stone);
+    margin-bottom: 10px;
+  }
+
+  .void-entry {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+
+  .void-title {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: var(--ice);
+  }
+
+  .void-meta {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 7pt;
+    color: var(--stone);
+    letter-spacing: 0.08em;
+    text-align: right;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 12px 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    border-top: 1px solid rgba(10,20,40,0.1);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-text {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--stone);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-red {
+    width: 20px;
+    height: 4px;
+    background: var(--red);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="bg-number">CV</div>
+  <div class="red-strip"></div>
+
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <h1>ERIK<span class="surname">HALVORSEN</span></h1>
+        <div class="title-role">Architect &amp; Urban Systems Designer</div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item"><strong>e.</strong> e.halvorsen@coldform.no</div>
+        <div class="contact-item"><strong>t.</strong> +47 934 77 221</div>
+        <div class="contact-item"><strong>w.</strong> coldform.no</div>
+        <div class="contact-item"><strong>l.</strong> Oslo, Norway</div>
+      </div>
+    </div>
+    <hr class="rule">
+  </div>
+
+  <div class="body-layout">
+
+    <div class="main">
+
+      <div class="section">
+        <div class="section-header">
+          <div class="section-index">01</div>
+          <div class="section-title">Profile</div>
+          <div class="section-line"></div>
+        </div>
+        <p class="summary">
+          Architect and urban designer with <strong>12 years</strong> of practice in civic infrastructure, adaptive reuse, and systems-level spatial thinking. I design with precision and restraint — finding the essential move in any programme and executing it with absolute discipline. Work ranges from intimate cultural pavilions to city-scale master plans.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-header">
+          <div class="section-index">02</div>
+          <div class="section-title">Experience</div>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Principal Architect</div>
+            <div class="entry-date">2020 — PRESENT</div>
+          </div>
+          <div class="entry-company">Coldform Studio · Oslo</div>
+          <ul class="entry-desc">
+            <li>Founded independent practice with focus on civic, cultural, and residential architecture</li>
+            <li>Led Norwegian national pavilion proposal for Venice Biennale 2023 — shortlisted finalist</li>
+            <li>Delivered 14 completed projects across Norway, Denmark, and Germany</li>
+            <li>Oversee team of 5 architects and manage all client and contractor relationships</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Associate Architect</div>
+            <div class="entry-date">2016 — 2020</div>
+          </div>
+          <div class="entry-company">Snøhetta · Oslo</div>
+          <ul class="entry-desc">
+            <li>Project architect on 3 major civic projects including a public library (€42M) and waterfront square</li>
+            <li>Managed contractor coordination and construction administration across complex build phases</li>
+            <li>Represented studio at international design forums and client presentations</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Architect</div>
+            <div class="entry-date">2013 — 2016</div>
+          </div>
+          <div class="entry-company">Dorte Mandrup · Copenhagen</div>
+          <ul class="entry-desc">
+            <li>Contributed to competition-winning schemes for cultural and educational institutions</li>
+            <li>Developed construction drawings and coordinated structural engineering interfaces</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Graduate Architect</div>
+            <div class="entry-date">2012 — 2013</div>
+          </div>
+          <div class="entry-company">Peter Zumthor Atelier · Haldenstein</div>
+          <ul class="entry-desc">
+            <li>Developed physical and digital models for competition schemes and research projects</li>
+            <li>Contributed to material research and detailing studies</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="s-section">
+        <div class="s-title">Expertise</div>
+        <div class="skill-row">
+          <div class="skill-name">Civic Architecture</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Urban Design</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Adaptive Reuse</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Parametric Design</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:74%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Construction Admin</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Software</div>
+        <div class="chip">Rhino</div>
+        <div class="chip">Revit</div>
+        <div class="chip">AutoCAD</div>
+        <div class="chip">Grasshopper</div>
+        <div class="chip">V-Ray</div>
+        <div class="chip">Enscape</div>
+        <div class="chip">InDesign</div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Recognition</div>
+        <span class="s-stat">2023</span>
+        <p class="s-text">Venice Biennale — Finalist, Nordic Pavilion</p>
+        <span class="s-stat" style="margin-top:6px;">2021</span>
+        <p class="s-text">Architizer A+ Award, Civic Category</p>
+        <span class="s-stat" style="margin-top:6px;">2019</span>
+        <p class="s-text">AHO Oslo Architecture Prize</p>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Languages</div>
+        <div class="skill-row">
+          <div class="skill-name">Norwegian</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">English</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">German</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Danish</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Education</div>
+        <div class="edu-item">
+          <div class="edu-deg">MArch Architecture</div>
+          <div class="edu-school">AHO Oslo · 2012</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-deg">BArch (Hons)</div>
+          <div class="edu-school">TU Delft · 2010</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Dark void section for selected projects -->
+  <div class="void-section">
+    <div class="section-header" style="margin-bottom:10px;">
+      <div class="section-index" style="color:var(--stone);">03</div>
+      <div class="section-title" style="color:var(--stone);">Selected Works</div>
+      <div class="section-line" style="opacity:0.15; background:var(--stone);"></div>
+    </div>
+    <div class="void-entry">
+      <div class="void-title">Lofoten Cultural Centre — Adaptive Reuse, 2400m²</div>
+      <div class="void-meta">LOFOTEN · 2023 · €8.2M</div>
+    </div>
+    <div class="void-entry">
+      <div class="void-title">Grünerløkka Public Square — Urban Infrastructure</div>
+      <div class="void-meta">OSLO · 2022 · €14M</div>
+    </div>
+    <div class="void-entry">
+      <div class="void-title">Harstad Waterfront Library — Civic Commission</div>
+      <div class="void-meta">HARSTAD · 2021 · €5.6M</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">Erik Halvorsen · Architect · CV 2024</div>
+    <div class="footer-red"></div>
+    <div class="footer-text">coldform.no · Oslo, Norway</div>
+  </div>
+
+</div>
+</body>
+</html>

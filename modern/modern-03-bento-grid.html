@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Yaw Acheampong — Bento Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root{--bg:#f0ece4;--white:#ffffff;--dark:#141210;--orange:#e85d1a;--blue:#1a6de8;--green:#1ac87a;--yellow:#f5c518;--text:#141210;--muted:#7a7060;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);padding:28px;min-height:100vh;}
+  .bento{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:auto;gap:14px;max-width:1100px;margin:0 auto;}
+  .cell{background:var(--white);border-radius:18px;padding:28px;overflow:hidden;}
+  .c-hero{grid-column:span 4;grid-row:span 2;background:var(--dark);color:white;display:flex;flex-direction:column;justify-content:flex-end;padding:40px;}
+  .c-hero .tag{font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+  .c-hero h1{font-family:'Syne',sans-serif;font-size:3.6rem;font-weight:800;line-height:1.0;letter-spacing:-0.03em;}
+  .c-hero h1 .accent{color:var(--orange);}
+  .c-hero .role{color:rgba(255,255,255,0.55);margin-top:14px;font-size:0.95rem;line-height:1.6;}
+  .c-stat{grid-column:span 1;background:var(--orange);color:white;display:flex;flex-direction:column;justify-content:center;text-align:center;}
+  .c-stat .n{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;line-height:1;}
+  .c-stat .l{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.75;margin-top:4px;}
+  .c-stat2{background:var(--blue);color:white;}
+  .c-stat3{background:var(--green);color:white;}
+  .c-contact{grid-column:span 2;display:flex;flex-direction:column;justify-content:center;gap:10px;}
+  .c-contact h3{font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+  .c-contact span{font-size:0.88rem;font-weight:500;}
+  .c-exp{grid-column:span 4;}
+  .c-exp .sh,.c-skills .sh,.c-edu .sh,.c-pos .sh{font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+  .exp-item{display:flex;gap:16px;margin-bottom:18px;}
+  .exp-dot{width:8px;height:8px;background:var(--orange);border-radius:50%;flex-shrink:0;margin-top:7px;}
+  .exp-item h3{font-family:'Syne',sans-serif;font-size:0.98rem;font-weight:700;}
+  .exp-item .sub{font-size:0.82rem;color:var(--muted);margin:3px 0 5px;}
+  .exp-item p{font-size:0.83rem;line-height:1.65;color:#4a4438;}
+  .yr-box{background:var(--bg);padding:3px 10px;font-size:0.73rem;font-weight:600;color:var(--orange);border-radius:6px;}
+  .c-skills{grid-column:span 2;}
+  .skill-pill{display:block;background:var(--bg);padding:8px 14px;border-radius:8px;font-size:0.82rem;margin-bottom:8px;font-weight:500;}
+  .skill-pill span{float:right;font-size:0.75rem;color:var(--muted);}
+  .c-edu{grid-column:span 3;}
+  .edu-item{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--bg);}
+  .edu-item:last-child{border-bottom:none;margin-bottom:0;}
+  .edu-item h3{font-size:0.9rem;font-weight:600;}
+  .edu-item .sub{font-size:0.8rem;color:var(--muted);margin:3px 0;}
+  .edu-item .yr{font-size:0.73rem;color:var(--blue);font-weight:700;}
+  .c-pos{grid-column:span 3;background:var(--yellow);}
+  .pos-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .pos-item{background:rgba(0,0,0,0.08);border-radius:8px;padding:10px 12px;font-size:0.8rem;font-weight:500;}
+  .c-awards{grid-column:span 2;background:var(--dark);color:white;}
+  .c-awards .sh{color:rgba(255,255,255,0.4);}
+  .award-item{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:0.82rem;color:rgba(255,255,255,0.7);}
+  .award-item::before{content:'★ ';}
+</style>
+</head>
+<body>
+<div class="bento">
+  <div class="cell c-hero">
+    <div class="tag">College of Education Graduate · Ghana Education Service</div>
+    <h1>Yaw <span class="accent">Acheampong</span></h1>
+    <div class="role">JHS Mathematics & Science Teacher · Academic Coach · Exam Preparation Specialist based in Kumasi, Ghana.</div>
+  </div>
+
+  <div class="cell c-stat"><div class="n">8</div><div class="l">Yrs</div></div>
+  <div class="cell c-stat c-stat2"><div class="n">500</div><div class="l">Students</div></div>
+
+  <div class="cell c-stat c-stat3" style="grid-column:span 1;"><div class="n">91%</div><div class="l">Pass Rate</div></div>
+
+  <div class="cell c-contact">
+    <h3>Contact</h3>
+    <span>yaw.acheampong@ges.gov.gh</span>
+    <span>+233 24 222 3344</span>
+    <span>Kumasi, Ashanti Region</span>
+  </div>
+
+  <div class="cell c-exp">
+    <div class="sh">Work Experience</div>
+    <div class="exp-item">
+      <div class="exp-dot"></div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;"><h3>Senior Maths & Science Teacher</h3><span class="yr-box">2020–Now</span></div>
+        <div class="sub">Kumasi Asante Kotoko JHS Complex</div>
+        <p>Lead Maths dept; coordinate 4 teachers. Introduced weekly "Math Olympiad Friday" and after-school BECE drill sessions resulting in 91% BECE Maths pass rate.</p>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-dot" style="background:var(--blue)"></div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;"><h3>Mathematics Teacher</h3><span class="yr-box">2017–2020</span></div>
+        <div class="sub">Asokore Mampong Municipal JHS</div>
+        <p>Delivered complete JHS Maths curriculum. Created tutorial video series distributed via WhatsApp to 200+ students and parents.</p>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-dot" style="background:var(--green)"></div>
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;"><h3>BECE Tutoring Centre Instructor</h3><span class="yr-box">2016–2017</span></div>
+        <div class="sub">Kumasi Study Hub</div>
+        <p>Tutored 180+ BECE candidates in Maths and Science through intensive 8-week holiday programmes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cell c-skills">
+    <div class="sh">Skills</div>
+    <div class="skill-pill">Advanced Mathematics <span>Expert</span></div>
+    <div class="skill-pill">Exam Coaching <span>Expert</span></div>
+    <div class="skill-pill">Data Analysis <span>Advanced</span></div>
+    <div class="skill-pill">Lesson Planning <span>Expert</span></div>
+    <div class="skill-pill">Digital Tools <span>Proficient</span></div>
+    <div class="skill-pill">Parent Communication <span>Strong</span></div>
+  </div>
+
+  <div class="cell c-edu">
+    <div class="sh">Education</div>
+    <div class="edu-item"><div class="yr">2012–2016</div><h3>B.Ed. Mathematics Education</h3><div class="sub">University of Cape Coast</div></div>
+    <div class="edu-item"><div class="yr">2021</div><h3>Post-Dip. Educational Leadership</h3><div class="sub">GIMPA, Accra</div></div>
+    <div class="edu-item"><div class="yr">2009–2012</div><h3>WASSCE — General Science</h3><div class="sub">Prempeh College, Kumasi</div></div>
+  </div>
+
+  <div class="cell c-pos">
+    <div class="sh">Positions Held</div>
+    <div class="pos-list">
+      <div class="pos-item">SRC Treasurer — UCC</div>
+      <div class="pos-item">Maths HOD — AKJHS</div>
+      <div class="pos-item">District Exam Coordinator</div>
+      <div class="pos-item">School PTA Chair</div>
+      <div class="pos-item">Class Prefect (SHS)</div>
+      <div class="pos-item">Maths Olympiad Judge</div>
+    </div>
+  </div>
+
+  <div class="cell c-awards">
+    <div class="sh">Awards</div>
+    <div class="award-item">GES Ashanti Best Teacher 2023</div>
+    <div class="award-item">3 National BECE Top Scorers</div>
+    <div class="award-item">Dean's List — UCC 2015</div>
+    <div class="award-item">WAEC Excellence Award 2022</div>
+  </div>
+</div>
+</body>
+</html>

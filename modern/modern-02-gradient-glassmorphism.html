@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Abena Sarpong — Modern Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#0a0a1a;font-family:'Plus Jakarta Sans',sans-serif;min-height:100vh;overflow-x:hidden;}
+  .bg-orbs{position:fixed;inset:0;pointer-events:none;z-index:0;}
+  .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.4;}
+  .orb1{width:600px;height:600px;background:radial-gradient(#7c3aed,transparent);top:-200px;left:-100px;}
+  .orb2{width:500px;height:500px;background:radial-gradient(#0ea5e9,transparent);top:200px;right:-150px;}
+  .orb3{width:400px;height:400px;background:radial-gradient(#ec4899,transparent);bottom:-100px;left:200px;}
+  .page{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:40px 24px;}
+  .glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;}
+  .header{padding:52px 56px;margin-bottom:20px;display:grid;grid-template-columns:1fr auto;gap:40px;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,58,237,0.2);border:1px solid rgba(124,58,237,0.4);padding:6px 16px;border-radius:100px;font-size:0.78rem;color:#a78bfa;letter-spacing:0.04em;margin-bottom:20px;}
+  .badge::before{content:'';width:8px;height:8px;background:#7c3aed;border-radius:50%;}
+  .header h1{font-size:3.4rem;font-weight:700;color:white;letter-spacing:-0.03em;line-height:1.1;}
+  .header h1 em{font-style:normal;background:linear-gradient(135deg,#a78bfa,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .header .role{font-size:1rem;color:rgba(255,255,255,0.55);margin-top:12px;line-height:1.6;}
+  .header-right{display:flex;flex-direction:column;gap:12px;justify-content:center;}
+  .pill-stat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:16px 20px;text-align:center;}
+  .pill-stat .n{font-size:2rem;font-weight:700;background:linear-gradient(135deg,#a78bfa,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .pill-stat .l{font-size:0.72rem;color:rgba(255,255,255,0.4);letter-spacing:0.1em;margin-top:2px;}
+  .contacts-bar{padding:16px 28px;margin-bottom:20px;display:flex;gap:0;border-radius:14px;}
+  .c-item{padding:0 20px;font-size:0.8rem;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.08);}
+  .c-item:first-child{padding-left:0;color:#38bdf8;}
+  .c-item:last-child{border-right:none;}
+  .grid2{display:grid;grid-template-columns:1fr 300px;gap:20px;}
+  .inner-glass{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:28px 32px;margin-bottom:16px;}
+  .sh{font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:#a78bfa;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+  .sh::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07);}
+  .job{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.05);}
+  .job:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .job-head{display:flex;justify-content:space-between;align-items:flex-start;}
+  .job h3{font-size:1rem;font-weight:600;color:white;}
+  .yr-chip{background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.25);color:#38bdf8;padding:3px 10px;border-radius:100px;font-size:0.73rem;font-weight:500;}
+  .job .org{font-size:0.84rem;color:rgba(255,255,255,0.4);margin:5px 0 8px;}
+  .job p{font-size:0.86rem;line-height:1.7;color:rgba(255,255,255,0.55);}
+  .tag-chip{display:inline-block;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.25);color:#c4b5fd;padding:4px 12px;border-radius:100px;font-size:0.75rem;margin:4px 4px 0 0;}
+  .edu-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:14px 16px;margin-bottom:10px;}
+  .edu-card h3{font-size:0.9rem;font-weight:600;color:white;}
+  .edu-card .sub{font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:3px;}
+  .edu-card .yr{font-size:0.73rem;color:#a78bfa;margin-bottom:5px;}
+  .prog-item{margin-bottom:14px;}
+  .prog-top{display:flex;justify-content:space-between;font-size:0.83rem;color:rgba(255,255,255,0.65);margin-bottom:6px;}
+  .prog-val{color:#a78bfa;font-weight:600;}
+  .prog-bg{height:4px;background:rgba(255,255,255,0.07);border-radius:2px;}
+  .prog-fill{height:4px;border-radius:2px;background:linear-gradient(90deg,#7c3aed,#38bdf8);}
+</style>
+</head>
+<body>
+<div class="bg-orbs">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+<div class="page">
+  <div class="glass header">
+    <div>
+      <div class="badge">Early Childhood Educator · GES Licensed</div>
+      <h1>Abena <em>Sarpong</em></h1>
+      <div class="role">Passionate educator shaping Ghana's youngest minds through play-based learning, creative development, and inclusive early childhood education practices.</div>
+    </div>
+    <div class="header-right">
+      <div class="pill-stat"><div class="n">7</div><div class="l">Yrs Exp</div></div>
+      <div class="pill-stat"><div class="n">280+</div><div class="l">Children Taught</div></div>
+      <div class="pill-stat"><div class="n">5</div><div class="l">Programmes Led</div></div>
+    </div>
+  </div>
+
+  <div class="glass contacts-bar">
+    <div class="c-item">abena.sarpong@gmail.com</div>
+    <div class="c-item">+233 55 333 4455</div>
+    <div class="c-item">Accra, GR</div>
+    <div class="c-item">GES Certified Teacher</div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <div class="inner-glass">
+        <div class="sh">Experience</div>
+        <div class="job">
+          <div class="job-head"><h3>Lead KG Teacher & Curriculum Designer</h3><span class="yr-chip">2021–Now</span></div>
+          <div class="org">Osu Residential KG & Nursery, Accra</div>
+          <p>Design and deliver play-based STEAM curriculum for 3–6 year olds. Mentored 3 junior teachers. Raised school enrolment by 35% through curriculum excellence reputation.</p>
+        </div>
+        <div class="job">
+          <div class="job-head"><h3>Early Childhood Teacher</h3><span class="yr-chip">2019–2021</span></div>
+          <div class="org">Korle-Bu Crèche & KG Centre</div>
+          <p>Managed mixed-age classroom of 24 children. Introduced digital storytelling through tablets. Co-developed school's first developmental milestone tracking system.</p>
+        </div>
+        <div class="job">
+          <div class="job-head"><h3>UNICEF Community ECE Volunteer</h3><span class="yr-chip">2018–2019</span></div>
+          <div class="org">UNICEF Ghana / GES</div>
+          <p>Facilitated early stimulation and parenting workshops for 120 caregivers in underserved Accra communities as part of ECD outreach programme.</p>
+        </div>
+      </div>
+      <div class="inner-glass">
+        <div class="sh">Special Skills</div>
+        <span class="tag-chip">Montessori Approach</span>
+        <span class="tag-chip">Play-Based Learning</span>
+        <span class="tag-chip">Child Portfolio Assessment</span>
+        <span class="tag-chip">Digital Storytelling</span>
+        <span class="tag-chip">Inclusive Education</span>
+        <span class="tag-chip">Parental Engagement</span>
+        <span class="tag-chip">Sensory Play Design</span>
+        <span class="tag-chip">Google Classroom</span>
+        <span class="tag-chip">First Aid Certified</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="inner-glass">
+        <div class="sh">Education</div>
+        <div class="edu-card"><div class="yr">2014–2018</div><h3>B.Ed. Early Childhood Education</h3><div class="sub">University of Education, Winneba</div></div>
+        <div class="edu-card"><div class="yr">2021</div><h3>Montessori Teaching Cert.</h3><div class="sub">Africa Montessori Institute</div></div>
+        <div class="edu-card"><div class="yr">2023</div><h3>Child Safeguarding Cert.</h3><div class="sub">UNICEF / ChildFund Ghana</div></div>
+        <div class="edu-card"><div class="yr">2011–2014</div><h3>WASSCE — Home Economics</h3><div class="sub">Achimota SHS, Accra</div></div>
+      </div>
+      <div class="inner-glass">
+        <div class="sh">Proficiency</div>
+        <div class="prog-item"><div class="prog-top"><span>ECE Teaching</span><span class="prog-val">97%</span></div><div class="prog-bg"><div class="prog-fill" style="width:97%"></div></div></div>
+        <div class="prog-item"><div class="prog-top"><span>Curriculum Design</span><span class="prog-val">90%</span></div><div class="prog-bg"><div class="prog-fill" style="width:90%"></div></div></div>
+        <div class="prog-item"><div class="prog-top"><span>Child Development</span><span class="prog-val">94%</span></div><div class="prog-bg"><div class="prog-fill" style="width:94%"></div></div></div>
+        <div class="prog-item"><div class="prog-top"><span>Parent Relations</span><span class="prog-val">88%</span></div><div class="prog-bg"><div class="prog-fill" style="width:88%"></div></div></div>
+      </div>
+      <div class="inner-glass">
+        <div class="sh">Positions Held</div>
+        <div style="font-size:0.83rem;color:rgba(255,255,255,0.5);line-height:2.0;">
+          SRC Welfare Officer — UEW<br>
+          KG Head Teacher — Osu Residential<br>
+          GES District ECE Coordinator<br>
+          School PTA Liaison Officer
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

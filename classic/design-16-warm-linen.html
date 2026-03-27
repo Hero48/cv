@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 16 — Warm Linen</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --linen:#f5f0e8;
+    --warm:#e8dcc8;
+    --sienna:#9a5c38;
+    --dark-brown:#3d2b1f;
+    --mid-brown:#7a5c48;
+    --text:#2e2018;
+    --border:#d8cbb8;
+    --muted:#9a8878;
+  }
+  body{background:var(--linen);color:var(--text);font-family:'Lato',sans-serif;font-weight:300;}
+  .cv{max-width:840px;margin:0 auto;padding:80px 64px;}
+
+  /* NAME AREA */
+  .name-area{margin-bottom:64px;text-align:center;}
+  .na-label{display:inline-block;border:1px solid var(--border);padding:6px 20px;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+  .na-name{font-family:'Playfair Display',serif;font-size:clamp(48px,8vw,84px);font-weight:700;line-height:0.95;color:var(--dark-brown);letter-spacing:-2px;margin-bottom:16px;}
+  .na-name em{font-style:italic;font-weight:400;color:var(--sienna);}
+  .na-rule{width:60px;height:2px;background:var(--sienna);margin:0 auto 16px;}
+  .na-role{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:28px;}
+  .na-meta{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
+  .na-meta-item{font-size:12px;color:var(--muted);}
+
+  /* DIVIDER */
+  .div-ornament{text-align:center;color:var(--border);font-size:18px;margin:8px 0 56px;letter-spacing:8px;}
+
+  /* BODY */
+  .body{display:grid;grid-template-columns:1fr 260px;gap:64px;}
+  .sec-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--dark-brown);padding-bottom:10px;border-bottom:2px solid var(--sienna);margin-bottom:28px;}
+  .section{margin-bottom:48px;}
+  .entry{margin-bottom:24px;}
+  .e-head{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:5px;}
+  .e-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--dark-brown);}
+  .e-yr{font-size:10px;color:var(--sienna);letter-spacing:2px;text-transform:uppercase;background:rgba(154,92,56,0.1);padding:2px 8px;}
+  .e-org{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:8px;}
+  .e-body{font-size:13px;line-height:1.9;color:#5a4838;}
+
+  /* SIDE */
+  .s-section{margin-bottom:36px;}
+  .s-title{font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--dark-brown);padding-bottom:8px;border-bottom:1px solid var(--border);margin-bottom:20px;}
+  .s-item{padding:10px 0;border-bottom:1px dotted var(--border);font-size:12.5px;}
+  .s-item:last-child{border-bottom:none;}
+  .s-item strong{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sienna);margin-bottom:2px;}
+  .skill-item{font-size:12.5px;color:var(--mid-brown);padding:6px 0;border-bottom:1px dotted var(--border);display:flex;align-items:center;gap:8px;}
+  .skill-item::before{content:'◆';font-size:6px;color:var(--sienna);}
+  .skill-item:last-child{border-bottom:none;}
+  @media(max-width:640px){.body{grid-template-columns:1fr;}.cv{padding:48px 24px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <div class="name-area">
+    <div class="na-label">Professional Portfolio</div>
+    <h1 class="na-name">Christiana<br><em>Oppong</em></h1>
+    <div class="na-rule"></div>
+    <div class="na-role">French Language Teacher · Cultural Ambassador</div>
+    <div class="na-meta">
+      <span class="na-meta-item">christiana.oppong@edu.gh</span>
+      <span class="na-meta-item">+233 20 765 4321</span>
+      <span class="na-meta-item">Takoradi, Western Region</span>
+    </div>
+  </div>
+  <div class="div-ornament">✦ ✦ ✦</div>
+
+  <div class="body">
+    <div>
+      <div class="section">
+        <div class="sec-title">Experience</div>
+        <div class="entry">
+          <div class="e-head"><span class="e-title">French Teacher — JHS & SHS</span><span class="e-yr">2021–Present</span></div>
+          <div class="e-org">Takoradi SHS, Western Region</div>
+          <div class="e-body">Deliver French Language to SHS 1–3 and remedial JHS 3 classes. Established a French cultural club with 60 members; organised two annual Francophone cultural days showcasing Ghanaian-French arts and cuisine.</div>
+        </div>
+        <div class="entry">
+          <div class="e-head"><span class="e-title">Alliance Française Language Tutor</span><span class="e-yr">2019–2021</span></div>
+          <div class="e-org">Alliance Française de Takoradi</div>
+          <div class="e-body">Taught A1–B2 level French to adult and teenage learners in evening and weekend classes. Managed examination registration for DELF certification of 48 candidates per year.</div>
+        </div>
+        <div class="entry">
+          <div class="e-head"><span class="e-title">Teaching Practice</span><span class="e-yr">2018–2019</span></div>
+          <div class="e-org">Sekondi College, Western Region</div>
+          <div class="e-body">Completed 9-month teaching practice; commended for creative use of music and film in French language instruction.</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-title">Education</div>
+        <div class="entry">
+          <div class="e-head"><span class="e-title">B.Ed. French Education</span><span class="e-yr">2015–2019</span></div>
+          <div class="e-org">University of Cape Coast</div>
+          <div class="e-body">Second Class Upper. Dissertation: "Audio-visual aids and French oral proficiency development among SHS students in Western Region." Exchange semester at Université de Yaoundé I, Cameroon (2017).</div>
+        </div>
+        <div class="entry">
+          <div class="e-head"><span class="e-title">DELF B2 Certificate</span><span class="e-yr">2019</span></div>
+          <div class="e-org">Institut Français · Accra</div>
+          <div class="e-body">Certified B2 French proficiency by the French Ministry of Education.</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-title">Leadership</div>
+        <div class="entry">
+          <div class="e-head"><span class="e-title">Languages Dept. Coordinator</span><span class="e-yr">2023–Now</span></div>
+          <div class="e-org">Takoradi SHS</div>
+          <div class="e-body">Coordinates French, Spanish and Latin instruction across school; manages 3 language teachers and organises annual languages week events.</div>
+        </div>
+      </div>
+    </div>
+    <aside>
+      <div class="s-section">
+        <div class="s-title">Contact Details</div>
+        <div class="s-item"><strong>Email</strong>christiana.oppong@edu.gh</div>
+        <div class="s-item"><strong>Phone</strong>+233 20 765 4321</div>
+        <div class="s-item"><strong>Location</strong>Takoradi, Ghana</div>
+        <div class="s-item"><strong>Nationality</strong>Ghanaian</div>
+        <div class="s-item"><strong>Licence</strong>GTLE 2019</div>
+      </div>
+      <div class="s-section">
+        <div class="s-title">Skills</div>
+        <div class="skill-item">French Language (C1)</div>
+        <div class="skill-item">DELF/DALF Examination Prep</div>
+        <div class="skill-item">Cultural Immersion Teaching</div>
+        <div class="skill-item">Phonetics & Pronunciation</div>
+        <div class="skill-item">Translation & Interpretation</div>
+        <div class="skill-item">Curriculum Design</div>
+        <div class="skill-item">Community Engagement</div>
+      </div>
+      <div class="s-section">
+        <div class="s-title">Languages</div>
+        <div class="skill-item">Fante (Native)</div>
+        <div class="skill-item">English (Proficient)</div>
+        <div class="skill-item">French (C1 Advanced)</div>
+        <div class="skill-item">Spanish (A2 Basic)</div>
+      </div>
+    </aside>
+  </div>
+</div>
+</body>
+</html>

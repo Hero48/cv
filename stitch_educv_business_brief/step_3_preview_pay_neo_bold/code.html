@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCV - Final Preview &amp; Payment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;0,800;1,400&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#2d2f2f",
+              "secondary": "#575757",
+              "on-primary-fixed": "#241a00",
+              "on-secondary-container": "#2d2f2f",
+              "surface-container-highest": "#f6f6f6",
+              "on-tertiary-container": "#000000",
+              "on-secondary": "#ffffff",
+              "on-primary": "#2d2f2f",
+              "tertiary-fixed-dim": "#dcacfb",
+              "on-primary-container": "#2d2f2f",
+              "inverse-surface": "#2d2f2f",
+              "primary-fixed": "#f8cd50",
+              "outline": "#2d2f2f",
+              "tertiary-fixed": "#dcacfb",
+              "on-surface-variant": "#2d2f2f",
+              "on-secondary-fixed": "#2d2f2f",
+              "background": "#f6f6f6",
+              "on-error": "#ffffff",
+              "on-primary-fixed-variant": "#715800",
+              "secondary-fixed": "#ffffff",
+              "surface-tint": "#f8cd50",
+              "secondary-fixed-dim": "#f6f6f6",
+              "surface-container-high": "#ffffff",
+              "primary": "#f8cd50",
+              "surface-container-low": "#f6f6f6",
+              "on-surface": "#2d2f2f",
+              "on-background": "#2d2f2f",
+              "on-secondary-fixed-variant": "#2d2f2f",
+              "surface-variant": "#f6f6f6",
+              "surface-bright": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-tertiary-fixed-variant": "#2d2f2f",
+              "surface-container": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#2d2f2f",
+              "secondary-container": "#ffffff",
+              "tertiary": "#dcacfb",
+              "primary-fixed-dim": "#f8cd50",
+              "on-tertiary-fixed": "#2d2f2f",
+              "surface": "#f6f6f6",
+              "inverse-on-surface": "#ffffff",
+              "on-error-container": "#93000a",
+              "tertiary-container": "#dcacfb",
+              "error": "#ba1a1a",
+              "surface-dim": "#f6f6f6",
+              "primary-container": "#f8cd50"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Space Grotesk", "sans-serif"],
+              "label": ["Space Grotesk", "sans-serif"],
+              "display": ["Playfair Display", "serif"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "12px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neo-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(45, 47, 47, 1);
+        }
+        .neo-shadow-large {
+            box-shadow: 8px 8px 0px 0px rgba(45, 47, 47, 1);
+        }
+        .cv-preview-shadow {
+            box-shadow: 12px 12px 0px 0px rgba(45, 47, 47, 0.1);
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f6f6f6; }
+        ::-webkit-scrollbar-thumb { background: #2d2f2f; border: 2px solid #f6f6f6; }
+        
+        .neo-button-active:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px rgba(45, 47, 47, 1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- TopAppBar (predicted) -->
+<header class="flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50 bg-[#f6f6f6] dark:bg-stone-900 border-b-4 border-[#2d2f2f] shadow-[4px_4px_0px_0px_rgba(45,47,47,1)]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#715800] dark:text-[#f8cd50] text-3xl">menu</span>
+<h1 class="text-2xl font-black text-[#2d2f2f] dark:text-[#f6f6f6] tracking-tighter font-serif">EduCV</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="hidden md:block font-label text-xs font-bold uppercase tracking-widest text-[#715800]">Step 3 of 3</span>
+<button class="font-serif font-black text-lg px-4 py-1 border-2 border-[#2d2f2f] hover:bg-[#f8cd50] hover:text-[#2d2f2f] transition-all Active:translate-y-1 Active:translate-x-1 Active:shadow-none">Help</button>
+</div>
+</header>
+<main class="pt-12 pb-32 min-h-screen px-4 md:px-8 max-w-7xl mx-auto flex flex-col lg:flex-row gap-12">
+<!-- Left Column: Final Preview -->
+<div class="flex-1 space-y-8">
+<div class="space-y-4">
+<span class="md:hidden font-label text-xs font-black uppercase tracking-widest text-primary-fixed bg-[#2d2f2f] px-2 py-0.5 inline-block">Step 3: Finalization</span>
+<h2 class="font-display text-5xl md:text-7xl text-on-surface leading-none tracking-tight">Your New CV is Ready!</h2>
+<p class="text-secondary text-xl font-medium max-w-xl">Review your professional profile. Every detail has been optimized for academic excellence.</p>
+</div>
+<!-- CV Document Container -->
+<div class="bg-white border-4 border-[#2d2f2f] p-4 md:p-12 relative overflow-hidden neo-shadow-large">
+<!-- Neo Texture Overlay -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: linear-gradient(45deg, #2d2f2f 25%, transparent 25%), linear-gradient(-45deg, #2d2f2f 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #2d2f2f 75%), linear-gradient(-45deg, transparent 75%, #2d2f2f 75%); background-size: 20px 20px;"></div>
+<!-- The "Paper" -->
+<div class="bg-white border-2 border-[#2d2f2f] min-h-[1000px] w-full mx-auto p-8 md:p-16 flex flex-col gap-10 relative z-10">
+<!-- CV Header -->
+<div class="border-b-4 border-[#2d2f2f] pb-8">
+<h3 class="font-display text-5xl text-on-surface mb-2 font-black">Dr. Kwesi Mensah</h3>
+<p class="font-label font-black bg-[#f8cd50] text-[#2d2f2f] inline-block px-3 py-1 tracking-widest uppercase text-xs border-2 border-[#2d2f2f]">Senior Lecturer | Curriculum Specialist</p>
+<div class="mt-6 flex flex-wrap gap-6 text-sm font-bold">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">mail</span> k.mensah@edu.gh</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">call</span> +233 24 000 0000</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-lg">location_on</span> Accra, Ghana</span>
+</div>
+</div>
+<!-- CV Content Sections -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+<!-- Sidebar -->
+<div class="md:col-span-1 space-y-10">
+<section>
+<h4 class="font-black uppercase text-xs tracking-widest bg-[#2d2f2f] text-white px-2 py-1 inline-block mb-6">Expertise</h4>
+<ul class="space-y-3 text-sm font-bold text-on-surface border-l-4 border-[#f8cd50] pl-4">
+<li>Pedagogical Research</li>
+<li>STEM Integration</li>
+<li>Faculty Leadership</li>
+<li>Policy Development</li>
+</ul>
+</section>
+<section>
+<h4 class="font-black uppercase text-xs tracking-widest bg-[#2d2f2f] text-white px-2 py-1 inline-block mb-6">Education</h4>
+<div class="space-y-6">
+<div class="border-2 border-[#2d2f2f] p-3 neo-shadow">
+<p class="font-black text-on-surface">PhD in Education</p>
+<p class="text-xs text-secondary font-bold">University of Ghana, 2018</p>
+</div>
+<div class="border-2 border-[#2d2f2f] p-3 neo-shadow">
+<p class="font-black text-on-surface">M.Ed Administration</p>
+<p class="text-xs text-secondary font-bold">UCC, 2012</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Main Column -->
+<div class="md:col-span-2 space-y-10">
+<section>
+<h4 class="font-black uppercase text-xs tracking-widest text-[#2d2f2f] mb-4 border-b-4 border-[#2d2f2f] pb-2">Professional Summary</h4>
+<p class="text-on-surface font-medium text-base leading-relaxed">Dedicated educator with over 15 years of experience in higher education and administrative leadership. Proven track record in developing innovative curricula that meet global standards while respecting local context.</p>
+</section>
+<section>
+<h4 class="font-black uppercase text-xs tracking-widest text-[#2d2f2f] mb-6 border-b-4 border-[#2d2f2f] pb-2">Experience</h4>
+<div class="space-y-8">
+<div class="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-[#2d2f2f]">
+<div class="flex justify-between items-start mb-1">
+<p class="font-black text-xl text-on-surface">Head of Department</p>
+<span class="text-xs font-black bg-[#dcacfb] border-2 border-[#2d2f2f] px-2 py-0.5">2019 — PRESENT</span>
+</div>
+<p class="text-sm font-black text-[#715800] mb-3">Ashesi University</p>
+<p class="text-base text-on-surface font-medium">Leading a team of 24 faculty members in the Department of Humanities. Implementing new AI-driven assessment tools.</p>
+</div>
+<div class="relative pl-6 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-[#2d2f2f]">
+<div class="flex justify-between items-start mb-1">
+<p class="font-black text-xl text-on-surface">Senior Research Fellow</p>
+<span class="text-xs font-black bg-[#f6f6f6] border-2 border-[#2d2f2f] px-2 py-0.5">2014 — 2019</span>
+</div>
+<p class="text-sm font-black text-[#715800] mb-3">G.E.S Research Wing</p>
+<p class="text-base text-on-surface font-medium">Authored 12 peer-reviewed articles on basic education reform in West Africa.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Watermark for Preview -->
+<div class="absolute inset-0 flex items-center justify-center rotate-[-30deg] pointer-events-none overflow-hidden opacity-5">
+<span class="text-[#2d2f2f] text-[15rem] font-black select-none">PREVIEW</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Payment & Actions -->
+<aside class="w-full lg:w-[420px]">
+<div class="lg:sticky lg:top-32 space-y-8">
+<!-- Payment Card (Neo-Bold restyle) -->
+<div class="bg-[#2d2f2f] text-white p-8 border-4 border-[#2d2f2f] neo-shadow-large relative overflow-hidden">
+<!-- Decorative Element -->
+<div class="absolute top-0 right-0 w-24 h-24 bg-[#f8cd50] -mr-8 -mt-8 rotate-45 border-4 border-[#2d2f2f]"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h4 class="font-serif font-black text-3xl mb-1 italic tracking-tight">Unlock Full Access</h4>
+<p class="text-[#f8cd50] text-xs uppercase tracking-widest font-black">PDF + EDITABLE FORMATS</p>
+</div>
+<span class="material-symbols-outlined text-[#f8cd50] text-5xl">payments</span>
+</div>
+<div class="bg-white p-6 mb-8 border-4 border-[#2d2f2f] neo-shadow">
+<p class="text-[10px] text-[#2d2f2f] font-black uppercase tracking-[0.2em] mb-2">Total Investment</p>
+<p class="text-5xl font-black tracking-tighter text-[#2d2f2f]">GHC 10.00</p>
+</div>
+<button class="w-full bg-[#f8cd50] text-[#2d2f2f] py-5 font-black uppercase tracking-[0.1em] text-base border-4 border-[#2d2f2f] neo-shadow hover:translate-y-[-2px] hover:translate-x-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(45,47,47,1)] active:translate-y-1 active:translate-x-1 active:shadow-none transition-all flex items-center justify-center gap-3">
+                        Download Now
+                        <span class="material-symbols-outlined font-black">arrow_forward</span>
+</button>
+<div class="mt-8 pt-6 border-t-2 border-white/20">
+<p class="text-[10px] uppercase font-black tracking-[0.2em] text-[#f8cd50] mb-6 text-center">Secure Payment via Paystack</p>
+<div class="flex flex-wrap justify-center gap-3">
+<div class="bg-white p-1 border-2 border-[#2d2f2f] neo-shadow h-10 w-16 flex items-center justify-center">
+<img alt="MTN MoMo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5u6f8OE98yPQk9a6FdnuH2jbJ5d-YhT2P2hemo0KZcVPMWxkKwVNIyDoNTiO6zxlpatWd5ZYn3oFrElZNlJ7IxUooXTEgPFFG3x09fN6CxiiSJv2mbxROwrKYzldwkt2Eqf-THjvgx9cASCbuKuF6KPIfM7_rbzhLhuDMm_K1qaBGmoRcEfs5q5YaNyZFBvS0MMEFY3LCqsrUAZrsqYRYb3b-8Ek-s6TXZbwGnYxs63oTzxJt_tZWuKss9c2LDwfZbgJlh2Vnjg"/>
+</div>
+<div class="bg-white p-1 border-2 border-[#2d2f2f] neo-shadow h-10 w-16 flex items-center justify-center">
+<img alt="Vodafone Cash" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB86bZQNWVm7ekhMormuPFIS5sIMr20w9JrTLyo5bGCGdPV9IaLb1OpUuBz_ARHasgxFydCUtaYumRmCpMk35FdcNeIC3Q7EDZxKPGZel8i1RfMVqo1Q3uUV3rvCMZJjnL_hFpjxbNIkKqe1yGa6o655aHjMZES6VuPxXUmB728IKj8OUGRGPgDt55LNA84f-uyax0elmZjaEMeoiaOEgzpK7KhamBM0H3uWA0cIhNmZcRhXIaO8_S1Az3w4MhsASLuJK-caetxeg"/>
+</div>
+<div class="bg-white p-1 border-2 border-[#2d2f2f] neo-shadow h-10 w-16 flex items-center justify-center">
+<img alt="Visa" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZsqsx35wgQJTKog-h9P9V7L1arm49IxDIl9vgh7rzJLEEHwfmo1uHXnFgZ7e4XdDrzV_zQ6RueE3UGSBNRcTWFyAoHQbn4mRtxt3rYFBrBz2HUyzzSAxdQv56UTDKPmTaiO4ZYxkP0Gqwqn3DzFdyePSvYj0qp1BGx-HsOh4rxZVYbnbzt1N3WLuapkj8JIT0B4SMuSpZrYuENqM38o-oU-s2g91XZvptFKNx3qkfFSl0Z0FYaw_o6-y3tcKddLOaObFiak9Wnw"/>
+</div>
+<div class="bg-white p-1 border-2 border-[#2d2f2f] neo-shadow h-10 w-16 flex items-center justify-center">
+<img alt="Mastercard" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSEGeKcW8pQ7-QaZfx0kYO67MQk8086ngzIbm5RvytwCySwPLKLgYA_lAwl9ljQ2o2-xH6HFDq8GKCZhhAx3_eA_zs0u69BqsI3kUrVQYInmVwg4HrqIm0r3wKQ4Kzhz9DsGEPELtFBvgCyePJlFE1dawieU3wp4jySIdsqU9C_8EEcHKKYFH0j6-ieTLA7UQSBW5TGb2oF1bDHMGDAa3FAAqeG7Zn6AWkts3i7STMQVQJNrdfGgCQl3eoyjs7MUJHbRRnqWHoeA"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Guarantee Card -->
+<div class="bg-[#dcacfb] border-4 border-[#2d2f2f] p-6 space-y-4 neo-shadow">
+<div class="flex items-center gap-4">
+<div class="bg-[#2d2f2f] text-white p-2 rounded-lg">
+<span class="material-symbols-outlined text-2xl" data-weight="fill">verified</span>
+</div>
+<div>
+<p class="font-black text-sm uppercase">ATS Optimized</p>
+<p class="text-xs font-bold text-[#2d2f2f]/80">Guaranteed to pass school filtering systems.</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-[#2d2f2f] text-white p-2 rounded-lg">
+<span class="material-symbols-outlined text-2xl" data-weight="fill">workspace_premium</span>
+</div>
+<div>
+<p class="font-black text-sm uppercase">Academic Standard</p>
+<p class="text-xs font-bold text-[#2d2f2f]/80">Formatted specifically for Ghanaian teaching standards.</p>
+</div>
+</div>
+</div>
+<!-- Secondary Actions -->
+<div class="flex flex-col gap-4">
+<button class="w-full py-4 border-4 border-[#2d2f2f] bg-white font-black text-sm uppercase tracking-widest hover:bg-[#2d2f2f] hover:text-white transition-all flex items-center justify-center gap-3 neo-shadow neo-button-active">
+<span class="material-symbols-outlined">edit</span>
+                    Edit Information
+                </button>
+<button class="w-full py-4 border-4 border-[#2d2f2f] bg-white font-black text-sm uppercase tracking-widest hover:bg-[#f6f6f6] transition-all flex items-center justify-center gap-3 neo-shadow neo-button-active">
+<span class="material-symbols-outlined">share</span>
+                    Share Preview
+                </button>
+</div>
+</div>
+</aside>
+</main>
+<!-- BottomNavBar (predicted) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 bg-[#f6f6f6] dark:bg-stone-900 border-t-4 border-[#2d2f2f] shadow-[0px_-4px_0px_0px_rgba(45,47,47,1)] md:hidden">
+<a class="flex flex-col items-center justify-center text-[#2d2f2f] dark:text-stone-300 opacity-80 hover:bg-[#dcacfb] transition-colors p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined">description</span>
+<span class="font-sans font-bold text-xs uppercase Space Grotesk">Templates</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#2d2f2f] dark:text-stone-300 opacity-80 hover:bg-[#dcacfb] transition-colors p-2 rounded-xl" href="#">
+<span class="material-symbols-outlined">psychology</span>
+<span class="font-sans font-bold text-xs uppercase Space Grotesk">AI Input</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-[#f8cd50] text-[#2d2f2f] border-2 border-[#2d2f2f] rounded-xl px-4 py-1 shadow-[2px_2px_0px_0px_rgba(45,47,47,1)] Active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">download</span>
+<span class="font-sans font-bold text-xs uppercase Space Grotesk">Download</span>
+</a>
+</nav>
+<!-- Success Toast -->
+<div class="fixed bottom-12 right-6 bg-[#f8cd50] text-[#2d2f2f] p-4 border-4 border-[#2d2f2f] neo-shadow-large z-50 flex items-center gap-4 md:flex hidden animate-bounce">
+<div class="bg-[#2d2f2f] text-white p-2">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="font-black text-sm uppercase">Content Ready</p>
+<p class="text-[10px] uppercase font-bold tracking-widest opacity-80">Final export available</p>
+</div>
+</div>
+</body></html>

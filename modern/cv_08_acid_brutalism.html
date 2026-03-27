@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Acid Brutalism</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --concrete: #F0EEE8;
+    --black:    #0D0D0D;
+    --yellow:   #EBFF00;
+    --magenta:  #FF0099;
+    --green:    #00FF41;
+    --cyan-lab: #00FFFF;
+    --grey:     #C8C5BB;
+  }
+
+  body {
+    background: var(--concrete);
+    color: var(--black);
+    font-family: 'Courier Prime', monospace;
+    font-size: 8.5pt;
+    line-height: 1.85;
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+  }
+
+  .page { width: 210mm; min-height: 297mm; position: relative; overflow: hidden; }
+
+  /* ── Exposed grid lines ── */
+  .grid-lines {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 0;
+  }
+
+  /* ── Ghosted section number ── */
+  .ghost-num {
+    position: absolute;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 240pt;
+    color: var(--black);
+    opacity: 0.04;
+    line-height: 1;
+    pointer-events: none; z-index: 1;
+  }
+
+  /* ── Exposed metadata ── */
+  .meta {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7pt;
+    color: var(--black);
+    opacity: 0.28;
+    letter-spacing: 0.06em;
+  }
+
+  /* ═══════════════════════════
+     TOP ACID BAR
+  ═══════════════════════════ */
+  .acid-top {
+    height: 12px;
+    background: var(--yellow);
+    border-bottom: 3px solid var(--black);
+    position: relative; z-index: 20;
+  }
+
+  /* ═══════════════════════════
+     HEADER
+  ═══════════════════════════ */
+  .header {
+    background: var(--black);
+    padding: 36px 48px 28px 48px;
+    position: relative; z-index: 10;
+    border-bottom: 4px solid var(--yellow);
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+  }
+
+  .pre-meta {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7pt;
+    color: var(--grey);
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 90pt;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+    color: var(--concrete);
+  }
+
+  h1 .surname {
+    display: block;
+    color: var(--yellow);
+    font-size: 48pt;
+  }
+
+  .title-role {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 8pt;
+    color: var(--grey);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  .contact-block { text-align: right; }
+
+  .contact-item {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--grey);
+    line-height: 1.8;
+    letter-spacing: 0.06em;
+  }
+
+  .contact-item .c-key {
+    color: var(--cyan-lab);
+  }
+
+  /* ═══════════════════════════
+     BODY LAYOUT
+  ═══════════════════════════ */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    border-top: 2px solid var(--black);
+    position: relative; z-index: 10;
+  }
+
+  .main {
+    padding: 28px 36px 28px 48px;
+    border-right: 2px solid var(--black);
+    position: relative;
+  }
+
+  /* Yellow left-border accent on main */
+  .main::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 20px;
+    background: var(--yellow);
+    border-right: 2px solid var(--black);
+  }
+
+  .main-inner { padding-left: 24px; }
+
+  .sidebar {
+    padding: 28px 22px 28px 18px;
+    background: var(--concrete);
+    border-left: 0;
+    position: relative;
+  }
+
+  .section { margin-bottom: 22px; position: relative; }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22pt;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .section-num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7pt;
+    color: var(--magenta);
+    letter-spacing: 0.1em;
+  }
+
+  .summary {
+    font-size: 8.5pt;
+    line-height: 1.85;
+    color: var(--black);
+    font-family: 'Courier Prime', monospace;
+  }
+
+  .summary strong {
+    color: var(--black);
+    font-weight: 700;
+    background: var(--yellow);
+    padding: 0 2px;
+  }
+
+  /* Entry — hard rectangle */
+  .entry {
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border: 2px solid var(--black);
+    background: white;
+    position: relative;
+  }
+
+  /* Yellow top rule on first entry */
+  .entry.accent-y { border-top: 6px solid var(--yellow); }
+  .entry.accent-m { border-top: 6px solid var(--magenta); }
+  .entry.accent-g { border-top: 3px solid var(--green); border-top-width: 3px; }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .entry-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14pt;
+    letter-spacing: 0.02em;
+    color: var(--black);
+  }
+
+  .entry-date {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7pt;
+    color: var(--grey);
+    letter-spacing: 0.08em;
+  }
+
+  .entry-co {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7pt;
+    color: var(--magenta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .entry-desc {
+    list-style: none;
+    font-size: 8pt;
+    line-height: 1.7;
+    color: #1a1a1a;
+    font-family: 'Courier Prime', monospace;
+    columns: 2;
+    column-gap: 12px;
+  }
+
+  .entry-desc li {
+    padding-left: 10px;
+    position: relative;
+    margin-bottom: 1px;
+    break-inside: avoid;
+  }
+
+  .entry-desc li::before {
+    content: '>';
+    position: absolute; left: 0;
+    color: var(--yellow);
+    font-weight: 700;
+  }
+
+  /* Single column for short entries */
+  .entry-desc.single { columns: 1; }
+
+  /* Sidebar */
+  .s-section { margin-bottom: 18px; }
+
+  .s-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14pt;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 1px;
+  }
+
+  .skill-row { margin-bottom: 7px; }
+
+  .skill-name {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7pt;
+    color: var(--black);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  .skill-bar {
+    height: 8px;
+    background: var(--concrete);
+    border: 1.5px solid var(--black);
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: var(--black);
+  }
+
+  .acid-tag {
+    display: inline-block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--black);
+    border: 1.5px solid var(--black);
+    padding: 1px 6px;
+    margin: 2px 2px 2px 0;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--concrete);
+  }
+
+  .acid-tag.y { background: var(--yellow); }
+  .acid-tag.m { background: var(--magenta); color: white; border-color: var(--magenta); }
+  .acid-tag.g { color: var(--green); border-color: var(--green); }
+
+  .s-text {
+    font-family: 'Courier Prime', monospace;
+    font-size: 7.5pt;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+
+  .s-stat {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--magenta);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-top: 7px; margin-bottom: 1px;
+  }
+
+  .edu-deg {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11pt;
+    color: var(--black);
+    letter-spacing: 0.02em;
+  }
+
+  .edu-school {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7pt;
+    color: var(--grey);
+    letter-spacing: 0.05em;
+  }
+
+  /* Footer — acid yellow bar */
+  .footer-bar {
+    background: var(--yellow);
+    border-top: 3px solid var(--black);
+    padding: 10px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; z-index: 10;
+  }
+
+  .footer-text {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 7pt;
+    color: var(--black);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Sideways label */
+  .sideways {
+    position: absolute;
+    transform: rotate(90deg);
+    transform-origin: left bottom;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.15em;
+    color: var(--black);
+    opacity: 0.25;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Ghost number -->
+  <div class="ghost-num" style="bottom:-60px;right:-20px;">03</div>
+
+  <!-- Sideways label -->
+  <div class="sideways" style="right:0px;bottom:220px;">CURRICULUM VITAE · SECTION: 01/01 · FORMAT: A4</div>
+
+  <!-- Acid top bar -->
+  <div class="acid-top"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-inner">
+      <div>
+        <div class="pre-meta">CV · REF#0312 · OPEN TO WORK · UPDATED: 2024</div>
+        <h1>OSCAR<span class="surname">BRANDT</span></h1>
+        <div class="title-role">_ Software Engineer &amp; Systems Architect</div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-item"><span class="c-key">EMAIL:</span> o.brandt@rawsystem.de</div>
+        <div class="contact-item"><span class="c-key">TEL:  </span> +49 176 8821 4409</div>
+        <div class="contact-item"><span class="c-key">WEB:  </span> rawsystem.de</div>
+        <div class="contact-item"><span class="c-key">LOC:  </span> Berlin, DE</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-layout">
+
+    <!-- Main -->
+    <div class="main">
+      <div class="main-inner">
+
+        <div class="section">
+          <div class="section-title">
+            PROFILE
+            <span class="section-num">SEC:01/04</span>
+          </div>
+          <p class="summary">
+            Engineer with <strong>11 years</strong> in backend systems, distributed architecture, and platform infrastructure. I build things that work — loudly, visibly, without apology. No magic. No obfuscation. <strong>Raw structure</strong>, exposed logic, and systems you can actually debug at 3AM.
+          </p>
+        </div>
+
+        <div class="section">
+          <div class="section-title">
+            EXPERIENCE
+            <span class="section-num">SEC:02/04</span>
+          </div>
+
+          <div class="entry accent-y">
+            <div class="entry-header">
+              <div class="entry-title">Principal Engineer</div>
+              <div class="entry-date">2021—PRESENT</div>
+            </div>
+            <div class="entry-co">RAWSYSTEM · BERLIN</div>
+            <ul class="entry-desc">
+              <li>Founded infra consultancy; clients in fintech, healthtech, defence</li>
+              <li>Architected zero-downtime migration of 40TB Postgres cluster</li>
+              <li>Reduced p99 API latency from 820ms to 43ms on core billing service</li>
+              <li>Led 7-engineer distributed team across 3 time zones</li>
+            </ul>
+          </div>
+
+          <div class="entry accent-m">
+            <div class="entry-header">
+              <div class="entry-title">Senior Backend Engineer</div>
+              <div class="entry-date">2018—2021</div>
+            </div>
+            <div class="entry-co">KONKRET TECH · BERLIN</div>
+            <ul class="entry-desc">
+              <li>Built event-driven microservices processing 2.4M messages/day</li>
+              <li>Designed multi-region Kubernetes deployment strategy</li>
+              <li>Ran internal platform team; 6 direct reports</li>
+              <li>Reduced infrastructure costs 34% via resource optimisation</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title">Backend Engineer</div>
+              <div class="entry-date">2015—2018</div>
+            </div>
+            <div class="entry-co">SCHEMA DIGITAL · HAMBURG</div>
+            <ul class="entry-desc single">
+              <li>Built REST and GraphQL APIs for SaaS platform serving 80k users</li>
+              <li>Implemented CI/CD pipeline reducing deploy cycle from 3 days to 40 minutes</li>
+              <li>Introduced load testing framework that caught 3 critical bottlenecks pre-launch</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <div class="entry-title">Junior Developer</div>
+              <div class="entry-date">2013—2015</div>
+            </div>
+            <div class="entry-co">BRUTFORCE AGENCY · MÜNCHEN</div>
+            <ul class="entry-desc single">
+              <li>Full-stack development on Django and Vue.js projects</li>
+              <li>Automated deployment scripts saving team 8hrs/week</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="section">
+          <div class="section-title">
+            SELECTED WORK
+            <span class="section-num">SEC:03/04</span>
+          </div>
+          <div class="entry accent-g">
+            <div class="entry-header">
+              <div class="entry-title">GridCore — Distributed Task Engine</div>
+              <div class="entry-date">2023</div>
+            </div>
+            <div class="entry-co" style="color:var(--green);">OPEN SOURCE · RUST + REDIS</div>
+            <p class="summary" style="font-size:7.5pt;">Fault-tolerant distributed task queue written in Rust. Handles 500k tasks/sec with sub-5ms scheduling latency. 1.2k GitHub stars.</p>
+          </div>
+        </div>
+
+        <div class="meta" style="margin-top:4px;">section: 04/04 · document: curriculum_vitae · timestamp: 2024-01 · format: anti-design</div>
+
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <div class="s-section">
+        <div class="s-title">STACK</div>
+        <div class="skill-row">
+          <div class="skill-name">Rust / Go</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Python</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Kubernetes</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">PostgreSQL</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Redis / Kafka</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">AWS / GCP</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">TOOLS</div>
+        <span class="acid-tag y">Docker</span>
+        <span class="acid-tag">Terraform</span>
+        <span class="acid-tag m">Grafana</span>
+        <span class="acid-tag">Prometheus</span>
+        <span class="acid-tag g">NATS</span>
+        <span class="acid-tag">gRPC</span>
+        <span class="acid-tag y">Linux</span>
+        <span class="acid-tag">Git</span>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">RECORD</div>
+        <span class="s-stat">// 2024</span>
+        <p class="s-text">GitHub Arctic Code Vault Contributor</p>
+        <span class="s-stat">// 2023</span>
+        <p class="s-text">Speaker — KubeCon EU, Amsterdam</p>
+        <span class="s-stat">// 2022</span>
+        <p class="s-text">Open Source Award — CNCF Ecosystem</p>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">LANG</div>
+        <div class="skill-row">
+          <div class="skill-name">German</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">English</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">EDU</div>
+        <div class="edu-deg">MSc Computer Science</div>
+        <div class="edu-school">TU Berlin · 2013</div>
+        <br>
+        <div class="edu-deg">BSc Informatics</div>
+        <div class="edu-school">LMU München · 2011</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer acid bar -->
+  <div class="footer-bar">
+    <div class="footer-text">Oscar Brandt · CV · 2024</div>
+    <div class="footer-text" style="color:var(--magenta);">//RAW//</div>
+    <div class="footer-text">rawsystem.de · Berlin</div>
+  </div>
+
+</div>
+</body>
+</html>

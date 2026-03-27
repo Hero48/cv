@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 01 — Arctic Monochrome</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f8f6f1;
+    --mid: #6b6b6b;
+    --rule: #d0cdc6;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    padding: 0;
+  }
+  .page {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    position: relative;
+  }
+  /* Top rule */
+  .page::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: var(--ink);
+    margin-bottom: 60px;
+  }
+  .header-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 60px;
+  }
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -3px;
+  }
+  .name span { display: block; }
+  .name .last { color: var(--mid); }
+  .credentials {
+    text-align: right;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid);
+    line-height: 2;
+  }
+  hr.rule { border: none; border-top: 1px solid var(--rule); margin: 40px 0; }
+  .meta-row {
+    display: flex;
+    gap: 40px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+  }
+  .meta-row span::before { content: '— '; }
+  .section { margin-bottom: 56px; }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .entry {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .entry:first-of-type { border-top: 1px solid var(--rule); }
+  .year { font-size: 11px; color: var(--mid); padding-top: 3px; }
+  .entry-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+  .entry-sub { font-size: 12px; color: var(--mid); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .entry-desc { font-size: 13px; line-height: 1.8; color: #444; }
+  .skills-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .skill-tag {
+    border: 1px solid var(--ink);
+    padding: 6px 16px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .skill-tag:hover { background: var(--ink); color: var(--paper); }
+  .footer-mark {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 3px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  @media(max-width:600px){
+    .page{padding:40px 24px;}
+    .entry{grid-template-columns:1fr;}
+    .header-grid{grid-template-columns:1fr;}
+    .credentials{text-align:left;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header-grid">
+    <div class="name">
+      <span class="first">Abena</span>
+      <span class="last">Asante</span>
+    </div>
+    <div class="credentials">
+      B.Ed. Basic Education<br>
+      University of Education<br>
+      Winneba — 2023<br>
+      GTLE Certified
+    </div>
+  </div>
+
+  <div class="meta-row">
+    <span>Kumasi, Ghana</span>
+    <span>abena.asante@edu.gh</span>
+    <span>+233 24 000 1122</span>
+  </div>
+
+  <hr class="rule">
+
+  <div class="section">
+    <div class="section-label">Education</div>
+    <div class="entry">
+      <div class="year">2019 — 2023</div>
+      <div>
+        <div class="entry-title">B.Ed. Basic Education</div>
+        <div class="entry-sub">University of Education, Winneba</div>
+        <div class="entry-desc">Specialisation in Early Childhood and Language Arts. Graduated with Second Class Upper Division. Thesis on phonics-based reading interventions in rural Ghana.</div>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="year">2015 — 2019</div>
+      <div>
+        <div class="entry-title">WASSCE Certificate</div>
+        <div class="entry-sub">Prempeh College, Kumasi</div>
+        <div class="entry-desc">General Science with electives in Elective Mathematics and Physics. Grade aggregate 8.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Experience</div>
+    <div class="entry">
+      <div class="year">2023 — Present</div>
+      <div>
+        <div class="entry-title">Class Teacher — Grade 3</div>
+        <div class="entry-sub">Asokore M/A Basic School, Kumasi</div>
+        <div class="entry-desc">Deliver differentiated instruction to 42 pupils across literacy, numeracy and environmental studies. Introduced weekly science discovery corners that raised pupil engagement by 35%.</div>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="year">Jan–Jun 2023</div>
+      <div>
+        <div class="entry-title">Student Teaching Practice</div>
+        <div class="entry-sub">Adum Presby Primary, Kumasi</div>
+        <div class="entry-desc">Completed 6-month practicum, commended by supervising tutor for innovative lesson design and classroom management in a 50-pupil mixed-ability class.</div>
+      </div>
+    </div>
+    <div class="entry">
+      <div class="year">2021 — 2022</div>
+      <div>
+        <div class="entry-title">Peer Tutor — Mathematics</div>
+        <div class="entry-sub">UEW Student Support Centre</div>
+        <div class="entry-desc">Provided one-on-one and small-group tutoring in foundational and intermediate mathematics to fellow students, achieving a 90% pass rate improvement among tutees.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Positions Held</div>
+    <div class="entry">
+      <div class="year">2022 — 2023</div>
+      <div>
+        <div class="entry-title">President, Education Students' Association</div>
+        <div class="entry-sub">University of Education, Winneba</div>
+        <div class="entry-desc">Led 600-member association; organised three inter-departmental teaching symposia and brokered partnerships with two NGOs for rural school outreach programmes.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Skills</div>
+    <div class="skills-cloud">
+      <div class="skill-tag">Lesson Design</div>
+      <div class="skill-tag">Phonics Instruction</div>
+      <div class="skill-tag">Classroom Management</div>
+      <div class="skill-tag">Assessment & Feedback</div>
+      <div class="skill-tag">Microsoft Office</div>
+      <div class="skill-tag">Google Workspace</div>
+      <div class="skill-tag">Twi / English Bilingual</div>
+      <div class="skill-tag">Community Outreach</div>
+    </div>
+  </div>
+
+  <div class="footer-mark">
+    <span>Curriculum Vitae</span>
+    <span>2024 Edition</span>
+  </div>
+</div>
+</body>
+</html>

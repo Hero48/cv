@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 11 — Ocean Teal</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --teal:#1a7a7a;
+    --teal-light:#e6f5f5;
+    --teal-dark:#0e4d4d;
+    --white:#fff;
+    --off:#f7fafa;
+    --text:#1e3535;
+    --muted:#6b9090;
+    --border:#c8e0e0;
+  }
+  body{background:var(--off);color:var(--text);font-family:'Josefin Sans',sans-serif;}
+  .cv{display:grid;grid-template-columns:300px 1fr;min-height:100vh;}
+
+  /* LEFT */
+  .left{background:var(--teal-dark);color:white;display:flex;flex-direction:column;}
+  .l-header{padding:52px 36px 40px;background:var(--teal);position:relative;overflow:hidden;}
+  .l-header::after{content:'';position:absolute;bottom:-30px;left:-20px;right:-20px;height:60px;background:var(--teal-dark);border-radius:50%;}
+  .l-initial{width:72px;height:72px;border-radius:50%;border:2px solid rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-family:'Merriweather',serif;font-size:24px;font-weight:700;margin-bottom:20px;position:relative;z-index:1;}
+  .l-name{font-family:'Merriweather',serif;font-size:22px;font-weight:700;line-height:1.2;margin-bottom:6px;position:relative;z-index:1;}
+  .l-role{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:4px;position:relative;z-index:1;}
+  .l-body{padding:48px 36px;flex:1;display:flex;flex-direction:column;gap:36px;}
+  .l-sec{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:8px;}
+  .l-contact{font-size:12px;margin-bottom:10px;display:flex;gap:10px;align-items:center;color:rgba(255,255,255,0.8);}
+  .l-contact .ic{font-size:12px;color:rgba(255,255,255,0.4);}
+  .progress-item{margin-bottom:12px;}
+  .pi-label{font-size:11px;color:rgba(255,255,255,0.7);margin-bottom:5px;display:flex;justify-content:space-between;}
+  .pi-track{height:3px;background:rgba(255,255,255,0.1);border-radius:2px;}
+  .pi-fill{height:3px;background:var(--teal);border-radius:2px;}
+  .lang-pill{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.08);font-size:12px;color:rgba(255,255,255,0.75);}
+  .lang-pill span:last-child{color:rgba(255,255,255,0.4);font-size:10px;}
+
+  /* RIGHT */
+  .right{padding:52px 56px;}
+  .r-intro{margin-bottom:48px;padding-bottom:32px;border-bottom:2px solid var(--teal-light);}
+  .r-intro-label{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
+  .r-intro-text{font-family:'Merriweather',serif;font-size:15px;font-style:italic;line-height:1.9;color:#3d6060;}
+  .sec-hd{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--teal);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
+  .sec-hd::before{content:'';width:16px;height:2px;background:var(--teal);}
+  .section{margin-bottom:44px;}
+  .card{background:white;border-radius:6px;padding:20px 22px;margin-bottom:12px;border-top:2px solid var(--teal);box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+  .c-top{display:flex;justify-content:space-between;margin-bottom:6px;}
+  .c-title{font-family:'Merriweather',serif;font-size:16px;font-weight:700;color:var(--text);}
+  .c-yr{font-size:10px;color:var(--teal);font-weight:600;letter-spacing:1px;}
+  .c-place{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:8px;}
+  .c-desc{font-size:12.5px;line-height:1.8;color:#4a6868;}
+  .chip{display:inline-block;background:var(--teal-light);color:var(--teal);padding:4px 12px;border-radius:3px;font-size:11px;font-weight:600;margin:3px;}
+  @media(max-width:720px){.cv{grid-template-columns:1fr;}.right{padding:36px 24px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <aside class="left">
+    <div class="l-header">
+      <div class="l-initial">PA</div>
+      <div class="l-name">Patience Ama<br>Asiedu</div>
+      <div class="l-role">Guidance & Counselling Teacher</div>
+    </div>
+    <div class="l-body">
+      <div>
+        <div class="l-sec">Contact</div>
+        <div class="l-contact"><span class="ic">✉</span>patience.asiedu@edu.gh</div>
+        <div class="l-contact"><span class="ic">☏</span>+233 24 667 8899</div>
+        <div class="l-contact"><span class="ic">⌖</span>Tema, Greater Accra</div>
+      </div>
+      <div>
+        <div class="l-sec">Expertise Level</div>
+        <div class="progress-item"><div class="pi-label"><span>Counselling</span><span>90%</span></div><div class="pi-track"><div class="pi-fill" style="width:90%"></div></div></div>
+        <div class="progress-item"><div class="pi-label"><span>Career Guidance</span><span>85%</span></div><div class="pi-track"><div class="pi-fill" style="width:85%"></div></div></div>
+        <div class="progress-item"><div class="pi-label"><span>Group Facilitation</span><span>80%</span></div><div class="pi-track"><div class="pi-fill" style="width:80%"></div></div></div>
+        <div class="progress-item"><div class="pi-label"><span>Research Methods</span><span>75%</span></div><div class="pi-track"><div class="pi-fill" style="width:75%"></div></div></div>
+      </div>
+      <div>
+        <div class="l-sec">Languages</div>
+        <div class="lang-pill"><span>English</span><span>Proficient</span></div>
+        <div class="lang-pill"><span>Twi (Akan)</span><span>Native</span></div>
+        <div class="lang-pill"><span>Ga</span><span>Conversational</span></div>
+      </div>
+    </div>
+  </aside>
+  <main class="right">
+    <div class="r-intro">
+      <div class="r-intro-label">Professional Statement</div>
+      <div class="r-intro-text">"Every student deserves a safe space to grow, reflect and discover their potential. My practice centres on creating that space — through evidence-based counselling, mentorship, and whole-school wellbeing programmes."</div>
+    </div>
+
+    <div class="section">
+      <div class="sec-hd">Work Experience</div>
+      <div class="card">
+        <div class="c-top"><div class="c-title">Guidance & Counselling Coordinator</div><div class="c-yr">2022–Now</div></div>
+        <div class="c-place">Tema Community 7 SHS</div>
+        <div class="c-desc">Manage the school's G&C unit serving 1,100 students. Developed a peer-support programme that trained 30 student counsellors. Reduced recorded disciplinary cases by 40% in two academic years.</div>
+      </div>
+      <div class="card">
+        <div class="c-top"><div class="c-title">School Counsellor</div><div class="c-yr">2019–2022</div></div>
+        <div class="c-place">Lashibi M/A JHS, Tema</div>
+        <div class="c-desc">Provided individual and group counselling sessions for 450 JHS students. Designed a career awareness week that connected students with 12 industry mentors.</div>
+      </div>
+      <div class="card">
+        <div class="c-top"><div class="c-title">National Service — Counsellor</div><div class="c-yr">2018–2019</div></div>
+        <div class="c-place">Nungua SHS, Accra</div>
+        <div class="c-desc">Supported G&C department during national service. Facilitated bi-weekly group sessions on study skills, exam anxiety and peer relationships.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-hd">Education & Training</div>
+      <div class="card">
+        <div class="c-top"><div class="c-title">B.Ed. Guidance & Counselling</div><div class="c-yr">2014–2018</div></div>
+        <div class="c-place">University of Cape Coast</div>
+        <div class="c-desc">Second Class Upper. Dissertation: "Adolescent career decision-making and parental influence in Ghanaian senior high schools."</div>
+      </div>
+      <div class="card">
+        <div class="c-top"><div class="c-title">Certificate — Child & Adolescent Mental Health</div><div class="c-yr">2021</div></div>
+        <div class="c-place">WHO Academy · Online</div>
+        <div class="c-desc">20-hour certified course on mental health literacy, stress management and adolescent resilience-building.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-hd">Key Competencies</div>
+      <div>
+        <span class="chip">Individual Counselling</span>
+        <span class="chip">Group Therapy</span>
+        <span class="chip">Crisis Intervention</span>
+        <span class="chip">Career Guidance</span>
+        <span class="chip">Student Wellbeing</span>
+        <span class="chip">Parent Engagement</span>
+        <span class="chip">Case Management</span>
+        <span class="chip">Psychoeducation</span>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

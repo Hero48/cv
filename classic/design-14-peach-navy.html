@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 14 — Peach & Navy</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --peach:#fde8db;
+    --peach2:#f8d5c4;
+    --navy:#1b2d5e;
+    --navy-light:#2d4680;
+    --coral:#e06060;
+    --white:#fff;
+    --ink:#1a1a2e;
+    --muted:#6b7aa0;
+    --border:#dce3f5;
+  }
+  body{background:var(--peach);color:var(--ink);font-family:'Poppins',sans-serif;font-weight:300;}
+  .cv{max-width:900px;margin:0 auto;padding:0;}
+
+  /* HEADER */
+  .header{background:var(--navy);color:white;padding:60px 64px;display:grid;grid-template-columns:1fr 160px;gap:48px;align-items:center;}
+  .h-pre{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;}
+  .h-name{font-family:'Bodoni Moda',serif;font-size:clamp(40px,6vw,66px);line-height:1;letter-spacing:-1px;margin-bottom:12px;}
+  .h-role{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:20px;}
+  .h-contacts{display:flex;flex-direction:column;gap:6px;}
+  .h-contact{font-size:12px;color:rgba(255,255,255,0.6);}
+  .h-avatar{width:140px;height:140px;border-radius:50%;background:var(--navy-light);border:3px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-family:'Bodoni Moda',serif;font-size:44px;font-style:italic;color:rgba(255,255,255,0.5);}
+
+  /* PEACH STRIP */
+  .strip{background:var(--peach2);padding:16px 64px;display:flex;gap:40px;flex-wrap:wrap;}
+  .st-item{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--navy);font-weight:500;}
+
+  /* BODY */
+  .body{padding:48px 64px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .sec-head{font-family:'Bodoni Moda',serif;font-size:20px;font-style:italic;color:var(--navy);border-bottom:2px solid var(--navy);padding-bottom:8px;margin-bottom:24px;}
+  .section{margin-bottom:40px;}
+  .card{background:white;border-radius:10px;padding:20px 22px;margin-bottom:12px;box-shadow:0 2px 8px rgba(27,45,94,0.06);}
+  .c-yr{font-size:10px;color:var(--coral);letter-spacing:2px;text-transform:uppercase;font-weight:500;margin-bottom:6px;}
+  .c-title{font-family:'Bodoni Moda',serif;font-size:16px;color:var(--ink);margin-bottom:3px;line-height:1.3;}
+  .c-org{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:8px;}
+  .c-desc{font-size:12.5px;line-height:1.8;color:#505878;}
+  .pill{display:inline-flex;align-items:center;gap:6px;background:var(--peach);color:var(--navy);padding:6px 14px;border-radius:20px;font-size:11.5px;font-weight:500;margin:3px;}
+  .pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--coral);}
+  @media(max-width:680px){.grid{grid-template-columns:1fr;}.header{grid-template-columns:1fr;}.h-avatar{display:none;}.body{padding:36px 24px;}.strip{padding:16px 24px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <div class="header">
+    <div>
+      <div class="h-pre">Curriculum Vitae</div>
+      <h1 class="h-name">Ama Serwaa<br>Okyere</h1>
+      <div class="h-role">Home Economics & Nutrition Educator</div>
+      <div class="h-contacts">
+        <div class="h-contact">✉ ama.serwaa@ges.edu.gh</div>
+        <div class="h-contact">☏ +233 24 334 5566</div>
+        <div class="h-contact">⌖ Koforidua, Eastern Region</div>
+      </div>
+    </div>
+    <div class="h-avatar">AS</div>
+  </div>
+  <div class="strip">
+    <div class="st-item">B.Ed. Home Economics · UCC 2018</div>
+    <div class="st-item">GTLE Licensed</div>
+    <div class="st-item">Food & Nutrition Cert. — Noguchi 2021</div>
+  </div>
+  <div class="body">
+    <div class="grid">
+      <div>
+        <div class="section">
+          <div class="sec-head">Work Experience</div>
+          <div class="card">
+            <div class="c-yr">2020 — Present</div>
+            <div class="c-title">Home Economics Teacher — JHS</div>
+            <div class="c-org">Koforidua Zongo JHS, Eastern Region</div>
+            <div class="c-desc">Teach Food & Nutrition, Clothing & Textiles and Housing & Interior Design to JHS 1–3. Introduced a school kitchen garden that supplies fresh produce for practical cookery lessons.</div>
+          </div>
+          <div class="card">
+            <div class="c-yr">2018 — 2020</div>
+            <div class="c-title">National Service & Teaching Practice</div>
+            <div class="c-org">Akropong Presby JHS</div>
+            <div class="c-desc">Delivered Home Economics curriculum during national service. Organised the school's first Nutrition Fair, attended by 300 parents and community members.</div>
+          </div>
+          <div class="card">
+            <div class="c-yr">2016 — 2018</div>
+            <div class="c-title">Student Food Entrepreneur</div>
+            <div class="c-org">Campus Catering Initiative, UCC</div>
+            <div class="c-desc">Co-operated a healthy snacks micro-enterprise on campus, producing locally sourced nutritious food products sold to students and staff — a practical extension of coursework.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section">
+          <div class="sec-head">Education</div>
+          <div class="card">
+            <div class="c-yr">2014 — 2018</div>
+            <div class="c-title">B.Ed. Home Economics Education</div>
+            <div class="c-org">University of Cape Coast</div>
+            <div class="c-desc">Second Class Upper. Project: "Perceptions of home economics as a career pathway among JHS female students in Eastern Region."</div>
+          </div>
+          <div class="card">
+            <div class="c-yr">2021</div>
+            <div class="c-title">Certificate — Applied Nutrition</div>
+            <div class="c-org">Noguchi Memorial Medical Institute</div>
+            <div class="c-desc">10-week nutrition science programme covering community nutrition, diet planning and food safety.</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="sec-head">Positions</div>
+          <div class="card">
+            <div class="c-yr">2022 — Present</div>
+            <div class="c-title">Girls' Education Champion</div>
+            <div class="c-org">GES Eastern Region</div>
+            <div class="c-desc">Appointed GES Girls' Ed. Champion for Koforidua Metro; coordinates menstrual hygiene programmes and school retention activities for girls at-risk of dropping out.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="sec-head" style="margin-bottom:16px;">Key Skills</div>
+      <div>
+        <span class="pill">Nutrition Education</span>
+        <span class="pill">Food Science</span>
+        <span class="pill">Textile Crafts</span>
+        <span class="pill">Interior Design Basics</span>
+        <span class="pill">Community Health</span>
+        <span class="pill">Entrepreneurship Education</span>
+        <span class="pill">Student Mentorship</span>
+        <span class="pill">Event Organisation</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

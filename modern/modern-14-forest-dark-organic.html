@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kofi Opoku-Agyemang — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{--forest:#1a3a1e;--moss:#2e6639;--fern:#4a9954;--pale:#d8f0d8;--leaf:#eef7ec;--offwhite:#fafdf9;--text:#0d1f10;--muted:#5a7a5a;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:#d0e8d0;font-family:'Poppins',sans-serif;color:var(--text);padding:32px 20px;min-height:100vh;}
+  .page{max-width:960px;margin:0 auto;background:var(--offwhite);border-radius:20px;overflow:hidden;box-shadow:0 10px 60px rgba(30,80,40,0.2);}
+  .header{background:var(--forest);padding:56px 60px;position:relative;overflow:hidden;}
+  .header-bg{position:absolute;top:-60px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(74,153,84,0.2),transparent);border-radius:50%;}
+  .header-bg2{position:absolute;bottom:-80px;left:100px;width:300px;height:300px;background:radial-gradient(circle,rgba(46,102,57,0.3),transparent);border-radius:50%;}
+  .header-content{position:relative;z-index:1;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+  .hc-left .label{font-size:0.7rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--fern);font-weight:600;margin-bottom:14px;}
+  .hc-left h1{font-family:'Fraunces',serif;font-size:3.8rem;color:white;line-height:1.0;font-weight:700;}
+  .hc-left h1 span{color:var(--fern);}
+  .hc-left .role{font-size:0.9rem;color:rgba(255,255,255,0.55);margin-top:12px;line-height:1.65;}
+  .hc-right{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .stat-leaf{background:rgba(255,255,255,0.07);border-radius:12px;padding:16px;text-align:center;border:1px solid rgba(74,153,84,0.3);}
+  .stat-leaf .n{font-family:'Fraunces',serif;font-size:2rem;color:var(--fern);}
+  .stat-leaf .l{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+  .fern-stripe{height:5px;background:linear-gradient(90deg,var(--fern),var(--moss),var(--fern));}
+  .contact-band{background:var(--moss);display:flex;}
+  .cb-i{padding:12px 24px;font-size:0.78rem;color:rgba(255,255,255,0.7);border-right:1px solid rgba(255,255,255,0.1);}
+  .cb-i:first-child{font-weight:600;color:white;}
+  .cb-i:last-child{border-right:none;}
+  .body{display:grid;grid-template-columns:1fr 290px;padding:0;}
+  .main-col{padding:48px 44px;}
+  .side-col{padding:48px 36px;background:var(--leaf);border-left:1px solid var(--pale);}
+  .sh{font-family:'Fraunces',serif;font-size:1.15rem;color:var(--forest);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+  .sh::after{content:'';flex:1;height:2px;background:var(--pale);}
+  .sec{margin-bottom:32px;}
+  .job{margin-bottom:18px;padding:16px 18px;background:white;border-radius:10px;border-left:3px solid var(--fern);}
+  .job-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .job h3{font-size:0.97rem;font-weight:600;color:var(--forest);}
+  .yr-leaf{background:var(--pale);color:var(--moss);padding:3px 10px;border-radius:100px;font-size:0.72rem;font-weight:600;}
+  .job .org{font-size:0.82rem;color:var(--muted);margin:4px 0 8px;font-style:italic;}
+  .job p{font-size:0.84rem;line-height:1.65;color:#2a3a2a;}
+  .side-item{margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--pale);}
+  .side-item h3{font-size:0.9rem;font-weight:600;color:var(--forest);}
+  .side-item .sub{font-size:0.8rem;font-style:italic;color:var(--muted);margin:2px 0;}
+  .side-item .yr{font-size:0.72rem;color:var(--moss);font-weight:700;margin-bottom:3px;}
+  .skill-item{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--pale);}
+  .skill-item span{font-size:0.83rem;}
+  .prog-mini{width:70px;height:5px;background:rgba(46,102,57,0.15);border-radius:3px;}
+  .prog-fill{height:5px;border-radius:3px;background:var(--fern);}
+  .pos-item{font-size:0.83rem;padding:6px 0;border-bottom:1px solid var(--pale);color:var(--forest);display:flex;gap:8px;}
+  .pos-item::before{content:'🌿';font-size:0.7rem;flex-shrink:0;margin-top:3px;}
+  .award-item{font-size:0.82rem;padding:5px 0;border-bottom:1px solid var(--pale);}
+  .award-item::before{content:'★ ';}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div class="header-bg"></div>
+    <div class="header-bg2"></div>
+    <div class="header-content">
+      <div class="hc-left">
+        <div class="label">// Environmental & Agric Science Educator</div>
+        <h1>Kofi <span>Opoku-</span><br>Agyemang</h1>
+        <div class="role">Agricultural Science & Environmental Education Teacher · Sustainable Farming Advocate · School Garden Coordinator — University of Cape Coast Graduate</div>
+      </div>
+      <div class="hc-right">
+        <div class="stat-leaf"><div class="n">9</div><div class="l">Years</div></div>
+        <div class="stat-leaf"><div class="n">480+</div><div class="l">Students</div></div>
+        <div class="stat-leaf"><div class="n">3</div><div class="l">Acres Farmed</div></div>
+        <div class="stat-leaf"><div class="n">5</div><div class="l">Awards</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="fern-stripe"></div>
+  <div class="contact-band">
+    <div class="cb-i">kofi.opoku@ges.gov.gh</div>
+    <div class="cb-i">+233 24 556 6778</div>
+    <div class="cb-i">Kumasi, Ashanti Region</div>
+  </div>
+  <div class="body">
+    <div class="main-col">
+      <div class="sec">
+        <div class="sh">Professional Experience</div>
+        <div class="job">
+          <div class="job-top"><h3>Agric. Science Teacher & Farm Coordinator</h3><span class="yr-leaf">2020–Now</span></div>
+          <div class="org">Kumasi Asawasi Municipal JHS</div>
+          <p>Teach Agricultural Science for all JHS levels. Manage a 3-acre school farm producing vegetables, maize, and plantain. Revenue from farm supports students' school supplies. Won the GES Ashanti Sustainable School Award 2022.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>Agric. Science & Environmental Studies Teacher</h3><span class="yr-leaf">2017–2020</span></div>
+          <div class="org">Bantama Municipal Basic School Complex</div>
+          <p>Developed the school's first environmental studies supplementary curriculum. Introduced waste segregation and composting programme adopted by 4 neighbouring schools.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>MoFA Extension Volunteer Educator</h3><span class="yr-leaf">2015–2017</span></div>
+          <div class="org">Ministry of Food & Agriculture — Ashanti Region</div>
+          <p>Provided agricultural education and crop management training to 80 smallholder farmers in the Afigya Kwabre District as part of the Planting for Food & Jobs programme.</p>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="sh">Special Skills</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="background:var(--pale);color:var(--moss);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Crop Production</span>
+          <span style="background:var(--pale);color:var(--moss);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Composting & Soil Science</span>
+          <span style="background:var(--pale);color:var(--moss);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Environmental Education</span>
+          <span style="background:var(--pale);color:var(--moss);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Sustainable Agriculture</span>
+          <span style="background:var(--pale);color:var(--moss);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Farm Business Management</span>
+          <span style="background:var(--pale);color:var(--moss);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Report & Grant Writing</span>
+          <span style="background:var(--pale);color:var(--moss);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Data Collection</span>
+          <span style="background:var(--pale);color:var(--moss);padding:5px 12px;border-radius:100px;font-size:0.78rem;font-weight:600;">Google Workspace</span>
+        </div>
+      </div>
+    </div>
+    <div class="side-col">
+      <div class="sec">
+        <div class="sh">Education</div>
+        <div class="side-item"><div class="yr">2012–2016</div><h3>B.Ed. Agricultural Science</h3><div class="sub">University of Cape Coast</div></div>
+        <div class="side-item"><div class="yr">2020</div><h3>Cert. Organic Farming & Composting</h3><div class="sub">Ghana Organic Agriculture Network</div></div>
+        <div class="side-item"><div class="yr">2022</div><h3>Environmental Education Diploma</h3><div class="sub">IUCN / GES Online Programme</div></div>
+        <div class="side-item"><div class="yr">2009–2012</div><h3>WASSCE — Agric. Science</h3><div class="sub">Prempeh College, Kumasi</div></div>
+      </div>
+      <div class="sec">
+        <div class="sh">Proficiency</div>
+        <div class="skill-item"><span>Agric. Teaching</span><div class="prog-mini"><div class="prog-fill" style="width:95%"></div></div></div>
+        <div class="skill-item"><span>Farm Management</span><div class="prog-mini"><div class="prog-fill" style="width:92%"></div></div></div>
+        <div class="skill-item"><span>Environmental Ed.</span><div class="prog-mini"><div class="prog-fill" style="width:88%"></div></div></div>
+        <div class="skill-item"><span>Research Methods</span><div class="prog-mini"><div class="prog-fill" style="width:80%"></div></div></div>
+      </div>
+      <div class="sec">
+        <div class="sh">Positions</div>
+        <div class="pos-item">Agric Club Patron — KAMJHS</div>
+        <div class="pos-item">District Farm Coord. — GES</div>
+        <div class="pos-item">SRC Env. Officer — UCC</div>
+        <div class="pos-item">GES Agric Panel Marker, BECE</div>
+      </div>
+      <div class="sec">
+        <div class="sh">Awards</div>
+        <div class="award-item">GES Ashanti Best Agric Teacher, 2023</div>
+        <div class="award-item">Sustainable School Award, GES, 2022</div>
+        <div class="award-item">Green Ghana Champion, EPA, 2022</div>
+        <div class="award-item">MoFA Outstanding Educator, 2016</div>
+        <div class="award-item">Dean's List — UCC, 2015</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

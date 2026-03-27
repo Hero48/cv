@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 03 — Midnight Blue</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --navy:#0d1b2a;
+    --midnight:#071015;
+    --gold:#c9a84c;
+    --gold-light:#e8d090;
+    --slate:#b8c5d1;
+    --white:#f0f4f8;
+  }
+  body{background:var(--midnight);color:var(--white);font-family:'Outfit',sans-serif;font-weight:300;line-height:1.6;}
+  .wrapper{max-width:900px;margin:0 auto;padding:72px 48px;}
+
+  /* HERO BLOCK */
+  .hero{display:grid;grid-template-columns:1fr auto;align-items:center;gap:48px;padding-bottom:52px;margin-bottom:52px;border-bottom:1px solid rgba(201,168,76,0.25);}
+  .hero-text{}
+  .label{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+  .hero-name{font-family:'Libre Baskerville',serif;font-size:clamp(40px,6vw,70px);line-height:1;font-weight:700;margin-bottom:12px;}
+  .hero-name .dim{color:var(--slate);}
+  .hero-role{font-size:14px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px;}
+  .hero-bio{font-size:14px;line-height:1.9;color:var(--slate);max-width:440px;}
+  .hero-badge{width:130px;height:130px;border-radius:50%;border:2px solid var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;flex-shrink:0;}
+  .badge-num{font-family:'Libre Baskerville',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;}
+  .badge-sub{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-top:4px;}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .section{margin-bottom:44px;}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:28px;}
+  .sec-line{flex:1;height:1px;background:rgba(201,168,76,0.25);}
+  .sec-title{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);}
+  .card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);padding:22px 24px;margin-bottom:14px;position:relative;overflow:hidden;}
+  .card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
+  .card-period{font-size:11px;color:var(--gold);letter-spacing:1px;margin-bottom:6px;}
+  .card-title{font-family:'Libre Baskerville',serif;font-size:17px;font-weight:700;color:var(--white);margin-bottom:4px;}
+  .card-place{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--slate);margin-bottom:10px;}
+  .card-body{font-size:12.5px;line-height:1.8;color:#8fa3b1;}
+  .skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .skill-item{display:flex;align-items:center;gap:10px;font-size:12.5px;color:var(--slate);}
+  .skill-item::before{content:'◆';color:var(--gold);font-size:8px;flex-shrink:0;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px;padding-top:32px;border-top:1px solid rgba(201,168,76,0.2);}
+  .contact-cell{font-size:12px;color:var(--slate);}
+  .contact-cell span{display:block;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+  @media(max-width:680px){.grid-2{grid-template-columns:1fr;}.hero{grid-template-columns:1fr;}.hero-badge{display:none;}}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="label">Curriculum Vitae · 2024</div>
+      <h1 class="hero-name">Yaa <span class="dim">Mensah</span></h1>
+      <div class="hero-role">Early Childhood Educator · Trainer</div>
+      <div class="hero-bio">Dedicated early childhood specialist with expertise in play-based pedagogy, inclusive classrooms and teacher capacity building across Ghana's Central Region.</div>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-num">5+</div>
+      <div class="badge-sub">Years Teaching</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <div class="section">
+        <div class="sec-head"><div class="sec-title">Experience</div><div class="sec-line"></div></div>
+        <div class="card">
+          <div class="card-period">2022 — Present</div>
+          <div class="card-title">Lead Kindergarten Teacher</div>
+          <div class="card-place">Cape Coast Municipal KG School</div>
+          <div class="card-body">Develop and deliver play-based curriculum for 35 children aged 4–6. Pioneered a parent-engagement model that increased home reading rates by 60%.</div>
+        </div>
+        <div class="card">
+          <div class="card-period">2019 — 2022</div>
+          <div class="card-title">Nursery Class Teacher</div>
+          <div class="card-place">Aggrey Memorial Creche, Cape Coast</div>
+          <div class="card-body">Managed full-day programme for 28 infants and toddlers, incorporating Montessori-inspired learning corners and sensory play stations.</div>
+        </div>
+        <div class="card">
+          <div class="card-period">2018 — 2019</div>
+          <div class="card-title">Teaching Assistant</div>
+          <div class="card-place">St. Monica's Primary, Mankessim</div>
+          <div class="card-body">Supported lead teacher in KG–Grade 1 transition classes, conducting daily phonics drills and numeracy activities.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section">
+        <div class="sec-head"><div class="sec-title">Education</div><div class="sec-line"></div></div>
+        <div class="card">
+          <div class="card-period">2014 — 2018</div>
+          <div class="card-title">B.Ed. Early Childhood Education</div>
+          <div class="card-place">University of Cape Coast</div>
+          <div class="card-body">Graduated with Honours. Final year project on the impact of story-telling on vocabulary acquisition in KG pupils.</div>
+        </div>
+        <div class="card">
+          <div class="card-period">2020</div>
+          <div class="card-title">Certificate in Child Psychology</div>
+          <div class="card-place">Ghana Education Service · Online</div>
+          <div class="card-body">36-hour professional development course focusing on developmental milestones and behavioural guidance strategies.</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-head"><div class="sec-title">Leadership</div><div class="sec-line"></div></div>
+        <div class="card">
+          <div class="card-period">2022 — Present</div>
+          <div class="card-title">District Teacher Trainer</div>
+          <div class="card-place">Cape Coast Metro GES</div>
+          <div class="card-body">Facilitate quarterly capacity-building workshops for 80+ KG teachers across 12 schools in the metro.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-head"><div class="sec-title">Core Competencies</div><div class="sec-line"></div></div>
+    <div class="skill-grid">
+      <div class="skill-item">Play-Based & Montessori Methods</div>
+      <div class="skill-item">Child Development Assessment</div>
+      <div class="skill-item">Inclusive Education Practices</div>
+      <div class="skill-item">Parent & Community Engagement</div>
+      <div class="skill-item">Curriculum Planning & Design</div>
+      <div class="skill-item">Teacher Training & Mentoring</div>
+      <div class="skill-item">Storytelling & Literacy Promotion</div>
+      <div class="skill-item">Microsoft Office · Google Classroom</div>
+    </div>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-cell"><span>Email</span>yaa.mensah@gmailedu.gh</div>
+    <div class="contact-cell"><span>Phone</span>+233 24 789 0011</div>
+    <div class="contact-cell"><span>Location</span>Cape Coast, Central Region</div>
+    <div class="contact-cell"><span>Certification</span>GES Licensed · GTLE 2018</div>
+  </div>
+</div>
+</body>
+</html>

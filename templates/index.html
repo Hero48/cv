@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="relative px-6 md:px-20 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="z-10 order-2 lg:order-1">
+        <h1 class="font-headline text-6xl md:text-8xl lg:text-9xl text-on-background leading-tight mb-6 font-black italic">
+            Your CV.<br/><span class="text-brand-gold not-italic">Your Future.</span>
+        </h1>
+        <p class="text-xl md:text-2xl text-secondary max-w-xl mb-10 leading-relaxed font-medium">
+            Turn your teaching experience into a professional CV in <span class="font-bold text-on-background bg-brand-purple px-1">2 minutes</span> for just <span class="font-bold text-brand-gold underline decoration-4 underline-offset-4">GHC 10</span>.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6">
+            <a href="{{ url_for('main.templates_gallery') }}" class="bg-primary text-on-primary px-10 py-5 font-black text-xl uppercase tracking-widest border-4 border-brand-black neo-shadow-lg hover:bg-[#fbd97d] transition-all active:translate-y-1 active:translate-x-1 active:shadow-none text-center">
+                Get Started
+            </a>
+            <button class="bg-white text-on-background px-10 py-5 font-black text-xl border-4 border-brand-black neo-shadow-lg hover:bg-stone-100 transition-all active:translate-y-1 active:translate-x-1 active:shadow-none">
+                View Samples
+            </button>
+        </div>
+    </div>
+    <div class="order-1 lg:order-2 flex justify-center">
+        <!-- Abstract Neo-Brutalist Shape/Illustration -->
+        <div class="relative w-full max-w-md aspect-square bg-brand-purple border-8 border-brand-black neo-shadow-lg rotate-3 flex items-center justify-center">
+             <div class="absolute -top-10 -left-10 w-32 h-32 bg-primary border-4 border-brand-black neo-shadow -rotate-6 flex items-center justify-center">
+                <span class="material-symbols-outlined text-6xl text-brand-black">history_edu</span>
+             </div>
+             <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-white border-4 border-brand-black neo-shadow rotate-12 flex flex-col p-4">
+                <div class="w-full h-4 bg-brand-black mb-2"></div>
+                <div class="w-3/4 h-2 bg-stone-200 mb-1"></div>
+                <div class="w-1/2 h-2 bg-stone-200"></div>
+             </div>
+             <span class="font-headline text-4xl font-black uppercase tracking-tighter text-center px-4">Empowering<br/>Ghanaian<br/>Educators</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

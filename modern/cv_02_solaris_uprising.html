@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Solaris Uprising</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Space+Grotesk:wght@400;600;700&family=Crimson+Pro:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #FFB800;
+    --saffron: #FF7A00;
+    --sienna: #C1440E;
+    --root: #2D0A00;
+    --cyan: #00E5CC;
+    --green: #39FF14;
+    --base: #0F0602;
+    --surface: #1C0A04;
+    --cream: #FFF3DC;
+    --muted: #A07040;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  body {
+    background: var(--base);
+    color: var(--cream);
+    font-family: 'Crimson Pro', serif;
+    font-size: 11pt;
+    line-height: 1.75;
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Solar halo */
+  .solar-halo {
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255,184,0,0.18) 0%, rgba(255,122,0,0.06) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Kente band */
+  .kente-band {
+    width: 100%;
+    height: 14px;
+    display: flex;
+    overflow: hidden;
+  }
+
+  .kente-band .k {
+    flex: 1;
+    height: 100%;
+  }
+
+  /* Header */
+  .header {
+    background: var(--surface);
+    padding: 44px 52px 36px 52px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .pre-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7pt;
+    letter-spacing: 0.3em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 52pt;
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    color: var(--gold);
+  }
+
+  h1 .sub {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--cyan);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  /* Sun circle decoration */
+  .sun-circle {
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+    position: relative;
+    margin-top: -10px;
+  }
+
+  .sun-circle svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .contact-row {
+    display: flex;
+    gap: 28px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,184,0,0.2);
+  }
+
+  .contact-item {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7.5pt;
+    color: var(--muted);
+  }
+
+  .contact-item strong {
+    color: var(--gold);
+    display: block;
+    font-size: 6pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+  }
+
+  /* Kente divider between sections */
+  .kente-divider {
+    width: 100%;
+    height: 8px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--gold) 0px, var(--gold) 12px,
+      var(--sienna) 12px, var(--sienna) 20px,
+      var(--base) 20px, var(--base) 24px,
+      var(--cyan) 24px, var(--cyan) 32px,
+      var(--base) 32px, var(--base) 36px,
+      var(--saffron) 36px, var(--saffron) 48px,
+      var(--root) 48px, var(--root) 52px
+    );
+    opacity: 0.8;
+  }
+
+  /* Body layout */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 1fr 210px;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .main {
+    padding: 32px 36px 32px 52px;
+    border-right: 1px solid rgba(255,184,0,0.1);
+  }
+
+  .sidebar {
+    padding: 32px 28px 32px 24px;
+    background: rgba(28,10,4,0.5);
+  }
+
+  .section {
+    margin-bottom: 28px;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 8pt;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--sienna), transparent);
+    opacity: 0.5;
+  }
+
+  .summary {
+    font-size: 10.5pt;
+    line-height: 1.8;
+    color: var(--cream);
+  }
+
+  .summary strong {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .entry {
+    margin-bottom: 20px;
+    padding-left: 14px;
+    border-left: 2px solid rgba(255,184,0,0.2);
+    position: relative;
+  }
+
+  .entry::before {
+    content: '◆';
+    position: absolute;
+    left: -8px;
+    top: 2px;
+    font-size: 8pt;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .entry-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 13pt;
+    color: var(--cream);
+  }
+
+  .entry-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+  }
+
+  .entry-company {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+
+  .entry-desc {
+    font-size: 9pt;
+    color: rgba(255,243,220,0.78);
+    line-height: 1.7;
+    list-style: none;
+    padding: 0;
+  }
+
+  .entry-desc li {
+    padding-left: 12px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  .entry-desc li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--saffron);
+    font-size: 8pt;
+  }
+
+  /* Sidebar styles */
+  .s-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 7pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255,184,0,0.25);
+    margin-top: 20px;
+  }
+
+  .s-label:first-child { margin-top: 0; }
+
+  .skill-row {
+    margin-bottom: 8px;
+  }
+
+  .skill-name {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 8pt;
+    color: var(--cream);
+    margin-bottom: 3px;
+    font-weight: 400;
+  }
+
+  .skill-bar {
+    height: 3px;
+    background: rgba(255,184,0,0.12);
+    border-radius: 0;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--saffron));
+  }
+
+  .hex-tag {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--cyan);
+    border: 1px solid rgba(0,229,204,0.3);
+    padding: 2px 7px;
+    margin: 2px 2px 2px 0;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+    background: rgba(0,229,204,0.05);
+  }
+
+  .s-text {
+    font-size: 8pt;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .s-stat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .edu-item {
+    margin-bottom: 10px;
+  }
+
+  .edu-deg {
+    font-family: 'Crimson Pro', serif;
+    font-size: 10pt;
+    color: var(--cream);
+  }
+
+  .edu-school {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 7pt;
+    color: var(--muted);
+  }
+
+  /* Footer kente */
+  .footer {
+    padding: 14px 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 6.5pt;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Solar halo decoration -->
+  <div class="solar-halo"></div>
+
+  <!-- Top kente band -->
+  <div class="kente-divider"></div>
+
+  <div class="header">
+    <div class="header-inner">
+      <div>
+        <div class="pre-label">◈ Creative Director &amp; Cultural Strategist</div>
+        <h1>ADAEZE<span class="sub">Okonkwo-Mensah</span></h1>
+        <div class="contact-row">
+          <div class="contact-item"><strong>Email</strong>adaeze.om@solarisworks.co</div>
+          <div class="contact-item"><strong>Phone</strong>+234 803 771 4402</div>
+          <div class="contact-item"><strong>Web</strong>solarisworks.co</div>
+          <div class="contact-item"><strong>Base</strong>Lagos / Amsterdam</div>
+        </div>
+      </div>
+      <!-- Sun SVG -->
+      <div class="sun-circle">
+        <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="55" cy="55" r="42" stroke="#FFB800" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="55" cy="55" r="28" stroke="#FF7A00" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="55" cy="55" r="14" fill="#FFB800" opacity="0.4"/>
+          <!-- Sun rays -->
+          <line x1="55" y1="5" x2="55" y2="13" stroke="#FFB800" stroke-width="1.5" opacity="0.7"/>
+          <line x1="55" y1="97" x2="55" y2="105" stroke="#FFB800" stroke-width="1.5" opacity="0.7"/>
+          <line x1="5" y1="55" x2="13" y2="55" stroke="#FFB800" stroke-width="1.5" opacity="0.7"/>
+          <line x1="97" y1="55" x2="105" y2="55" stroke="#FFB800" stroke-width="1.5" opacity="0.7"/>
+          <line x1="16" y1="16" x2="22" y2="22" stroke="#FF7A00" stroke-width="1.5" opacity="0.6"/>
+          <line x1="88" y1="88" x2="94" y2="94" stroke="#FF7A00" stroke-width="1.5" opacity="0.6"/>
+          <line x1="88" y1="16" x2="94" y2="22" stroke="#FF7A00" stroke-width="1.5" opacity="0.6"/>
+          <line x1="16" y1="88" x2="22" y2="94" stroke="#FF7A00" stroke-width="1.5" opacity="0.6"/>
+          <!-- Kente triangles -->
+          <polygon points="55,30 64,46 46,46" fill="#FFB800" opacity="0.3"/>
+          <polygon points="55,80 64,64 46,64" fill="#C1440E" opacity="0.3"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="kente-divider" style="height:6px; opacity:0.5;"></div>
+
+  <div class="body-layout">
+
+    <div class="main">
+
+      <div class="section">
+        <div class="section-title">Profile</div>
+        <p class="summary">
+          Visionary creative director with <strong>11 years</strong> at the intersection of Afrofuturist design, brand strategy, and cultural communication. I build visual languages rooted in <strong>ancestral craft traditions</strong> and future-forward technology — work that is warm, specific, and impossible to ignore.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Experience</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Creative Director</div>
+            <div class="entry-date">2021 — PRESENT</div>
+          </div>
+          <div class="entry-company">Solaris Works Studio · Lagos &amp; Amsterdam</div>
+          <ul class="entry-desc">
+            <li>Founded and lead an independent studio focused on Afrofuturist brand identities and digital experiences</li>
+            <li>Clients include global NGOs, pan-African tech startups, and cultural institutions across 3 continents</li>
+            <li>Oversee team of 8 across design, strategy, and motion — managing £1.4M annual project portfolio</li>
+            <li>Speaker at Design Indaba 2023 and Creative Mornings Lagos 2024</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Senior Brand Strategist</div>
+            <div class="entry-date">2018 — 2021</div>
+          </div>
+          <div class="entry-company">Uchumi Creative Group · Nairobi</div>
+          <ul class="entry-desc">
+            <li>Led brand identity design for 20+ African consumer and fintech brands</li>
+            <li>Developed visual systems that merged traditional Kente and Adinkra motifs with contemporary digital UI</li>
+            <li>Built client relationships across Kenya, Ghana, Nigeria, and South Africa</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Art Director</div>
+            <div class="entry-date">2015 — 2018</div>
+          </div>
+          <div class="entry-company">Meridian BBDO · Amsterdam</div>
+          <ul class="entry-desc">
+            <li>Art directed integrated campaigns for multinational FMCG and cultural clients</li>
+            <li>Awarded 2× Cannes Lions Bronze for campaign visual direction</li>
+            <li>Mentored 4 junior art directors through structured development programmes</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Graphic Designer</div>
+            <div class="entry-date">2013 — 2015</div>
+          </div>
+          <div class="entry-company">Studio Sankofa · Accra</div>
+          <ul class="entry-desc">
+            <li>Designed editorial content for pan-African arts and culture publications</li>
+            <li>Built brand systems for emerging creative businesses and cultural nonprofits</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="s-label">Core Skills</div>
+      <div class="skill-row">
+        <div class="skill-name">Brand Identity</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Creative Direction</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Cultural Strategy</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Motion Design</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:76%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Art Direction</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Team Leadership</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+
+      <div class="s-label">Tools</div>
+      <div class="hex-tag">Figma</div>
+      <div class="hex-tag">Illustrator</div>
+      <div class="hex-tag">After Effects</div>
+      <div class="hex-tag">Blender</div>
+      <div class="hex-tag">Photoshop</div>
+      <div class="hex-tag">Webflow</div>
+      <div class="hex-tag">Cinema 4D</div>
+
+      <div class="s-label">Awards</div>
+      <span class="s-stat">// 2024</span>
+      <p class="s-text">Design Indaba Fellowship — Cultural Innovation</p>
+      <span class="s-stat">// 2023</span>
+      <p class="s-text">Fast Company Africa Most Creative 2023</p>
+      <span class="s-stat">// 2019</span>
+      <p class="s-text">Cannes Lions Bronze ×2 — Brand Campaign</p>
+
+      <div class="s-label">Languages</div>
+      <div class="skill-row">
+        <div class="skill-name">English</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Igbo</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Dutch</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:70%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">French</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:55%"></div></div>
+      </div>
+
+      <div class="s-label">Education</div>
+      <div class="edu-item">
+        <div class="edu-deg">MFA Visual Communication</div>
+        <div class="edu-school">Gerrit Rietveld Academie · 2013</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-deg">BA Fine Art &amp; Design</div>
+        <div class="edu-school">University of Lagos · 2011</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="kente-divider" style="height:6px; opacity:0.4;"></div>
+
+  <div class="footer">
+    <div class="footer-text">Adaeze Okonkwo-Mensah · CV · 2024</div>
+    <div class="footer-text" style="color:var(--gold);">◈ LAGOS · AMSTERDAM ◈</div>
+    <div class="footer-text">solarisworks.co</div>
+  </div>
+
+</div>
+</body>
+</html>

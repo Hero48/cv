@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Efua Appiah-Kubi — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{--earth:#b5582c;--sand:#f5e8cc;--dark:#1c1208;--moss:#4a6b2a;--tan:#d4a96a;--white:#fff;--text:#1c1208;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--sand);font-family:'Barlow',sans-serif;color:var(--text);}
+  .wrapper{max-width:960px;margin:0 auto;}
+  .header{background:var(--dark);display:grid;grid-template-columns:auto 1fr auto;}
+  .h-left{background:var(--earth);padding:44px 40px;display:flex;align-items:flex-end;}
+  .h-left .initials{font-family:'Barlow Condensed',sans-serif;font-size:6rem;font-weight:800;color:rgba(255,255,255,0.9);line-height:1;letter-spacing:-0.04em;}
+  .h-center{padding:44px 48px;display:flex;flex-direction:column;justify-content:flex-end;}
+  .h-center h1{font-family:'Barlow Condensed',sans-serif;font-size:3.8rem;font-weight:800;color:var(--white);letter-spacing:0.04em;line-height:0.95;text-transform:uppercase;}
+  .h-center h1 .sub{display:block;color:var(--tan);font-weight:400;font-size:2.2rem;}
+  .h-right{padding:44px 40px;display:flex;flex-direction:column;justify-content:space-between;}
+  .h-right .role{font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.7;max-width:200px;text-align:right;}
+  .h-right .stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:auto;}
+  .stat-block{background:rgba(255,255,255,0.06);padding:14px;text-align:center;}
+  .stat-block .n{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:700;color:var(--tan);}
+  .stat-block .l{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+  .cbar{display:flex;background:var(--earth);}
+  .cbar-item{padding:12px 24px;font-size:0.8rem;color:rgba(255,255,255,0.75);font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:0.08em;border-right:1px solid rgba(255,255,255,0.15);text-transform:uppercase;}
+  .body{display:grid;grid-template-columns:1fr 1fr 280px;gap:0;background:var(--sand);}
+  .col{padding:44px 36px;border-right:2px solid rgba(28,18,8,0.1);}
+  .col:last-child{border-right:none;background:white;}
+  .sh{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--earth);border-bottom:2px solid var(--earth);padding-bottom:6px;margin-bottom:20px;}
+  .sec{margin-bottom:32px;}
+  .job{margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid rgba(28,18,8,0.08);}
+  .job h3{font-family:'Barlow Condensed',sans-serif;font-size:1.15rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--dark);}
+  .job .meta{display:flex;justify-content:space-between;font-size:0.82rem;margin:5px 0;}
+  .job .org{color:#6a5030;font-style:italic;}
+  .job .yr{background:var(--earth);color:white;padding:2px 8px;font-size:0.73rem;font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:0.06em;}
+  .job p{font-size:0.86rem;line-height:1.65;color:#3a2c18;}
+  .edu-block{background:var(--dark);color:white;padding:14px 16px;margin-bottom:8px;}
+  .edu-block h3{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;}
+  .edu-block .sub{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:3px;}
+  .edu-block .yr{font-size:0.72rem;color:var(--tan);font-family:'Barlow Condensed',sans-serif;font-weight:600;letter-spacing:0.08em;margin-bottom:4px;}
+  .skill-tag{display:inline-block;background:var(--sand);border:2px solid var(--dark);padding:4px 10px;font-family:'Barlow Condensed',sans-serif;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin:3px 3px 0 0;}
+  .pos-item{font-family:'Barlow Condensed',sans-serif;font-size:0.92rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:6px 0;border-bottom:1px solid rgba(28,18,8,0.1);}
+  .pos-item::before{content:'▶ ';color:var(--earth);}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="h-left"><div class="initials">EAK</div></div>
+    <div class="h-center">
+      <h1>EFUA APPIAH-<span class="sub">KUBI</span></h1>
+    </div>
+    <div class="h-right">
+      <div class="role">Home Economics & Vocational Teacher · Life Skills Educator · Entrepreneurship Coach</div>
+      <div class="stats">
+        <div class="stat-block"><div class="n">7</div><div class="l">Years</div></div>
+        <div class="stat-block"><div class="n">380</div><div class="l">Students</div></div>
+        <div class="stat-block"><div class="n">4</div><div class="l">Awards</div></div>
+        <div class="stat-block"><div class="n">88%</div><div class="l">BECE Pass</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="cbar">
+    <div class="cbar-item">efua.appiah@ges.gov.gh</div>
+    <div class="cbar-item">+233 54 667 7889</div>
+    <div class="cbar-item">Takoradi, W/R</div>
+  </div>
+  <div class="body">
+    <div class="col">
+      <div class="sec">
+        <div class="sh">Experience</div>
+        <div class="job">
+          <h3>Home Economics Teacher & HOD</h3>
+          <div class="meta"><span class="org">Takoradi Technical JHS</span><span class="yr">2020–Now</span></div>
+          <p>Lead Home Economics and Vocational Skills for all JHS levels. Manage a food lab and a tailoring studio. Launched school's micro-enterprise club producing and selling food items at community events.</p>
+        </div>
+        <div class="job">
+          <h3>Home Economics Teacher</h3>
+          <div class="meta"><span class="org">Sekondi Methodist JHS</span><span class="yr">2018–2020</span></div>
+          <p>Taught Food & Nutrition and Clothing & Textiles. Introduced a "Cook & Earn" holiday camp that generated income for 22 students to fund their own school supplies.</p>
+        </div>
+        <div class="job">
+          <h3>Skills Trainer — Vocational Programme</h3>
+          <div class="meta"><span class="org">LEAP Ghana / ILO Partnership</span><span class="yr">2017–2018</span></div>
+          <p>Trained 60 unemployed youth in basic food preparation and textile skills as part of ILO-backed vocational empowerment programme.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="sec">
+        <div class="sh">Education</div>
+        <div class="edu-block"><div class="yr">2013–2017</div><h3>B.Ed. Home Economics</h3><div class="sub">University of Cape Coast</div></div>
+        <div class="edu-block"><div class="yr">2020</div><h3>Cert. Entrepreneurship Education</h3><div class="sub">NBSSI Ghana</div></div>
+        <div class="edu-block"><div class="yr">2022</div><h3>HACCP Food Safety Certification</h3><div class="sub">Food & Drugs Authority Ghana</div></div>
+        <div class="edu-block"><div class="yr">2010–2013</div><h3>WASSCE — Home Economics</h3><div class="sub">Takoradi Girls SHS</div></div>
+      </div>
+      <div class="sec">
+        <div class="sh">Positions Held</div>
+        <div class="pos-item">SRC Caterer Representative — UCC</div>
+        <div class="pos-item">HOD Home Economics — TTJHS</div>
+        <div class="pos-item">District Skills Education Coordinator</div>
+        <div class="pos-item">LEAP Ghana Trainer-of-Trainers</div>
+        <div class="pos-item">School Enterprise Club Patron</div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="sec">
+        <div class="sh">Skills</div>
+        <span class="skill-tag">Food & Nutrition</span>
+        <span class="skill-tag">Textiles & Design</span>
+        <span class="skill-tag">Entrepreneurship Ed.</span>
+        <span class="skill-tag">HACCP & Food Safety</span>
+        <span class="skill-tag">Business Plan Writing</span>
+        <span class="skill-tag">Sewing & Tailoring</span>
+        <span class="skill-tag">Event Catering</span>
+        <span class="skill-tag">Google Classroom</span>
+        <span class="skill-tag">Report Writing</span>
+      </div>
+      <div class="sec" style="margin-top:24px;">
+        <div class="sh">Awards</div>
+        <div style="font-size:0.85rem;line-height:2.1;color:#3a2c18;">
+          🏆 GES Western Best Teacher, 2023<br>
+          🥇 Best HE Student — UCC, 2017<br>
+          🌟 ILO Outstanding Trainer Award, 2018<br>
+          📚 School Enterprise Champion, GES, 2022
+        </div>
+      </div>
+      <div class="sec">
+        <div class="sh">Languages</div>
+        <div style="font-size:0.85rem;line-height:2.1;color:#3a2c18;">
+          English — Fluent<br>
+          Fante — Native<br>
+          Twi — Proficient<br>
+          Nzema — Basic
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

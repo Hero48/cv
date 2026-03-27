@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Gilded Garden</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;1,400;1,500&family=Alegreya:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --emerald: #051A0F;
+    --canopy: #0A2416;
+    --jewel: #0F3320;
+    --gold: #D4A017;
+    --goldbright: #F0C040;
+    --goldleaf: #EDD68A;
+    --crimson: #8B0000;
+    --bloom: #C8102E;
+    --indigo: #4A3080;
+    --paper: #F5EDD8;
+    --parchment: #EEE0C0;
+    --muted: #8A7040;
+    --ink: #1A0F05;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  body {
+    background: var(--emerald);
+    color: var(--parchment);
+    font-family: 'EB Garamond', serif;
+    font-size: 10.5pt;
+    line-height: 1.85;
+    width: 210mm;
+    min-height: 297mm;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Vignette overlay */
+  .vignette {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(2,10,5,0.6) 100%);
+    pointer-events: none;
+    z-index: 50;
+  }
+
+  /* Gold leaf shimmer overlay */
+  .gold-leaf-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(212,160,23,0.012) 40px,
+      rgba(212,160,23,0.012) 41px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Botanical SVG margin decorations */
+  .botanical-left {
+    position: absolute;
+    left: 12px;
+    top: 200px;
+    width: 48px;
+    opacity: 0.2;
+    z-index: 2;
+  }
+
+  .botanical-right {
+    position: absolute;
+    right: 12px;
+    top: 300px;
+    width: 48px;
+    opacity: 0.18;
+    z-index: 2;
+    transform: scaleX(-1);
+  }
+
+  /* Gold ornamental top border */
+  .top-ornament {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--goldbright), var(--gold), transparent);
+    position: relative;
+    z-index: 5;
+  }
+
+  .top-ornament::after {
+    content: '❧ ✦ ❧';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10pt;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    background: var(--emerald);
+    padding: 0 10px;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(180deg, var(--canopy) 0%, var(--emerald) 100%);
+    padding: 44px 70px 32px 70px;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    border-bottom: 1px solid rgba(212,160,23,0.25);
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .pre-label {
+    font-family: 'Alegreya', serif;
+    font-style: italic;
+    font-size: 9pt;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 400;
+    font-size: 30pt;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--goldleaf) 0%, var(--goldbright) 40%, var(--gold) 70%, var(--goldleaf) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+
+  h1 .surname {
+    display: block;
+    font-size: 18pt;
+    letter-spacing: 0.2em;
+    margin-top: 4px;
+  }
+
+  .title-role {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 10pt;
+    font-style: italic;
+    color: var(--goldleaf);
+    letter-spacing: 0.05em;
+    margin-top: 8px;
+  }
+
+  .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(212,160,23,0.15);
+  }
+
+  .contact-item {
+    font-family: 'Alegreya', serif;
+    font-size: 8.5pt;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .contact-item strong {
+    display: block;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 5.5pt;
+    color: var(--gold);
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  /* Gold ornamental rule */
+  .gold-rule {
+    text-align: center;
+    font-size: 10pt;
+    color: var(--gold);
+    padding: 8px 0;
+    letter-spacing: 0.3em;
+    opacity: 0.6;
+    position: relative;
+    z-index: 3;
+  }
+
+  /* Body layout */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 1fr 185px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .main {
+    padding: 28px 32px 28px 62px;
+    border-right: 1px solid rgba(212,160,23,0.12);
+    position: relative;
+  }
+
+  .sidebar {
+    padding: 28px 22px 28px 18px;
+    background: rgba(10,36,22,0.5);
+  }
+
+  .section {
+    margin-bottom: 26px;
+    position: relative;
+  }
+
+  /* Section title with cartouche-style decoration */
+  .section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 7.5pt;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title::before {
+    content: '◆';
+    font-size: 6pt;
+    color: var(--crimson);
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(212,160,23,0.4), transparent);
+  }
+
+  .summary {
+    font-size: 10.5pt;
+    color: var(--parchment);
+    line-height: 1.9;
+    font-style: italic;
+  }
+
+  .summary strong {
+    font-style: normal;
+    color: var(--goldbright);
+  }
+
+  /* Drop cap on summary */
+  .drop-cap::first-letter {
+    font-size: 3.2em;
+    font-family: 'Cinzel Decorative', serif;
+    color: var(--crimson);
+    float: left;
+    line-height: 0.75;
+    margin-right: 6px;
+    margin-top: 4px;
+  }
+
+  .entry {
+    margin-bottom: 18px;
+    padding-left: 16px;
+    border-left: 1px solid rgba(212,160,23,0.2);
+    position: relative;
+  }
+
+  .entry::before {
+    content: '◈';
+    position: absolute;
+    left: -7px;
+    top: 2px;
+    font-size: 9pt;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .entry-title {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 11.5pt;
+    color: var(--parchment);
+  }
+
+  .entry-date {
+    font-family: 'Alegreya', serif;
+    font-style: italic;
+    font-size: 8.5pt;
+    color: var(--muted);
+  }
+
+  .entry-company {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 6.5pt;
+    color: var(--goldleaf);
+    letter-spacing: 0.12em;
+    margin-bottom: 7px;
+    font-weight: 400;
+  }
+
+  .entry-desc {
+    font-size: 9pt;
+    color: rgba(238,224,192,0.8);
+    line-height: 1.75;
+    list-style: none;
+  }
+
+  .entry-desc li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  .entry-desc li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 6pt;
+    top: 3px;
+    opacity: 0.6;
+  }
+
+  /* Sidebar */
+  .s-label {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 6.5pt;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.18em;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+    margin-top: 18px;
+    text-transform: uppercase;
+  }
+
+  .s-label:first-child { margin-top: 0; }
+
+  .skill-row { margin-bottom: 8px; }
+
+  .skill-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 9pt;
+    color: var(--parchment);
+    margin-bottom: 3px;
+  }
+
+  .skill-bar {
+    height: 1px;
+    background: rgba(212,160,23,0.12);
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--goldbright));
+  }
+
+  .botanical-tag {
+    display: inline-block;
+    font-family: 'Alegreya', serif;
+    font-size: 8pt;
+    color: var(--goldleaf);
+    border: 1px solid rgba(212,160,23,0.3);
+    padding: 1px 8px;
+    margin: 2px 2px 2px 0;
+    border-radius: 0;
+    background: rgba(212,160,23,0.04);
+  }
+
+  .s-text {
+    font-family: 'EB Garamond', serif;
+    font-size: 8.5pt;
+    color: var(--muted);
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  .s-stat {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 6pt;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 1px;
+    margin-top: 6px;
+  }
+
+  .edu-item { margin-bottom: 10px; }
+
+  .edu-deg {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 9.5pt;
+    color: var(--parchment);
+    font-weight: 700;
+  }
+
+  .edu-school {
+    font-family: 'Alegreya', serif;
+    font-style: italic;
+    font-size: 8.5pt;
+    color: var(--muted);
+  }
+
+  /* Full-bleed botanical pull panel */
+  .botanical-panel {
+    background: var(--jewel);
+    padding: 18px 62px;
+    border-top: 1px solid rgba(212,160,23,0.2);
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .botanical-panel .panel-botanical {
+    opacity: 0.25;
+    flex-shrink: 0;
+  }
+
+  .panel-quote {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11pt;
+    color: var(--goldleaf);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .panel-quote strong {
+    color: var(--goldbright);
+    font-style: normal;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 7pt;
+    letter-spacing: 0.15em;
+    display: block;
+    margin-top: 4px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 14px 62px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--canopy);
+    position: relative;
+    z-index: 3;
+    border-top: 1px solid rgba(212,160,23,0.2);
+  }
+
+  .footer-text {
+    font-family: 'Alegreya', serif;
+    font-style: italic;
+    font-size: 8pt;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-ornament {
+    color: var(--gold);
+    font-size: 10pt;
+    opacity: 0.5;
+    letter-spacing: 0.3em;
+  }
+
+  .bottom-ornament {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--goldbright), var(--gold), transparent);
+    position: relative;
+    z-index: 5;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="vignette"></div>
+  <div class="gold-leaf-overlay"></div>
+
+  <!-- Botanical margin decorations -->
+  <svg class="botanical-left" viewBox="0 0 50 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 200 Q20 150 15 120 Q10 90 20 60 Q28 30 25 0" stroke="#D4A017" stroke-width="1" fill="none"/>
+    <path d="M20 150 Q5 140 8 125 Q12 110 20 115" stroke="#D4A017" stroke-width="0.8" fill="none"/>
+    <path d="M18 120 Q2 105 6 90 Q12 78 20 88" stroke="#D4A017" stroke-width="0.8" fill="none"/>
+    <path d="M22 90 Q38 75 34 60 Q28 48 22 58" stroke="#D4A017" stroke-width="0.8" fill="none"/>
+    <ellipse cx="15" cy="122" rx="7" ry="4" fill="#D4A017" opacity="0.3" transform="rotate(-30 15 122)"/>
+    <ellipse cx="14" cy="86" rx="7" ry="4" fill="#8B0000" opacity="0.4" transform="rotate(20 14 86)"/>
+    <ellipse cx="34" cy="57" rx="6" ry="4" fill="#D4A017" opacity="0.3" transform="rotate(-15 34 57)"/>
+  </svg>
+
+  <svg class="botanical-right" viewBox="0 0 50 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 200 Q20 150 15 120 Q10 90 20 60 Q28 30 25 0" stroke="#D4A017" stroke-width="1" fill="none"/>
+    <path d="M20 150 Q5 140 8 125 Q12 110 20 115" stroke="#D4A017" stroke-width="0.8" fill="none"/>
+    <path d="M18 120 Q2 105 6 90 Q12 78 20 88" stroke="#D4A017" stroke-width="0.8" fill="none"/>
+    <path d="M22 90 Q38 75 34 60 Q28 48 22 58" stroke="#D4A017" stroke-width="0.8" fill="none"/>
+    <ellipse cx="15" cy="122" rx="7" ry="4" fill="#D4A017" opacity="0.3" transform="rotate(-30 15 122)"/>
+    <ellipse cx="14" cy="86" rx="6" ry="3.5" fill="#8B0000" opacity="0.35" transform="rotate(20 14 86)"/>
+    <ellipse cx="34" cy="57" rx="6" ry="4" fill="#D4A017" opacity="0.3" transform="rotate(-15 34 57)"/>
+  </svg>
+
+  <div class="top-ornament"></div>
+
+  <div class="header">
+    <div class="pre-label">~ Curriculum Vitæ ~</div>
+    <h1>ROSALIND<span class="surname">Ashworth-Vane</span></h1>
+    <div class="title-role">Rare Books Curator &amp; Manuscript Conservator</div>
+    <div class="contact-row">
+      <div class="contact-item"><strong>Post</strong>r.ashworth@bodleian.ox.ac.uk</div>
+      <div class="contact-item"><strong>Voice</strong>+44 1865 277 142</div>
+      <div class="contact-item"><strong>Institution</strong>Bodleian Libraries, Oxford</div>
+      <div class="contact-item"><strong>Residence</strong>Oxford, England</div>
+    </div>
+  </div>
+
+  <div class="gold-rule">— ◆ —</div>
+
+  <div class="body-layout">
+
+    <div class="main">
+
+      <div class="section">
+        <div class="section-title">Profile</div>
+        <p class="summary drop-cap">
+          Curator and conservator with <strong>fourteen years</strong> devoted to the preservation, interpretation, and exhibition of rare books, illuminated manuscripts, and early printed matter. I bring the scholarship of a bibliographer and the care of a craftsperson to collections that exist at the threshold of <strong>art, history, and fragile beauty</strong>.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Professional Experience</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Senior Curator, Special Collections</div>
+            <div class="entry-date">2019 — Present</div>
+          </div>
+          <div class="entry-company">The Bodleian Libraries · University of Oxford</div>
+          <ul class="entry-desc">
+            <li>Oversee a collection of 47,000 pre-1800 printed volumes and 1,200 illuminated manuscripts</li>
+            <li>Curated three major exhibitions drawing combined attendance exceeding 120,000 visitors</li>
+            <li>Led digitisation programme producing high-resolution facsimiles of 3,400 manuscript folios</li>
+            <li>Secured £680,000 in conservation grants from the Wellcome Trust and National Heritage Fund</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Manuscripts Conservator</div>
+            <div class="entry-date">2015 — 2019</div>
+          </div>
+          <div class="entry-company">The British Library · London</div>
+          <ul class="entry-desc">
+            <li>Conserved and stabilised over 800 medieval and early modern manuscripts including Lindisfarne Gospels support materials</li>
+            <li>Developed new aqueous treatment protocols for iron gall ink damage, now standard practice</li>
+            <li>Collaborated with the digitisation team on imaging standards for illuminated works</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Assistant Curator</div>
+            <div class="entry-date">2012 — 2015</div>
+          </div>
+          <div class="entry-company">Fitzwilliam Museum · Cambridge</div>
+          <ul class="entry-desc">
+            <li>Catalogued and described 600+ items in the illuminated manuscripts collection for online database</li>
+            <li>Assisted in mounting of the Founders and Benefactors exhibition (2014)</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Conservation Intern</div>
+            <div class="entry-date">2010 — 2012</div>
+          </div>
+          <div class="entry-company">Victoria &amp; Albert Museum · London</div>
+          <ul class="entry-desc">
+            <li>Assisted senior conservators with paper and parchment treatment for the Word &amp; Image department</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="s-label">Expertise</div>
+      <div class="skill-row">
+        <div class="skill-name">Manuscript Curation</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Paper Conservation</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Exhibition Design</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Codicology</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Grant Writing</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Digitisation</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+      </div>
+
+      <div class="s-label">Languages</div>
+      <div class="skill-row">
+        <div class="skill-name">English</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Latin (reading)</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">French</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Medieval Italian</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:62%"></div></div>
+      </div>
+
+      <div class="s-label">Specialist Areas</div>
+      <div class="botanical-tag">Illuminated MSS</div>
+      <div class="botanical-tag">Incunabula</div>
+      <div class="botanical-tag">Iron Gall Ink</div>
+      <div class="botanical-tag">Bookbinding</div>
+      <div class="botanical-tag">Parchment</div>
+      <div class="botanical-tag">Gold Leaf</div>
+      <div class="botanical-tag">Provenance</div>
+
+      <div class="s-label">Honours</div>
+      <span class="s-stat">MMXXIV</span>
+      <p class="s-text">Fellow, Society of Antiquaries of London</p>
+      <span class="s-stat">MMXXII</span>
+      <p class="s-text">Berger Award for Conservation Excellence</p>
+      <span class="s-stat">MMXX</span>
+      <p class="s-text">CILIP Information Professional of the Year</p>
+
+      <div class="s-label">Education</div>
+      <div class="edu-item">
+        <div class="edu-deg">MA Manuscript Studies</div>
+        <div class="edu-school">University of York · 2010</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-deg">BA History of Art</div>
+        <div class="edu-school">Univ. of Edinburgh · 2008</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-deg">Dip. Conservation</div>
+        <div class="edu-school">Camberwell College · 2012</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Botanical pull panel -->
+  <div class="botanical-panel">
+    <svg class="panel-botanical" width="60" height="70" viewBox="0 0 60 70" fill="none">
+      <path d="M30 70 Q25 50 20 35 Q15 20 25 8 Q30 0 30 0" stroke="#D4A017" stroke-width="1.2" fill="none"/>
+      <ellipse cx="19" cy="32" rx="10" ry="6" fill="#D4A017" opacity="0.4" transform="rotate(-25 19 32)"/>
+      <ellipse cx="24" cy="52" rx="9" ry="5" fill="#8B0000" opacity="0.35" transform="rotate(20 24 52)"/>
+      <ellipse cx="28" cy="18" rx="8" ry="5" fill="#D4A017" opacity="0.3" transform="rotate(-10 28 18)"/>
+    </svg>
+    <div class="panel-quote">
+      Selected Publications: <em>Iron Gall Ink: Stabilisation and Treatment</em> (2022, Getty Conservation Institute); <em>Before the Book: Devotional Manuscripts in Tudor England</em>, Exhibition Catalogue (Bodleian, 2021); Co-editor, <em>Journal of the Early Book Society</em>, Vol. 19–22.
+      <strong>◆ Published Scholar · Active Conservator · Trusted Curator ◆</strong>
+    </div>
+    <svg class="panel-botanical" width="60" height="70" viewBox="0 0 60 70" fill="none" style="transform:scaleX(-1)">
+      <path d="M30 70 Q25 50 20 35 Q15 20 25 8 Q30 0 30 0" stroke="#D4A017" stroke-width="1.2" fill="none"/>
+      <ellipse cx="19" cy="32" rx="10" ry="6" fill="#D4A017" opacity="0.4" transform="rotate(-25 19 32)"/>
+      <ellipse cx="24" cy="52" rx="9" ry="5" fill="#8B0000" opacity="0.35" transform="rotate(20 24 52)"/>
+      <ellipse cx="28" cy="18" rx="8" ry="5" fill="#D4A017" opacity="0.3" transform="rotate(-10 28 18)"/>
+    </svg>
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">Rosalind Ashworth-Vane · Curriculum Vitæ · 2024</div>
+    <div class="footer-ornament">❧ ✦ ❧</div>
+    <div class="footer-text">Bodleian Libraries · Oxford</div>
+  </div>
+
+  <div class="bottom-ornament"></div>
+
+</div>
+</body>
+</html>

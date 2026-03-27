@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 13 — Onyx & Lime</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --onyx:#141414;
+    --onyx2:#1e1e1e;
+    --lime:#b5e545;
+    --lime-dark:#8ab532;
+    --text:#e8e8e8;
+    --muted:#888;
+    --border:#2a2a2a;
+    --card:#1a1a1a;
+  }
+  body{background:var(--onyx);color:var(--text);font-family:'Barlow',sans-serif;font-weight:300;}
+  .cv{max-width:920px;margin:0 auto;padding:0;}
+
+  .header{padding:64px 72px;border-bottom:1px solid var(--border);}
+  .h-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;}
+  .h-number{font-family:'Bebas Neue',sans-serif;font-size:180px;color:rgba(255,255,255,0.03);line-height:1;position:absolute;right:0;top:0;pointer-events:none;}
+  .h-label{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--lime);margin-bottom:16px;}
+  .h-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,9vw,100px);line-height:0.9;letter-spacing:2px;margin-bottom:16px;}
+  .h-role{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;}
+  .h-bio{font-size:14px;line-height:1.9;color:#aaa;max-width:440px;}
+  .h-right{display:flex;flex-direction:column;gap:12px;align-items:flex-end;padding-top:16px;}
+  .stat-box{background:var(--card);border:1px solid var(--border);padding:16px 24px;text-align:center;min-width:100px;}
+  .sb-n{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--lime);line-height:1;}
+  .sb-l{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+
+  .lime-bar{height:3px;background:var(--lime);}
+
+  .body{display:grid;grid-template-columns:1fr 280px;gap:0;}
+  .main{padding:52px 52px 52px 72px;border-right:1px solid var(--border);}
+  .side{padding:52px 40px 52px 40px;background:var(--onyx2);}
+
+  .sec-hd{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:var(--lime);margin-bottom:24px;display:flex;align-items:center;gap:16px;}
+  .sec-hd::after{content:'';flex:1;height:1px;background:var(--border);}
+  .section{margin-bottom:44px;}
+  .entry{padding:20px 0;border-bottom:1px solid var(--border);}
+  .entry:last-child{border-bottom:none;}
+  .e-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex-wrap:wrap;gap:8px;}
+  .e-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:1px;color:var(--text);}
+  .e-yr{font-size:10px;background:var(--lime);color:var(--onyx);padding:3px 10px;font-weight:500;letter-spacing:1px;}
+  .e-org{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .e-body{font-size:13px;line-height:1.85;color:#888;}
+
+  /* Side */
+  .s-hd{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--lime);margin-bottom:20px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+  .s-section{margin-bottom:36px;}
+  .edu-row{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+  .edu-row:last-child{border-bottom:none;}
+  .edu-deg{font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px;}
+  .edu-info{font-size:11px;color:var(--muted);}
+  .skill-item{display:flex;align-items:center;gap:10px;margin-bottom:9px;font-size:12.5px;color:#aaa;}
+  .skill-item::before{content:'▸';color:var(--lime);font-size:10px;}
+  @media(max-width:700px){.body{grid-template-columns:1fr;}.main{padding:36px 24px;border-right:none;}.side{padding:36px 24px;}.header{padding:40px 24px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <div class="header">
+    <div class="h-top">
+      <div>
+        <div class="h-label">Professional Profile · ICT & Technology</div>
+        <h1 class="h-name">Bright<br>Amponsah</h1>
+        <div class="h-role">ICT Teacher · Digital Learning Specialist</div>
+        <div class="h-bio">A forward-thinking ICT educator shaping digital literacy in Ghana's schools — equipping students with 21st-century tech skills through creative, project-based learning.</div>
+      </div>
+      <div class="h-right">
+        <div class="stat-box"><div class="sb-n">8</div><div class="sb-l">Yrs. Exp.</div></div>
+        <div class="stat-box"><div class="sb-n">500+</div><div class="sb-l">Students</div></div>
+        <div class="stat-box"><div class="sb-n">12</div><div class="sb-l">Projects</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="lime-bar"></div>
+  <div class="body">
+    <main class="main">
+      <div class="section">
+        <div class="sec-hd">Experience</div>
+        <div class="entry">
+          <div class="e-meta"><div class="e-title">ICT Department Head</div><div class="e-yr">2020–Now</div></div>
+          <div class="e-org">Achimota School, Accra</div>
+          <div class="e-body">Lead a 4-teacher ICT department across SHS and manage two computer labs. Designed the school's digital literacy pathway from SHS 1–3. Launched a coding bootcamp that had 40 students ship mobile apps within 3 months.</div>
+        </div>
+        <div class="entry">
+          <div class="e-meta"><div class="e-title">ICT Teacher & Lab Manager</div><div class="e-yr">2017–2020</div></div>
+          <div class="e-org">Accra Girls' SHS</div>
+          <div class="e-body">Delivered WASSCE ICT and elective Computer Science. Managed a 60-machine lab; introduced STEM elective that resulted in 5 students gaining university CS scholarships.</div>
+        </div>
+        <div class="entry">
+          <div class="e-meta"><div class="e-title">Junior ICT Trainer</div><div class="e-yr">2016–2017</div></div>
+          <div class="e-org">Ghana-India Kofi Annan ICT Centre</div>
+          <div class="e-body">Trained corporate and youth cohorts in Microsoft Office and basic programming. Delivered 14 workshops to 420 participants across Greater Accra.</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hd">Positions Held</div>
+        <div class="entry">
+          <div class="e-meta"><div class="e-title">GES ICT Curriculum Reviewer</div><div class="e-yr">2022–2023</div></div>
+          <div class="e-org">Ghana Education Service · Accra</div>
+          <div class="e-body">Appointed as one of 10 national reviewers for the revised SHS ICT curriculum; contributed new chapters on cybersecurity awareness and AI literacy for secondary school students.</div>
+        </div>
+      </div>
+    </main>
+    <aside class="side">
+      <div class="s-section">
+        <div class="s-hd">Education</div>
+        <div class="edu-row">
+          <div class="edu-deg">B.Ed. ICT Education</div>
+          <div class="edu-info">University of Education, Winneba<br>2012–2016 · Second Class Upper</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-deg">CISCO Networking Academy</div>
+          <div class="edu-info">IT Essentials Certificate · 2018</div>
+        </div>
+        <div class="edu-row">
+          <div class="edu-deg">Google Certified Educator</div>
+          <div class="edu-info">Level 2 · 2021</div>
+        </div>
+      </div>
+      <div class="s-section">
+        <div class="s-hd">Tech Skills</div>
+        <div class="skill-item">Python & Scratch Programming</div>
+        <div class="skill-item">Web Development (HTML/CSS)</div>
+        <div class="skill-item">Network Administration</div>
+        <div class="skill-item">Google Workspace for Edu</div>
+        <div class="skill-item">Microsoft 365 Suite</div>
+        <div class="skill-item">Digital Content Creation</div>
+        <div class="skill-item">Cybersecurity Basics</div>
+        <div class="skill-item">AI Tools in Education</div>
+      </div>
+      <div class="s-section">
+        <div class="s-hd">Contact</div>
+        <div class="skill-item">bright.amponsah@gha.edu.gh</div>
+        <div class="skill-item">+233 24 900 0011</div>
+        <div class="skill-item">Accra, Greater Accra</div>
+      </div>
+    </aside>
+  </div>
+</div>
+</body>
+</html>

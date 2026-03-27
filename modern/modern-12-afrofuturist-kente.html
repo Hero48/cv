@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Kwame Darko-Mensah — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Hind:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root{--kente1:#d4a017;--kente2:#c0392b;--kente3:#27ae60;--kente4:#1a3a6e;--dark:#0a0a12;--offwhite:#faf8f0;--text:#0a0a12;--muted:#6a6a7a;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--dark);font-family:'Hind',sans-serif;color:var(--text);}
+  .kente-stripe{height:12px;background:repeating-linear-gradient(90deg,var(--kente1) 0,var(--kente1) 20px,var(--kente2) 20px,var(--kente2) 40px,var(--kente3) 40px,var(--kente3) 60px,var(--kente4) 60px,var(--kente4) 80px);}
+  .wrapper{max-width:960px;margin:0 auto;background:var(--offwhite);}
+  .hero{background:var(--kente4);padding:52px 56px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+  .hero-left .label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--kente1);font-weight:600;margin-bottom:14px;}
+  .hero-left h1{font-family:'Big Shoulders Display',sans-serif;font-size:4rem;font-weight:900;color:white;line-height:0.95;letter-spacing:0.02em;}
+  .hero-left h1 em{font-style:normal;color:var(--kente1);}
+  .hero-left .role{font-size:0.92rem;color:rgba(255,255,255,0.55);margin-top:14px;line-height:1.65;}
+  .hero-right{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .stat-geo{background:rgba(255,255,255,0.08);padding:18px;text-align:center;clip-path:polygon(0 0,100% 0,100% 85%,85% 100%,0 100%);}
+  .stat-geo .n{font-family:'Big Shoulders Display',sans-serif;font-size:2.4rem;font-weight:900;color:var(--kente1);line-height:1;}
+  .stat-geo .l{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+  .kente-bar{height:8px;background:repeating-linear-gradient(90deg,var(--kente1) 0,var(--kente1) 15px,var(--kente2) 15px,var(--kente2) 30px,var(--kente3) 30px,var(--kente3) 45px,var(--kente4) 45px,var(--kente4) 60px);}
+  .contact-band{background:var(--dark);display:flex;}
+  .cb-i{padding:13px 24px;font-size:0.78rem;color:rgba(255,255,255,0.5);border-right:1px solid rgba(255,255,255,0.06);letter-spacing:0.04em;}
+  .cb-i:first-child{color:var(--kente1);}
+  .body{display:grid;grid-template-columns:1fr 1fr;padding:0;}
+  .col{padding:44px 40px;border-right:1px solid #e0dcd0;}
+  .col:last-child{border-right:none;}
+  .sh{font-family:'Big Shoulders Display',sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:0.06em;color:var(--kente4);margin-bottom:22px;display:flex;align-items:center;gap:12px;text-transform:uppercase;}
+  .sh::after{content:'';flex:1;height:3px;background:var(--kente1);}
+  .sec{margin-bottom:32px;}
+  .job{margin-bottom:20px;padding:16px 18px;border-left:4px solid var(--kente1);background:white;}
+  .job-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .job h3{font-size:1rem;font-weight:600;color:var(--kente4);}
+  .yr{font-size:0.73rem;background:var(--kente4);color:var(--kente1);padding:2px 8px;font-weight:700;letter-spacing:0.06em;}
+  .job .org{font-size:0.82rem;color:var(--muted);font-style:italic;margin:4px 0 8px;}
+  .job p{font-size:0.85rem;line-height:1.65;color:#2a2a3a;}
+  .edu-row{padding:12px 0;border-bottom:1px solid #e8e4d8;display:flex;gap:12px;}
+  .edu-marker{width:8px;height:8px;background:var(--kente3);border-radius:50%;flex-shrink:0;margin-top:5px;}
+  .edu-row h3{font-size:0.92rem;font-weight:600;color:var(--kente4);}
+  .edu-row .sub{font-size:0.8rem;color:var(--muted);margin:2px 0;}
+  .edu-row .yr-text{font-size:0.72rem;color:var(--kente2);font-weight:700;margin-bottom:3px;}
+  .skill-pill{display:inline-block;background:var(--kente4);color:var(--kente1);padding:5px 12px;font-size:0.78rem;font-weight:600;margin:3px 3px 0 0;letter-spacing:0.04em;}
+  .pos-item{padding:6px 0;border-bottom:1px solid #e8e4d8;font-size:0.85rem;font-weight:500;display:flex;gap:8px;color:var(--kente4);}
+  .pos-item::before{content:'❖';color:var(--kente1);font-size:0.65rem;flex-shrink:0;margin-top:4px;}
+  .award-item{padding:6px 0;border-bottom:1px solid #e8e4d8;font-size:0.83rem;}
+  .award-item::before{content:'✦ ';color:var(--kente1);}
+</style>
+</head>
+<body>
+  <div class="kente-stripe"></div>
+  <div class="wrapper">
+    <div class="hero">
+      <div class="hero-left">
+        <div class="label">// Educator · Cultural Advocate · Researcher</div>
+        <h1>KWAME<br><em>DARKO-</em><br>MENSAH</h1>
+        <div class="role">Ghanaian History & Cultural Studies Teacher · Heritage Educator · Community Researcher — University of Ghana Graduate</div>
+      </div>
+      <div class="hero-right">
+        <div class="stat-geo"><div class="n">10</div><div class="l">Years Exp.</div></div>
+        <div class="stat-geo"><div class="n">600+</div><div class="l">Students</div></div>
+        <div class="stat-geo"><div class="n">4</div><div class="l">Publications</div></div>
+        <div class="stat-geo"><div class="n">5</div><div class="l">Awards</div></div>
+      </div>
+    </div>
+    <div class="kente-bar"></div>
+    <div class="contact-band">
+      <div class="cb-i">kwame.darko@ges.gov.gh</div>
+      <div class="cb-i">+233 24 334 4556</div>
+      <div class="cb-i">Accra, Greater Accra</div>
+    </div>
+    <div class="body">
+      <div class="col">
+        <div class="sec">
+          <div class="sh">Experience</div>
+          <div class="job">
+            <div class="job-top"><h3>History & Cultural Studies Teacher, HOD</h3><span class="yr">2019–Now</span></div>
+            <div class="org">Accra Adabraka Municipal JHS</div>
+            <p>Head the Humanities Dept.; teach History and Cultural Studies for JHS 1–3. Launched a Ghanaian Heritage Club documenting local history through student-produced zines distributed in schools.</p>
+          </div>
+          <div class="job">
+            <div class="job-top"><h3>History Teacher & Research Supervisor</h3><span class="yr">2016–2019</span></div>
+            <div class="org">Tesano Basic School, Accra</div>
+            <p>Delivered full JHS History curriculum; supervised student research projects. Organised annual Heritage Day attracting community elders as living history resources.</p>
+          </div>
+          <div class="job">
+            <div class="job-top"><h3>Research Assistant — African Studies</h3><span class="yr">2014–2016</span></div>
+            <div class="org">Institute of African Studies, University of Ghana</div>
+            <p>Assisted in ethnographic research on Ga cultural practices. Co-authored 2 conference papers on oral tradition in urban Accra communities.</p>
+          </div>
+        </div>
+        <div class="sec">
+          <div class="sh">Positions</div>
+          <div class="pos-item">SRC Cultural Secretary — UG Legon</div>
+          <div class="pos-item">HOD History — Adabraka JHS</div>
+          <div class="pos-item">Ghana Museums Board — Education Volunteer</div>
+          <div class="pos-item">District Heritage Coordinator, GES</div>
+          <div class="pos-item">WAEC History Marking Panel, 2022</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="sec">
+          <div class="sh">Education</div>
+          <div class="edu-row"><div class="edu-marker"></div><div><div class="yr-text">2010–2014</div><h3>B.A. History (Education Option)</h3><div class="sub">University of Ghana, Legon</div></div></div>
+          <div class="edu-row"><div class="edu-marker"></div><div><div class="yr-text">2018</div><h3>Postgraduate Dip. — Education</h3><div class="sub">University of Cape Coast</div></div></div>
+          <div class="edu-row"><div class="edu-marker"></div><div><div class="yr-text">2022</div><h3>Cert. African Heritage Management</h3><div class="sub">ICCROM / Ghana Museums Board</div></div></div>
+          <div class="edu-row"><div class="edu-marker"></div><div><div class="yr-text">2007–2010</div><h3>WASSCE — General Arts</h3><div class="sub">Achimota School, Accra</div></div></div>
+        </div>
+        <div class="sec">
+          <div class="sh">Skills</div>
+          <span class="skill-pill">Historical Research</span>
+          <span class="skill-pill">Oral History Methods</span>
+          <span class="skill-pill">Curriculum Design</span>
+          <span class="skill-pill">Academic Writing</span>
+          <span class="skill-pill">Cultural Event Production</span>
+          <span class="skill-pill">Documentary Photography</span>
+          <span class="skill-pill">Ga Language Teaching</span>
+          <span class="skill-pill">Report Writing</span>
+        </div>
+        <div class="sec">
+          <div class="sh">Awards</div>
+          <div class="award-item">GES Greater Accra Best Humanities Teacher, 2023</div>
+          <div class="award-item">African Studies Best Research Paper, UG, 2014</div>
+          <div class="award-item">Ghana Heritage Champion Award, Museums Board, 2022</div>
+          <div class="award-item">WAEC Excellence Marker, 2022</div>
+          <div class="award-item">Community Impact Award, Adabraka MCE, 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="kente-stripe"></div>
+</body>
+</html>

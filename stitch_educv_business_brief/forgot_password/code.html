@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reset Access - EduCV</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Newsreader & Space Grotesk -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#cd9eec",
+              "primary-container": "#f8cd50",
+              "on-primary-fixed-variant": "#644e00",
+              "on-secondary-fixed": "#004840",
+              "surface-container-highest": "#dbdddd",
+              "outline-variant": "#acadad",
+              "secondary-fixed-dim": "#7fe6d5",
+              "error": "#b02500",
+              "on-primary-fixed": "#423200",
+              "secondary-fixed": "#8ef5e3",
+              "primary-fixed-dim": "#e9bf43",
+              "secondary": "#00675c",
+              "primary-dim": "#634d00",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#5a5c5c",
+              "on-tertiary-fixed": "#390f55",
+              "on-background": "#2d2f2f",
+              "tertiary-fixed": "#dcacfb",
+              "inverse-on-surface": "#9c9d9d",
+              "outline": "#757777",
+              "on-surface": "#2d2f2f",
+              "primary": "#715800",
+              "surface-tint": "#715800",
+              "inverse-primary": "#f8cd50",
+              "on-error-container": "#520c00",
+              "surface-container": "#e7e8e8",
+              "tertiary-container": "#dcacfb",
+              "surface-bright": "#f6f6f6",
+              "tertiary-dim": "#673e83",
+              "on-secondary-container": "#005c52",
+              "surface-container-low": "#f0f1f1",
+              "surface-dim": "#d2d5d5",
+              "on-tertiary": "#fceeff",
+              "inverse-surface": "#0c0f0f",
+              "error-container": "#f95630",
+              "surface": "#f6f6f6",
+              "on-secondary-fixed-variant": "#00675c",
+              "on-primary": "#fff1d6",
+              "secondary-dim": "#005a50",
+              "on-primary-container": "#594500",
+              "surface-variant": "#dbdddd",
+              "secondary-container": "#8ef5e3",
+              "on-error": "#ffefec",
+              "background": "#f6f6f6",
+              "on-secondary": "#c1fff2",
+              "error-dim": "#b92902",
+              "surface-container-high": "#e1e3e3",
+              "primary-fixed": "#f8cd50",
+              "on-tertiary-fixed-variant": "#593176",
+              "tertiary": "#734a90",
+              "on-tertiary-container": "#50286c"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Space Grotesk", "sans-serif"],
+              "label": ["Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .neo-shadow {
+            box-shadow: 8px 8px 0px 0px rgba(45, 47, 47, 1);
+        }
+        .neo-shadow-sm {
+            box-shadow: 4px 4px 0px 0px rgba(45, 47, 47, 1);
+        }
+        .btn-active:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px rgba(45, 47, 47, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col">
+<!-- Header Section (Derived from TopAppBar JSON but simplified for focused task) -->
+<header class="bg-surface dark:bg-zinc-900 border-b-4 border-on-background flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="school">school</span>
+<h1 class="text-3xl font-black italic font-headline text-on-background dark:text-surface">EduCV</h1>
+</div>
+<div class="hidden md:flex gap-6 font-label font-bold uppercase tracking-wider text-sm">
+<a class="text-on-background hover:text-primary transition-colors" href="#">Resources</a>
+<a class="text-on-background hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-6 bg-surface-container-low relative overflow-hidden">
+<!-- Abstract Background Shapes for Neo-Brutalist Flair -->
+<div class="absolute -top-20 -left-20 w-64 h-64 bg-tertiary-container border-4 border-on-background rounded-full opacity-20 hidden lg:block"></div>
+<div class="absolute -bottom-20 -right-20 w-80 h-80 bg-secondary-container border-4 border-on-background rotate-12 opacity-20 hidden lg:block"></div>
+<!-- Forgot Password Card -->
+<div class="max-w-md w-full bg-surface-bright border-4 border-on-background p-8 md:p-12 neo-shadow relative z-10">
+<div class="mb-8">
+<span class="inline-block bg-tertiary-fixed text-on-tertiary-fixed font-bold font-label px-3 py-1 border-2 border-on-background rounded-full text-xs uppercase tracking-widest mb-4">
+                    Security Portal
+                </span>
+<h2 class="text-5xl font-headline italic font-bold text-on-background leading-tight mb-2">Reset Access</h2>
+<p class="text-on-surface-variant font-medium leading-relaxed">
+                    It happens to the best of us. Enter your registered email below and we'll send a recovery link to your inbox.
+                </p>
+</div>
+<form class="space-y-6">
+<div class="group">
+<label class="block font-label font-bold text-on-background uppercase tracking-wider text-sm mb-2" for="email">
+                        Institutional Email
+                    </label>
+<div class="relative">
+<input class="w-full bg-surface border-4 border-on-background p-4 font-body font-bold text-lg focus:ring-0 focus:outline-none focus:bg-primary-fixed-dim transition-all neo-shadow-sm focus:translate-y-[-2px] placeholder:text-outline" id="email" name="email" placeholder="teacher@edu.gov.gh" type="email"/>
+<div class="absolute right-4 top-1/2 -translate-y-1/2">
+<span class="material-symbols-outlined text-on-background" data-icon="mail">mail</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container border-4 border-on-background py-4 px-6 font-label font-black text-xl uppercase tracking-tighter neo-shadow-sm hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(45,47,47,1)] active:translate-y-[4px] active:shadow-none transition-all flex items-center justify-center gap-3" type="submit">
+                    Send Reset Link
+                    <span class="material-symbols-outlined font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<div class="mt-10 pt-8 border-t-2 border-on-background border-dashed flex flex-col items-center gap-4">
+<a class="group flex items-center gap-2 font-label font-bold text-on-background hover:text-secondary transition-colors" href="/login">
+<span class="material-symbols-outlined text-xl transition-transform group-hover:-translate-x-1" data-icon="keyboard_backspace">keyboard_backspace</span>
+                    Return to Login
+                </a>
+<div class="flex items-center gap-2 bg-secondary-container border-2 border-on-background px-4 py-2 rounded-xl">
+<span class="material-symbols-outlined text-sm" data-icon="help_center">help_center</span>
+<span class="text-xs font-bold font-label uppercase">Need technical help?</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer - Simplified for Auth screen -->
+<footer class="p-6 bg-surface border-t-4 border-on-background flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label font-bold text-xs uppercase tracking-widest text-on-surface-variant">
+            © 2024 EDUCV GHANA • EMPOWERING EDUCATORS
+        </p>
+<div class="flex gap-6">
+<a class="font-label font-bold text-xs uppercase underline decoration-2 underline-offset-4 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-label font-bold text-xs uppercase underline decoration-2 underline-offset-4 hover:text-primary transition-colors" href="#">Terms of Use</a>
+</div>
+</footer>
+<!-- Decorative Image Card (Asymmetric Layout Element) -->
+<div class="hidden xl:block fixed top-1/2 right-12 -translate-y-1/2 w-72 h-96 pointer-events-none">
+<div class="relative w-full h-full bg-tertiary border-4 border-on-background neo-shadow rotate-6">
+<img alt="Ghanaian teacher in classroom" class="w-full h-full object-cover grayscale contrast-125 mix-blend-multiply opacity-60" data-alt="Candid portrait of a smiling African teacher in a bright classroom setting, warm sunlight, educational textures, professional and inspiring mood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyX5C3lxbEV0ybU__iGw8zZhReNgl8JwvSjnYGEnn8XnmcIibyaqDdxpgJwuRARAIwVLnoOh5W81RP2i8nrGV8-P46_bmUUKDV8ESF514y39EJvyJ7DohfrKYx6ZWJ-uRfONE9Klo3GTiuMnk_yRiLkHIC-UDJ7jlungDgrGrwe8zg--Rf2YOo26ILyZxaB1PKBkdeDjwlrU2dtFwo0Ugsp5kYVne-R0xj-2ec5TV7KRlmAxkaGmViY0IAaYqtFxos0XrWpryakQ"/>
+<div class="absolute inset-0 flex items-center justify-center p-8">
+<p class="text-on-tertiary font-headline italic font-black text-3xl text-center leading-tight">
+                    Your career, <br/>our priority.
+                </p>
+</div>
+</div>
+</div>
+</body></html>

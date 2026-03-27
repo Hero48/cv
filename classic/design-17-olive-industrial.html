@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 17</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@200;300;400;500;700&family=Fraunces:ital,opsz,wght@1,9..144,300;1,9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --olive: #4E5A28;
+    --olive-mid: #657335;
+    --olive-pale: #D8DDB8;
+    --olive-mist: #F2F4E8;
+    --warm: #FAFAF5;
+    --cream: #F2F0E8;
+    --ink: #1A1E10;
+    --dim: #808A60;
+    --border: #D0D4B0;
+    --rust: #C04820;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--cream);
+    font-family: 'Lexend Exa', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex; align-items: flex-start; justify-content: center;
+  }
+  .card {
+    max-width: 900px; width: 100%;
+    background: var(--warm);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 20px 60px rgba(60,70,20,0.1);
+    animation: in 0.6s ease;
+  }
+  @keyframes in { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform: translateY(0); } }
+
+  .top-strip {
+    background: var(--olive);
+    padding: 8px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .top-strip span { font-size: 0.58rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.5); font-weight: 300; }
+  .top-strip .accent { color: var(--olive-pale); font-weight: 500; }
+
+  .hero { display: grid; grid-template-columns: 1fr auto; gap: 40px; padding: 48px 48px 40px; border-bottom: 1px solid var(--border); }
+  .h-left {}
+  .h-left .eyebrow { font-size: 0.58rem; letter-spacing: 5px; text-transform: uppercase; color: var(--rust); margin-bottom: 14px; font-weight: 500; }
+  .h-left h1 { font-size: 2rem; font-weight: 300; color: var(--ink); line-height: 1.2; margin-bottom: 4px; letter-spacing: -0.5px; }
+  .h-left h1 span { font-family: 'Fraunces', serif; font-style: italic; font-weight: 600; font-size: 2.2rem; color: var(--olive); }
+  .h-left .prog { font-size: 0.82rem; color: var(--dim); margin-bottom: 20px; font-weight: 300; }
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { border: 1px solid var(--border); color: var(--ink); padding: 4px 12px; font-size: 0.7rem; font-weight: 400; }
+  .tag.main { background: var(--olive); color: white; border-color: var(--olive); }
+  .tag.alt { background: var(--rust); color: white; border-color: var(--rust); }
+
+  .h-right { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; gap: 4px; }
+  .gpa-big { font-family: 'Fraunces', serif; font-style: italic; font-size: 5rem; color: var(--olive); line-height: 1; font-weight: 300; }
+  .gpa-sub { font-size: 0.58rem; letter-spacing: 4px; text-transform: uppercase; color: var(--dim); }
+
+  .body { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .bcol { padding: 36px 40px; border-right: 1px solid var(--border); }
+  .bcol:last-child { border-right: none; background: var(--olive-mist); }
+
+  .btitle {
+    font-size: 0.56rem; letter-spacing: 5px; text-transform: uppercase;
+    color: var(--olive); font-weight: 600; margin-bottom: 20px;
+    padding-bottom: 10px; border-bottom: 1px solid var(--olive-pale);
+  }
+  .entry { margin-bottom: 20px; }
+  .entry .et { font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 2px; line-height: 1.3; }
+  .entry .eo { font-size: 0.76rem; color: var(--olive-mid); font-weight: 300; margin-bottom: 2px; }
+  .entry .ey { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; font-weight: 300; }
+  .entry .ep { font-size: 0.79rem; color: #5A6040; line-height: 1.7; font-weight: 300; }
+  .e-div { height: 1px; background: var(--border); margin: 16px 0; }
+
+  .pos-item { padding: 9px 0; border-bottom: 1px solid var(--border); }
+  .pos-item:last-child { border-bottom: none; }
+  .pos-item .pt { font-size: 0.84rem; font-weight: 500; color: var(--ink); }
+  .pos-item .po { font-size: 0.72rem; color: var(--dim); font-weight: 300; margin-top: 1px; }
+  .pos-item .py { font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--rust); margin-top: 1px; }
+
+  .skill-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.8rem; color: var(--ink); font-weight: 300; }
+  .skill-item:last-child { border-bottom: none; }
+  .skill-item .bar { flex: 1; height: 2px; background: var(--border); overflow: hidden; }
+  .skill-item .bar-inner { height: 100%; background: var(--olive); }
+
+  .c-item { font-size: 0.76rem; color: var(--dim); padding: 7px 0; border-bottom: 1px solid var(--border); font-weight: 300; }
+  .c-item:last-child { border-bottom: none; }
+  .c-item strong { color: var(--olive); font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 1px; }
+
+  .foot-strip {
+    background: var(--olive); padding: 12px 48px;
+    display: flex; justify-content: space-between;
+  }
+  .foot-strip span { font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.45); font-weight: 300; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top-strip">
+    <span>Academic Profile · College of Education</span>
+    <span class="accent">2024 / 2025</span>
+  </div>
+
+  <div class="hero">
+    <div class="h-left">
+      <div class="eyebrow">Student Record · Faculty of Education</div>
+      <h1><span>Kweku Annan</span>-Boateng</h1>
+      <div class="prog">B.Ed. Physical Education & Health Sciences · Level 400 · University of Cape Coast</div>
+      <div class="tag-row">
+        <span class="tag main">GPA 3.87</span>
+        <span class="tag alt">First Class</span>
+        <span class="tag">PE & Health</span>
+        <span class="tag">Sports Science</span>
+      </div>
+    </div>
+    <div class="h-right">
+      <div class="gpa-big">3.87</div>
+      <div class="gpa-sub">Cumulative GPA</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="bcol">
+      <div class="btitle">Education & Background</div>
+      <div class="entry">
+        <div class="et">B.Ed. Physical Education & Health</div>
+        <div class="eo">University of Cape Coast</div>
+        <div class="ey">2021 – Present</div>
+        <div class="ep">Specializes in biomechanics and sport psychology within education. Dissertation: "Effect of Structured Play on Cognitive Development in Primary School Children."</div>
+      </div>
+      <div class="e-div"></div>
+      <div class="entry">
+        <div class="et">WASSCE · Science Track</div>
+        <div class="eo">St. Augustine's College, Cape Coast</div>
+        <div class="ey">2018 – 2021 · Aggregate 6</div>
+        <div class="ep">Electives: Biology, Chemistry, Elective Maths. Represented school at National Sports Festival in athletics.</div>
+      </div>
+      <div class="e-div"></div>
+      <div class="btitle" style="margin-top:0">Work & Experience</div>
+      <div class="entry">
+        <div class="et">PE Student Teacher</div>
+        <div class="eo">St. Augustine's College SHS</div>
+        <div class="ey">Aug – Nov 2024</div>
+        <div class="ep">Taught Physical Education to Forms 1–3. Coached Athletics Team to Cape Coast District Championships bronze.</div>
+      </div>
+      <div class="e-div"></div>
+      <div class="entry">
+        <div class="et">Sports Development Intern</div>
+        <div class="eo">Ghana Olympic Committee</div>
+        <div class="ey">Summer 2023</div>
+        <div class="ep">Assisted in organizing youth athletics development clinics in the Central Region, reaching 180 school athletes.</div>
+      </div>
+      <div class="e-div"></div>
+      <div class="entry">
+        <div class="et">Community Fitness Volunteer</div>
+        <div class="eo">UCC Health Promotion Unit</div>
+        <div class="ey">2023 – Present</div>
+        <div class="ep">Leads free Saturday morning aerobics sessions for community members around UCC campus.</div>
+      </div>
+    </div>
+
+    <div class="bcol">
+      <div class="btitle">Positions Held</div>
+      <div class="pos-item"><div class="pt">SRC Sports Director</div><div class="po">UCC Students' Council</div><div class="py">2023–24</div></div>
+      <div class="pos-item"><div class="pt">Athletics Team Captain</div><div class="po">UCC Faculty of Education</div><div class="py">2023</div></div>
+      <div class="pos-item"><div class="pt">PE Dept. Class Rep</div><div class="po">UCC Level 400</div><div class="py">2024</div></div>
+      <div class="pos-item"><div class="pt">School Prefect — Sports</div><div class="po">St. Augustine's College</div><div class="py">2020–21</div></div>
+      <div class="pos-item"><div class="pt">House Captain</div><div class="po">St. Augustine's College</div><div class="py">2019–20</div></div>
+      <div class="e-div"></div>
+      <div class="btitle" style="margin-top:0">Contact</div>
+      <div class="c-item"><strong>Email</strong>k.annanboateng@ucc.edu.gh</div>
+      <div class="c-item"><strong>Phone</strong>+233 24 890 1234</div>
+      <div class="c-item"><strong>Location</strong>Cape Coast, Central Region</div>
+      <div class="c-item"><strong>Institution</strong>UCC · Faculty of Education</div>
+    </div>
+
+    <div class="bcol">
+      <div class="btitle">Special Skills</div>
+      <div class="skill-item">Athletics Coaching<div class="bar"><div class="bar-inner" style="width:92%"></div></div></div>
+      <div class="skill-item">Sports Psychology<div class="bar"><div class="bar-inner" style="width:85%"></div></div></div>
+      <div class="skill-item">Biomechanics<div class="bar"><div class="bar-inner" style="width:80%"></div></div></div>
+      <div class="skill-item">First Aid (FA3)<div class="bar"><div class="bar-inner" style="width:95%"></div></div></div>
+      <div class="skill-item">Fitness Programming<div class="bar"><div class="bar-inner" style="width:88%"></div></div></div>
+      <div class="skill-item">Lesson Planning<div class="bar"><div class="bar-inner" style="width:90%"></div></div></div>
+      <div class="skill-item">Fante Language<div class="bar"><div class="bar-inner" style="width:95%"></div></div></div>
+      <div class="skill-item">Video Analysis<div class="bar"><div class="bar-inner" style="width:75%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="foot-strip">
+    <span>B.Ed. Physical Education & Health · University of Cape Coast</span>
+    <span>Academic Profile · Class of 2025</span>
+  </div>
+</div>
+</body>
+</html>

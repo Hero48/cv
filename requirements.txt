@@ -1,0 +1,8 @@
+flask
+flask-sqlalchemy
+google-generativeai
+playwright
+beautifulsoup4
+python-dotenv
+requests
+flask-cors

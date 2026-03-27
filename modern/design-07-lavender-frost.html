@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 07 — Lavender Frost</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --lavender:#e8e4f3;
+    --violet:#7c6fa0;
+    --deep:#3d3060;
+    --frost:#f4f2fb;
+    --ink:#252035;
+    --muted:#8e8aa0;
+    --border:#dcd8ee;
+  }
+  body{background:var(--frost);color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;}
+  .page{max-width:860px;margin:0 auto;padding:72px 48px;}
+
+  /* NAME BLOCK */
+  .name-block{text-align:center;padding:64px 0 56px;position:relative;}
+  .nb-top{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--violet);margin-bottom:20px;}
+  .nb-name{font-family:'Spectral',serif;font-size:clamp(52px,9vw,96px);font-weight:600;line-height:0.95;color:var(--deep);letter-spacing:-3px;margin-bottom:20px;}
+  .nb-name em{font-style:italic;font-weight:400;}
+  .nb-role{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--violet);margin-bottom:32px;}
+  .nb-contacts{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;}
+  .nb-c{font-size:12px;color:var(--muted);}
+  .nb-c strong{color:var(--violet);}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:8px 0 56px;}
+
+  /* 3-COL STATS */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);margin-bottom:64px;}
+  .stat{text-align:center;padding:28px 16px;border-right:1px solid var(--border);}
+  .stat:last-child{border-right:none;}
+  .stat-n{font-family:'Spectral',serif;font-size:40px;font-weight:600;color:var(--deep);line-height:1;}
+  .stat-l{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+
+  /* SECTIONS */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-bottom:56px;}
+  .section{margin-bottom:48px;}
+  .s-head{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--violet);margin-bottom:28px;text-align:center;}
+  .entry{margin-bottom:24px;padding:20px;background:white;border-radius:8px;border:1px solid var(--border);}
+  .e-year{font-size:10px;color:var(--violet);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;}
+  .e-title{font-family:'Spectral',serif;font-size:18px;font-weight:600;color:var(--deep);margin-bottom:3px;}
+  .e-org{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px;}
+  .e-desc{font-size:12.5px;line-height:1.8;color:#5a5468;}
+  .skills-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:8px;}
+  .skill{background:var(--lavender);color:var(--deep);padding:7px 16px;border-radius:24px;font-size:11.5px;font-weight:600;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}.stats{grid-template-columns:1fr;}.page{padding:36px 20px;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="name-block">
+    <div class="nb-top">Academic Professional Portfolio</div>
+    <h1 class="nb-name">Adwoa<br><em>Frimpong</em></h1>
+    <div class="nb-role">Special Needs Educator · Inclusive Education Advocate</div>
+    <div class="nb-contacts">
+      <div class="nb-c"><strong>✉</strong> adwoa.f@gnaspecialedu.gh</div>
+      <div class="nb-c"><strong>☏</strong> +233 20 988 7766</div>
+      <div class="nb-c"><strong>⌖</strong> Ho, Volta Region</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-n">7</div><div class="stat-l">Years Teaching</div></div>
+    <div class="stat"><div class="stat-n">120+</div><div class="stat-l">Students Supported</div></div>
+    <div class="stat"><div class="stat-n">4</div><div class="stat-l">Certifications</div></div>
+  </div>
+
+  <div class="two-col">
+    <div>
+      <div class="section">
+        <div class="s-head">Experience</div>
+        <div class="entry">
+          <div class="e-year">2022 — Present</div>
+          <div class="e-title">Special Needs Teacher</div>
+          <div class="e-org">Ho Municipal Special School</div>
+          <div class="e-desc">Design individualised education plans for 28 students with learning difficulties, visual impairments and autism spectrum disorder. Developed tactile learning kits adopted school-wide.</div>
+        </div>
+        <div class="entry">
+          <div class="e-year">2019 — 2022</div>
+          <div class="e-title">Inclusive Education Facilitator</div>
+          <div class="e-org">SEND Ghana · Volta Regional Office</div>
+          <div class="e-desc">Supported mainstream teachers in 6 schools to implement inclusive practices; conducted termly school assessments and produced inclusion reports for GES.</div>
+        </div>
+        <div class="entry">
+          <div class="e-year">2017 — 2019</div>
+          <div class="e-title">Teaching Practice & Nat. Service</div>
+          <div class="e-org">Keta Special School</div>
+          <div class="e-desc">Fulfilled national service requirement as special education classroom assistant; received commendation for designing a communication board for non-verbal students.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="section">
+        <div class="s-head">Education</div>
+        <div class="entry">
+          <div class="e-year">2013 — 2017</div>
+          <div class="e-title">B.Ed. Special Education</div>
+          <div class="e-org">University of Education, Winneba</div>
+          <div class="e-desc">First Class Honours. Graduated as best student in the Faculty of Special Education. Thesis: "Sign language integration in mainstream primary schools."</div>
+        </div>
+        <div class="entry">
+          <div class="e-year">2021</div>
+          <div class="e-title">Postgrad Diploma — Inclusive Ed.</div>
+          <div class="e-org">University of Cape Coast (Distance)</div>
+          <div class="e-desc">Part-time programme covering inclusive policy, learner assessment and adaptive curriculum design.</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="s-head">Leadership</div>
+        <div class="entry">
+          <div class="e-year">2023 — Present</div>
+          <div class="e-title">Regional Coordinator — Inclusive Ed.</div>
+          <div class="e-org">Ghana National Education Campaign</div>
+          <div class="e-desc">Coordinates 14 district-level facilitators and submits quarterly inclusion reports to the Ministry of Education.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="s-head">Special Competencies</div>
+  <div class="skills-wrap">
+    <span class="skill">Braille Literacy</span>
+    <span class="skill">Sign Language (GSL)</span>
+    <span class="skill">Autism Support Strategies</span>
+    <span class="skill">IEP Development</span>
+    <span class="skill">Adaptive Assessment</span>
+    <span class="skill">Parent Training</span>
+    <span class="skill">Sensory Integration</span>
+    <span class="skill">Community Advocacy</span>
+  </div>
+</div>
+</body>
+</html>

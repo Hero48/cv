@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 19</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,600;0,800;1,300&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --carbon: #111316;
+    --carbon-mid: #1C1F24;
+    --carbon-light: #252930;
+    --rose-gold: #C9887A;
+    --rose-bright: #E0A090;
+    --rose-pale: rgba(201,136,122,0.12);
+    --rose-glow: rgba(201,136,122,0.2);
+    --white: #F0EAE8;
+    --dim: #6A6060;
+    --border: rgba(201,136,122,0.15);
+    --text-light: rgba(240,234,232,0.85);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--carbon);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex; align-items: center; justify-content: center;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(28,31,36,1) 0%, rgba(17,19,22,1) 100%);
+  }
+  .card {
+    max-width: 900px; width: 100%;
+    background: var(--carbon-mid);
+    border: 1px solid var(--border);
+    box-shadow: 0 0 0 1px rgba(201,136,122,0.05), 0 60px 120px rgba(0,0,0,0.8), inset 0 1px 0 rgba(201,136,122,0.08);
+    animation: reveal 1s cubic-bezier(0.16,1,0.3,1);
+  }
+  @keyframes reveal { from { opacity:0; transform: translateY(40px); } to { opacity:1; transform: translateY(0); } }
+
+  .accent-line { height: 2px; background: linear-gradient(90deg, transparent, var(--rose-gold), var(--rose-bright), var(--rose-gold), transparent); }
+
+  .header { padding: 52px 60px; display: flex; gap: 44px; align-items: center; border-bottom: 1px solid var(--border); }
+  .monogram-wrap {
+    flex-shrink: 0; width: 100px; height: 100px;
+    border: 1px solid var(--rose-gold);
+    background: var(--rose-pale);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    box-shadow: 0 0 40px var(--rose-glow), inset 0 1px 0 rgba(201,136,122,0.2);
+  }
+  .monogram-wrap::before { content: ''; position: absolute; inset: 4px; border: 1px solid rgba(201,136,122,0.2); }
+  .monogram-wrap .mono { font-family: 'Playfair Display', serif; font-style: italic; font-size: 32px; color: var(--rose-gold); }
+  .header-text { flex: 1; }
+  .header-text .pre { font-size: 0.58rem; letter-spacing: 6px; text-transform: uppercase; color: var(--rose-gold); opacity: 0.7; margin-bottom: 12px; font-weight: 300; }
+  .header-text h1 { font-size: 2rem; font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .header-text .prog { font-size: 0.87rem; color: rgba(240,234,232,0.45); font-weight: 300; margin-bottom: 20px; }
+  .tag-strip { display: flex; gap: 8px; flex-wrap: wrap; }
+  .rtag { border: 1px solid rgba(201,136,122,0.3); color: rgba(201,136,122,0.8); padding: 4px 14px; font-size: 0.68rem; letter-spacing: 1px; font-weight: 300; }
+  .rtag.f { background: var(--rose-gold); color: var(--carbon); font-weight: 600; border-color: var(--rose-gold); }
+  .header-gpa { text-align: right; flex-shrink: 0; }
+  .header-gpa .gnum { font-family: 'Playfair Display', serif; font-style: italic; font-size: 4.5rem; color: var(--rose-gold); line-height: 1; }
+  .header-gpa .glbl { font-size: 0.55rem; letter-spacing: 5px; text-transform: uppercase; color: rgba(240,234,232,0.3); margin-top: 4px; }
+
+  .body { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+  .bcol { padding: 36px 40px; border-right: 1px solid var(--border); }
+  .bcol:last-child { border-right: none; background: rgba(0,0,0,0.2); }
+
+  .btitle { font-size: 0.55rem; letter-spacing: 5px; text-transform: uppercase; color: var(--rose-gold); font-weight: 600; margin-bottom: 22px; padding-bottom: 10px; border-bottom: 1px solid var(--border); opacity: 0.8; }
+  .entry { margin-bottom: 20px; padding: 14px 16px; border: 1px solid var(--border); background: rgba(201,136,122,0.03); }
+  .entry:hover { background: var(--rose-pale); border-color: rgba(201,136,122,0.3); transition: all 0.3s; }
+  .entry .et { font-size: 0.88rem; font-weight: 600; color: var(--white); margin-bottom: 3px; }
+  .entry .eo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.82rem; color: var(--rose-gold); margin-bottom: 3px; }
+  .entry .ey { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-bottom: 7px; }
+  .entry .ep { font-size: 0.79rem; color: rgba(240,234,232,0.45); line-height: 1.7; font-weight: 300; }
+  .e-sep { height: 1px; background: var(--border); margin: 16px 0; }
+
+  .pos-item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .pos-item:last-child { border-bottom: none; }
+  .pos-item .pt { font-size: 0.86rem; font-weight: 600; color: var(--white); }
+  .pos-item .po { font-size: 0.73rem; color: var(--dim); font-weight: 300; margin-top: 2px; }
+  .pos-item .py { font-size: 0.58rem; color: var(--rose-gold); letter-spacing: 2px; margin-top: 2px; }
+
+  .sk-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.8rem; color: rgba(240,234,232,0.65); font-weight: 300; }
+  .sk-item:last-child { border-bottom: none; }
+  .sk-diamond { width: 6px; height: 6px; background: var(--rose-gold); transform: rotate(45deg); flex-shrink: 0; }
+
+  .c-item { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .c-item:last-child { border-bottom: none; }
+  .c-label { font-size: 0.55rem; letter-spacing: 3px; text-transform: uppercase; color: var(--rose-gold); opacity: 0.6; }
+  .c-val { font-size: 0.8rem; color: rgba(240,234,232,0.55); font-weight: 300; margin-top: 2px; }
+
+  .footer { border-top: 1px solid var(--border); padding: 14px 60px; display: flex; justify-content: space-between; background: rgba(0,0,0,0.2); }
+  .footer span { font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(240,234,232,0.25); font-weight: 300; }
+  .footer .badge { color: var(--rose-gold); opacity: 0.8; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="accent-line"></div>
+  <div class="header">
+    <div class="monogram-wrap"><div class="mono">PN</div></div>
+    <div class="header-text">
+      <div class="pre">College of Education · Student Academic Profile · 2024</div>
+      <h1>Prince Nkrumah-Asante</h1>
+      <div class="prog">B.Ed. Social Studies Education · Level 400 · University of Education, Winneba</div>
+      <div class="tag-strip">
+        <span class="rtag f">GPA 3.93</span>
+        <span class="rtag">First Class</span>
+        <span class="rtag">Best Student</span>
+        <span class="rtag">Research Prize</span>
+      </div>
+    </div>
+    <div class="header-gpa">
+      <div class="gnum">3.93</div>
+      <div class="glbl">Cumulative GPA</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="bcol">
+      <div class="btitle">Educational Background</div>
+      <div class="entry">
+        <div class="et">B.Ed. Social Studies Education</div>
+        <div class="eo">University of Education, Winneba</div>
+        <div class="ey">2021 – Present</div>
+        <div class="ep">Specializes in human rights education and civic literacy. Dissertation: "Integrating Local Community Knowledge into Social Studies in Ghanaian JHS." Awarded Best Final Year Project 2024.</div>
+      </div>
+      <div class="e-sep"></div>
+      <div class="entry">
+        <div class="et">WASSCE · General Arts</div>
+        <div class="eo">Apam SHS, Central Region</div>
+        <div class="ey">2018 – 2021 · Aggregate 7</div>
+        <div class="ep">Electives: Government, Economics, History. Head Boy & Best Student in Social Sciences 2021.</div>
+      </div>
+      <div class="e-sep"></div>
+      <div class="btitle" style="margin-top:0">Work & Experience</div>
+      <div class="entry">
+        <div class="et">Social Studies Student Teacher</div>
+        <div class="eo">Apam Anglican JHS</div>
+        <div class="ey">Aug – Nov 2024</div>
+        <div class="ep">Taught JSS 1–3 using community-based field trips. Students' oral project presentations featured on local radio station.</div>
+      </div>
+      <div class="e-sep"></div>
+      <div class="entry">
+        <div class="et">Rights Education Volunteer</div>
+        <div class="eo">Commission on Human Rights & Admin. Justice</div>
+        <div class="ey">2023 – Present</div>
+        <div class="ep">Conducts human rights sensitization sessions in basic schools across Effutu District, reaching 800+ students.</div>
+      </div>
+    </div>
+
+    <div class="bcol">
+      <div class="btitle">Positions Held</div>
+      <div class="pos-item"><div class="pt">SRC President</div><div class="po">UEW Winneba Students' Council</div><div class="py">2023 – 2024</div></div>
+      <div class="pos-item"><div class="pt">Social Studies Dept. Rep.</div><div class="po">UEW Level 400</div><div class="py">2024</div></div>
+      <div class="pos-item"><div class="pt">Faculty Student Member</div><div class="po">UEW Academic Board</div><div class="py">2023</div></div>
+      <div class="pos-item"><div class="pt">Head Boy</div><div class="po">Apam SHS</div><div class="py">2020 – 2021</div></div>
+      <div class="pos-item"><div class="pt">Library Prefect</div><div class="po">Apam SHS</div><div class="py">2019 – 2020</div></div>
+      <div class="e-sep"></div>
+      <div class="btitle" style="margin-top:0">Contact</div>
+      <div class="c-item"><div class="c-label">Email</div><div class="c-val">p.nkrumah@uew.edu.gh</div></div>
+      <div class="c-item"><div class="c-label">Phone</div><div class="c-val">+233 54 456 7890</div></div>
+      <div class="c-item"><div class="c-label">Location</div><div class="c-val">Winneba, Central Region</div></div>
+      <div class="c-item"><div class="c-label">LinkedIn</div><div class="c-val">linkedin.com/in/princenkrumah</div></div>
+    </div>
+
+    <div class="bcol">
+      <div class="btitle">Special Skills</div>
+      <div class="sk-item"><div class="sk-diamond"></div>Civic & Rights Education</div>
+      <div class="sk-item"><div class="sk-diamond"></div>Community-Based Learning</div>
+      <div class="sk-item"><div class="sk-diamond"></div>Research & Analysis</div>
+      <div class="sk-item"><div class="sk-diamond"></div>Public Speaking</div>
+      <div class="sk-item"><div class="sk-diamond"></div>Debate Coaching</div>
+      <div class="sk-item"><div class="sk-diamond"></div>Policy Writing</div>
+      <div class="sk-item"><div class="sk-diamond"></div>Fante · Twi Languages</div>
+      <div class="sk-item"><div class="sk-diamond"></div>Event Management</div>
+      <div class="sk-item"><div class="sk-diamond"></div>SPSS Data Analysis</div>
+    </div>
+  </div>
+
+  <div class="accent-line"></div>
+  <div class="footer">
+    <span>B.Ed. Social Studies · UEW Winneba · Class of 2025</span>
+    <span class="badge">First Class Candidate · SRC President</span>
+  </div>
+</div>
+</body>
+</html>

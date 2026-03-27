@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ama Boateng — Teaching Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root{--forest:#1b3a2d;--sage:#4a7c59;--mint:#d6ede0;--paper:#fafcf8;--text:#1c2b1f;--tan:#c8b89a;--ochre:#c67c2a;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);font-family:'Spectral',serif;color:var(--text);}
+  .layout{display:grid;grid-template-columns:280px 1fr;min-height:100vh;}
+  .sidebar{background:var(--forest);padding:44px 28px;color:white;}
+  .avatar-box{width:100px;height:100px;border-radius:50%;background:var(--sage);margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:2.4rem;font-weight:700;color:var(--mint);border:3px solid var(--tan);}
+  .sidebar h1{font-family:'Libre Baskerville',serif;font-size:1.55rem;font-weight:700;text-align:center;line-height:1.2;}
+  .sidebar .role{font-style:italic;font-size:0.88rem;color:var(--tan);text-align:center;margin:8px 0 28px;}
+  .sidebar-section{margin-bottom:28px;}
+  .sidebar-title{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--tan);border-bottom:1px solid rgba(200,184,154,0.3);padding-bottom:6px;margin-bottom:14px;}
+  .sidebar p,.sidebar li{font-size:0.84rem;color:rgba(255,255,255,0.8);line-height:1.6;}
+  .sidebar li{list-style:none;padding:4px 0;display:flex;gap:8px;}
+  .sidebar li::before{content:'›';color:var(--tan);}
+  .contact-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:0.82rem;color:rgba(255,255,255,0.75);}
+  .contact-icon{width:20px;flex-shrink:0;color:var(--tan);font-size:0.9rem;}
+  .progress-bar{height:4px;background:rgba(255,255,255,0.15);border-radius:2px;margin-top:4px;}
+  .progress-fill{height:100%;background:var(--tan);border-radius:2px;}
+  .skill-label{display:flex;justify-content:space-between;font-size:0.8rem;color:rgba(255,255,255,0.7);}
+  .main{padding:48px 52px;}
+  .section{margin-bottom:36px;}
+  .section-title{font-family:'Libre Baskerville',serif;font-size:1.25rem;font-weight:700;color:var(--forest);position:relative;padding-left:20px;margin-bottom:20px;}
+  .section-title::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:8px;height:26px;background:var(--ochre);}
+  .entry{display:grid;grid-template-columns:1fr 130px;gap:12px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--mint);}
+  .entry h3{font-family:'Libre Baskerville',serif;font-size:1.05rem;color:var(--forest);}
+  .entry .org{font-style:italic;color:var(--sage);font-size:0.9rem;margin:4px 0;}
+  .entry p{font-size:0.9rem;line-height:1.65;color:#2e3d32;}
+  .entry-date{text-align:right;font-size:0.8rem;color:var(--ochre);font-weight:500;padding-top:4px;letter-spacing:0.04em;}
+  .profile-text{font-size:1rem;line-height:1.85;color:#2a3d2e;border-left:3px solid var(--sage);padding-left:20px;font-style:italic;}
+  .tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .tag{padding:4px 12px;background:var(--mint);color:var(--forest);font-size:0.8rem;border:1px solid var(--sage);}
+</style>
+</head>
+<body>
+<div class="layout">
+  <div class="sidebar">
+    <div class="avatar-box">AB</div>
+    <h1>Ama Boateng</h1>
+    <div class="role">Basic School Teacher & SEN Specialist</div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Contact</div>
+      <div class="contact-item"><span class="contact-icon">✉</span><span>ama.boateng@ges.gov.gh</span></div>
+      <div class="contact-item"><span class="contact-icon">☎</span><span>+233 55 321 4567</span></div>
+      <div class="contact-item"><span class="contact-icon">⌖</span><span>Takoradi, Western Region</span></div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Core Competencies</div>
+      <div style="margin-bottom:12px;">
+        <div class="skill-label"><span>Inclusive Teaching</span><span>95%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:95%"></div></div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <div class="skill-label"><span>Curriculum Adaptation</span><span>90%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <div class="skill-label"><span>Student Assessment</span><span>88%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:88%"></div></div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <div class="skill-label"><span>Community Outreach</span><span>82%</span></div>
+        <div class="progress-bar"><div class="progress-fill" style="width:82%"></div></div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Languages</div>
+      <ul>
+        <li>English (Fluent)</li>
+        <li>Fante (Native)</li>
+        <li>Twi (Proficient)</li>
+        <li>French (Basic)</li>
+      </ul>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-title">Interests</div>
+      <ul>
+        <li>Children's Literature</li>
+        <li>Special Education Research</li>
+        <li>Community Library Projects</li>
+        <li>Drama in Education</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="section">
+      <div class="section-title">Professional Profile</div>
+      <p class="profile-text">Passionate educator with six years of experience delivering inclusive, student-centred instruction in Ghanaian basic schools. Specialist in supporting learners with diverse needs, including dyslexia and autism spectrum conditions. Committed to building literate, confident, and empowered young citizens.</p>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="entry">
+        <div><h3>B.Ed. Special Education</h3><div class="org">University of Education, Winneba — Mampong Campus</div><p>Focused on assessment of learning disabilities, adaptive curriculum design, and psycho-educational intervention strategies.</p></div>
+        <div class="entry-date">2015 – 2019</div>
+      </div>
+      <div class="entry">
+        <div><h3>Post-Grad Certificate — Inclusive Education</h3><div class="org">British Council Ghana / Open University Partnership</div><p>Online professional certification in Universal Design for Learning (UDL) and differentiated instruction.</p></div>
+        <div class="entry-date">2022</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Career History</div>
+      <div class="entry">
+        <div><h3>SEN Resource Teacher</h3><div class="org">Effia-Kwesimintsim Municipal Education Directorate</div><p>Designed and delivered targeted intervention programmes for 40+ learners with special educational needs across 5 schools. Co-ordinated with parents, psychologists and classroom teachers.</p></div>
+        <div class="entry-date">2022 – Present</div>
+      </div>
+      <div class="entry">
+        <div><h3>Class Teacher — B3</h3><div class="org">Takoradi International School</div><p>Delivered whole-class instruction with differentiated resources for mixed-ability learners. Developed school's first SEN policy document.</p></div>
+        <div class="entry-date">2020 – 2022</div>
+      </div>
+      <div class="entry">
+        <div><h3>Volunteer Reading Coach</h3><div class="org">Room to Read Ghana</div><p>Ran after-school literacy clubs for struggling readers in 3 public basic schools. Trained 9 parent volunteers in reading-aloud techniques.</p></div>
+        <div class="entry-date">2019 – 2020</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Special Skills & Certifications</div>
+      <div class="tag-row">
+        <span class="tag">Universal Design for Learning</span>
+        <span class="tag">Autism Spectrum Support</span>
+        <span class="tag">IEP Development</span>
+        <span class="tag">Sensory Learning Strategies</span>
+        <span class="tag">Behavioural Intervention</span>
+        <span class="tag">Makaton Signing (Basic)</span>
+        <span class="tag">Report Writing</span>
+        <span class="tag">Canva & Google Classroom</span>
+        <span class="tag">CPR Certified</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 14</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Epilogue:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+  :root {
+    --slate: #2C3E55;
+    --slate-mid: #3A5068;
+    --slate-pale: #D6E3EE;
+    --slate-mist: #EEF3F8;
+    --coral: #E8604C;
+    --coral-pale: #FADED8;
+    --white: #FFFFFF;
+    --offwhite: #F8FAFC;
+    --text: #1A2535;
+    --dim: #7A90A8;
+    --border: #C8D8E8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--slate);
+    font-family: 'Epilogue', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex; align-items: center; justify-content: center;
+    background-image:
+      linear-gradient(135deg, rgba(232,96,76,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 0% 100%, rgba(44,62,85,0.8) 0%, transparent 60%);
+  }
+  .card {
+    max-width: 900px; width: 100%;
+    background: var(--white);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.4), -8px 0 0 var(--coral);
+    animation: slideRight 0.7s cubic-bezier(0.22,1,0.36,1);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  @keyframes slideRight { from { opacity:0; transform: translateX(-30px); } to { opacity:1; transform: translateX(0); } }
+
+  .top { display: grid; grid-template-columns: 3fr 5fr 2fr; min-height: 200px; }
+  .top-A {
+    background: var(--coral);
+    padding: 44px 36px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    position: relative; overflow: hidden;
+  }
+  .top-A::before {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border: 40px solid rgba(255,255,255,0.12);
+    border-radius: 50%;
+  }
+  .top-A .big-letter {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 120px; color: rgba(255,255,255,0.12);
+    position: absolute; top: -20px; left: -10px;
+    line-height: 1; font-weight: 500;
+  }
+  .top-A .initials {
+    font-size: 2.4rem; font-weight: 500; color: white;
+    position: relative; z-index: 1; margin-bottom: 6px;
+  }
+  .top-A .level { font-size: 0.7rem; letter-spacing: 3px; color: rgba(255,255,255,0.7); text-transform: uppercase; position: relative; z-index: 1; }
+
+  .top-B { padding: 44px 44px; display: flex; flex-direction: column; justify-content: center; }
+  .top-B .eyebrow { font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--coral); font-weight: 500; margin-bottom: 10px; }
+  .top-B h1 { font-size: 1.9rem; font-weight: 600; color: var(--text); line-height: 1.2; margin-bottom: 8px; }
+  .top-B .prog { font-size: 0.88rem; color: var(--dim); margin-bottom: 18px; line-height: 1.5; }
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tag { font-size: 0.72rem; font-weight: 500; padding: 4px 12px; border-radius: 3px; }
+  .tag.c { background: var(--coral); color: white; }
+  .tag.s { background: var(--slate-mist); color: var(--slate); border: 1px solid var(--border); }
+
+  .top-C { background: var(--slate); padding: 44px 32px; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+  .stat { }
+  .stat .sv { font-size: 2.2rem; font-weight: 300; color: white; line-height: 1; }
+  .stat .sl { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 2px; }
+  .stat-div { height: 1px; background: rgba(255,255,255,0.1); }
+
+  .body { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
+  .b-left { padding: 40px 44px; border-right: 1px solid var(--border); }
+  .b-right { padding: 40px 44px; background: var(--offwhite); }
+
+  .sec { margin-bottom: 30px; }
+  .sec-h {
+    font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--slate); font-weight: 600; margin-bottom: 18px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sec-h .line { flex: 1; height: 2px; background: var(--coral); }
+  .entry { margin-bottom: 18px; padding: 14px 16px; background: white; border: 1px solid var(--border); border-radius: 4px; }
+  .entry:hover { border-color: var(--coral); transition: border-color 0.2s; }
+  .entry .et { font-size: 0.93rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .entry .eo { font-size: 0.81rem; color: var(--coral); font-style: italic; margin-bottom: 3px; }
+  .entry .ey { font-size: 0.7rem; letter-spacing: 2px; color: var(--dim); text-transform: uppercase; margin-bottom: 6px; }
+  .entry .ep { font-size: 0.82rem; color: #5A6A7A; line-height: 1.65; }
+
+  .pos-table { width: 100%; border-collapse: collapse; }
+  .pos-table tr { border-bottom: 1px solid var(--border); }
+  .pos-table tr:last-child { border-bottom: none; }
+  .pos-table td { padding: 9px 0; font-size: 0.84rem; }
+  .pos-table .pt { color: var(--text); font-weight: 600; }
+  .pos-table .po { color: var(--dim); font-size: 0.76rem; }
+  .pos-table .py { color: var(--coral); font-size: 0.7rem; font-weight: 600; text-align: right; white-space: nowrap; }
+
+  .skill-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .sk { background: var(--slate-mist); border: 1px solid var(--border); color: var(--slate-mid); padding: 5px 12px; font-size: 0.76rem; border-radius: 20px; font-weight: 500; }
+  .sk:hover { background: var(--coral); color: white; border-color: var(--coral); transition: 0.2s; }
+
+  .c-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .c-box { background: white; border: 1px solid var(--border); padding: 10px 14px; border-radius: 4px; }
+  .c-box .cl { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 3px; }
+  .c-box .cv { font-size: 0.82rem; color: var(--text); }
+
+  .foot { background: var(--slate); padding: 14px 44px; display: flex; justify-content: space-between; align-items: center; }
+  .foot .fl { font-size: 0.72rem; color: rgba(255,255,255,0.4); }
+  .foot .fr { background: var(--coral); color: white; padding: 5px 16px; font-size: 0.72rem; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="top">
+    <div class="top-A">
+      <div class="big-letter">G</div>
+      <div class="initials">GD</div>
+      <div class="level">Level 200</div>
+    </div>
+    <div class="top-B">
+      <div class="eyebrow">College of Education · Student Profile · 2024</div>
+      <h1>Grace Doris Attah-Mensah</h1>
+      <div class="prog">B.Ed. Guidance & Counselling · University of Cape Coast · Counselling & Psychology Track</div>
+      <div class="tag-row">
+        <span class="tag c">GPA 3.88</span>
+        <span class="tag s">Dean's List</span>
+        <span class="tag s">Counselling</span>
+        <span class="tag s">Peer Mentor</span>
+      </div>
+    </div>
+    <div class="top-C">
+      <div class="stat"><div class="sv">3.88</div><div class="sl">GPA</div></div>
+      <div class="stat-div"></div>
+      <div class="stat"><div class="sv">L200</div><div class="sl">Level</div></div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="b-left">
+      <div class="sec">
+        <div class="sec-h">Educational Background<div class="line"></div></div>
+        <div class="entry">
+          <div class="et">B.Ed. Guidance & Counselling</div>
+          <div class="eo">University of Cape Coast</div>
+          <div class="ey">2023 – Present</div>
+          <div class="ep">Specializes in adolescent counselling, career guidance, and school mental health. Top of class in Educational Psychology and Counselling Theory modules.</div>
+        </div>
+        <div class="entry">
+          <div class="et">WASSCE · General Arts</div>
+          <div class="eo">Aburi Girls SHS, Eastern Region</div>
+          <div class="ey">2020 – 2023 · Aggregate 7</div>
+          <div class="ep">Electives: Economics, Government, Literature. Student Welfare Rep. and peer counsellor in Sixth Form.</div>
+        </div>
+        <div class="entry">
+          <div class="et">BECE</div>
+          <div class="eo">Aburi Presby JHS</div>
+          <div class="ey">2017 – 2020 · Aggregate 6</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h">Work & Experience<div class="line"></div></div>
+        <div class="entry">
+          <div class="et">Peer Counselling Lead</div>
+          <div class="eo">UCC Counselling & Health Services</div>
+          <div class="ey">2024 – Present</div>
+          <div class="ep">Trained peer counsellor facilitating weekly mental wellness sessions for 30+ students. Developed an anxiety management resource booklet distributed campus-wide.</div>
+        </div>
+        <div class="entry">
+          <div class="et">Adolescent Wellness Volunteer</div>
+          <div class="eo">ChildFund Ghana — Cape Coast Chapter</div>
+          <div class="ey">Summer 2023</div>
+          <div class="ep">Co-facilitated 2-week adolescent life skills camp for 50 at-risk youth. Covered topics on self-esteem, peer pressure, and career planning.</div>
+        </div>
+        <div class="entry">
+          <div class="et">SHS Peer Counsellor</div>
+          <div class="eo">Aburi Girls SHS</div>
+          <div class="ey">2022 – 2023</div>
+          <div class="ep">Selected by school counsellor to support students experiencing academic stress and social challenges.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-right">
+      <div class="sec">
+        <div class="sec-h">Positions Held<div class="line"></div></div>
+        <table class="pos-table">
+          <tr><td class="pt">Peer Support Leader<br><span class="po">UCC Counselling Unit</span></td><td class="py">2024</td></tr>
+          <tr><td class="pt">Year Group Rep. L100<br><span class="po">UCC Educ. Faculty</span></td><td class="py">2023</td></tr>
+          <tr><td class="pt">Student Welfare Rep.<br><span class="po">Aburi Girls SHS</span></td><td class="py">2022–23</td></tr>
+          <tr><td class="pt">JHS Seniors' Prefect<br><span class="po">Aburi Presby JHS</span></td><td class="py">2019–20</td></tr>
+        </table>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h">Special Skills<div class="line"></div></div>
+        <div class="skill-cloud">
+          <span class="sk">Adolescent Counselling</span>
+          <span class="sk">Active Listening</span>
+          <span class="sk">Career Guidance</span>
+          <span class="sk">Mental Health 1st Aid</span>
+          <span class="sk">Group Facilitation</span>
+          <span class="sk">Report Writing</span>
+          <span class="sk">Akan Languages</span>
+          <span class="sk">Canva & MS Office</span>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h">Contact<div class="line"></div></div>
+        <div class="c-grid">
+          <div class="c-box"><div class="cl">Email</div><div class="cv">gd.attah@ucc.edu.gh</div></div>
+          <div class="c-box"><div class="cl">Phone</div><div class="cv">+233 24 678 9012</div></div>
+          <div class="c-box"><div class="cl">Location</div><div class="cv">Cape Coast, Central Region</div></div>
+          <div class="c-box"><div class="cl">Year</div><div class="cv">2024 / 2025</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span class="fl">B.Ed. Guidance & Counselling · University of Cape Coast · 2024</span>
+    <span class="fr">Dean's List</span>
+  </div>
+</div>
+</body>
+</html>

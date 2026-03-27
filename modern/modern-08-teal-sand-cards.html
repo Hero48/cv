@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Nana Kofi Bonsu — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap" rel="stylesheet"/>
+<style>
+  :root{--teal:#0a7e7e;--teal-light:#12a8a8;--teal-pale:#d0f0ef;--sand:#f7f2e8;--dark:#0d2626;--white:#fff;--muted:#7a9090;--text:#0d2626;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--sand);font-family:'Figtree',sans-serif;color:var(--text);min-height:100vh;}
+  .page{max-width:960px;margin:0 auto;padding:32px 24px;}
+  .hero-card{background:var(--dark);border-radius:20px;padding:52px 56px;margin-bottom:20px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+  .hero-title h1{font-size:3.8rem;font-weight:800;color:var(--white);line-height:1.0;letter-spacing:-0.03em;}
+  .hero-title h1 span{color:var(--teal-light);}
+  .hero-title .role{color:rgba(255,255,255,0.5);margin-top:14px;font-size:0.95rem;line-height:1.65;}
+  .hero-title .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .badge{background:rgba(18,168,168,0.15);border:1px solid rgba(18,168,168,0.3);color:var(--teal-light);padding:5px 14px;border-radius:100px;font-size:0.77rem;font-weight:600;}
+  .stat-stack{display:flex;flex-direction:column;gap:10px;}
+  .stat-tile{background:var(--teal);border-radius:14px;padding:18px 24px;text-align:center;min-width:110px;}
+  .stat-tile .n{font-size:2.2rem;font-weight:800;color:var(--white);line-height:1;}
+  .stat-tile .l{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:3px;}
+  .contact-card{background:var(--teal);border-radius:14px;padding:20px 28px;margin-bottom:20px;display:flex;gap:0;align-items:center;}
+  .c-item{padding:0 20px;font-size:0.82rem;color:rgba(255,255,255,0.7);border-right:1px solid rgba(255,255,255,0.15);}
+  .c-item:first-child{padding-left:0;color:white;font-weight:600;}
+  .c-item:last-child{border-right:none;}
+  .grid{display:grid;grid-template-columns:1fr 300px;gap:20px;}
+  .card{background:var(--white);border-radius:16px;padding:28px 32px;margin-bottom:0;}
+  .sh{font-size:0.73rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+  .sh::after{content:'';flex:1;height:1px;background:var(--teal-pale);}
+  .job{margin-bottom:20px;padding:16px;background:var(--sand);border-radius:10px;border-left:3px solid var(--teal);}
+  .job-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .job h3{font-size:0.98rem;font-weight:700;color:var(--dark);}
+  .yr-pill{background:var(--teal-pale);color:var(--teal);padding:3px 10px;border-radius:100px;font-size:0.72rem;font-weight:700;}
+  .job .org{font-size:0.83rem;color:var(--muted);margin:4px 0 8px;}
+  .job p{font-size:0.85rem;line-height:1.68;color:#2a4040;}
+  .edu-row{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start;}
+  .edu-icon{width:36px;height:36px;background:var(--teal-pale);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+  .edu-row h3{font-size:0.92rem;font-weight:600;color:var(--dark);}
+  .edu-row .sub{font-size:0.8rem;color:var(--muted);margin-top:2px;}
+  .edu-row .yr{font-size:0.72rem;color:var(--teal);font-weight:700;margin-bottom:3px;}
+  .skill-chip{display:inline-block;background:var(--teal-pale);color:var(--teal);padding:6px 14px;border-radius:100px;font-size:0.8rem;font-weight:600;margin:4px 4px 0 0;}
+  .pos-item{padding:7px 0;border-bottom:1px solid var(--sand);font-size:0.85rem;color:var(--dark);display:flex;gap:8px;}
+  .pos-item::before{content:'►';color:var(--teal);font-size:0.65rem;flex-shrink:0;margin-top:4px;}
+  .award-item{padding:7px 0;border-bottom:1px solid var(--sand);font-size:0.83rem;color:var(--dark);}
+  .award-item::before{content:'✦ ';}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero-card">
+    <div class="hero-title">
+      <h1>Nana Kofi<br><span>Bonsu</span></h1>
+      <div class="role">JHS Social Studies & History Teacher · Community Researcher · Civic Education Advocate · Kumasi Metropolitan Area</div>
+      <div class="badge-row">
+        <span class="badge">UCC Graduate</span>
+        <span class="badge">GES Licensed</span>
+        <span class="badge">9 Yrs Experience</span>
+        <span class="badge">Researcher</span>
+      </div>
+    </div>
+    <div class="stat-stack">
+      <div class="stat-tile"><div class="n">9</div><div class="l">Years</div></div>
+      <div class="stat-tile"><div class="n">550+</div><div class="l">Students</div></div>
+      <div class="stat-tile"><div class="n">3</div><div class="l">Publications</div></div>
+    </div>
+  </div>
+  <div class="contact-card">
+    <div class="c-item">nana.bonsu@ges.gov.gh</div>
+    <div class="c-item">+233 24 889 9001</div>
+    <div class="c-item">Kumasi, Ashanti Region</div>
+    <div class="c-item">ORCID: 0000-0003-2345-6789</div>
+  </div>
+  <div class="grid">
+    <div>
+      <div class="card" style="margin-bottom:20px;">
+        <div class="sh">Experience</div>
+        <div class="job">
+          <div class="job-top"><h3>Senior Social Studies Teacher & HOD</h3><span class="yr-pill">2020–Now</span></div>
+          <div class="org">Kumasi Suame Municipal JHS</div>
+          <p>Lead Social Studies and History; coordinate 4 humanities teachers. Launched local history project where students research and document Kumasi neighbourhood histories.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>Social Studies & RME Teacher</h3><span class="yr-pill">2017–2020</span></div>
+          <div class="org">Asante Akim North Municipal JHS</div>
+          <p>Delivered full Social Studies and RME curriculum; introduced field trips to historical sites as immersive learning experiences. Improved BECE pass rates from 70% to 90%.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>Community Heritage Researcher</h3><span class="yr-pill">2016–Present</span></div>
+          <div class="org">Ashanti Cultural Heritage Foundation</div>
+          <p>Document oral histories and traditional governance structures in Ashanti communities. Published 3 papers and 1 community heritage booklet used in local schools.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>National Service Teacher</h3><span class="yr-pill">2015–2016</span></div>
+          <div class="org">Kwabre East Municipal JHS</div>
+          <p>Taught Social Studies and English. Organised school's first heritage walk through a local historical site.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="sh">Special Skills</div>
+        <span class="skill-chip">Social Studies Instruction</span>
+        <span class="skill-chip">Historical Research</span>
+        <span class="skill-chip">Oral History Methods</span>
+        <span class="skill-chip">Civic Education</span>
+        <span class="skill-chip">Community Engagement</span>
+        <span class="skill-chip">Documentary Photography</span>
+        <span class="skill-chip">Academic Writing</span>
+        <span class="skill-chip">Google Workspace</span>
+        <span class="skill-chip">Twi & Fante Instruction</span>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:20px;">
+        <div class="sh">Education</div>
+        <div class="edu-row"><div class="edu-icon">🎓</div><div><div class="yr">2011–2015</div><h3>B.Ed. Social Studies</h3><div class="sub">University of Cape Coast</div></div></div>
+        <div class="edu-row"><div class="edu-icon">📜</div><div><div class="yr">2021</div><h3>Postgraduate Dip. — History</h3><div class="sub">University of Ghana, Legon</div></div></div>
+        <div class="edu-row"><div class="edu-icon">🏛️</div><div><div class="yr">2023</div><h3>Cert. Cultural Heritage Management</h3><div class="sub">ICCROM / Ghana Museums Board</div></div></div>
+        <div class="edu-row"><div class="edu-icon">📚</div><div><div class="yr">2008–2011</div><h3>WASSCE — General Arts</h3><div class="sub">Prempeh College, Kumasi</div></div></div>
+      </div>
+      <div class="card" style="margin-bottom:20px;">
+        <div class="sh">Positions Held</div>
+        <div class="pos-item">Faculty SRC Rep — UCC</div>
+        <div class="pos-item">HOD Humanities — KSM JHS</div>
+        <div class="pos-item">WAEC Social Studies Panel Marker</div>
+        <div class="pos-item">District Heritage Education Coord.</div>
+        <div class="pos-item">Youth Leader — Kumasi Presbyterian</div>
+      </div>
+      <div class="card">
+        <div class="sh">Awards</div>
+        <div class="award-item">GES Ashanti Best Humanities Teacher, 2023</div>
+        <div class="award-item">Ashanti Cultural Heritage Award, 2022</div>
+        <div class="award-item">Best Graduating SS Student, UCC, 2015</div>
+        <div class="award-item">WAEC Excellence Marker Award, 2022</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

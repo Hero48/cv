@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Abena Mensah — Educator Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ivory: #f9f5ec;
+    --parchment: #ede8d8;
+    --sepia: #7c6a4a;
+    --ink: #2b2318;
+    --gold: #b8962e;
+    --rust: #9b4a2a;
+    --cream: #fdfaf2;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--ivory);color:var(--ink);font-family:'EB Garamond',serif;font-size:17px;line-height:1.75;}
+  .page{max-width:860px;margin:0 auto;padding:60px 40px;}
+  .border-frame{border:2px solid var(--gold);padding:50px;position:relative;}
+  .border-frame::before,.border-frame::after{content:'';position:absolute;width:24px;height:24px;border:2px solid var(--rust);}
+  .border-frame::before{top:-4px;left:-4px;border-right:none;border-bottom:none;}
+  .border-frame::after{bottom:-4px;right:-4px;border-left:none;border-top:none;}
+  .header-ornament{text-align:center;margin-bottom:36px;}
+  .ornament-line{display:flex;align-items:center;gap:16px;justify-content:center;margin:10px 0;}
+  .ornament-line span{height:1px;width:100px;background:var(--gold);}
+  .diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);display:inline-block;}
+  h1{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;letter-spacing:0.08em;text-align:center;color:var(--ink);}
+  .subtitle{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;color:var(--sepia);text-align:center;margin:8px 0 20px;}
+  .contact-bar{display:flex;justify-content:center;gap:28px;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--sepia);border-top:1px solid var(--parchment);border-bottom:1px solid var(--parchment);padding:12px 0;margin:20px 0;}
+  .section{margin:36px 0;}
+  .section-title{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);border-bottom:1px solid var(--gold);padding-bottom:6px;margin-bottom:20px;}
+  .entry{margin-bottom:22px;display:grid;grid-template-columns:1fr 160px;gap:16px;}
+  .entry-main h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--ink);}
+  .entry-main .org{font-style:italic;color:var(--sepia);}
+  .entry-meta{text-align:right;font-size:0.82rem;letter-spacing:0.06em;color:var(--sepia);padding-top:4px;}
+  .entry-main p{font-size:0.93rem;margin-top:6px;color:#4a3f30;}
+  .skills-grid{display:flex;flex-wrap:wrap;gap:10px;}
+  .skill-tag{background:var(--parchment);border:1px solid var(--gold);padding:5px 14px;font-size:0.83rem;letter-spacing:0.06em;color:var(--sepia);font-family:'Cormorant Garamond',serif;}
+  .quote{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;color:var(--sepia);padding:24px;border-left:3px solid var(--gold);border-right:3px solid var(--gold);margin:30px 0;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  footer{text-align:center;margin-top:40px;font-size:0.78rem;letter-spacing:0.1em;color:var(--sepia);}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="border-frame">
+    <div class="header-ornament">
+      <div class="ornament-line"><span></span><div class="diamond"></div><span></span></div>
+      <h1>Abena Mensah</h1>
+      <p class="subtitle">Educator · Curriculum Designer · Academic Mentor</p>
+      <div class="ornament-line"><span></span><div class="diamond"></div><span></span></div>
+      <div class="contact-bar">
+        <span>abena.mensah@edu.gh</span>
+        <span>+233 20 456 7890</span>
+        <span>Kumasi, Ghana</span>
+      </div>
+    </div>
+
+    <div class="quote">"Teaching is not filling a bucket, but lighting a fire — and every student carries a flame waiting to be ignited."</div>
+
+    <div class="two-col">
+      <div class="section">
+        <div class="section-title">Educational Background</div>
+        <div class="entry" style="grid-template-columns:1fr;">
+          <div class="entry-main">
+            <h3>B.Ed. Basic Education</h3>
+            <span class="org">University of Education, Winneba</span>
+            <p>Specialisation in Early Childhood Development. Graduated with First Class Honours.</p>
+          </div>
+          <div class="entry-meta">2016 – 2020</div>
+        </div>
+        <div class="entry" style="grid-template-columns:1fr;">
+          <div class="entry-main">
+            <h3>Certificate in Curriculum & Pedagogy</h3>
+            <span class="org">Ghana Education Service</span>
+            <p>Intensive professional development in modern instructional methodologies.</p>
+          </div>
+          <div class="entry-meta">2021</div>
+        </div>
+        <div class="entry" style="grid-template-columns:1fr;">
+          <div class="entry-main">
+            <h3>SHS — General Arts</h3>
+            <span class="org">Opoku Ware School, Kumasi</span>
+            <p>Best Literature Student Award. Prefect body member.</p>
+          </div>
+          <div class="entry-meta">2013 – 2016</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Positions Held</div>
+        <div class="entry" style="grid-template-columns:1fr;">
+          <div class="entry-main">
+            <h3>Class Teacher & Level Coordinator</h3>
+            <span class="org">Asante Mampong R/C Primary School</span>
+            <p>Coordinated P4–P6 curriculum delivery for 6 class teachers.</p>
+          </div>
+          <div class="entry-meta">2022 – Present</div>
+        </div>
+        <div class="entry" style="grid-template-columns:1fr;">
+          <div class="entry-main">
+            <h3>Student Union Academic Secretary</h3>
+            <span class="org">UEW Student Representative Council</span>
+            <p>Managed academic affairs for over 3,000 students.</p>
+          </div>
+          <div class="entry-meta">2018 – 2019</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Professional Experience</div>
+      <div class="entry">
+        <div class="entry-main">
+          <h3>Lead Facilitator — Literacy Programme</h3>
+          <span class="org">Ghana Reads Initiative, USAID Partnership</span>
+          <p>Trained 42 teachers across 8 districts in phonics-based reading instruction. Improved average student literacy scores by 34% within one academic year.</p>
+        </div>
+        <div class="entry-meta">Jan 2023 – Present</div>
+      </div>
+      <div class="entry">
+        <div class="entry-main">
+          <h3>Curriculum Writer</h3>
+          <span class="org">Ghana Education Service — NaCCA</span>
+          <p>Contributed to the development of new B1–B3 English and Integrated Science schemes of work aligned with the new standards-based curriculum.</p>
+        </div>
+        <div class="entry-meta">Jun 2021 – Dec 2022</div>
+      </div>
+      <div class="entry">
+        <div class="entry-main">
+          <h3>Student Teacher Supervisor</h3>
+          <span class="org">UEW Teaching Practice Unit</span>
+          <p>Mentored and assessed 18 final-year student teachers during school placement across Ashanti Region public schools.</p>
+        </div>
+        <div class="entry-meta">Sep 2020 – May 2021</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Special Skills</div>
+      <div class="skills-grid">
+        <span class="skill-tag">Phonics Instruction</span>
+        <span class="skill-tag">Lesson Plan Design</span>
+        <span class="skill-tag">Classroom Management</span>
+        <span class="skill-tag">Inclusive Education</span>
+        <span class="skill-tag">Teacher Training</span>
+        <span class="skill-tag">Twi Language Instruction</span>
+        <span class="skill-tag">Assessment & Evaluation</span>
+        <span class="skill-tag">Microsoft Office Suite</span>
+        <span class="skill-tag">Community Engagement</span>
+      </div>
+    </div>
+
+    <footer>— Curriculum Vitae · Abena Mensah · 2024 —</footer>
+  </div>
+</div>
+</body>
+</html>

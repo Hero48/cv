@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCV - Welcome Back Teacher!</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&amp;family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-fixed-dim": "#cd9eec",
+                        "primary-container": "#f8cd50",
+                        "on-primary-fixed-variant": "#644e00",
+                        "on-secondary-fixed": "#004840",
+                        "surface-container-highest": "#dbdddd",
+                        "outline-variant": "#acadad",
+                        "secondary-fixed-dim": "#7fe6d5",
+                        "error": "#b02500",
+                        "on-primary-fixed": "#423200",
+                        "secondary-fixed": "#8ef5e3",
+                        "primary-fixed-dim": "#e9bf43",
+                        "secondary": "#00675c",
+                        "primary-dim": "#634d00",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#5a5c5c",
+                        "on-tertiary-fixed": "#390f55",
+                        "on-background": "#2d2f2f",
+                        "tertiary-fixed": "#dcacfb",
+                        "inverse-on-surface": "#9c9d9d",
+                        "outline": "#757777",
+                        "on-surface": "#2d2f2f",
+                        "primary": "#715800",
+                        "surface-tint": "#715800",
+                        "inverse-primary": "#f8cd50",
+                        "on-error-container": "#520c00",
+                        "surface-container": "#e7e8e8",
+                        "tertiary-container": "#dcacfb",
+                        "surface-bright": "#f6f6f6",
+                        "tertiary-dim": "#673e83",
+                        "on-secondary-container": "#005c52",
+                        "surface-container-low": "#f0f1f1",
+                        "surface-dim": "#d2d5d5",
+                        "on-tertiary": "#fceeff",
+                        "inverse-surface": "#0c0f0f",
+                        "error-container": "#f95630",
+                        "surface": "#f6f6f6",
+                        "on-secondary-fixed-variant": "#00675c",
+                        "on-primary": "#fff1d6",
+                        "secondary-dim": "#005a50",
+                        "on-primary-container": "#594500",
+                        "surface-variant": "#dbdddd",
+                        "secondary-container": "#8ef5e3",
+                        "on-error": "#ffefec",
+                        "background": "#f6f6f6",
+                        "on-secondary": "#c1fff2",
+                        "error-dim": "#b92902",
+                        "surface-container-high": "#e1e3e3",
+                        "primary-fixed": "#f8cd50",
+                        "on-tertiary-fixed-variant": "#593176",
+                        "tertiary": "#734a90",
+                        "on-tertiary-container": "#50286c"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .brutalist-shadow {
+            box-shadow: 8px 8px 0px 0px rgba(45, 47, 47, 1);
+        }
+        .brutalist-shadow-sm {
+            box-shadow: 4px 4px 0px 0px rgba(45, 47, 47, 1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body min-h-screen selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+<header class="bg-[#f6f6f6] dark:bg-zinc-900 border-b-4 border-[#2d2f2f] shadow-[4px_4px_0px_0px_rgba(45,47,47,1)] flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#715800] dark:text-[#f8cd50] text-3xl" data-icon="school">school</span>
+<span class="text-3xl font-black italic font-serif text-[#2d2f2f] dark:text-[#f6f6f6]">EduCV</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label font-bold uppercase tracking-wider text-[#715800] dark:text-[#f8cd50] underline decoration-4" href="#">Dashboard</a>
+<a class="font-label font-bold uppercase tracking-wider text-[#2d2f2f] dark:text-zinc-400 hover:translate-y-1 transition-all" href="#">My CVs</a>
+<a class="font-label font-bold uppercase tracking-wider text-[#2d2f2f] dark:text-zinc-400 hover:translate-y-1 transition-all" href="#">Profile</a>
+</div>
+</header>
+<main class="min-h-screen pt-32 pb-16 px-4 flex items-center justify-center bg-[radial-gradient(#dbdddd_1px,transparent_1px)] [background-size:24px_24px]">
+<div class="grid lg:grid-cols-12 gap-12 max-w-6xl w-full items-center">
+<div class="lg:col-span-7 flex flex-col gap-8 order-2 lg:order-1">
+<div class="relative">
+<div class="absolute -top-12 -left-8 w-24 h-24 bg-tertiary-container rounded-full brutalist-shadow-sm -z-10 opacity-50"></div>
+<h1 class="font-headline font-bold italic text-6xl md:text-8xl leading-tight text-on-background">
+                        Welcome Back <br/> <span class="text-secondary">Teacher!</span>
+</h1>
+</div>
+<p class="text-xl md:text-2xl leading-relaxed max-w-xl text-on-surface-variant font-medium">
+                    Your next career milestone is just a few clicks away. Log in to manage your professional dossier and explore new opportunities within the Ghana Education Service.
+                </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container p-6 border-4 border-on-background brutalist-shadow-sm transform -rotate-1">
+<span class="material-symbols-outlined text-4xl mb-4 text-primary" data-icon="history_edu">history_edu</span>
+<h3 class="font-bold text-lg mb-1">2.4k+ Teachers</h3>
+<p class="text-sm opacity-80">Connected across Ghana</p>
+</div>
+<div class="bg-primary-container p-6 border-4 border-on-background brutalist-shadow-sm transform rotate-2">
+<span class="material-symbols-outlined text-4xl mb-4 text-on-primary-container" data-icon="verified">verified</span>
+<h3 class="font-bold text-lg mb-1">GES Validated</h3>
+<p class="text-sm opacity-80">Official CV Standards</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 order-1 lg:order-2">
+<div class="bg-surface-container-lowest border-4 border-on-background p-8 md:p-10 brutalist-shadow relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container -mr-16 -mt-16 transform rotate-45 border-b-4 border-on-background"></div>
+<form class="flex flex-col gap-6 relative z-10">
+<div class="flex flex-col gap-2">
+<label class="font-label font-bold uppercase tracking-widest text-xs text-on-surface-variant" for="email">Institutional Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="mail">mail</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface border-4 border-on-background rounded-none focus:outline-none focus:ring-0 focus:bg-primary-fixed-dim focus:brutalist-shadow-sm transition-all placeholder:text-outline-variant font-medium" id="email" placeholder="k.mensah@ges.gov.gh" type="email"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between items-end">
+<label class="font-label font-bold uppercase tracking-widest text-xs text-on-surface-variant" for="password">Security Password</label>
+<a class="text-xs font-bold text-primary hover:underline underline-offset-4 decoration-2" href="#">Forgot Password?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="lock">lock</span>
+<input class="w-full pl-12 pr-4 py-4 bg-surface border-4 border-on-background rounded-none focus:outline-none focus:ring-0 focus:bg-primary-fixed-dim focus:brutalist-shadow-sm transition-all placeholder:text-outline-variant font-medium" id="password" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+<div class="flex items-center gap-3 py-2">
+<input class="w-6 h-6 border-4 border-on-background text-secondary focus:ring-0 rounded-none cursor-pointer" id="remember" type="checkbox"/>
+<label class="text-sm font-bold cursor-pointer select-none" for="remember">Keep me logged in for 30 days</label>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-label font-black uppercase py-5 border-4 border-on-background brutalist-shadow-sm hover:translate-y-1 hover:shadow-none active:scale-95 transition-all text-xl tracking-tighter" type="submit">
+                            Login To Dashboard
+                        </button>
+<div class="relative py-4">
+<div class="absolute inset-0 flex items-center"><div class="w-full border-t-2 border-outline-variant"></div></div>
+<div class="relative flex justify-center text-xs uppercase font-bold tracking-widest"><span class="bg-surface-container-lowest px-4 text-outline-variant">Or Continue With</span></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 border-4 border-on-background bg-surface hover:bg-surface-container transition-colors font-bold" type="button">
+<img alt="" class="w-5 h-5" data-alt="Google logo icon on a white circular background for single sign-on authentication" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrRIUKPJAlCJiVLS3dK_Mko1NuIu-BFIXDUD54sJOh5XN8IjExftC3703H7ODlOAxeUW6gO60isikjaWyzUZME4HKZ_h1rBMMLFpcUdfEybBgFQBtzmKK6EybRa4w2wfL6ay1e_AHZ2q1wY0F9olqDrMq3a0Gyg3DN9rP03PzlKSW6ZtAXXNy9zTcjuchTsfrfYXe8SML_017rfqEBTcD3TPqrfHNBh74b5JxnEcURJjri26QJfxutj1DUYeCp-1aGYmR5a4jKNA"/>
+                                Google
+                            </button>
+<button class="flex items-center justify-center gap-2 py-3 border-4 border-on-background bg-surface hover:bg-surface-container transition-colors font-bold" type="button">
+<span class="material-symbols-outlined" data-icon="fingerprint">fingerprint</span>
+                                Biometric
+                            </button>
+</div>
+</form>
+<p class="mt-8 text-center font-medium">
+                        New educator? <a class="text-secondary font-bold underline decoration-4 hover:text-on-secondary-fixed-variant transition-colors" href="#">Create an account</a>
+</p>
+</div>
+<div class="mt-8 flex justify-center gap-6">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="shield">shield</span>
+<span class="text-xs font-bold uppercase tracking-wider">SSL Encrypted</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="gavel">gavel</span>
+<span class="text-xs font-bold uppercase tracking-wider">Privacy Policy</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-surface-container border-t-4 border-on-background py-12 px-6">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start gap-8">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-2xl" data-icon="school">school</span>
+<span class="text-2xl font-black italic font-serif">EduCV</span>
+</div>
+<p class="max-w-xs text-on-surface-variant text-sm font-medium">Empowering Ghanaian educators with professional tools for career excellence since 2023.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<h4 class="font-label font-bold uppercase tracking-widest text-xs">Resources</h4>
+<nav class="flex flex-col gap-2 text-sm font-medium">
+<a class="hover:text-primary" href="#">Templates</a>
+<a class="hover:text-primary" href="#">GES Guides</a>
+<a class="hover:text-primary" href="#">Salary Scale</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label font-bold uppercase tracking-widest text-xs">Support</h4>
+<nav class="flex flex-col gap-2 text-sm font-medium">
+<a class="hover:text-primary" href="#">Help Center</a>
+<a class="hover:text-primary" href="#">Contact Us</a>
+<a class="hover:text-primary" href="#">FAQs</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4 col-span-2 md:col-span-1">
+<h4 class="font-label font-bold uppercase tracking-widest text-xs">Join our list</h4>
+<div class="flex">
+<input class="bg-surface border-2 border-on-background px-3 py-2 w-full focus:outline-none" placeholder="Email" type="text"/>
+<button class="bg-on-background text-surface px-4 font-bold">GO</button>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-6xl mx-auto mt-12 pt-8 border-t-2 border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest text-outline">
+<span>© 2024 EduCV Ghana. All Rights Reserved.</span>
+<div class="flex gap-6">
+<a href="#">Terms</a>
+<a href="#">Privacy</a>
+<a href="#">Cookies</a>
+</div>
+</div>
+</footer>
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 bg-[#f6f6f6] dark:bg-zinc-900 border-t-4 border-[#2d2f2f] z-50 shadow-[0px_-4px_0px_0px_rgba(45,47,47,1)]">
+<a class="flex flex-col items-center justify-center bg-[#f8cd50] text-[#2d2f2f] border-2 border-[#2d2f2f] rounded-xl p-2 shadow-[2px_2px_0px_0px_rgba(45,47,47,1)]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-sans font-bold Space Grotesk text-[10px] uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#2d2f2f] dark:text-zinc-400 p-2 hover:bg-[#dcacfb] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="font-sans font-bold Space Grotesk text-[10px] uppercase tracking-wider">CVs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#2d2f2f] dark:text-zinc-400 p-2 hover:bg-[#dcacfb] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-sans font-bold Space Grotesk text-[10px] uppercase tracking-wider">Profile</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#2d2f2f] dark:text-zinc-400 p-2 hover:bg-[#dcacfb] transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-sans font-bold Space Grotesk text-[10px] uppercase tracking-wider">Help</span>
+</a>
+</nav>
+</body></html>

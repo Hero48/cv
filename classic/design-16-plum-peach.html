@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 16</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --plum: #4A1942;
+    --plum-mid: #6B2860;
+    --plum-pale: #E8D0E4;
+    --plum-mist: #F5EAF3;
+    --peach: #F2A57C;
+    --peach-pale: #FDE8D8;
+    --cream: #FDF8F4;
+    --text: #1E0A1C;
+    --dim: #8A6880;
+    --border: #DCC8D8;
+    --white: #FFFFFF;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--plum);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex; align-items: center; justify-content: center;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(106,40,96,0.6) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(242,165,124,0.1) 0%, transparent 60%);
+  }
+  .card {
+    max-width: 900px; width: 100%;
+    position: relative;
+    animation: bloom 0.8s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes bloom { from { opacity:0; transform: scale(0.95); } to { opacity:1; transform: scale(1); } }
+
+  .panel-bg {
+    position: absolute; top: 20px; left: 20px; right: -20px; bottom: -20px;
+    background: rgba(74,25,66,0.4);
+    border-radius: 2px;
+  }
+  .main-card {
+    position: relative; z-index: 1;
+    background: var(--cream);
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+  }
+  /* Diagonal accent bar */
+  .diag-bar {
+    position: absolute; top: 0; right: 0;
+    width: 320px; height: 320px;
+    background: linear-gradient(225deg, var(--peach) 0%, rgba(242,165,124,0) 60%);
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  .header { display: flex; min-height: 240px; }
+  .h-panel-1 {
+    background: var(--plum);
+    padding: 48px 48px;
+    flex: 0 0 300px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden;
+  }
+  .h-panel-1::before {
+    content: '';
+    position: absolute; bottom: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border: 50px solid rgba(242,165,124,0.12);
+    border-radius: 50%;
+  }
+  .h-panel-1 .monogram {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 72px; font-style: italic;
+    color: var(--peach); line-height: 1; opacity: 0.9;
+    position: relative; z-index: 1;
+  }
+  .h-panel-1 .badge {
+    border: 1px solid rgba(242,165,124,0.4);
+    color: var(--peach); padding: 6px 16px;
+    font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase;
+    display: inline-block; position: relative; z-index: 1;
+  }
+
+  .h-panel-2 { flex: 1; padding: 48px 52px; display: flex; flex-direction: column; justify-content: center; position: relative; }
+  .h-panel-2 .pre { font-size: 0.62rem; letter-spacing: 5px; text-transform: uppercase; color: var(--peach); margin-bottom: 12px; }
+  .h-panel-2 h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 2.4rem; color: var(--text); line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .h-panel-2 h1 em { font-style: italic; color: var(--plum-mid); }
+  .h-panel-2 .prog { font-size: 0.9rem; color: var(--dim); margin-bottom: 20px; }
+  .pill-strip { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ppill { padding: 5px 16px; font-size: 0.74rem; font-weight: 500; border-radius: 20px; }
+  .ppill.a { background: var(--plum); color: white; }
+  .ppill.b { background: var(--plum-mist); color: var(--plum); border: 1px solid var(--plum-pale); }
+  .ppill.c { background: var(--peach); color: white; }
+
+  .h-panel-3 {
+    background: var(--peach-pale);
+    flex: 0 0 180px;
+    padding: 48px 36px;
+    display: flex; flex-direction: column; justify-content: center; gap: 18px;
+    border-left: 1px solid var(--border);
+  }
+  .stat { }
+  .stat .sv { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 2.8rem; color: var(--plum); line-height: 1; }
+  .stat .sl { font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-top: 2px; }
+  .stat-sep { height: 1px; background: var(--border); }
+
+  .body-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
+  .bgcol { padding: 40px 48px; }
+  .bgcol:first-child { border-right: 1px solid var(--border); }
+  .bgcol:last-child { background: var(--plum-mist); }
+
+  .sec { margin-bottom: 28px; }
+  .sec-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: 0.88rem; font-style: italic;
+    color: var(--plum); border-bottom: 2px solid var(--peach);
+    padding-bottom: 6px; margin-bottom: 18px; display: inline-block;
+  }
+  .entry { margin-bottom: 18px; padding: 14px 18px; border: 1px solid var(--border); background: white; }
+  .entry:hover { border-color: var(--plum-mid); transition: 0.2s; }
+  .entry .et { font-size: 0.93rem; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+  .entry .eo { font-size: 0.8rem; color: var(--plum-mid); font-style: italic; margin-bottom: 3px; }
+  .entry .ey { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; }
+  .entry .ep { font-size: 0.82rem; color: #6A5060; line-height: 1.65; }
+
+  .pos-item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .pos-item:last-child { border-bottom: none; }
+  .pos-item .pt { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+  .pos-item .po { font-size: 0.76rem; color: var(--dim); font-style: italic; }
+  .pos-item .py { font-size: 0.65rem; color: var(--peach); font-weight: 600; letter-spacing: 1px; }
+
+  .skills-flex { display: flex; flex-wrap: wrap; gap: 6px; }
+  .stag { background: white; border: 1px solid var(--plum-pale); color: var(--plum-mid); padding: 4px 12px; font-size: 0.76rem; border-radius: 2px; }
+  .stag:hover { background: var(--plum); color: white; border-color: var(--plum); transition: 0.2s; }
+
+  .contact-strip { background: var(--plum); padding: 16px 48px; display: flex; gap: 40px; flex-wrap: wrap; }
+  .cs { font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+  .cs strong { color: var(--peach); margin-right: 6px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="panel-bg"></div>
+  <div class="main-card">
+    <div class="diag-bar"></div>
+    <div class="header">
+      <div class="h-panel-1">
+        <div class="monogram">AA</div>
+        <div class="badge">Level 300</div>
+      </div>
+      <div class="h-panel-2">
+        <div class="pre">College of Education · Student Profile · 2024</div>
+        <h1>Adwoa <em>Ama</em> Nyarko-Poku</h1>
+        <div class="prog">B.Ed. Home Economics Education · UEW, Winneba · Level 300</div>
+        <div class="pill-strip">
+          <span class="ppill a">GPA 3.82</span>
+          <span class="ppill b">Dean's List</span>
+          <span class="ppill c">HE Dept. Star</span>
+          <span class="ppill b">Fashion & Textiles</span>
+        </div>
+      </div>
+      <div class="h-panel-3">
+        <div class="stat"><div class="sv">3.82</div><div class="sl">GPA</div></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><div class="sv">L300</div><div class="sl">Level</div></div>
+      </div>
+    </div>
+
+    <div class="body-grid">
+      <div class="bgcol">
+        <div class="sec">
+          <div class="sec-title">Educational Background</div>
+          <div class="entry">
+            <div class="et">B.Ed. Home Economics Education</div>
+            <div class="eo">University of Education, Winneba</div>
+            <div class="ey">2022 – Present</div>
+            <div class="ep">Majoring in Fashion, Textiles & Clothing Science, with a minor in Foods & Nutrition. Ongoing project: Upcycled Kente-inspired school uniform design for public schools.</div>
+          </div>
+          <div class="entry">
+            <div class="et">WASSCE · Home Economics</div>
+            <div class="eo">Winneba SHS</div>
+            <div class="ey">2019 – 2022 · Aggregate 7</div>
+            <div class="ep">Electives: Textiles, Management in Living, Foods & Nutrition. Won Crafts Category at Regional Best Student Exhibition 2022.</div>
+          </div>
+          <div class="entry">
+            <div class="et">BECE</div>
+            <div class="eo">Winneba Anglican JHS</div>
+            <div class="ey">2016 – 2019 · Aggregate 6</div>
+          </div>
+        </div>
+        <div class="sec">
+          <div class="sec-title">Work & Experience</div>
+          <div class="entry">
+            <div class="et">HE Student Teacher</div>
+            <div class="eo">Winneba Presby Girls' JHS</div>
+            <div class="ey">Sept – Dec 2024</div>
+            <div class="ep">Taught Foods & Nutrition and Home Management to JHS 2 & 3. Organized end-of-term cookery showcase attended by 200 community members.</div>
+          </div>
+          <div class="entry">
+            <div class="et">Fashion Design Tutor</div>
+            <div class="eo">UEW Textile Workshop (Part-time)</div>
+            <div class="ey">2023 – Present</div>
+            <div class="ep">Assists lecturers in teaching sewing techniques to Level 100 and 200 students. Developed illustrated stitch guides used across 3 student batches.</div>
+          </div>
+          <div class="entry">
+            <div class="et">Community Nutrition Volunteer</div>
+            <div class="eo">Ghana Health Service · Effutu District</div>
+            <div class="ey">Summer 2023</div>
+            <div class="ep">Ran cooking demonstrations promoting balanced nutrition for nursing mothers in 4 communities around Winneba.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bgcol">
+        <div class="sec">
+          <div class="sec-title">Positions Held</div>
+          <div class="pos-item"><div class="pt">HE Students' Society President</div><div class="po">UEW · Dept. of HE Education</div><div class="py">2024</div></div>
+          <div class="pos-item"><div class="pt">Cultural Festival Coordinator</div><div class="po">UEW Annual Craft Fair</div><div class="py">2023</div></div>
+          <div class="pos-item"><div class="pt">Home Econ. Prefect</div><div class="po">Winneba SHS</div><div class="py">2021–22</div></div>
+          <div class="pos-item"><div class="pt">Girls' Prefect</div><div class="po">Winneba Anglican JHS</div><div class="py">2018–19</div></div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title">Special Skills</div>
+          <div class="skills-flex">
+            <span class="stag">Fashion Design</span>
+            <span class="stag">Textiles & Stitching</span>
+            <span class="stag">Nutrition Science</span>
+            <span class="stag">Cookery & Baking</span>
+            <span class="stag">Kente Weaving</span>
+            <span class="stag">Pattern Making</span>
+            <span class="stag">Event Coordination</span>
+            <span class="stag">Fante Language</span>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-title">Contact</div>
+          <div class="entry" style="background:var(--plum-mist); border-color: var(--plum-pale);">
+            <div style="font-size:0.82rem; color: var(--text); line-height:2;">
+              <strong style="color:var(--plum-mid); font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; display:block">Email</strong> aa.nyarkopoku@uew.edu.gh<br>
+              <strong style="color:var(--plum-mid); font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; display:block; margin-top:4px">Phone</strong> +233 24 234 5678<br>
+              <strong style="color:var(--plum-mid); font-size:0.65rem; letter-spacing:2px; text-transform:uppercase; display:block; margin-top:4px">Location</strong> Winneba, Central Region
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-strip">
+      <span class="cs"><strong>Programme:</strong> B.Ed. Home Economics Education · UEW Winneba</span>
+      <span class="cs"><strong>Year:</strong> Academic 2024 / 2025</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

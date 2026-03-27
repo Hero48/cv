@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 09 — Cloud White</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --white:#ffffff;
+    --cloud:#f9f9f9;
+    --rule:#e5e5e5;
+    --ink:#111;
+    --accent:#3362a0;
+    --muted:#888;
+    --sm-text:#777;
+  }
+  body{background:var(--white);color:var(--ink);font-family:'Karla',sans-serif;font-weight:300;}
+  .page{max-width:800px;margin:0 auto;padding:100px 80px;}
+
+  /* NAME */
+  .name-row{margin-bottom:72px;}
+  .n-tag{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+  .n-name{font-family:'EB Garamond',serif;font-size:clamp(50px,8vw,84px);font-weight:500;line-height:1;letter-spacing:-2px;margin-bottom:14px;}
+  .n-title{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+  .n-rule{height:1px;background:var(--rule);margin:28px 0;}
+  .n-meta{display:flex;gap:40px;font-size:12px;color:var(--muted);flex-wrap:wrap;}
+
+  /* BODY */
+  .row{display:grid;grid-template-columns:180px 1fr;gap:0;border-top:1px solid var(--rule);padding:48px 0;}
+  .row-label{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);padding-top:4px;line-height:1.5;}
+  .row-content{}
+  .item{margin-bottom:32px;}
+  .item:last-child{margin-bottom:0;}
+  .i-period{font-size:11px;color:var(--accent);letter-spacing:2px;margin-bottom:6px;}
+  .i-title{font-family:'EB Garamond',serif;font-size:22px;font-weight:500;color:var(--ink);margin-bottom:2px;line-height:1.2;}
+  .i-place{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:10px;}
+  .i-body{font-size:13.5px;line-height:1.9;color:#444;}
+  .skill-line{display:flex;flex-wrap:wrap;gap:6px;}
+  .sk{border:1px solid var(--rule);color:var(--sm-text);padding:5px 14px;font-size:11.5px;letter-spacing:0.5px;}
+  @media(max-width:580px){.page{padding:48px 24px;}.row{grid-template-columns:1fr;gap:16px;}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="name-row">
+    <div class="n-tag">Curriculum Vitae</div>
+    <h1 class="n-name">Maame Akua<br>Boateng</h1>
+    <div class="n-title">Creative Arts Educator · Cultural Practitioner</div>
+    <div class="n-rule"></div>
+    <div class="n-meta">
+      <span>maame.akua@creativeedu.gh</span>
+      <span>+233 27 003 4455</span>
+      <span>Accra, Ghana</span>
+      <span>GTLE Certified · 2020</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">About</div>
+    <div class="row-content">
+      <div style="font-family:'EB Garamond',serif;font-size:18px;line-height:1.8;color:#333;font-style:italic;">
+        A creative arts educator who believes every child has an artist within. I blend traditional Ghanaian cultural practices with contemporary art pedagogy to create classrooms that celebrate identity, imagination and craft.
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Experience</div>
+    <div class="row-content">
+      <div class="item">
+        <div class="i-period">2022 — Present</div>
+        <div class="i-title">Creative Arts Teacher — JHS</div>
+        <div class="i-place">Labone JHS, Accra</div>
+        <div class="i-body">Deliver integrated Creative Arts covering Visual Arts, Music and Performing Arts to JHS 1–3. Founded the school's first textile and batik workshop; students' work was exhibited at the Ghana National Museum in 2023.</div>
+      </div>
+      <div class="item">
+        <div class="i-period">2020 — 2022</div>
+        <div class="i-title">Art & Craft Instructor</div>
+        <div class="i-place">Independence Avenue Primary, Accra</div>
+        <div class="i-body">Designed and delivered after-school art programme for 80 pupils. Introduced traditional Kente weaving and Adinkra symbol printing into the curriculum as cultural literacy tools.</div>
+      </div>
+      <div class="item">
+        <div class="i-period">2018 — 2020</div>
+        <div class="i-title">Arts Education Intern</div>
+        <div class="i-place">National Commission on Culture, Accra</div>
+        <div class="i-body">Assisted in organising National Children's Cultural Festival; coordinated participation of 14 regional school delegations in visual arts and traditional dance competitions.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Education</div>
+    <div class="row-content">
+      <div class="item">
+        <div class="i-period">2016 — 2020</div>
+        <div class="i-title">B.Ed. Creative Arts Education</div>
+        <div class="i-place">University of Education, Winneba</div>
+        <div class="i-body">Second Class Upper. Specialised in Visual Arts and Cultural Studies. Final year project: "Integrating Ghanaian textile arts into JHS creative arts curriculum."</div>
+      </div>
+      <div class="item">
+        <div class="i-period">2013 — 2016</div>
+        <div class="i-title">WASSCE — General Arts</div>
+        <div class="i-place">Wesley Girls' High School, Cape Coast</div>
+        <div class="i-body">Aggregate 8. Best student in Visual Arts and Literature. Art Club president.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Leadership</div>
+    <div class="row-content">
+      <div class="item">
+        <div class="i-period">2019 — 2020</div>
+        <div class="i-title">President, Fine Arts Students' Association</div>
+        <div class="i-place">University of Education, Winneba</div>
+        <div class="i-body">Led a 180-member association; organised the annual Campus Art Exhibition and negotiated a partnership with Accra Gallery to exhibit student work.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-label">Skills</div>
+    <div class="row-content">
+      <div class="skill-line">
+        <span class="sk">Visual Arts Pedagogy</span>
+        <span class="sk">Batik & Textile Arts</span>
+        <span class="sk">Adinkra Symbolism</span>
+        <span class="sk">Performing Arts</span>
+        <span class="sk">Cultural Curriculum</span>
+        <span class="sk">Adobe Illustrator</span>
+        <span class="sk">Event Curation</span>
+        <span class="sk">Akan Cultural Heritage</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

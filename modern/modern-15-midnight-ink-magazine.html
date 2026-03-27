@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dr. Abena Frimpong-Kwarteng — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root{--ink:#05050a;--card:#0f0f1a;--border:#1e1e2e;--gold:#f5a623;--silver:#a0a8c0;--white:#f0f0f8;--muted:#5a6080;--text:#f0f0f8;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--ink);font-family:'Archivo',sans-serif;color:var(--text);min-height:100vh;}
+  .masthead{padding:0;display:grid;grid-template-columns:1fr 380px;border-bottom:1px solid var(--border);}
+  .mh-left{padding:60px 60px;display:flex;flex-direction:column;justify-content:flex-end;border-right:1px solid var(--border);}
+  .mh-left .issue{font-size:0.68rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--gold);font-family:'Archivo',sans-serif;font-weight:600;margin-bottom:18px;}
+  .mh-left h1{font-family:'Archivo Black',sans-serif;font-size:4rem;color:var(--white);line-height:0.95;letter-spacing:-0.03em;}
+  .mh-left h1 .gold{color:var(--gold);}
+  .mh-left .tagline{font-size:0.92rem;color:var(--silver);margin-top:16px;line-height:1.7;max-width:520px;}
+  .mh-right{background:var(--card);padding:48px 44px;display:flex;flex-direction:column;justify-content:space-between;}
+  .mr-section{margin-bottom:28px;}
+  .mr-sh{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;border-bottom:1px solid var(--border);padding-bottom:6px;}
+  .contact-item{display:flex;gap:10px;align-items:center;margin-bottom:10px;}
+  .ci-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+  .ci-text{font-size:0.82rem;color:var(--silver);}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .stat-cell{background:rgba(255,255,255,0.03);border:1px solid var(--border);padding:14px;text-align:center;}
+  .stat-cell .n{font-family:'Archivo Black',sans-serif;font-size:2rem;color:var(--gold);}
+  .stat-cell .l{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+  .skill-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);}
+  .skill-row span{font-size:0.82rem;color:var(--silver);}
+  .skill-dots{display:flex;gap:3px;}
+  .sdot{width:8px;height:8px;background:var(--border);}
+  .sdot.on{background:var(--gold);}
+  .gold-stripe{height:4px;background:linear-gradient(90deg,var(--gold),rgba(245,166,35,0.3));}
+  .body{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);}
+  .col{padding:44px 48px;border-right:1px solid var(--border);}
+  .col:last-child{border-right:none;}
+  .sh{font-family:'Archivo Black',sans-serif;font-size:0.82rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border);padding-bottom:8px;margin-bottom:22px;}
+  .sec{margin-bottom:36px;}
+  .job{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+  .job:last-child{border-bottom:none;}
+  .job-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .job h3{font-size:1rem;font-weight:600;color:var(--white);}
+  .yr-badge{background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);color:var(--gold);padding:3px 10px;font-size:0.72rem;font-weight:600;}
+  .job .org{font-size:0.84rem;color:var(--muted);margin:5px 0 8px;font-style:italic;}
+  .job p{font-size:0.86rem;line-height:1.7;color:rgba(240,240,248,0.6);}
+  .edu-item{margin-bottom:16px;padding-left:16px;border-left:2px solid var(--gold);}
+  .edu-item h3{font-size:0.92rem;font-weight:600;color:var(--white);}
+  .edu-item .sub{font-size:0.8rem;color:var(--muted);margin:3px 0;}
+  .edu-item .yr{font-size:0.72rem;color:var(--gold);font-weight:700;letter-spacing:0.06em;margin-bottom:3px;}
+  .pos-item{padding:6px 0;border-bottom:1px solid var(--border);font-size:0.84rem;color:var(--silver);display:flex;gap:8px;}
+  .pos-item::before{content:'▸';color:var(--gold);flex-shrink:0;}
+  .pub{padding:10px 0;border-bottom:1px solid var(--border);}
+  .pub p{font-size:0.84rem;color:rgba(240,240,248,0.65);line-height:1.6;}
+  .pub .jname{font-style:italic;font-size:0.78rem;color:var(--gold);margin-top:3px;}
+</style>
+</head>
+<body>
+  <div class="masthead">
+    <div class="mh-left">
+      <div class="issue">// Curriculum Vitae · Senior Educator · Researcher · 2024</div>
+      <h1>DR. ABENA<br><span class="gold">FRIMPONG-</span><br>KWARTENG</h1>
+      <div class="tagline">Senior Lecturer in Education · Curriculum Studies Scholar · Education Policy Researcher · University of Education, Winneba. Specialising in decolonial curriculum frameworks and inclusive teacher education for West African contexts.</div>
+    </div>
+    <div class="mh-right">
+      <div class="mr-section">
+        <div class="mr-sh">Contact</div>
+        <div class="contact-item"><div class="ci-dot"></div><div class="ci-text">a.frimpong@uew.edu.gh</div></div>
+        <div class="contact-item"><div class="ci-dot"></div><div class="ci-text">+233 24 667 7889</div></div>
+        <div class="contact-item"><div class="ci-dot"></div><div class="ci-text">Winneba, Central Region</div></div>
+        <div class="contact-item"><div class="ci-dot"></div><div class="ci-text">ORCID: 0000-0004-5678-9012</div></div>
+      </div>
+      <div class="mr-section">
+        <div class="mr-sh">Key Stats</div>
+        <div class="stat-grid">
+          <div class="stat-cell"><div class="n">15</div><div class="l">Yrs in Education</div></div>
+          <div class="stat-cell"><div class="n">14</div><div class="l">Publications</div></div>
+          <div class="stat-cell"><div class="n">42</div><div class="l">Dissertations Supervised</div></div>
+          <div class="stat-cell"><div class="n">6</div><div class="l">Awards</div></div>
+        </div>
+      </div>
+      <div class="mr-section">
+        <div class="mr-sh">Research Expertise</div>
+        <div class="skill-row"><span>Curriculum Theory</span><div class="skill-dots"><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div></div></div>
+        <div class="skill-row"><span>Inclusive Education</span><div class="skill-dots"><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div></div></div>
+        <div class="skill-row"><span>Qualitative Methods</span><div class="skill-dots"><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot"></div></div></div>
+        <div class="skill-row"><span>Policy Analysis</span><div class="skill-dots"><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot"></div></div></div>
+        <div class="skill-row"><span>Academic Writing</span><div class="skill-dots"><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div><div class="sdot on"></div></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="gold-stripe"></div>
+  <div class="body">
+    <div class="col">
+      <div class="sec">
+        <div class="sh">Academic Appointments</div>
+        <div class="job">
+          <div class="job-top"><h3>Senior Lecturer — Curriculum & Education</h3><span class="yr-badge">2020–Now</span></div>
+          <div class="org">University of Education, Winneba — Faculty of Education Studies</div>
+          <p>Teach postgraduate courses in Curriculum Theory, Inclusive Education, and Research Methods. Supervise 12 M.Ed. students annually. Lead the faculty's Research Ethics Committee.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>Lecturer — Teacher Education</h3><span class="yr-badge">2015–2020</span></div>
+          <div class="org">UEW Winneba — School of Education</div>
+          <p>Delivered B.Ed. and M.Ed. courses in Foundations of Education, Philosophy of Curriculum, and Comparative Education to cohorts of 150–250 students.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>Postdoctoral Research Fellow</h3><span class="yr-badge">2013–2015</span></div>
+          <div class="org">African Studies Centre, University of Cape Coast</div>
+          <p>Conducted funded research on gender-responsive curriculum in Ghana and Sierra Leone under Commonwealth Scholarship grant.</p>
+        </div>
+        <div class="job">
+          <div class="job-top"><h3>Primary School Teacher</h3><span class="yr-badge">2008–2010</span></div>
+          <div class="org">Winneba Methodist Primary School</div>
+          <p>Taught P4–P6 as practical grounding before entering academia. Maintained classroom research journal published as a teaching case study.</p>
+        </div>
+      </div>
+      <div class="sec">
+        <div class="sh">Selected Publications</div>
+        <div class="pub"><p>"Decolonising Teacher Education Curricula in Anglophone West Africa"</p><div class="jname">Comparative Education Review, Vol. 68, 2024</div></div>
+        <div class="pub"><p>"Ubuntu Pedagogy and the Ghanaian Basic School Classroom"</p><div class="jname">Journal of Curriculum Studies, 2022</div></div>
+        <div class="pub"><p>"Gender, Curriculum, and Achievement in Northern Ghana"</p><div class="jname">International Journal of Educational Development, 2020</div></div>
+        <div class="pub"><p>"Inclusive Teaching Frameworks for Diverse Classrooms"</p><div class="jname">African Education Review, 2018</div></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="sec">
+        <div class="sh">Education</div>
+        <div class="edu-item"><div class="yr">2010–2013</div><h3>Ph.D. — Curriculum & Instruction</h3><div class="sub">University of Ghana, Legon — Commonwealth Scholarship</div></div>
+        <div class="edu-item"><div class="yr">2007–2009</div><h3>M.Ed. — Educational Policy</h3><div class="sub">University of Cape Coast</div></div>
+        <div class="edu-item"><div class="yr">2002–2006</div><h3>B.Ed. — English Studies</h3><div class="sub">University of Education, Winneba — First Class Honours</div></div>
+        <div class="edu-item"><div class="yr">1999–2002</div><h3>WASSCE — General Arts</h3><div class="sub">Wesley Girls' High School, Cape Coast</div></div>
+      </div>
+      <div class="sec">
+        <div class="sh">Administrative Positions</div>
+        <div class="pos-item">Head of Dept. — Curriculum & Teaching · UEW, 2022–Present</div>
+        <div class="pos-item">Dean's Nominee — Academic Board · UEW Faculty of Education, 2021–2022</div>
+        <div class="pos-item">Research Ethics Committee Chair · UEW, 2023–Present</div>
+        <div class="pos-item">National Curriculum Review Consultant · NaCCA / GES, 2021</div>
+        <div class="pos-item">African Journal of Education — Peer Reviewer, 2019–Present</div>
+        <div class="pos-item">SRC Academic Secretary — UEW (2004–2005)</div>
+      </div>
+      <div class="sec">
+        <div class="sh">Awards & Honours</div>
+        <div class="pos-item">UEW Distinguished Researcher Award, 2023</div>
+        <div class="pos-item">Commonwealth Academic Fellowship, 2010</div>
+        <div class="pos-item">Best Paper — Pan-African Education Conference, 2022</div>
+        <div class="pos-item">GES National Education Excellence Award, 2019</div>
+        <div class="pos-item">First Class Graduate of the Year — UEW, 2006</div>
+        <div class="pos-item">CODESRIA Research Fellowship, 2021</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

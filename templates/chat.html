@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+
+{% block title %}Interview - EduCV{% endblock %}
+
+{% block extra_style %}
+/* Mobile-first chat layout */
+.chat-container {
+    height: calc(100dvh - 80px); /* header height from base.html */
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .chat-container {
+        height: 800px;
+        margin-top: 2rem;
+    }
+}
+
+.message-user {
+    background-color: #f8cd50;
+    align-self: flex-end;
+    border-radius: 20px 20px 4px 20px;
+    border: 3px solid #2d2f2f;
+    box-shadow: 6px 6px 0px 0px rgba(45,47,47,1);
+    position: relative;
+}
+
+.message-ai {
+    background-color: #ffffff;
+    align-self: flex-start;
+    border-radius: 20px 20px 20px 4px;
+    border: 3px solid #2d2f2f;
+    box-shadow: 6px 6px 0px 0px rgba(45,47,47,1);
+    position: relative;
+}
+
+/* Typing Indicator Animation */
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background: #2d2f2f;
+    border-radius: 50%;
+    display: inline-block;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1.0); }
+}
+
+/* Hide scrollbar but keep functionality */
+#chat-box::-webkit-scrollbar {
+    width: 6px;
+}
+#chat-box::-webkit-scrollbar-thumb {
+    background: #2d2f2f;
+    border-radius: 10px;
+}
+{% endblock %}
+
+{% block content %}
+<div class="chat-container max-w-4xl mx-auto px-4 md:px-0">
+    <!-- Header -->
+    <div class="my-4 flex justify-between items-center bg-brand-black text-white p-4 border-4 border-brand-black neo-shadow-lg">
+        <div class="flex items-center gap-3">
+            <div class="bg-brand-gold p-1 border-2 border-white">
+                <span class="material-symbols-outlined text-white text-xl">psychology</span>
+            </div>
+            <span class="font-headline font-black text-lg md:text-xl uppercase italic">The Rebel Mentor</span>
+        </div>
+        <div class="flex items-center gap-2">
+            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span class="text-[10px] font-black uppercase tracking-widest opacity-80">Online</span>
+        </div>
+    </div>
+
+    <!-- Chat Viewport -->
+    <div id="chat-box" class="flex-1 overflow-y-auto mb-4 p-2 md:p-6 space-y-8 flex flex-col scroll-smooth">
+        <div class="message-ai p-4 max-w-[90%] md:max-w-[80%] font-bold text-lg border-4 border-brand-black">
+            <div class="flex items-center gap-2 mb-2 text-xs uppercase tracking-widest text-brand-gold font-black">
+                <span class="material-symbols-outlined text-sm">auto_awesome</span>
+                The Rebel
+            </div>
+            Akwaaba! I'm your Academic Rebel mentor. Let's build a CV that truly represents your legacy. To start, what is your full name and current contact information?
+        </div>
+    </div>
+
+    <!-- Typing Indicator (Hidden by default) -->
+    <div id="typing-indicator" class="hidden message-ai p-4 mb-4 self-start border-4 border-brand-black flex gap-1">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="pb-6 md:pb-8">
+        <div id="ready-msg" class="hidden mb-4 bg-brand-purple p-6 border-4 border-brand-black neo-shadow-lg flex flex-col items-center gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <span class="font-headline text-3xl font-black italic">Legacy Secured!</span>
+            <p class="font-bold text-center">Your professional arsenal is ready for review.</p>
+            <a href="{{ url_for('ai.refine_data') }}" class="w-full md:w-auto text-center bg-white text-brand-black font-black px-12 py-5 border-4 border-brand-black neo-shadow-active uppercase tracking-widest text-xl">
+                Review & Polish
+            </a>
+        </div>
+
+        <div id="input-container" class="relative group">
+            <input type="text" id="user-input" autocomplete="off" placeholder="Message the mentor..." 
+                   class="w-full p-5 pr-16 bg-white border-4 border-brand-black neo-shadow-lg font-black text-lg focus:outline-none focus:bg-brand-gold/5 transition-colors">
+            <button id="send-btn" class="absolute right-3 top-1/2 -translate-y-1/2 bg-brand-gold p-3 border-4 border-brand-black neo-shadow-active transition-all group-focus-within:bg-brand-purple">
+                <span class="material-symbols-outlined font-black text-white">send</span>
+            </button>
+        </div>
+        <p class="mt-2 text-[10px] font-black uppercase text-center text-stone-400 tracking-widest">
+            The Academic Rebel usually responds instantly
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_script %}
+<script>
+    const chatBox = document.getElementById('chat-box');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+    const readyMsg = document.getElementById('ready-msg');
+    const inputContainer = document.getElementById('input-container');
+    const typingIndicator = document.getElementById('typing-indicator');
+
+    function appendMessage(role, text) {
+        const div = document.createElement('div');
+        div.className = role === 'user' 
+            ? 'message-user p-4 max-w-[90%] md:max-w-[80%] font-bold text-lg border-4 border-brand-black' 
+            : 'message-ai p-4 max-w-[90%] md:max-w-[80%] font-bold text-lg border-4 border-brand-black';
+        
+        const header = role === 'user' ? 'You' : 'The Rebel';
+        const icon = role === 'user' ? 'person' : 'auto_awesome';
+        const color = role === 'user' ? 'text-black' : 'text-brand-gold';
+
+        div.innerHTML = `
+            <div class="flex items-center ${role === 'user' ? 'justify-end' : ''} gap-2 mb-2 text-xs uppercase tracking-widest ${color} font-black">
+                ${role === 'ai' ? `<span class="material-symbols-outlined text-sm">${icon}</span>` : ''}
+                ${header}
+                ${role === 'user' ? `<span class="material-symbols-outlined text-sm">${icon}</span>` : ''}
+            </div>
+            ${text}
+        `;
+        
+        chatBox.appendChild(div);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function sendMessage() {
+        const msg = userInput.value.trim();
+        if (!msg) return;
+
+        appendMessage('user', msg);
+        userInput.value = '';
+        userInput.disabled = true;
+        
+        // Show typing indicator
+        typingIndicator.classList.remove('hidden');
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        try {
+            const response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: msg })
+            });
+            const data = await response.json();
+            
+            // Hide typing indicator
+            typingIndicator.classList.add('hidden');
+            
+            appendMessage('ai', data.response);
+            
+            if (data.is_ready) {
+                readyMsg.classList.remove('hidden');
+                inputContainer.classList.add('hidden');
+                // Scroll to bottom to show ready msg
+                setTimeout(() => {
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                    window.scrollTo(0, document.body.scrollHeight);
+                }, 100);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            typingIndicator.classList.add('hidden');
+            appendMessage('ai', 'My connection to the Ministry is weak. Try sending that again!');
+        } finally {
+            userInput.disabled = false;
+            if (!readyMsg.classList.contains('hidden')) {
+                userInput.blur();
+            } else {
+                userInput.focus();
+            }
+        }
+    }
+
+    sendBtn.onclick = sendMessage;
+    userInput.onkeydown = (e) => { if (e.key === 'Enter') sendMessage(); };
+    
+    // Better scrolling on initial load
+    window.onload = () => {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+</script>
+{% endblock %}

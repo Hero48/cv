@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Neon Ronin</title>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Dots&family=Rajdhani:wght@400;600;700&family=Noto+Sans+JP:wght@300;400&family=VT323&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --base: #080608;
+    --surface: #0E0C14;
+    --mid: #160F22;
+    --pink: #FF006E;
+    --cyan: #00F5FF;
+    --yellow: #CAFF02;
+    --violet: #8B00FF;
+    --orange: #FF6B00;
+    --text: #FFF8F0;
+    --text2: #9080A0;
+    --ghost: #2A1F38;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  body {
+    background: var(--base);
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 10pt;
+    line-height: 1.7;
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Scanline overlay */
+  .scanlines {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(0,0,0,0.08) 3px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  /* Glow blooms */
+  .glow-pink {
+    position: absolute;
+    top: -60px; left: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,0,110,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .glow-cyan {
+    position: absolute;
+    bottom: 100px; right: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,245,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glitch artifact strips */
+  .glitch-strip-1 {
+    position: absolute;
+    top: 148px; left: 0; right: 0;
+    height: 2px;
+    background: var(--pink);
+    opacity: 0.5;
+    z-index: 5;
+  }
+
+  .glitch-strip-2 {
+    position: absolute;
+    top: 310px; left: 30px; right: 80px;
+    height: 1px;
+    background: var(--cyan);
+    opacity: 0.35;
+    z-index: 5;
+  }
+
+  /* Header */
+  .header {
+    background: var(--surface);
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    border-bottom: 2px solid var(--pink);
+    box-shadow: 0 0 20px rgba(255,0,110,0.2);
+  }
+
+  .header-top {
+    padding: 36px 48px 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .jp-column {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 9pt;
+    color: var(--ghost);
+    letter-spacing: 0.15em;
+    align-self: stretch;
+    padding-top: 4px;
+  }
+
+  .pre-label {
+    font-family: 'VT323', monospace;
+    font-size: 11pt;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  h1 {
+    font-family: 'Zen Dots', sans-serif;
+    font-size: 38pt;
+    line-height: 1;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    text-shadow: 0 0 20px rgba(255,0,110,0.4), 2px 0 0 rgba(0,245,255,0.15);
+  }
+
+  h1 span {
+    display: block;
+    color: var(--pink);
+    text-shadow: 0 0 12px rgba(255,0,110,0.6);
+  }
+
+  .title-role {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    color: var(--cyan);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  .contact-block {
+    text-align: right;
+  }
+
+  .contact-item {
+    font-family: 'VT323', monospace;
+    font-size: 11pt;
+    color: var(--text2);
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+  }
+
+  .contact-item .c-label {
+    color: var(--yellow);
+    font-size: 9pt;
+  }
+
+  /* Corner brackets on header */
+  .corner-tl, .corner-tr, .corner-bl, .corner-br {
+    position: absolute;
+    width: 12px; height: 12px;
+    z-index: 10;
+  }
+
+  .corner-tl { top: 8px; left: 8px; border-top: 1.5px solid var(--cyan); border-left: 1.5px solid var(--cyan); }
+  .corner-tr { top: 8px; right: 8px; border-top: 1.5px solid var(--cyan); border-right: 1.5px solid var(--cyan); }
+
+  /* Panel divider bar */
+  .panel-bar {
+    background: var(--mid);
+    padding: 8px 48px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,0,110,0.2);
+  }
+
+  .panel-stat {
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: var(--text2);
+  }
+
+  .panel-stat span {
+    color: var(--cyan);
+    font-size: 12pt;
+  }
+
+  .panel-divider {
+    color: var(--ghost);
+    font-size: 8pt;
+  }
+
+  /* Body layout — manga panel style */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 1fr 195px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .main {
+    padding: 28px 36px 28px 48px;
+    border-right: 1px solid var(--pink);
+    position: relative;
+  }
+
+  /* Neon panel top border on main */
+  .main::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, var(--pink), var(--cyan), transparent);
+    opacity: 0.3;
+  }
+
+  .sidebar {
+    padding: 28px 24px 28px 20px;
+    background: var(--mid);
+  }
+
+  .section {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-family: 'Zen Dots', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 0 8px rgba(255,0,110,0.5);
+  }
+
+  .section-title::before {
+    content: '▶';
+    font-size: 6pt;
+    color: var(--cyan);
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--pink), transparent);
+    opacity: 0.3;
+  }
+
+  .summary {
+    font-size: 10pt;
+    line-height: 1.75;
+    color: rgba(255,248,240,0.85);
+    font-weight: 400;
+  }
+
+  .summary strong {
+    color: var(--yellow);
+    font-weight: 600;
+  }
+
+  /* Entry / panel block */
+  .entry {
+    margin-bottom: 18px;
+    padding: 12px 14px;
+    background: rgba(14,12,20,0.8);
+    border: 1px solid rgba(255,0,110,0.2);
+    border-top: 1px solid var(--pink);
+    position: relative;
+  }
+
+  /* Corner marks on entries */
+  .entry::before {
+    content: '⌐';
+    position: absolute;
+    bottom: -1px; right: 4px;
+    color: var(--pink);
+    font-size: 8pt;
+    opacity: 0.5;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .entry-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 12pt;
+    color: var(--text);
+    letter-spacing: 0.05em;
+  }
+
+  .entry-date {
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: var(--text2);
+    letter-spacing: 0.05em;
+  }
+
+  .entry-company {
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: var(--cyan);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .entry-desc {
+    font-size: 8.5pt;
+    color: rgba(255,248,240,0.65);
+    line-height: 1.6;
+    font-weight: 400;
+    list-style: none;
+  }
+
+  .entry-desc li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  .entry-desc li::before {
+    content: '//';
+    position: absolute;
+    left: 0;
+    color: var(--pink);
+    font-family: 'VT323', monospace;
+    font-size: 9pt;
+    opacity: 0.7;
+  }
+
+  /* Sidebar */
+  .s-label {
+    font-family: 'Zen Dots', sans-serif;
+    font-size: 7pt;
+    letter-spacing: 0.15em;
+    color: var(--cyan);
+    margin-bottom: 10px;
+    margin-top: 18px;
+    text-transform: uppercase;
+    text-shadow: 0 0 6px rgba(0,245,255,0.5);
+  }
+
+  .s-label:first-child { margin-top: 0; }
+
+  .skill-row { margin-bottom: 8px; }
+
+  .skill-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+  }
+
+  .skill-bar {
+    height: 3px;
+    background: rgba(255,0,110,0.1);
+    position: relative;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pink), var(--violet));
+    box-shadow: 0 0 6px rgba(255,0,110,0.4);
+  }
+
+  .neon-tag {
+    display: inline-block;
+    font-family: 'VT323', monospace;
+    font-size: 9pt;
+    padding: 1px 7px;
+    margin: 2px 2px 2px 0;
+    border: 1px solid;
+    letter-spacing: 0.08em;
+  }
+
+  .neon-tag.pink { color: var(--pink); border-color: rgba(255,0,110,0.4); }
+  .neon-tag.cyan { color: var(--cyan); border-color: rgba(0,245,255,0.4); }
+  .neon-tag.yellow { color: var(--yellow); border-color: rgba(202,255,2,0.35); }
+  .neon-tag.violet { color: #CC88FF; border-color: rgba(139,0,255,0.4); }
+
+  .s-text {
+    font-size: 8pt;
+    color: var(--text2);
+    line-height: 1.6;
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    letter-spacing: 0.04em;
+  }
+
+  .s-stat {
+    font-family: 'VT323', monospace;
+    font-size: 9pt;
+    color: var(--yellow);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 1px;
+    margin-top: 6px;
+  }
+
+  .edu-item { margin-bottom: 9px; }
+
+  .edu-deg {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 9pt;
+    font-weight: 600;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .edu-school {
+    font-family: 'VT323', monospace;
+    font-size: 9pt;
+    color: var(--text2);
+    letter-spacing: 0.05em;
+  }
+
+  /* Footer */
+  .footer {
+    border-top: 2px solid var(--pink);
+    box-shadow: 0 -4px 20px rgba(255,0,110,0.15);
+    padding: 10px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-text {
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: var(--text2);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-glow {
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: var(--cyan);
+    text-shadow: 0 0 6px var(--cyan);
+    letter-spacing: 0.12em;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="scanlines"></div>
+  <div class="glow-pink"></div>
+  <div class="glow-cyan"></div>
+  <div class="glitch-strip-1"></div>
+  <div class="glitch-strip-2"></div>
+
+  <div class="header">
+    <div class="corner-tl"></div>
+    <div class="corner-tr"></div>
+
+    <div class="header-top">
+      <div>
+        <div class="pre-label">&gt;_ CURRICULUM_VITAE.exe — LOADING...</div>
+        <h1>KAITO<span>MURAKAMI</span></h1>
+        <div class="title-role">Cybersecurity Architect &amp; Systems Engineer</div>
+      </div>
+      <div class="contact-block">
+        <div class="contact-item"><span class="c-label">MAIL://</span> kaito.m@roninstudio.jp</div>
+        <div class="contact-item"><span class="c-label">TEL://</span> +81 90-4421-8873</div>
+        <div class="contact-item"><span class="c-label">NET://</span> roninstudio.jp</div>
+        <div class="contact-item"><span class="c-label">NODE:</span> Tokyo, Shinjuku-ku</div>
+      </div>
+      <div class="jp-column">セキュリティ　エンジニア　武士</div>
+    </div>
+
+    <div class="panel-bar">
+      <div class="panel-stat">EXP: <span>9 YRS</span></div>
+      <div class="panel-divider">|</div>
+      <div class="panel-stat">LEVEL: <span>SENIOR</span></div>
+      <div class="panel-divider">|</div>
+      <div class="panel-stat">STATUS: <span style="color:var(--yellow);">AVAILABLE</span></div>
+      <div class="panel-divider">|</div>
+      <div class="panel-stat">LOCALE: <span>TKY/UTC+9</span></div>
+    </div>
+  </div>
+
+  <div class="body-layout">
+
+    <div class="main">
+
+      <div class="section">
+        <div class="section-title">Profile</div>
+        <p class="summary">
+          Elite cybersecurity architect with <strong>9 years</strong> in offensive security, infrastructure hardening, and zero-trust system design. I operate where human intuition meets machine logic — building systems that are as elegant as they are impenetrable. Former red-team lead. Fluent in <strong>adversarial thinking</strong>.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Deployment History</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Principal Security Architect</div>
+            <div class="entry-date">//2022—ACTIVE</div>
+          </div>
+          <div class="entry-company">&gt; RONIN STUDIO — Tokyo, Shinjuku</div>
+          <ul class="entry-desc">
+            <li>Founded boutique security consultancy; clients include APAC banking, defence contractors, and crypto infrastructure</li>
+            <li>Architected zero-trust network designs for 3 Tier-1 financial institutions managing ¥800B+ in assets</li>
+            <li>Deployed advanced threat simulation exercises catching critical vulnerabilities pre-breach</li>
+            <li>Cleared government-level security certification for classified infrastructure work</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Red Team Lead</div>
+            <div class="entry-date">//2019—2022</div>
+          </div>
+          <div class="entry-company">&gt; NTT Security Holdings — Tokyo</div>
+          <ul class="entry-desc">
+            <li>Led 12-person red team conducting adversarial penetration testing across enterprise networks</li>
+            <li>Developed proprietary attack simulation frameworks used across 40+ client engagements</li>
+            <li>Identified and responsibly disclosed 3 critical zero-day vulnerabilities in enterprise software</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Senior Penetration Tester</div>
+            <div class="entry-date">//2016—2019</div>
+          </div>
+          <div class="entry-company">&gt; Trend Micro — Tokyo/Singapore</div>
+          <ul class="entry-desc">
+            <li>Conducted infrastructure, web application, and social engineering assessments for Fortune 500 clients</li>
+            <li>Contributed to internal threat intelligence database and shared IOC signatures across industry</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Security Analyst</div>
+            <div class="entry-date">//2015—2016</div>
+          </div>
+          <div class="entry-company">&gt; IIJ — Internet Initiative Japan</div>
+          <ul class="entry-desc">
+            <li>SOC analyst monitoring enterprise client networks; incident response and triage</li>
+            <li>Automated SIEM alert triage pipeline reducing analyst response time by 41%</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="sidebar">
+
+      <div class="s-label">Core Skills</div>
+      <div class="skill-row">
+        <div class="skill-name">Penetration Testing</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:97%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Zero Trust Architecture</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:93%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Threat Modelling</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:91%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Malware Analysis</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:83%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Cloud Security</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Cryptography</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+      </div>
+
+      <div class="s-label">Stack</div>
+      <div class="neon-tag pink">Python</div>
+      <div class="neon-tag cyan">Rust</div>
+      <div class="neon-tag violet">C/C++</div>
+      <div class="neon-tag yellow">Go</div>
+      <div class="neon-tag pink">Metasploit</div>
+      <div class="neon-tag cyan">Burp Suite</div>
+      <div class="neon-tag violet">Cobalt Strike</div>
+      <div class="neon-tag yellow">Kubernetes</div>
+
+      <div class="s-label">Certs</div>
+      <span class="s-stat">[OSCP]</span>
+      <div class="s-text">Offensive Security Certified Professional</div>
+      <span class="s-stat">[OSCE3]</span>
+      <div class="s-text">Expert Penetration Tester</div>
+      <span class="s-stat">[CISSP]</span>
+      <div class="s-text">Certified Info Systems Security</div>
+      <span class="s-stat">[GXPN]</span>
+      <div class="s-text">GIAC Exploit Researcher</div>
+
+      <div class="s-label">Languages</div>
+      <div class="skill-row">
+        <div class="skill-name">Japanese</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:100%; background: linear-gradient(90deg, var(--cyan), var(--yellow));"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">English</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:94%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Mandarin</div>
+        <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+      </div>
+
+      <div class="s-label">Education</div>
+      <div class="edu-item">
+        <div class="edu-deg">MSc Computer Science</div>
+        <div class="edu-school">UTokyo · 2015</div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-deg">BEng Information Sys.</div>
+        <div class="edu-school">Waseda Univ. · 2013</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">MURAKAMI_KAITO // CV_2024</div>
+    <div class="footer-glow">// TOKYO · SHINJUKU ·一</div>
+    <div class="footer-text">roninstudio.jp</div>
+  </div>
+
+</div>
+</body>
+</html>

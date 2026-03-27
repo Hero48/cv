@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 12</title>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --emerald: #0D4A32;
+    --emerald-mid: #165C3E;
+    --emerald-light: #1E7A52;
+    --emerald-pale: #D4EDE2;
+    --emerald-mist: #EEF7F2;
+    --champ: #D4B97A;
+    --champ-light: #EDD698;
+    --white: #FFFFFF;
+    --offwhite: #F9FAF8;
+    --text: #0A2018;
+    --dim: #6A8A78;
+    --border: #C0D8CC;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--emerald);
+    font-family: 'Familjen Grotesk', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex; align-items: center; justify-content: center;
+    background-image: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(30,122,82,0.3) 0%, transparent 70%);
+  }
+  .card {
+    max-width: 920px; width: 100%;
+    background: var(--white);
+    animation: ascend 0.8s cubic-bezier(0.22,1,0.36,1);
+    box-shadow: 0 60px 120px rgba(0,0,0,0.5);
+  }
+  @keyframes ascend { from { opacity:0; transform: translateY(50px); } to { opacity:1; transform: translateY(0); } }
+
+  /* Swiss-grid top */
+  .grid-header { display: grid; grid-template-columns: 220px 1fr 200px; min-height: 240px; }
+  .gh-1 { background: var(--emerald); padding: 36px 32px; display: flex; flex-direction: column; justify-content: space-between; }
+  .gh-1 .mono-label { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+  .gh-1 .initials { font-family: 'Instrument Serif', serif; font-size: 64px; color: var(--champ); line-height: 1; font-style: italic; }
+  .gh-1 .level-badge { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); padding: 5px 12px; font-size: 0.7rem; letter-spacing: 2px; display: inline-block; }
+
+  .gh-2 { padding: 36px 44px; border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between; }
+  .gh-2 .tag { font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--emerald-light); font-weight: 600; margin-bottom: 12px; }
+  .gh-2 h1 { font-family: 'Instrument Serif', serif; font-size: 2.5rem; color: var(--text); line-height: 1.1; margin-bottom: 8px; }
+  .gh-2 h1 em { font-style: italic; color: var(--emerald-mid); }
+  .gh-2 .prog { font-size: 0.9rem; color: var(--dim); margin-bottom: 16px; }
+  .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip { background: var(--emerald-mist); border: 1px solid var(--emerald-pale); color: var(--emerald); padding: 4px 14px; font-size: 0.76rem; font-weight: 600; }
+  .chip.main { background: var(--emerald); color: white; border-color: var(--emerald); }
+
+  .gh-3 { background: var(--offwhite); padding: 36px 32px; display: flex; flex-direction: column; gap: 20px; justify-content: center; }
+  .metric { }
+  .metric .mv { font-family: 'Instrument Serif', serif; font-size: 2.8rem; color: var(--emerald); line-height: 1; font-style: italic; }
+  .metric .ml { font-size: 0.62rem; letter-spacing: 3px; text-transform: uppercase; color: var(--dim); margin-top: 2px; }
+  .metric-sep { height: 1px; background: var(--border); }
+
+  /* Content */
+  .content { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 2px solid var(--emerald); }
+  .content-col { padding: 36px 36px; border-right: 1px solid var(--border); }
+  .content-col:last-child { border-right: none; background: var(--offwhite); }
+  .col-title {
+    font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--emerald); font-weight: 700; margin-bottom: 20px;
+    padding-bottom: 10px; border-bottom: 2px solid var(--champ);
+    display: inline-block;
+  }
+  .entry { margin-bottom: 20px; }
+  .entry .et { font-size: 0.93rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+  .entry .eo { font-size: 0.8rem; color: var(--emerald-light); margin-bottom: 3px; font-style: italic; }
+  .entry .ey { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 7px; }
+  .entry .ep { font-size: 0.82rem; color: #4A6458; line-height: 1.65; }
+  .sep { height: 1px; background: var(--border); margin: 14px 0; }
+
+  .pos-row { display: flex; gap: 10px; margin-bottom: 12px; align-items: flex-start; }
+  .pos-bullet { width: 6px; height: 6px; background: var(--champ); flex-shrink: 0; margin-top: 6px; transform: rotate(45deg); }
+  .pos-row .pt { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+  .pos-row .po { font-size: 0.76rem; color: var(--dim); }
+  .pos-row .py { font-size: 0.65rem; color: var(--emerald); font-weight: 600; letter-spacing: 1px; }
+
+  .skill-list { }
+  .skill-item { padding: 7px 0; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; font-size: 0.84rem; color: var(--text); }
+  .skill-item:last-child { border-bottom: none; }
+  .skill-item::before { content: ''; width: 8px; height: 2px; background: var(--champ); flex-shrink: 0; }
+
+  .c-item { font-size: 0.8rem; color: var(--dim); margin-bottom: 9px; padding-left: 12px; border-left: 2px solid var(--emerald-pale); }
+
+  .footer { background: var(--emerald); padding: 14px 36px; display: flex; justify-content: space-between; }
+  .footer span { font-size: 0.7rem; color: rgba(255,255,255,0.4); letter-spacing: 2px; }
+  .footer .badge { color: var(--champ); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="grid-header">
+    <div class="gh-1">
+      <div class="mono-label">Student Profile</div>
+      <div class="initials">EA</div>
+      <div class="level-badge">LEVEL 400</div>
+    </div>
+    <div class="gh-2">
+      <div>
+        <div class="tag">College of Education · Academic Profile · 2024</div>
+        <h1>Evelyn <em>Amoah</em>-Sarkodie</h1>
+        <div class="prog">B.Ed. Mathematics Education · University for Development Studies, Tamale</div>
+      </div>
+      <div class="chip-row">
+        <span class="chip main">GPA 3.91</span>
+        <span class="chip">First Class</span>
+        <span class="chip">Best Dissertation</span>
+        <span class="chip">STEM Champion</span>
+      </div>
+    </div>
+    <div class="gh-3">
+      <div class="metric"><div class="mv">3.91</div><div class="ml">Cumul. GPA</div></div>
+      <div class="metric-sep"></div>
+      <div class="metric"><div class="mv">2021</div><div class="ml">Enrolled</div></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="content-col">
+      <div class="col-title">Education</div>
+      <div class="entry">
+        <div class="et">B.Ed. Mathematics Education</div>
+        <div class="eo">University for Development Studies</div>
+        <div class="ey">2021 – Present</div>
+        <div class="ep">Specializes in constructivist math pedagogy. Dissertation: "Manipulative-Based Instruction and Numeracy in Northern Ghana Primary Schools" — awarded Best Dissertation 2024.</div>
+      </div>
+      <div class="sep"></div>
+      <div class="entry">
+        <div class="et">WASSCE · Science</div>
+        <div class="eo">Tamale Girls SHS</div>
+        <div class="ey">2018 – 2021 · Aggregate 7</div>
+        <div class="ep">Electives: Elective Maths, Physics, Chemistry. Regional Best Female Science Student 2021.</div>
+      </div>
+      <div class="sep"></div>
+      <div class="entry">
+        <div class="et">BECE · Tamale RC JHS</div>
+        <div class="eo">2015 – 2018 · Aggregate 5</div>
+      </div>
+    </div>
+
+    <div class="content-col">
+      <div class="col-title">Experience</div>
+      <div class="entry">
+        <div class="et">Maths Student Teacher</div>
+        <div class="eo">Tamale Sagnarigu JHS</div>
+        <div class="ey">Aug – Nov 2024</div>
+        <div class="ep">Taught Core & Elective Maths to JHS 1–3 using manipulative kits and peer tutoring. Class average improved from 52% to 74% in one term.</div>
+      </div>
+      <div class="sep"></div>
+      <div class="entry">
+        <div class="et">STEM Girls Mentor</div>
+        <div class="eo">Let Girls Learn Ghana · UDS Chapter</div>
+        <div class="ey">2023 – Present</div>
+        <div class="ep">Mentors 20 girls from rural Northern Region communities through weekly virtual and in-person STEM sessions.</div>
+      </div>
+      <div class="sep"></div>
+      <div class="entry">
+        <div class="et">Numeracy Volunteer</div>
+        <div class="eo">Save the Children – Northern Ghana</div>
+        <div class="ey">Summer 2023</div>
+        <div class="ep">Assisted literacy and numeracy camps for over-age learners in Yendi and Savelugu districts.</div>
+      </div>
+    </div>
+
+    <div class="content-col">
+      <div class="col-title">Positions</div>
+      <div class="pos-row"><div class="pos-bullet"></div><div><div class="pt">SRC Academic VP</div><div class="po">UDS Students' Council</div><div class="py">2023–24</div></div></div>
+      <div class="pos-row"><div class="pos-bullet"></div><div><div class="pt">Maths Dept. Rep. L400</div><div class="po">UDS Educ. Faculty</div><div class="py">2024</div></div></div>
+      <div class="pos-row"><div class="pos-bullet"></div><div><div class="pt">Girls' Prefect</div><div class="po">Tamale Girls SHS</div><div class="py">2020–21</div></div></div>
+      <div class="sep"></div>
+      <div class="col-title" style="margin-top:0">Skills</div>
+      <div class="skill-list">
+        <div class="skill-item">Constructivist Pedagogy</div>
+        <div class="skill-item">Manipulative Design</div>
+        <div class="skill-item">SPSS / Data Analysis</div>
+        <div class="skill-item">GeoGebra</div>
+        <div class="skill-item">Dagbani Language</div>
+        <div class="skill-item">Youth Mentoring</div>
+      </div>
+      <div class="sep"></div>
+      <div class="col-title" style="margin-top:0">Contact</div>
+      <div class="c-item">e.amoahsarkodie@uds.edu.gh</div>
+      <div class="c-item">+233 54 321 0987</div>
+      <div class="c-item">Tamale, Northern Region</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>B.Ed. Mathematics · University for Development Studies · Tamale</span>
+    <span class="badge">First Class Candidate · 2025</span>
+  </div>
+</div>
+</body>
+</html>

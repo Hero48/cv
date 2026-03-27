@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Adwoa Kyei — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<style>
+  :root{--pink:#ffb3c6;--yellow:#fff0a0;--mint:#b8f0d8;--lavender:#d4b8f0;--peach:#ffd4b0;--white:#ffffff;--dark:#1a1a2e;--text:#2a2a3e;--muted:#7a7a9e;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--yellow);font-family:'Nunito',sans-serif;color:var(--text);}
+  .pattern-bg{background-color:var(--yellow);background-image:radial-gradient(circle,var(--lavender) 1px,transparent 1px);background-size:28px 28px;min-height:100vh;padding:32px;}
+  .card{background:var(--white);border-radius:24px;max-width:960px;margin:0 auto;overflow:hidden;box-shadow:8px 8px 0 var(--dark);}
+  .hero{background:var(--dark);padding:52px 56px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+  .hero-left h1{font-size:3.6rem;font-weight:900;color:var(--white);letter-spacing:-0.03em;line-height:1.0;}
+  .hero-left h1 em{font-style:normal;color:var(--pink);}
+  .hero-left .role{color:rgba(255,255,255,0.6);margin-top:12px;font-size:0.95rem;}
+  .hero-left .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+  .hero-left .tag{background:rgba(255,255,255,0.1);color:var(--pink);padding:5px 14px;border-radius:100px;font-size:0.78rem;font-weight:700;border:1px solid rgba(255,255,255,0.15);}
+  .hero-right{display:flex;flex-direction:column;gap:10px;}
+  .stat-bubble{background:var(--pink);border-radius:16px;padding:16px 20px;text-align:center;min-width:100px;box-shadow:3px 3px 0 rgba(0,0,0,0.3);}
+  .stat-bubble .n{font-size:2rem;font-weight:900;color:var(--dark);}
+  .stat-bubble .l{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(26,26,46,0.65);}
+  .stat-bubble.mint{background:var(--mint);}
+  .stat-bubble.lavender{background:var(--lavender);}
+  .contact-row{display:flex;background:var(--pink);border-bottom:3px solid var(--dark);}
+  .cr-item{padding:12px 24px;font-size:0.82rem;font-weight:700;color:var(--dark);border-right:2px solid rgba(26,26,46,0.15);}
+  .cr-item:last-child{border-right:none;}
+  .body{display:grid;grid-template-columns:1fr 1fr;padding:44px 48px;gap:48px;}
+  .full{grid-column:1/-1;}
+  .sh{font-size:0.75rem;font-weight:800;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+  .sh::after{content:'';flex:1;height:2px;background:var(--lavender);}
+  .exp-card{background:var(--yellow);border-radius:12px;padding:18px;margin-bottom:12px;border:2px solid rgba(26,26,46,0.06);}
+  .exp-card .ec-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .exp-card h3{font-size:0.98rem;font-weight:800;color:var(--dark);}
+  .yr-badge{background:var(--pink);padding:3px 10px;border-radius:100px;font-size:0.72rem;font-weight:700;color:var(--dark);white-space:nowrap;}
+  .exp-card .org{font-size:0.82rem;color:var(--muted);margin:4px 0 8px;font-weight:600;}
+  .exp-card p{font-size:0.84rem;line-height:1.65;color:#3a3a5e;}
+  .skill-bubble{display:inline-block;background:var(--mint);border-radius:100px;padding:6px 14px;font-size:0.8rem;font-weight:700;margin:4px 4px 0 0;color:var(--dark);border:2px solid rgba(26,26,46,0.08);}
+  .edu-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px;}
+  .edu-icon{width:36px;height:36px;background:var(--lavender);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+  .edu-item h3{font-size:0.92rem;font-weight:800;color:var(--dark);}
+  .edu-item .sub{font-size:0.8rem;color:var(--muted);margin:2px 0;}
+  .edu-item .yr{font-size:0.73rem;font-weight:700;color:var(--dark);background:var(--peach);padding:2px 8px;border-radius:100px;display:inline-block;}
+  .pos-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .pos-item{background:var(--peach);border-radius:10px;padding:10px 14px;font-size:0.82rem;font-weight:700;color:var(--dark);}
+</style>
+</head>
+<body>
+<div class="pattern-bg">
+  <div class="card">
+    <div class="hero">
+      <div class="hero-left">
+        <h1>Adwoa<br><em>Kyei</em></h1>
+        <div class="role">English & Creative Arts Teacher · School Drama Coordinator · Literacy Advocate</div>
+        <div class="tags">
+          <span class="tag">UEW Graduate</span>
+          <span class="tag">GES Licensed</span>
+          <span class="tag">8 Years Exp.</span>
+          <span class="tag">Ho, Volta Region</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="stat-bubble"><div class="n">8</div><div class="l">Years</div></div>
+        <div class="stat-bubble mint"><div class="n">450+</div><div class="l">Students</div></div>
+        <div class="stat-bubble lavender"><div class="n">6</div><div class="l">Productions</div></div>
+      </div>
+    </div>
+    <div class="contact-row">
+      <div class="cr-item">adwoa.kyei@ges.gov.gh</div>
+      <div class="cr-item">+233 26 556 6778</div>
+      <div class="cr-item">Ho, Volta Region</div>
+    </div>
+    <div class="body">
+      <div>
+        <div class="sh">Experience</div>
+        <div class="exp-card">
+          <div class="ec-top"><h3>English Teacher & Drama Patron</h3><span class="yr-badge">2020–Now</span></div>
+          <div class="org">Ho Municipal JHS Complex</div>
+          <p>Teach English Language and Literature for JHS 1–3. Produced 6 school plays including an original adaptation of Ghanaian folktales. Drama club won regional arts festival 2022.</p>
+        </div>
+        <div class="exp-card">
+          <div class="ec-top"><h3>English & Creative Arts Teacher</h3><span class="yr-badge">2018–2020</span></div>
+          <div class="org">Sokode Etoe Basic School</div>
+          <p>Delivered both English and Creative Arts; founded a reading club with 40 members. Introduced Friday Storytelling Hour to build oral language skills.</p>
+        </div>
+        <div class="exp-card">
+          <div class="ec-top"><h3>Literacy Coach — Volunteer</h3><span class="yr-badge">2016–2018</span></div>
+          <div class="org">Room to Read Ghana</div>
+          <p>Coached struggling readers in 4 basic schools using structured phonics interventions. Trained 8 parent volunteers as reading buddies.</p>
+        </div>
+        <div style="margin-top:28px;">
+          <div class="sh">Positions Held</div>
+          <div class="pos-grid">
+            <div class="pos-item">SRC PRO — UEW</div>
+            <div class="pos-item">Drama Club Patron</div>
+            <div class="pos-item">English HOD</div>
+            <div class="pos-item">District Arts Coordinator</div>
+            <div class="pos-item">School Magazine Editor</div>
+            <div class="pos-item">PTA Secretary</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="sh">Education</div>
+        <div class="edu-item">
+          <div class="edu-icon">🎓</div>
+          <div><div class="yr">2014–2018</div><h3>B.Ed. English Studies</h3><div class="sub">University of Education, Winneba</div></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-icon">📜</div>
+          <div><div class="yr">2021</div><h3>Certificate in Drama Education</h3><div class="sub">Ghana National Theatre / GES</div></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-icon">🌍</div>
+          <div><div class="yr">2023</div><h3>TEFL Certificate</h3><div class="sub">British Council Ghana</div></div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-icon">📚</div>
+          <div><div class="yr">2011–2014</div><h3>WASSCE — General Arts</h3><div class="sub">Ho Senior High School</div></div>
+        </div>
+        <div style="margin-top:28px;">
+          <div class="sh">Skills</div>
+          <span class="skill-bubble">English Language Teaching</span>
+          <span class="skill-bubble">Drama Direction</span>
+          <span class="skill-bubble">Creative Writing</span>
+          <span class="skill-bubble">Phonics Instruction</span>
+          <span class="skill-bubble">Storytelling</span>
+          <span class="skill-bubble">Curriculum Design</span>
+          <span class="skill-bubble">Google Classroom</span>
+          <span class="skill-bubble">Community Engagement</span>
+          <span class="skill-bubble">Ewe Language Teaching</span>
+        </div>
+        <div style="margin-top:28px;background:var(--lavender);border-radius:14px;padding:18px;">
+          <div style="font-size:0.75rem;font-weight:800;letter-spacing:0.14em;text-transform:uppercase;color:var(--dark);margin-bottom:10px;">Awards</div>
+          <div style="font-size:0.85rem;font-weight:600;color:var(--dark);line-height:2.1;">
+            🏆 GES Volta Metro Best Teacher, 2023<br>
+            🎭 Regional Arts Festival — 1st Place, 2022<br>
+            📖 National Reading Advocate Award, 2021<br>
+            🎓 Best English Student — UEW, 2018
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

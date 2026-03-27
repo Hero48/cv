@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 18 — Dusty Rose & Graphite</title>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Mulish:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --rose:#c99898;
+    --rose-pale:#f5eeee;
+    --graphite:#2d2d2d;
+    --off:#faf8f8;
+    --mid:#6b5c5c;
+    --border:#e8dada;
+    --text:#2a2020;
+  }
+  body{background:var(--off);color:var(--text);font-family:'Mulish',sans-serif;font-weight:300;}
+  .cv{max-width:880px;margin:0 auto;position:relative;}
+
+  /* DIAGONAL HERO */
+  .hero{min-height:320px;background:var(--graphite);clip-path:polygon(0 0,100% 0,100% 75%,0 100%);padding:64px 72px 100px;color:white;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:0;right:0;width:40%;height:100%;background:rgba(201,152,152,0.08);}
+  .h-pre{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+  .h-name{font-family:'Gilda Display',serif;font-size:clamp(44px,7vw,76px);line-height:1;letter-spacing:-1px;margin-bottom:14px;}
+  .h-role{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:20px;}
+  .h-right{position:absolute;top:64px;right:72px;text-align:right;}
+  .h-contact{font-size:11.5px;color:rgba(255,255,255,0.5);margin-bottom:8px;line-height:1.5;}
+
+  /* BODY */
+  .body{padding:0 72px 72px;margin-top:-20px;}
+  .grid{display:grid;grid-template-columns:1fr 280px;gap:56px;}
+  .section{margin-bottom:44px;}
+  .sec-head{font-family:'Gilda Display',serif;font-size:22px;color:var(--graphite);padding-bottom:10px;border-bottom:2px solid var(--rose);margin-bottom:28px;}
+  .entry{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--border);}
+  .entry:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .e-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:5px;}
+  .e-title{font-family:'Gilda Display',serif;font-size:17px;color:var(--graphite);line-height:1.2;}
+  .e-badge{font-size:10px;color:var(--rose);letter-spacing:2px;white-space:nowrap;padding-top:3px;}
+  .e-org{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--mid);margin-bottom:8px;}
+  .e-body{font-size:13px;line-height:1.85;color:#6a5858;}
+
+  /* RIGHT SIDE */
+  .rose-card{background:var(--rose-pale);border-left:3px solid var(--rose);padding:20px;margin-bottom:14px;}
+  .rc-title{font-family:'Gilda Display',serif;font-size:16px;color:var(--graphite);margin-bottom:3px;}
+  .rc-sub{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--mid);margin-bottom:8px;}
+  .rc-body{font-size:12.5px;line-height:1.7;color:#7a6060;}
+  .s-sec-title{font-family:'Gilda Display',serif;font-size:18px;color:var(--graphite);padding-bottom:8px;border-bottom:1px solid var(--border);margin-bottom:16px;}
+  .s-section{margin-bottom:32px;}
+  .sk-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--mid);padding:7px 0;border-bottom:1px dotted var(--border);}
+  .sk-item:last-child{border-bottom:none;}
+  .sk-item::before{content:'●';font-size:6px;color:var(--rose);}
+  @media(max-width:640px){.grid{grid-template-columns:1fr;}.hero{clip-path:none;padding:48px 24px 64px;}.h-right{display:none;}.body{padding:32px 24px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <div class="hero">
+    <div class="h-pre">Professional Educator Portfolio</div>
+    <h1 class="h-name">Akosua Nkrumah<br>Owusu</h1>
+    <div class="h-role">Inclusive Education Specialist · Research Teacher</div>
+    <div class="h-right">
+      <div class="h-contact">akosua.owusu@spedu.gh</div>
+      <div class="h-contact">+233 24 445 5566</div>
+      <div class="h-contact">Kumasi, Ashanti Region</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="grid">
+      <div>
+        <div class="section">
+          <div class="sec-head">Career Experience</div>
+          <div class="entry">
+            <div class="e-meta"><div class="e-title">Inclusive Education Coordinator</div><div class="e-badge">2022–Now</div></div>
+            <div class="e-org">Kumasi Metro GES Education Directorate</div>
+            <div class="e-body">Oversees inclusive education implementation across 24 Metro schools. Mentors 30 teachers in differentiated instruction and Universal Design for Learning (UDL) principles. Developed the Metro Inclusion Handbook adopted by GES Ashanti Region.</div>
+          </div>
+          <div class="entry">
+            <div class="e-meta"><div class="e-title">Special Needs Class Teacher</div><div class="e-badge">2019–2022</div></div>
+            <div class="e-org">Kumasi St. Roses RC Basic School</div>
+            <div class="e-body">Designed and delivered IEPs for 22 students with learning disabilities and ADHD. Established a learning support unit that became a model resource for the district.</div>
+          </div>
+          <div class="entry">
+            <div class="e-meta"><div class="e-title">Research Intern — SEND Education</div><div class="e-badge">2018–2019</div></div>
+            <div class="e-org">UNESCO-BREDA · Accra</div>
+            <div class="e-body">Contributed to a 12-country West Africa study on inclusive education barriers; conducted focus groups in 5 Ghanaian schools and co-authored findings report.</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="sec-head">Positions Held</div>
+          <div class="entry">
+            <div class="e-meta"><div class="e-title">Chairperson — Women in Education</div><div class="e-badge">2023–Now</div></div>
+            <div class="e-org">GES Kumasi Metro Chapter</div>
+            <div class="e-body">Leads a 120-member professional network advocating for gender parity in school leadership; organises quarterly professional development events.</div>
+          </div>
+        </div>
+      </div>
+      <aside>
+        <div class="s-section">
+          <div class="s-sec-title">Education</div>
+          <div class="rose-card">
+            <div class="rc-title">MPhil Special Education</div>
+            <div class="rc-sub">University of Cape Coast · 2022</div>
+            <div class="rc-body">Thesis: "Barriers to inclusive schooling for children with autism spectrum disorder in urban Ghana."</div>
+          </div>
+          <div class="rose-card">
+            <div class="rc-title">B.Ed. Special Education</div>
+            <div class="rc-sub">University of Education, Winneba · 2018</div>
+            <div class="rc-body">First Class Honours. Best graduating student in the Faculty of Special Education.</div>
+          </div>
+        </div>
+        <div class="s-section">
+          <div class="s-sec-title">Core Skills</div>
+          <div class="sk-item">UDL Framework Application</div>
+          <div class="sk-item">IEP Design & Implementation</div>
+          <div class="sk-item">Autism & ADHD Support</div>
+          <div class="sk-item">Braille & Sign Language</div>
+          <div class="sk-item">Teacher Coaching</div>
+          <div class="sk-item">Education Policy Research</div>
+          <div class="sk-item">SPSS & Qualitative Analysis</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 15 — Charcoal Grid</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --bg:#1c1c1e;
+    --surface:#252527;
+    --grid-line:rgba(255,255,255,0.04);
+    --blue:#4a9eff;
+    --blue-dim:#1a3d6a;
+    --text:#e0e0e0;
+    --muted:#888;
+    --border:#333;
+    --white:#fff;
+  }
+  body{
+    background:var(--bg);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:32px 32px;
+    color:var(--text);
+    font-family:'Roboto Mono',monospace;
+  }
+  .cv{max-width:900px;margin:0 auto;padding:64px 48px;}
+
+  /* HEADER */
+  .header{border:1px solid var(--border);background:rgba(37,37,39,0.95);padding:48px;margin-bottom:32px;}
+  .h-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:32px;}
+  .h-tag{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+  .h-name{font-family:'Roboto Slab',serif;font-size:clamp(32px,5vw,52px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:8px;}
+  .h-role{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:0;}
+  .h-meta{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px;}
+  .h-meta-item{font-size:11px;color:var(--muted);padding:4px 0;border-bottom:1px solid var(--border);}
+  .h-meta-item strong{color:var(--blue);display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:2px;}
+  .h-bio{font-size:13px;line-height:1.85;color:#aaa;border-left:2px solid var(--blue);padding-left:16px;}
+
+  /* MODULES */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .module{border:1px solid var(--border);background:rgba(37,37,39,0.9);padding:28px;}
+  .module.full{grid-column:1/-1;}
+  .mod-head{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+  .mod-head::before{content:'//';opacity:0.4;}
+  .entry{padding:14px 0;border-bottom:1px solid var(--border);}
+  .entry:last-child{border-bottom:none;}
+  .e-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:4px;}
+  .e-title{font-family:'Roboto Slab',serif;font-size:14px;color:var(--white);}
+  .e-yr{font-size:10px;color:var(--blue);background:var(--blue-dim);padding:2px 8px;white-space:nowrap;}
+  .e-org{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+  .e-body{font-size:12px;line-height:1.8;color:#777;}
+  .skill-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px;}
+  .skill-row:last-child{border-bottom:none;}
+  .skill-row .k{color:var(--text);}
+  .skill-row .v{color:var(--blue);font-size:10px;letter-spacing:1px;}
+  @media(max-width:640px){.grid{grid-template-columns:1fr;}.cv{padding:32px 16px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <div class="header">
+    <div class="h-top">
+      <div>
+        <div class="h-tag">// cv_document_v2024</div>
+        <div class="h-name">Kwesi Addae<br>Boateng</div>
+        <div class="h-role">Technical Vocational Education Teacher</div>
+      </div>
+      <div class="h-meta">
+        <div class="h-meta-item"><strong>Email</strong>kwesi.boateng@tvet.edu.gh</div>
+        <div class="h-meta-item"><strong>Phone</strong>+233 50 445 6677</div>
+        <div class="h-meta-item"><strong>Location</strong>Kumasi, Ashanti</div>
+        <div class="h-meta-item"><strong>Licence</strong>COTVET Certified</div>
+      </div>
+    </div>
+    <div class="h-bio">Technical education practitioner with expertise in electrical installations, workshop management and TVET curriculum delivery. Committed to preparing young Ghanaians with hands-on vocational competencies for the 21st-century economy.</div>
+  </div>
+
+  <div class="grid">
+    <div class="module">
+      <div class="mod-head">Experience</div>
+      <div class="entry">
+        <div class="e-row"><div class="e-title">TVET Technical Teacher</div><div class="e-yr">2020–Now</div></div>
+        <div class="e-org">Kumasi Technical Institute</div>
+        <div class="e-body">Deliver Electrical Installation and Electronics to Year 1–3 TVET students. Manage electrical workshop with 40 stations; achieved 88% NVTI pass rate.</div>
+      </div>
+      <div class="entry">
+        <div class="e-row"><div class="e-title">Apprenticeship Supervisor</div><div class="e-yr">2018–2020</div></div>
+        <div class="e-org">COTVET / NVTI, Kumasi</div>
+        <div class="e-body">Supervised 24 apprentices across 6 workshops in Kumasi Metro; conducted competency assessments and maintained training records for NVTI certification.</div>
+      </div>
+      <div class="entry">
+        <div class="e-row"><div class="e-title">Electrician (Journeyman)</div><div class="e-yr">2015–2018</div></div>
+        <div class="e-org">Volta River Authority, Kumasi</div>
+        <div class="e-body">Worked on industrial and residential installations; gained practical expertise in wiring, fault diagnosis and power systems used directly in teaching.</div>
+      </div>
+    </div>
+    <div class="module">
+      <div class="mod-head">Education & Certs.</div>
+      <div class="entry">
+        <div class="e-row"><div class="e-title">B.Ed. Technical Education</div><div class="e-yr">2011–2015</div></div>
+        <div class="e-org">KNUST — Faculty of Industrial Art</div>
+        <div class="e-body">Second Class Upper. Project: "Workshop safety culture among TVET students in Ashanti Region."</div>
+      </div>
+      <div class="entry">
+        <div class="e-row"><div class="e-title">COTVET Master Trainer</div><div class="e-yr">2019</div></div>
+        <div class="e-org">Council for TVET, Accra</div>
+        <div class="e-body">Certified as national Master Trainer for competency-based TVET delivery.</div>
+      </div>
+      <div class="entry">
+        <div class="e-row"><div class="e-title">Occupational Safety Cert.</div><div class="e-yr">2021</div></div>
+        <div class="e-org">Ghana Safety Standards Authority</div>
+        <div class="e-body">Workshop safety, hazard identification and accident prevention certification.</div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="mod-head">Leadership</div>
+      <div class="entry">
+        <div class="e-row"><div class="e-title">GNAT Branch Chairperson</div><div class="e-yr">2022–Now</div></div>
+        <div class="e-org">Ghana National Assoc. of Teachers — Kumasi Technical</div>
+        <div class="e-body">Chairs the GNAT branch at the institute; advocates for improved TVET resources and represents teachers at GES metro meetings.</div>
+      </div>
+    </div>
+    <div class="module">
+      <div class="mod-head">Technical Skills</div>
+      <div class="skill-row"><span class="k">Electrical Installation</span><span class="v">Expert</span></div>
+      <div class="skill-row"><span class="k">Electronics Repair</span><span class="v">Advanced</span></div>
+      <div class="skill-row"><span class="k">AutoCAD Electrical</span><span class="v">Intermediate</span></div>
+      <div class="skill-row"><span class="k">Workshop Management</span><span class="v">Expert</span></div>
+      <div class="skill-row"><span class="k">NVTI Assessment</span><span class="v">Advanced</span></div>
+      <div class="skill-row"><span class="k">CBT Curriculum Design</span><span class="v">Advanced</span></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

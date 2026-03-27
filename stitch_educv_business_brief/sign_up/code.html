@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduCV - Start Your Journey</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#cd9eec",
+              "primary-container": "#f8cd50",
+              "on-primary-fixed-variant": "#644e00",
+              "on-secondary-fixed": "#004840",
+              "surface-container-highest": "#dbdddd",
+              "outline-variant": "#acadad",
+              "secondary-fixed-dim": "#7fe6d5",
+              "error": "#b02500",
+              "on-primary-fixed": "#423200",
+              "secondary-fixed": "#8ef5e3",
+              "primary-fixed-dim": "#e9bf43",
+              "secondary": "#00675c",
+              "primary-dim": "#634d00",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#5a5c5c",
+              "on-tertiary-fixed": "#390f55",
+              "on-background": "#2d2f2f",
+              "tertiary-fixed": "#dcacfb",
+              "inverse-on-surface": "#9c9d9d",
+              "outline": "#757777",
+              "on-surface": "#2d2f2f",
+              "primary": "#715800",
+              "surface-tint": "#715800",
+              "inverse-primary": "#f8cd50",
+              "on-error-container": "#520c00",
+              "surface-container": "#e7e8e8",
+              "tertiary-container": "#dcacfb",
+              "surface-bright": "#f6f6f6",
+              "tertiary-dim": "#673e83",
+              "on-secondary-container": "#005c52",
+              "surface-container-low": "#f0f1f1",
+              "surface-dim": "#d2d5d5",
+              "on-tertiary": "#fceeff",
+              "inverse-surface": "#0c0f0f",
+              "error-container": "#f95630",
+              "surface": "#f6f6f6",
+              "on-secondary-fixed-variant": "#00675c",
+              "on-primary": "#fff1d6",
+              "secondary-dim": "#005a50",
+              "on-primary-container": "#594500",
+              "surface-variant": "#dbdddd",
+              "secondary-container": "#8ef5e3",
+              "on-error": "#ffefec",
+              "background": "#f6f6f6",
+              "on-secondary": "#c1fff2",
+              "error-dim": "#b92902",
+              "surface-container-high": "#e1e3e3",
+              "primary-fixed": "#f8cd50",
+              "on-tertiary-fixed-variant": "#593176",
+              "tertiary": "#734a90",
+              "on-tertiary-container": "#50286c"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Space Grotesk"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      .brutalist-shadow {
+        box-shadow: 8px 8px 0px 0px rgba(45,47,47,1);
+      }
+      .brutalist-shadow-sm {
+        box-shadow: 4px 4px 0px 0px rgba(45,47,47,1);
+      }
+      .brutalist-button:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px 0px 0px rgba(45,47,47,1);
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-tertiary-fixed selection:text-on-tertiary-fixed">
+
+    <nav class="sticky top-0 z-50 bg-surface/80 backdrop-blur-xl border-b-4 border-on-background px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-3xl text-primary" data-icon="school">school</span>
+            <span class="text-3xl font-black italic font-headline text-on-background">EduCV</span>
+        </div>
+        <div class="hidden md:flex gap-8 items-center font-label font-bold uppercase tracking-wider text-sm">
+            <a href="#" class="hover:text-primary transition-colors">How it works</a>
+            <a href="#" class="hover:text-primary transition-colors">Resources</a>
+            <a href="#" class="px-6 py-2 bg-secondary-container border-2 border-on-background brutalist-shadow-sm hover:translate-y-1 hover:shadow-none transition-all">Login</a>
+        </div>
+    </nav>
+
+    <main class="min-h-screen flex items-center justify-center p-6 md:p-12 relative overflow-hidden">
+        <div class="absolute top-20 -left-20 w-64 h-64 bg-primary-container rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div class="absolute bottom-20 -right-20 w-80 h-80 bg-tertiary-container rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+
+        <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <div class="lg:col-span-5 flex flex-col gap-8 order-2 lg:order-1">
+                <div class="space-y-4">
+                    <h1 class="text-6xl md:text-8xl font-headline italic font-black text-on-background leading-tight">
+                        Start Your <span class="text-primary underline decoration-8 decoration-primary-container">Journey</span>.
+                    </h1>
+                    <p class="text-xl text-on-surface-variant max-w-md leading-relaxed">
+                        Join the next generation of Ghanaian educators. Create a professional portfolio that stands out to the Ghana Education Service.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="bg-secondary-container p-6 border-4 border-on-background brutalist-shadow rotate-1 transform hover:rotate-0 transition-transform cursor-default">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-4xl" data-icon="history_edu">history_edu</span>
+                            <div>
+                                <h3 class="font-bold text-lg uppercase tracking-tight">GES Approved</h3>
+                                <p class="text-sm">Templates optimized for national teaching standards.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-tertiary-container p-6 border-4 border-on-background brutalist-shadow -rotate-1 transform hover:rotate-0 transition-transform cursor-default">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-4xl" data-icon="auto_awesome">auto_awesome</span>
+                            <div>
+                                <h3 class="font-bold text-lg uppercase tracking-tight">AI Assisted</h3>
+                                <p class="text-sm">Generate bullet points that highlight your classroom impact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 order-1 lg:order-2">
+                <div class="bg-surface-container-low border-4 border-on-background p-8 md:p-12 brutalist-shadow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-primary-container -mr-16 -mt-16 rotate-45 border-b-4 border-on-background"></div>
+                    
+                    <form class="space-y-6 relative z-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="font-label font-bold uppercase text-xs tracking-widest text-on-surface-variant">Full Name</label>
+                                <input type="text" placeholder="Kofi Mensah" class="w-full p-4 bg-surface border-4 border-on-background focus:ring-0 focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(113,88,0,1)] transition-all outline-none rounded-none">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="font-label font-bold uppercase text-xs tracking-widest text-on-surface-variant">Email Address</label>
+                                <input type="email" placeholder="kofi@example.com" class="w-full p-4 bg-surface border-4 border-on-background focus:ring-0 focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(113,88,0,1)] transition-all outline-none rounded-none">
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="font-label font-bold uppercase text-xs tracking-widest text-on-surface-variant">Institution</label>
+                            <div class="relative">
+                                <input type="text" placeholder="e.g., UCC, UEW, University of Ghana" class="w-full p-4 bg-surface border-4 border-on-background focus:ring-0 focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(113,88,0,1)] transition-all outline-none rounded-none">
+                                <span class="absolute right-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline" data-icon="account_balance">account_balance</span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <label class="font-label font-bold uppercase text-xs tracking-widest text-on-surface-variant">Password</label>
+                            <input type="password" placeholder="••••••••" class="w-full p-4 bg-surface border-4 border-on-background focus:ring-0 focus:border-primary focus:shadow-[4px_4px_0px_0px_rgba(113,88,0,1)] transition-all outline-none rounded-none">
+                        </div>
+
+                        <div class="flex items-start gap-3 py-2">
+                            <input type="checkbox" id="terms" class="mt-1 w-6 h-6 border-4 border-on-background text-secondary focus:ring-0 rounded-none cursor-pointer">
+                            <label for="terms" class="text-sm text-on-surface font-medium leading-tight cursor-pointer">
+                                I agree to the <a href="#" class="underline decoration-2 decoration-tertiary font-bold">Terms of Service</a> and <a href="#" class="underline decoration-2 decoration-tertiary font-bold">Privacy Policy</a> of EduCV.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="w-full py-6 bg-primary-container text-on-primary-container text-xl font-black uppercase tracking-widest border-4 border-on-background brutalist-shadow brutalist-button transition-all flex items-center justify-center gap-3">
+                            <span>Create Account</span>
+                            <span class="material-symbols-outlined font-black" data-icon="arrow_forward">arrow_forward</span>
+                        </button>
+                    </form>
+
+                    <div class="mt-8 pt-8 border-t-2 border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-4">
+                        <p class="text-sm font-medium">Already have an account?</p>
+                        <a href="#" class="font-label font-bold text-sm uppercase px-4 py-2 border-2 border-on-background hover:bg-surface-container-highest transition-colors">Sign In Instead</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-on-background text-surface py-12 px-6 mt-20">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary-fixed" data-icon="school">school</span>
+                <span class="text-2xl font-black italic font-headline">EduCV</span>
+            </div>
+            <div class="flex gap-8 text-xs font-label font-bold uppercase tracking-widest">
+                <a href="#" class="hover:text-primary-fixed transition-colors">Support</a>
+                <a href="#" class="hover:text-primary-fixed transition-colors">Privacy</a>
+                <a href="#" class="hover:text-primary-fixed transition-colors">Careers</a>
+            </div>
+            <div class="text-xs text-outline font-medium">
+                © 2024 EduCV Ghana. Empowering Educators.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html></style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body></body></html>

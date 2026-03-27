@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 02 — Sage & Terracotta</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --sage:#5c7a6b;
+    --terra:#c4714a;
+    --cream:#faf7f2;
+    --bark:#3a2e28;
+    --mist:#e8e2d8;
+    --text:#4a3f38;
+  }
+  body{background:var(--cream);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;}
+  .layout{display:grid;grid-template-columns:280px 1fr;min-height:100vh;}
+
+  /* SIDEBAR */
+  .sidebar{background:var(--bark);color:var(--cream);padding:56px 36px;display:flex;flex-direction:column;gap:48px;}
+  .avatar-wrap{width:120px;height:120px;border-radius:50%;border:3px solid var(--terra);overflow:hidden;margin-bottom:8px;}
+  .avatar-wrap img,.avatar-placeholder{width:100%;height:100%;object-fit:cover;}
+  .avatar-placeholder{background:var(--sage);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--cream);}
+  .s-name{font-family:'Cormorant Garamond',serif;font-size:28px;line-height:1.2;margin-bottom:4px;}
+  .s-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--terra);}
+  .s-section-head{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.15);}
+  .contact-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:12px;font-size:12.5px;line-height:1.5;}
+  .c-icon{color:var(--terra);font-size:14px;margin-top:1px;flex-shrink:0;}
+  .lang-bar{margin-bottom:10px;}
+  .lang-name{font-size:12px;margin-bottom:5px;display:flex;justify-content:space-between;}
+  .bar-track{height:3px;background:rgba(255,255,255,0.15);border-radius:2px;}
+  .bar-fill{height:3px;background:var(--terra);border-radius:2px;}
+  .skill-pill{display:inline-block;border:1px solid rgba(255,255,255,0.2);padding:4px 12px;font-size:11px;margin:3px 2px;letter-spacing:1px;}
+
+  /* MAIN */
+  .main{padding:56px 60px;}
+  .main-header{margin-bottom:52px;padding-bottom:32px;border-bottom:2px solid var(--mist);}
+  .headline{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:600;line-height:1;color:var(--bark);margin-bottom:16px;}
+  .headline em{font-style:italic;color:var(--sage);}
+  .tagline{font-size:14px;line-height:1.8;max-width:480px;color:var(--text);}
+  .section{margin-bottom:48px;}
+  .section-title{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--terra);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+  .section-title::before{content:'';width:24px;height:2px;background:var(--terra);}
+  .timeline-item{display:grid;grid-template-columns:auto 1fr;gap:0 24px;margin-bottom:28px;}
+  .t-dot-col{display:flex;flex-direction:column;align-items:center;padding-top:6px;}
+  .t-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--sage);background:var(--cream);}
+  .t-line{width:1px;flex:1;background:var(--mist);margin-top:6px;}
+  .t-period{font-size:11px;color:var(--sage);letter-spacing:1px;margin-bottom:4px;}
+  .t-role{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--bark);margin-bottom:2px;}
+  .t-org{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--terra);margin-bottom:8px;}
+  .t-desc{font-size:13px;line-height:1.8;color:var(--text);}
+  .edu-card{background:var(--mist);padding:20px 24px;margin-bottom:12px;border-left:3px solid var(--sage);}
+  .edu-deg{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--bark);}
+  .edu-inst{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin:4px 0;}
+  .edu-yr{font-size:11px;color:var(--terra);}
+  @media(max-width:720px){.layout{grid-template-columns:1fr;}.main{padding:32px 24px;}}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div>
+      <div class="avatar-wrap">
+        <div class="avatar-placeholder">KA</div>
+      </div>
+    </div>
+    <div>
+      <div class="s-name">Kwame Acheampong</div>
+      <div class="s-title">Educator · Mentor · Researcher</div>
+    </div>
+    <div>
+      <div class="s-section-head">Contact</div>
+      <div class="contact-item"><span class="c-icon">✉</span>kwame.ach@uew.edu.gh</div>
+      <div class="contact-item"><span class="c-icon">☏</span>+233 50 345 6789</div>
+      <div class="contact-item"><span class="c-icon">⌖</span>Accra, Ghana</div>
+    </div>
+    <div>
+      <div class="s-section-head">Languages</div>
+      <div class="lang-bar"><div class="lang-name"><span>English</span><span>Proficient</span></div><div class="bar-track"><div class="bar-fill" style="width:95%"></div></div></div>
+      <div class="lang-bar"><div class="lang-name"><span>Twi</span><span>Native</span></div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div></div>
+      <div class="lang-bar"><div class="lang-name"><span>French</span><span>Intermediate</span></div><div class="bar-track"><div class="bar-fill" style="width:55%"></div></div></div>
+    </div>
+    <div>
+      <div class="s-section-head">Core Skills</div>
+      <div>
+        <span class="skill-pill">Curriculum Dev.</span>
+        <span class="skill-pill">Research Methods</span>
+        <span class="skill-pill">STEM Education</span>
+        <span class="skill-pill">Student Counselling</span>
+        <span class="skill-pill">Data Collection</span>
+        <span class="skill-pill">Canva · Slides</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="main-header">
+      <div class="headline">Teaching with<br><em>Purpose.</em></div>
+      <div class="tagline">A passionate educator dedicated to building critical thinkers and lifelong learners in Ghana's basic school system. Five years of classroom experience blended with community-centred research.</div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Professional Experience</div>
+      <div class="timeline-item">
+        <div class="t-dot-col"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div>
+          <div class="t-period">Sept 2023 — Present</div>
+          <div class="t-role">Head of Science Department</div>
+          <div class="t-org">Achimota Presby JHS, Accra</div>
+          <div class="t-desc">Oversee curriculum delivery for Grades 7–9 science across a 380-pupil school. Introduced hands-on laboratory sessions using low-cost locally sourced materials, lifting BECE science pass rates from 61% to 84%.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="t-dot-col"><div class="t-dot"></div><div class="t-line"></div></div>
+        <div>
+          <div class="t-period">2021 — 2023</div>
+          <div class="t-role">Assistant Teacher</div>
+          <div class="t-org">Kaneshie M/A Primary, Accra</div>
+          <div class="t-desc">Supported lead teacher in delivering integrated STEM lessons for Grade 5. Co-developed a STEM club that produced regional science fair winners two consecutive years.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="t-dot-col"><div class="t-dot"></div></div>
+        <div>
+          <div class="t-period">Mar–Aug 2021</div>
+          <div class="t-role">Research Assistant</div>
+          <div class="t-org">UEW Faculty of Science Education</div>
+          <div class="t-desc">Assisted in a GETFund-funded study on ICT integration in rural schools. Conducted surveys across 14 schools in the Oti Region and co-authored two working papers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Education</div>
+      <div class="edu-card">
+        <div class="edu-deg">B.Ed. Science Education</div>
+        <div class="edu-inst">University of Education, Winneba</div>
+        <div class="edu-yr">2018 – 2022 · Second Class Upper</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-deg">WASSCE — Elective Science</div>
+        <div class="edu-inst">Opoku Ware School, Kumasi</div>
+        <div class="edu-yr">2015 – 2018 · Aggregate 6</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Leadership Roles</div>
+      <div class="t-desc" style="font-size:13.5px;line-height:2;">
+        <strong>SRC Academic Affairs Secretary</strong> — UEW (2021–2022)<br>
+        <strong>STEM Outreach Coordinator</strong> — UEW Science Club (2020–2021)<br>
+        <strong>Hall Prefect</strong> — Opoku Ware School (2017–2018)
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

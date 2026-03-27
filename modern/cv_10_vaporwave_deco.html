@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Chromatic Vaporwave Deco</title>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Tenor+Sans&family=Spectral:ital,wght@0,400;1,400&family=VT323&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --marble:    #FAF8F5;
+    --lavender:  #C77DFF;
+    --peach:     #FF6B9D;
+    --teal:      #00D4CC;
+    --deco-gold: #C9A84C;
+    --charcoal:  #1A1A2E;
+    --blush:     #FFD6E8;
+    --chrome:    #B8C4CC;
+  }
+
+  body {
+    background: var(--marble);
+    color: var(--charcoal);
+    font-family: 'Spectral', serif;
+    font-size: 10pt;
+    line-height: 1.85;
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Marble vein texture */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.015' numOctaves='4' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23m)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 100;
+  }
+
+  .page { width: 210mm; min-height: 297mm; position: relative; }
+
+  /* ── Horizontal grid lines (teal, vaporwave) ── */
+  .grid-bg {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 1;
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 20px,
+      rgba(0,212,204,0.06) 20px,
+      rgba(0,212,204,0.06) 20.5px
+    );
+  }
+
+  /* Palm silhouette (geometric Art Deco style) */
+  .palm { position: absolute; pointer-events: none; z-index: 2; }
+
+  /* ── Gold shimmer ── */
+  @keyframes gold-scan {
+    0%   { background-position: -300% center; }
+    100% { background-position: 300% center; }
+  }
+
+  /* ── Gradient hero bg animation ── */
+  @keyframes gradient-drift {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* ── VT323 flicker ── */
+  @keyframes flicker {
+    0%,100%   { opacity: 1; }
+    10%        { opacity: 0.3; }
+    20%        { opacity: 1; }
+    40%        { opacity: 0.5; }
+    50%        { opacity: 1; }
+  }
+
+  .vt323 {
+    font-family: 'VT323', monospace;
+    letter-spacing: 0.08em;
+    animation: flicker 0.4s ease-out 0.5s 1;
+  }
+
+  /* ═══════════════════════════
+     HERO HEADER
+  ═══════════════════════════ */
+  .header {
+    background: linear-gradient(135deg, #e8d4ff 0%, #ffd6e8 50%, #c0f5f5 100%);
+    background-size: 300% 300%;
+    animation: gradient-drift 12s ease infinite;
+    padding: 44px 54px 32px 54px;
+    text-align: center;
+    position: relative; z-index: 10;
+    overflow: hidden;
+  }
+
+  /* Perspective horizon grid in hero */
+  .hero-grid {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 30px,
+      rgba(0,212,204,0.12) 30px,
+      rgba(0,212,204,0.12) 30.5px
+    );
+    transform: perspective(80px) rotateX(30deg);
+    transform-origin: bottom;
+    pointer-events: none;
+  }
+
+  /* Art Deco column ornaments */
+  .deco-column { position: absolute; top: 0; bottom: 0; width: 22px; z-index: 3; }
+  .deco-column.left  { left: 20px; }
+  .deco-column.right { right: 20px; transform: scaleX(-1); }
+
+  .pre-label {
+    font-family: 'VT323', monospace;
+    font-size: 11pt;
+    color: rgba(26,26,46,0.5);
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+    animation: flicker 0.4s ease-out 0.5s 1;
+  }
+
+  h1 {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 46pt;
+    letter-spacing: 0.12em;
+    line-height: 0.9;
+    color: var(--charcoal);
+  }
+
+  h1 .surname {
+    display: block;
+    font-size: 22pt;
+    letter-spacing: 0.22em;
+    color: var(--charcoal);
+    opacity: 0.7;
+    margin-top: 6px;
+  }
+
+  .title-role {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 10pt;
+    color: var(--charcoal);
+    opacity: 0.65;
+    letter-spacing: 0.14em;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  .contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(201,168,76,0.3);
+  }
+
+  .contact-item {
+    font-family: 'VT323', monospace;
+    font-size: 11pt;
+    color: rgba(26,26,46,0.55);
+    letter-spacing: 0.06em;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .contact-item span {
+    display: block;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 7pt;
+    color: var(--deco-gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+  }
+
+  /* Art Deco geometric rule */
+  .deco-rule {
+    position: relative; z-index: 10;
+    background: var(--marble);
+    padding: 6px 0;
+    text-align: center;
+  }
+
+  /* ═══════════════════════════
+     BODY LAYOUT
+  ═══════════════════════════ */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 1fr 195px;
+    position: relative; z-index: 10;
+  }
+
+  .main {
+    padding: 26px 32px 26px 54px;
+    border-right: 1px solid rgba(201,168,76,0.2);
+    position: relative;
+  }
+
+  .sidebar {
+    padding: 26px 22px 26px 18px;
+    background: rgba(255,214,232,0.18);
+  }
+
+  .section { margin-bottom: 22px; }
+
+  .section-title {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 15pt;
+    letter-spacing: 0.1em;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Deco notched corner badge */
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 14px; height: 14px;
+    background: linear-gradient(135deg, var(--lavender), var(--peach));
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(199,125,255,0.4);
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: linear-gradient(90deg, var(--teal), transparent);
+    opacity: 0.5;
+  }
+
+  .summary {
+    font-size: 10pt;
+    line-height: 1.9;
+    color: rgba(26,26,46,0.78);
+  }
+
+  .summary strong {
+    color: var(--charcoal);
+    background: linear-gradient(135deg, rgba(199,125,255,0.12), rgba(255,107,157,0.12));
+    padding: 0 3px;
+    border-radius: 2px;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* Entry — keepsake card style */
+  .entry {
+    margin-bottom: 14px;
+    padding: 11px 14px;
+    background: rgba(255,214,232,0.2);
+    border: 1px solid rgba(201,168,76,0.22);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Art Deco notched corners */
+  .entry::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 10px; height: 10px;
+    background: linear-gradient(135deg, var(--deco-gold) 50%, transparent 50%);
+    opacity: 0.4;
+  }
+  .entry::after {
+    content: '';
+    position: absolute; bottom: 0; right: 0;
+    width: 10px; height: 10px;
+    background: linear-gradient(315deg, var(--deco-gold) 50%, transparent 50%);
+    opacity: 0.3;
+  }
+
+  /* Teal top edge */
+  .entry .top-edge {
+    position: absolute; top: 0; left: 10px; right: 10px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    opacity: 0.4;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+    margin-top: 4px;
+  }
+
+  .entry-title {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 12pt;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
+  }
+
+  .entry-date {
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: var(--chrome);
+    letter-spacing: 0.06em;
+  }
+
+  .entry-co {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 8pt;
+    color: var(--lavender);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    text-shadow: 0 0 8px rgba(199,125,255,0.3);
+  }
+
+  .entry-desc {
+    list-style: none;
+    font-size: 8.5pt;
+    color: rgba(26,26,46,0.7);
+    line-height: 1.7;
+    font-family: 'Spectral', serif;
+  }
+
+  .entry-desc li { padding-left: 12px; position: relative; margin-bottom: 1px; }
+  .entry-desc li::before {
+    content: '◇';
+    position: absolute; left: 0;
+    color: var(--teal); font-size: 7pt; top: 2px;
+  }
+
+  /* Sidebar */
+  .s-label {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 10pt;
+    letter-spacing: 0.12em;
+    color: var(--charcoal);
+    margin-bottom: 9px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    margin-top: 18px;
+  }
+
+  .s-label:first-child { margin-top: 0; }
+
+  .skill-row { margin-bottom: 8px; }
+
+  .skill-name {
+    font-family: 'Tenor Sans', sans-serif;
+    font-size: 7.5pt;
+    color: var(--charcoal);
+    letter-spacing: 0.06em;
+    margin-bottom: 3px;
+    opacity: 0.8;
+  }
+
+  .skill-bar {
+    height: 3px;
+    background: rgba(199,125,255,0.1);
+    border-radius: 1px;
+  }
+
+  .skill-fill-lav { height:100%; background: linear-gradient(90deg, var(--lavender), var(--peach)); border-radius:1px; box-shadow: 0 0 4px rgba(199,125,255,0.3); }
+  .skill-fill-teal { height:100%; background: linear-gradient(90deg, var(--teal), var(--lavender)); border-radius:1px; box-shadow: 0 0 4px rgba(0,212,204,0.3); }
+
+  .deco-tag {
+    display: inline-block;
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: rgba(26,26,46,0.65);
+    border: 1px solid rgba(201,168,76,0.28);
+    padding: 0px 7px;
+    margin: 2px 2px 2px 0;
+    letter-spacing: 0.06em;
+    background: rgba(255,214,232,0.15);
+  }
+
+  .deco-tag.lav { color: var(--lavender); border-color: rgba(199,125,255,0.3); text-shadow: 0 0 6px rgba(199,125,255,0.4); }
+  .deco-tag.teal { color: var(--teal); border-color: rgba(0,212,204,0.3); text-shadow: 0 0 6px rgba(0,212,204,0.35); }
+  .deco-tag.peach { color: var(--peach); border-color: rgba(255,107,157,0.3); text-shadow: 0 0 6px rgba(255,107,157,0.35); }
+
+  .s-text {
+    font-family: 'Spectral', serif;
+    font-style: italic;
+    font-size: 8.5pt;
+    color: rgba(26,26,46,0.55);
+    line-height: 1.65;
+  }
+
+  .s-stat {
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: var(--deco-gold);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-top: 5px; margin-bottom: 1px;
+  }
+
+  .edu-deg {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 10pt;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
+    margin-bottom: 1px;
+  }
+
+  .edu-school {
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: var(--chrome);
+    letter-spacing: 0.06em;
+  }
+
+  /* Blush gradient panel for projects section */
+  .blush-panel {
+    background: linear-gradient(135deg, rgba(199,125,255,0.08) 0%, rgba(255,107,157,0.06) 50%, rgba(0,212,204,0.05) 100%);
+    border-top: 1px solid rgba(0,212,204,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    padding: 14px 54px;
+    position: relative; z-index: 10;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 12px 54px;
+    background: linear-gradient(90deg, rgba(199,125,255,0.08), rgba(0,212,204,0.06));
+    border-top: 1px solid rgba(201,168,76,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; z-index: 10;
+  }
+
+  .footer-text {
+    font-family: 'VT323', monospace;
+    font-size: 10pt;
+    color: var(--chrome);
+    letter-spacing: 0.12em;
+  }
+
+  .footer-gradient-text {
+    font-family: 'Poiret One', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.16em;
+    background: linear-gradient(90deg, var(--lavender), var(--peach), var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="grid-bg"></div>
+
+  <!-- Palm silhouettes (geometric Art Deco) -->
+  <svg class="palm" style="top:40px;left:8px;width:50px;opacity:0.1;" viewBox="0 0 50 120" fill="none">
+    <line x1="25" y1="120" x2="25" y2="50" stroke="#C77DFF" stroke-width="2"/>
+    <path d="M25 50 Q10 35 5 20 Q15 30 25 50" fill="#C77DFF"/>
+    <path d="M25 50 Q40 35 45 18 Q35 30 25 50" fill="#C77DFF"/>
+    <path d="M25 55 Q8 45 2 30 Q14 40 25 55" fill="#C77DFF" opacity="0.7"/>
+    <path d="M25 55 Q42 45 48 30 Q36 40 25 55" fill="#C77DFF" opacity="0.7"/>
+    <path d="M25 60 Q12 55 6 42 Q16 50 25 60" fill="#C77DFF" opacity="0.5"/>
+  </svg>
+
+  <svg class="palm" style="top:80px;right:4px;width:42px;opacity:0.08;transform:scaleX(-1);" viewBox="0 0 50 120" fill="none">
+    <line x1="25" y1="120" x2="25" y2="50" stroke="#00D4CC" stroke-width="2"/>
+    <path d="M25 50 Q10 35 5 20 Q15 30 25 50" fill="#00D4CC"/>
+    <path d="M25 50 Q40 35 45 18 Q35 30 25 50" fill="#00D4CC"/>
+    <path d="M25 55 Q8 45 2 30 Q14 40 25 55" fill="#00D4CC" opacity="0.7"/>
+    <path d="M25 55 Q42 45 48 30 Q36 40 25 55" fill="#00D4CC" opacity="0.7"/>
+  </svg>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="hero-grid"></div>
+
+    <!-- Art Deco column left -->
+    <svg class="deco-column left" viewBox="0 0 22 200" fill="none">
+      <line x1="11" y1="0" x2="11" y2="200" stroke="#C9A84C" stroke-width="0.8" opacity="0.5"/>
+      <rect x="4" y="15" width="14" height="3" fill="#C9A84C" opacity="0.4"/>
+      <rect x="7" y="22" width="8" height="1.5" fill="#C9A84C" opacity="0.3"/>
+      <rect x="4" y="180" width="14" height="3" fill="#C9A84C" opacity="0.4"/>
+      <rect x="7" y="175" width="8" height="1.5" fill="#C9A84C" opacity="0.3"/>
+      <polygon points="11,30 14,38 11,46 8,38" stroke="#C9A84C" stroke-width="0.7" fill="none" opacity="0.5"/>
+      <polygon points="11,155 14,163 11,171 8,163" stroke="#C9A84C" stroke-width="0.7" fill="none" opacity="0.5"/>
+    </svg>
+    <svg class="deco-column right" viewBox="0 0 22 200" fill="none">
+      <line x1="11" y1="0" x2="11" y2="200" stroke="#C9A84C" stroke-width="0.8" opacity="0.5"/>
+      <rect x="4" y="15" width="14" height="3" fill="#C9A84C" opacity="0.4"/>
+      <rect x="7" y="22" width="8" height="1.5" fill="#C9A84C" opacity="0.3"/>
+      <rect x="4" y="180" width="14" height="3" fill="#C9A84C" opacity="0.4"/>
+      <polygon points="11,30 14,38 11,46 8,38" stroke="#C9A84C" stroke-width="0.7" fill="none" opacity="0.5"/>
+    </svg>
+
+    <div class="pre-label vt323">— CURRICULUM VITAE — VERSION 2024 —</div>
+    <h1>SOLÈNE<span class="surname">Marchetti-Vaux</span></h1>
+    <div class="title-role">Music Producer &amp; Audio Experience Director</div>
+    <div class="contact-row">
+      <div class="contact-item"><span>Signal</span>solene.mv@chromestudio.fr</div>
+      <div class="contact-item"><span>Voice</span>+33 7 88 24 11 05</div>
+      <div class="contact-item"><span>Studio</span>chromestudio.fr</div>
+      <div class="contact-item"><span>Locale</span>Paris, France</div>
+    </div>
+  </div>
+
+  <!-- Art Deco rule divider -->
+  <div class="deco-rule">
+    <svg width="595" height="18" viewBox="0 0 595 18" fill="none">
+      <line x1="0" y1="9" x2="230" y2="9" stroke="#C9A84C" stroke-width="0.5" opacity="0.35"/>
+      <!-- Chevron motif centre -->
+      <polyline points="240,4 250,9 240,14" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.6"/>
+      <polyline points="248,4 258,9 248,14" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.5"/>
+      <polyline points="256,4 266,9 256,14" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.4"/>
+      <circle cx="297" cy="9" r="3.5" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.6"/>
+      <polyline points="328,4 338,9 328,14" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.4"/>
+      <polyline points="336,4 346,9 336,14" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.5"/>
+      <polyline points="344,4 354,9 344,14" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.6"/>
+      <line x1="363" y1="9" x2="595" y2="9" stroke="#C9A84C" stroke-width="0.5" opacity="0.35"/>
+    </svg>
+  </div>
+
+  <div class="body-layout">
+
+    <!-- Main -->
+    <div class="main">
+
+      <div class="section">
+        <div class="section-title">Profile</div>
+        <p class="summary">
+          Music producer and audio experience director with <strong>ten years</strong> crafting sonic identities for luxury brands, cultural institutions, and immersive installations. I work at the intersection of the nostalgic and the not-yet-invented — building sounds that exist <strong>somewhere between a memory and a dream</strong>.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Experience</div>
+
+        <div class="entry">
+          <div class="top-edge"></div>
+          <div class="entry-header">
+            <div class="entry-title">Creative Director, Sound</div>
+            <div class="entry-date">2021—NOW</div>
+          </div>
+          <div class="entry-co">Chrome Studio · Paris &amp; Tokyo</div>
+          <ul class="entry-desc">
+            <li>Founded audio branding studio; clients include luxury fashion houses, museums, and hospitality groups</li>
+            <li>Produced sonic identities for 3 Hermès campaigns and 2 Dior runway presentations</li>
+            <li>Designed immersive spatial audio installations exhibited at Centre Pompidou and teamLab Tokyo</li>
+            <li>Led a team of 7 composers, sound designers, and session musicians</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="top-edge"></div>
+          <div class="entry-header">
+            <div class="entry-title">Senior Music Producer</div>
+            <div class="entry-date">2018—2021</div>
+          </div>
+          <div class="entry-co">Neon Palais · Paris</div>
+          <ul class="entry-desc">
+            <li>Produced 4 acclaimed electronic albums distributed on Warp Records and Ghostly International</li>
+            <li>Composed scores for 12 luxury advertising campaigns (Chanel, Bottega Veneta, Aesop)</li>
+            <li>Developed proprietary Max/MSP generative music system used in live performance rig</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="top-edge"></div>
+          <div class="entry-header">
+            <div class="entry-title">Music &amp; Sound Designer</div>
+            <div class="entry-date">2015—2018</div>
+          </div>
+          <div class="entry-co">Studio Miroir · Lyon</div>
+          <ul class="entry-desc">
+            <li>Designed soundscapes and music for retail environments, hotels, and gallery installations</li>
+            <li>Collaborated with LVMH hospitality team on immersive hotel audio programming</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="top-edge"></div>
+          <div class="entry-header">
+            <div class="entry-title">Sound Engineer / Producer</div>
+            <div class="entry-date">2013—2015</div>
+          </div>
+          <div class="entry-co">Chromatic Records · Paris</div>
+          <ul class="entry-desc">
+            <li>Recording engineer and co-producer on independent electronic and ambient releases</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <div class="s-label">Craft</div>
+      <div class="skill-row">
+        <div class="skill-name">Music Production</div>
+        <div class="skill-bar"><div class="skill-fill-lav" style="width:98%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Sound Design</div>
+        <div class="skill-bar"><div class="skill-fill-lav" style="width:96%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Sonic Branding</div>
+        <div class="skill-bar"><div class="skill-fill-teal" style="width:93%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Spatial Audio</div>
+        <div class="skill-bar"><div class="skill-fill-teal" style="width:88%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Live Performance</div>
+        <div class="skill-bar"><div class="skill-fill-lav" style="width:82%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Film / Ad Scoring</div>
+        <div class="skill-bar"><div class="skill-fill-teal" style="width:85%"></div></div>
+      </div>
+
+      <div class="s-label">Tools</div>
+      <span class="deco-tag lav">Ableton</span>
+      <span class="deco-tag">Logic Pro</span>
+      <span class="deco-tag teal">Max/MSP</span>
+      <span class="deco-tag">Pro Tools</span>
+      <span class="deco-tag peach">Reaktor</span>
+      <span class="deco-tag">Eurorack</span>
+      <span class="deco-tag lav">Dolby Atmos</span>
+
+      <div class="s-label">Honours</div>
+      <span class="s-stat">2024</span>
+      <p class="s-text">Victoires de la Musique — Électronique</p>
+      <span class="s-stat">2023</span>
+      <p class="s-text">Cannes Lions Gold — Sound Design</p>
+      <span class="s-stat">2022</span>
+      <p class="s-text">Webby Award — Interactive Sound Experience</p>
+
+      <div class="s-label">Languages</div>
+      <div class="skill-row">
+        <div class="skill-name">Français</div>
+        <div class="skill-bar"><div class="skill-fill-lav" style="width:100%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">English</div>
+        <div class="skill-bar"><div class="skill-fill-teal" style="width:96%"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-name">Japanese</div>
+        <div class="skill-bar"><div class="skill-fill-lav" style="width:52%"></div></div>
+      </div>
+
+      <div class="s-label">Formation</div>
+      <div class="edu-deg">MA Electroacoustic Music</div>
+      <div class="edu-school">IRCAM Paris · 2013</div>
+      <br>
+      <div class="edu-deg">BA Music &amp; Computing</div>
+      <div class="edu-school">Univ. Lyon 2 · 2011</div>
+
+    </div>
+
+  </div>
+
+  <!-- Blush gradient footer section -->
+  <div class="blush-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <div style="font-family:'VT323',monospace;font-size:10pt;color:var(--chrome);letter-spacing:0.1em;">SELECTED WORKS</div>
+        <div style="font-family:'Spectral',serif;font-style:italic;font-size:9pt;color:rgba(26,26,46,0.65);margin-top:4px;">
+          <em>Surfaces</em> (Warp Records, 2022) · <em>Horizon Protocol</em> (Ghostly, 2020) · Dior A/W 2024 Score · Centre Pompidou installation "Écho" 2023 · teamLab Tokyo "Lumière Sonique" 2024
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Deco footer rule -->
+  <div class="deco-rule" style="padding:4px 0;">
+    <svg width="595" height="12" viewBox="0 0 595 12" fill="none">
+      <line x1="0" y1="6" x2="240" y2="6" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+      <circle cx="297" cy="6" r="2.5" fill="#C9A84C" opacity="0.5"/>
+      <line x1="354" y1="6" x2="595" y2="6" stroke="#C9A84C" stroke-width="0.4" opacity="0.3"/>
+    </svg>
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">MARCHETTI-VAUX · CV · 2024</div>
+    <div class="footer-gradient-text">CHROME STUDIO · PARIS</div>
+    <div class="footer-text">chromestudio.fr</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 13</title>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cocoa: #4A2C1A;
+    --cocoa-mid: #6B3E24;
+    --cocoa-pale: #C49A78;
+    --cream: #FDF8F1;
+    --cream-dark: #F0E8D8;
+    --latte: #E8D5B8;
+    --mocha: #8B6040;
+    --text: #2A180A;
+    --dim: #9A8070;
+    --border: #D4BFA0;
+    --accent: #D4701A;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: radial-gradient(ellipse at top, #C49A78 0%, #8B6040 100%);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    padding: 50px 20px;
+    display: flex; align-items: flex-start; justify-content: center;
+  }
+  .stack {
+    max-width: 860px; width: 100%;
+    position: relative;
+    animation: stackIn 0.8s ease;
+  }
+  @keyframes stackIn { from { opacity:0; transform: translateY(30px); } to { opacity:1; transform: translateY(0); } }
+  /* Shadow layers */
+  .stack::before {
+    content: '';
+    position: absolute; bottom: -10px; left: 10px; right: -10px; top: 10px;
+    background: rgba(74,44,26,0.25); z-index: 0; border-radius: 4px;
+  }
+  .stack::after {
+    content: '';
+    position: absolute; bottom: -5px; left: 5px; right: -5px; top: 5px;
+    background: rgba(74,44,26,0.15); z-index: 0; border-radius: 4px;
+  }
+  .card { background: var(--cream); position: relative; z-index: 1; border-radius: 2px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+
+  .banner {
+    background: var(--cocoa);
+    padding: 48px 56px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 36px; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .banner::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--cocoa-pale), var(--accent));
+  }
+  .banner::after {
+    content: '';
+    position: absolute; right: -60px; top: -60px;
+    width: 220px; height: 220px;
+    border: 60px solid rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .avatar-ring {
+    width: 96px; height: 96px; border-radius: 50%;
+    border: 3px solid var(--cocoa-pale);
+    background: linear-gradient(135deg, rgba(196,154,120,0.2), rgba(196,154,120,0.05));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Spectral', serif; font-size: 30px; color: var(--cocoa-pale);
+    font-style: italic; flex-shrink: 0; position: relative; z-index: 1;
+    box-shadow: 0 0 0 6px rgba(196,154,120,0.1);
+  }
+  .banner-info { position: relative; z-index: 1; }
+  .banner-info .pre { font-size: 0.66rem; letter-spacing: 4px; text-transform: uppercase; color: var(--cocoa-pale); opacity: 0.7; margin-bottom: 10px; }
+  .banner-info h1 { font-family: 'Spectral', serif; font-size: 2.3rem; color: white; line-height: 1.1; font-weight: 600; margin-bottom: 6px; }
+  .banner-info .prog { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+  .pill-wrap { display: flex; gap: 8px; flex-wrap: wrap; }
+  .pill { border: 1px solid rgba(196,154,120,0.4); color: var(--cocoa-pale); padding: 4px 14px; font-size: 0.73rem; letter-spacing: 0.5px; }
+  .pill.main { background: var(--accent); color: white; border-color: var(--accent); }
+  .banner-gpa { position: relative; z-index: 1; text-align: right; }
+  .banner-gpa .num { font-family: 'Spectral', serif; font-size: 3.2rem; font-style: italic; color: var(--cocoa-pale); line-height: 1; }
+  .banner-gpa .lbl { font-size: 0.62rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+
+  .sections { display: grid; grid-template-columns: 5fr 4fr; }
+  .s-main { padding: 40px 52px; }
+  .s-side { padding: 40px 40px; background: var(--cream-dark); border-left: 1px solid var(--border); }
+
+  .sec { margin-bottom: 32px; }
+  .sec-label {
+    font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 18px;
+    position: relative; display: flex; align-items: center; gap: 10px;
+  }
+  .sec-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--latte), transparent); }
+
+  .entry { margin-bottom: 20px; }
+  .entry-inner { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 14px 18px; }
+  .entry-inner:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(212,112,26,0.08); transition: all 0.25s; }
+  .entry-inner .et { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+  .entry-inner .eo { font-family: 'Spectral', serif; font-size: 0.88rem; font-style: italic; color: var(--mocha); margin-bottom: 3px; }
+  .entry-inner .ey { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 7px; }
+  .entry-inner .ep { font-size: 0.83rem; color: #6A5040; line-height: 1.65; }
+
+  .pos-card { background: white; border-radius: 6px; padding: 12px 16px; margin-bottom: 10px; border: 1px solid var(--border); border-left: 3px solid var(--accent); }
+  .pos-card .pt { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+  .pos-card .po { font-size: 0.78rem; color: var(--dim); margin-top: 2px; }
+  .pos-card .py { font-size: 0.68rem; color: var(--accent); font-weight: 600; letter-spacing: 1px; }
+
+  .skill-bubble { display: inline-block; background: white; border: 1px solid var(--border); color: var(--cocoa-mid); padding: 5px 13px; font-size: 0.78rem; border-radius: 20px; margin: 3px; }
+  .skill-bubble:hover { background: var(--cocoa); color: white; border-color: var(--cocoa); transition: 0.2s; }
+
+  .contact-box { background: var(--cocoa); border-radius: 6px; padding: 18px; margin-top: 16px; }
+  .c-row { display: flex; gap: 8px; align-items: center; margin-bottom: 9px; }
+  .c-dot { width: 6px; height: 6px; background: var(--cocoa-pale); border-radius: 50%; flex-shrink: 0; }
+  .c-row span { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+
+  .footer { background: var(--cream-dark); border-top: 1px solid var(--border); padding: 12px 52px; display: flex; justify-content: space-between; }
+  .footer span { font-size: 0.72rem; color: var(--dim); letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<div class="stack">
+  <div class="card">
+    <div class="banner">
+      <div class="avatar-ring">DO</div>
+      <div class="banner-info">
+        <div class="pre">College of Education · Student Academic Profile</div>
+        <h1>Daniel Owusu-Frimpong</h1>
+        <div class="prog">B.Ed. Agricultural Science Education · Level 300 · UEW, Mampong Campus</div>
+        <div class="pill-wrap">
+          <span class="pill main">GPA 3.84</span>
+          <span class="pill">Dean's List</span>
+          <span class="pill">Agri-Ed</span>
+          <span class="pill">FBO Member</span>
+        </div>
+      </div>
+      <div class="banner-gpa">
+        <div class="num">3.84</div>
+        <div class="lbl">GPA</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+
+    <div class="sections">
+      <div class="s-main">
+        <div class="sec">
+          <div class="sec-label">Educational Background</div>
+          <div class="entry"><div class="entry-inner">
+            <div class="et">B.Ed. Agricultural Science Education</div>
+            <div class="eo">University of Education, Winneba — Mampong Campus</div>
+            <div class="ey">2022 – Present</div>
+            <div class="ep">Specializes in crop science pedagogy and rural agricultural extension. Ongoing research on integrating practical farming into the JHS curriculum in Ashanti Region communities.</div>
+          </div></div>
+          <div class="entry"><div class="entry-inner">
+            <div class="et">WASSCE · Agriculture Track</div>
+            <div class="eo">Mampong Technical & Vocational SHS</div>
+            <div class="ey">2019 – 2022 · Aggregate 8</div>
+            <div class="ep">Electives: General Agriculture, Economics, Core Maths. Best Agriculture Project — National Farmers' Day Student Exhibition 2021.</div>
+          </div></div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-label">Work & Teaching Experience</div>
+          <div class="entry"><div class="entry-inner">
+            <div class="et">Agriculture Student Teacher</div>
+            <div class="eo">Mampong RC JHS & SHS</div>
+            <div class="ey">Sept – Dec 2024</div>
+            <div class="ep">Delivered Agriculture lessons and supervised school farm projects. Led a crop rotation experiment that won the District School Agriculture Fair.</div>
+          </div></div>
+          <div class="entry"><div class="entry-inner">
+            <div class="et">Extension Agent Intern</div>
+            <div class="eo">Ministry of Food & Agriculture — Ashanti Region</div>
+            <div class="ey">Summer 2023</div>
+            <div class="ep">Accompanied field officers on farmer outreach visits. Drafted simplified crop disease fact sheets distributed to 400 rural farmers.</div>
+          </div></div>
+          <div class="entry"><div class="entry-inner">
+            <div class="et">School Farm Coordinator</div>
+            <div class="eo">UEW Mampong Campus</div>
+            <div class="ey">2023 – Present</div>
+            <div class="ep">Manages student teaching farm — overseeing planting schedules, soil health records, and student practical assessments for 60+ students.</div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="s-side">
+        <div class="sec">
+          <div class="sec-label">Positions Held</div>
+          <div class="pos-card"><div class="pt">Agric. Students' Assoc. VP</div><div class="po">UEW Mampong · Dept. of Agric. Ed.</div><div class="py">2023–24</div></div>
+          <div class="pos-card"><div class="pt">Farm Committee Chair</div><div class="po">UEW Mampong Campus</div><div class="py">2023–24</div></div>
+          <div class="pos-card"><div class="pt">School Farm Prefect</div><div class="po">Mampong Tech. SHS</div><div class="py">2021–22</div></div>
+          <div class="pos-card"><div class="pt">FBO Youth Rep.</div><div class="po">Mampong Farmers Group</div><div class="py">2022–Present</div></div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-label">Special Skills</div>
+          <div>
+            <span class="skill-bubble">Crop Science</span>
+            <span class="skill-bubble">Soil Analysis</span>
+            <span class="skill-bubble">Farm Management</span>
+            <span class="skill-bubble">Extension Work</span>
+            <span class="skill-bubble">Agronomy</span>
+            <span class="skill-bubble">Twi Language</span>
+            <span class="skill-bubble">Report Writing</span>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-label">Contact</div>
+          <div class="contact-box">
+            <div class="c-row"><div class="c-dot"></div><span>d.owusufrimpong@uew.edu.gh</span></div>
+            <div class="c-row"><div class="c-dot"></div><span>+233 26 543 2109</span></div>
+            <div class="c-row"><div class="c-dot"></div><span>Mampong, Ashanti Region</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>B.Ed. Agricultural Science Education · UEW Mampong Campus</span>
+      <span>Academic Profile · 2024 / 2025</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

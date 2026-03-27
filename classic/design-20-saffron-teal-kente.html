@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 20</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Vollkorn:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #E8A020;
+    --saffron-pale: #FDF0D0;
+    --saffron-deep: #B87810;
+    --teal: #0A5C52;
+    --teal-mid: #0D7A6C;
+    --teal-pale: #C8E8E4;
+    --teal-mist: #EEF7F5;
+    --white: #FFFFFF;
+    --ink: #0A1810;
+    --dim: #6A8078;
+    --border: #B0CCC8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--teal);
+    font-family: 'Rajdhani', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex; align-items: center; justify-content: center;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 8px),
+      radial-gradient(ellipse at 80% 20%, rgba(14,122,108,0.5) 0%, transparent 60%);
+  }
+  .card {
+    max-width: 920px; width: 100%;
+    background: var(--white);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+    animation: stamp 0.7s cubic-bezier(0.22,1,0.36,1);
+    overflow: hidden;
+  }
+  @keyframes stamp { from { opacity:0; transform: scale(0.96) translateY(20px); } to { opacity:1; transform: scale(1) translateY(0); } }
+
+  /* Kente-inspired top bar */
+  .kente-bar {
+    height: 12px;
+    background: repeating-linear-gradient(
+      90deg,
+      var(--saffron) 0, var(--saffron) 20px,
+      var(--teal) 20px, var(--teal) 40px,
+      var(--saffron-deep) 40px, var(--saffron-deep) 52px,
+      var(--teal-mid) 52px, var(--teal-mid) 60px,
+      var(--saffron) 60px, var(--saffron) 80px
+    );
+  }
+
+  .hero { display: grid; grid-template-columns: 280px 1fr; }
+  .hero-left {
+    background: var(--teal);
+    padding: 48px 40px;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute; bottom: 0; right: 0;
+    width: 0; height: 0;
+    border-left: 100px solid transparent;
+    border-bottom: 100px solid rgba(232,160,32,0.12);
+  }
+  .hero-left .hl-top { }
+  .hero-left .label { font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--saffron); margin-bottom: 20px; }
+  .initials-block {
+    width: 88px; height: 88px;
+    background: var(--saffron);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Vollkorn', serif;
+    font-size: 28px; color: var(--teal); font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .initials-block::after {
+    content: '';
+    position: absolute; bottom: -4px; right: -4px;
+    width: 88px; height: 88px;
+    border: 2px solid rgba(232,160,32,0.3);
+  }
+  .hero-left h1 { font-family: 'Vollkorn', serif; font-size: 1.7rem; color: white; line-height: 1.15; font-weight: 600; }
+  .hero-left .prog { font-size: 0.8rem; color: rgba(255,255,255,0.55); margin-top: 8px; font-weight: 400; line-height: 1.5; }
+  .hero-left .hl-bottom { }
+  .gpa-display { }
+  .gpa-display .gnum { font-family: 'Vollkorn', serif; font-style: italic; font-size: 3.8rem; color: var(--saffron); line-height: 1; }
+  .gpa-display .glbl { font-size: 0.58rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; }
+  .pill-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 16px; }
+  .pill { border: 1px solid rgba(232,160,32,0.4); color: var(--saffron); padding: 4px 10px; font-size: 0.62rem; letter-spacing: 1px; }
+  .pill.f { background: var(--saffron); color: var(--teal); border-color: var(--saffron); font-weight: 700; }
+
+  .hero-right { padding: 48px 52px; }
+  .hero-right .eyebrow { font-size: 0.62rem; letter-spacing: 5px; text-transform: uppercase; color: var(--teal); font-weight: 600; margin-bottom: 20px; }
+
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .info-section { }
+  .is-title { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--saffron-deep); font-weight: 700; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid var(--saffron-pale); }
+  .entry { margin-bottom: 14px; }
+  .entry .et { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+  .entry .eo { font-size: 0.78rem; color: var(--teal-mid); font-style: italic; margin-bottom: 2px; }
+  .entry .ey { font-size: 0.62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 5px; }
+  .entry .ep { font-size: 0.79rem; color: #4A6058; line-height: 1.65; }
+
+  /* Bottom section */
+  .bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 2px solid var(--saffron); }
+  .bsec { padding: 32px 36px; border-right: 1px solid var(--border); }
+  .bsec:last-child { border-right: none; background: var(--teal-mist); }
+  .bsec-title { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 14px; }
+
+  .pos-item { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .pos-item:last-child { border-bottom: none; }
+  .pos-item .pt { font-size: 0.86rem; font-weight: 700; color: var(--ink); }
+  .pos-item .po { font-size: 0.72rem; color: var(--dim); }
+  .pos-item .py { font-size: 0.6rem; color: var(--saffron-deep); font-weight: 700; letter-spacing: 1px; }
+
+  .skill-item { padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.82rem; color: var(--ink); display: flex; align-items: center; gap: 8px; font-weight: 500; }
+  .skill-item:last-child { border-bottom: none; }
+  .skill-item .mark { width: 8px; height: 8px; background: var(--saffron); transform: rotate(45deg); flex-shrink: 0; }
+
+  .c-box { padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .c-box:last-child { border-bottom: none; }
+  .c-box .cl { font-size: 0.58rem; letter-spacing: 3px; text-transform: uppercase; color: var(--teal); font-weight: 700; margin-bottom: 2px; }
+  .c-box .cv { font-size: 0.8rem; color: var(--ink); font-weight: 400; }
+
+  /* Kente footer */
+  .kente-footer { height: 8px; background: repeating-linear-gradient(90deg, var(--saffron-deep) 0, var(--saffron-deep) 14px, var(--teal-mid) 14px, var(--teal-mid) 28px, var(--saffron) 28px, var(--saffron) 36px); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="kente-bar"></div>
+
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hl-top">
+        <div class="label">∎ College of Education · 2024</div>
+        <div class="initials-block">MK</div>
+        <h1>Maame Konadu Asante-Ofori</h1>
+        <div class="prog">B.Ed. Ghanaian Language Education · Level 300 · UCC</div>
+      </div>
+      <div class="hl-bottom">
+        <div class="gpa-display">
+          <div class="gnum">3.90</div>
+          <div class="glbl">Cumulative GPA</div>
+        </div>
+        <div class="pill-row">
+          <span class="pill f">First Class</span>
+          <span class="pill">Dean's List</span>
+          <span class="pill">Language Arts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="eyebrow">Student Academic Profile · University of Cape Coast</div>
+      <div class="info-grid">
+        <div class="info-section">
+          <div class="is-title">Education</div>
+          <div class="entry">
+            <div class="et">B.Ed. Ghanaian Language Edu.</div>
+            <div class="eo">University of Cape Coast</div>
+            <div class="ey">2022 – Present</div>
+            <div class="ep">Specializes in Akan (Twi) language pedagogy, oral literature and vernacular curriculum design. Research: "Revitalizing Twi Literacy in Cape Coast Urban Schools."</div>
+          </div>
+          <div class="entry">
+            <div class="et">WASSCE · General Arts</div>
+            <div class="eo">Cape Coast SHS</div>
+            <div class="ey">2019 – 2022 · Aggregate 7</div>
+            <div class="ep">Electives: Twi, Literature, Govt. Best Oral Literature Performance 2022.</div>
+          </div>
+        </div>
+        <div class="info-section">
+          <div class="is-title">Work & Experience</div>
+          <div class="entry">
+            <div class="et">Ghanaian Language Student Teacher</div>
+            <div class="eo">Mfantsipim School JHS Wing</div>
+            <div class="ey">Sept – Dec 2024</div>
+            <div class="ep">Taught Twi Language and oral literature to JHS 1–3. Created an illustrated Twi storybook used across all classes.</div>
+          </div>
+          <div class="entry">
+            <div class="et">Oral Literature Facilitator</div>
+            <div class="eo">Ghana Museums & Monuments Board</div>
+            <div class="ey">2023 – Present</div>
+            <div class="ep">Facilitates school visits to the Cape Coast Castle, delivering bilingual (English/Twi) educational tours for students.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bsec">
+      <div class="bsec-title">Positions Held</div>
+      <div class="pos-item"><div class="pt">Ghanaian Lang. Dept. Rep.</div><div class="po">UCC Level 300 · 2024</div><div class="py">2024</div></div>
+      <div class="pos-item"><div class="pt">Language Society President</div><div class="po">UCC · Dept. of Ghanaian Lang.</div><div class="py">2023–24</div></div>
+      <div class="pos-item"><div class="pt">Cultural Event Coordinator</div><div class="po">UCC Annual Cultural Festival</div><div class="py">2023</div></div>
+      <div class="pos-item"><div class="pt">Language & Culture Prefect</div><div class="po">Cape Coast SHS</div><div class="py">2021–22</div></div>
+    </div>
+
+    <div class="bsec">
+      <div class="bsec-title">Special Skills</div>
+      <div class="skill-item"><div class="mark"></div>Twi Language Teaching</div>
+      <div class="skill-item"><div class="mark"></div>Oral Literature & Folklore</div>
+      <div class="skill-item"><div class="mark"></div>Vernacular Curriculum Dev.</div>
+      <div class="skill-item"><div class="mark"></div>Translation (Twi↔Fante)</div>
+      <div class="skill-item"><div class="mark"></div>Cultural Facilitation</div>
+      <div class="skill-item"><div class="mark"></div>Creative Writing (Twi)</div>
+      <div class="skill-item"><div class="mark"></div>Storytelling & Drama</div>
+    </div>
+
+    <div class="bsec">
+      <div class="bsec-title">Contact Details</div>
+      <div class="c-box"><div class="cl">Email</div><div class="cv">mk.asanteofori@ucc.edu.gh</div></div>
+      <div class="c-box"><div class="cl">Phone</div><div class="cv">+233 24 567 8901</div></div>
+      <div class="c-box"><div class="cl">Location</div><div class="cv">Cape Coast, Central Region</div></div>
+      <div class="c-box"><div class="cl">Institution</div><div class="cv">University of Cape Coast</div></div>
+      <div class="c-box"><div class="cl">Academic Year</div><div class="cv">2024 / 2025</div></div>
+    </div>
+  </div>
+  <div class="kente-footer"></div>
+</div>
+</body>
+</html>

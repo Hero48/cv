@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Bioluminescent Deep Ocean</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --base:      #010810;
+    --void-mid:  #020D1A;
+    --cyan:      #00FFD1;
+    --violet:    #8B00FF;
+    --phos:      #39FF14;
+    --text:      rgba(168,237,222,0.85);
+    --text-dim:  rgba(168,237,222,0.38);
+    --ink:       #000509;
+  }
+
+  body {
+    background: var(--base);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5pt;
+    line-height: 1.85;
+    width: 210mm;
+    min-height: 297mm;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── Grain overlay ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 200;
+  }
+
+  /* ── Radial vignette ── */
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background: radial-gradient(ellipse at 50% 40%, transparent 30%, #000509 100%);
+    pointer-events: none; z-index: 1;
+  }
+
+  .page { width: 210mm; min-height: 297mm; position: relative; }
+
+  /* ── Particle field (CSS only) ── */
+  .particles {
+    position: absolute; inset: 0;
+    overflow: hidden; pointer-events: none; z-index: 2;
+  }
+  .p {
+    position: absolute;
+    width: 2px; height: 2px;
+    border-radius: 50%;
+    animation: drift linear infinite;
+  }
+  @keyframes drift {
+    0%   { transform: translateY(100%) translateX(0); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(-20px) translateX(var(--dx,0)); opacity: 0; }
+  }
+
+  /* ── Organism SVG decoration ── */
+  .organism { position: absolute; opacity: 0.09; pointer-events: none; z-index: 3; }
+
+  /* ── Glow pulse on cyan elements ── */
+  @keyframes glow-pulse {
+    0%,100% { box-shadow: 0 0 4px #00FFD1, 0 0 10px #00FFD120; }
+    50%      { box-shadow: 0 0 14px #00FFD1, 0 0 28px #00FFD130; }
+  }
+  @keyframes text-pulse {
+    0%,100% { text-shadow: 0 0 8px #00FFD1, 0 0 20px #00FFD140; }
+    50%      { text-shadow: 0 0 18px #00FFD1, 0 0 38px #00FFD160; }
+  }
+
+  /* ═══════════════════════════
+     HEADER — lower-left drift
+  ═══════════════════════════ */
+  .header {
+    padding: 52px 48px 36px 52px;
+    position: relative; z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: flex-end;
+    gap: 24px;
+  }
+
+  .depth-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 6.5pt;
+    letter-spacing: 0.3em;
+    color: var(--cyan);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    animation: text-pulse 3.5s ease-in-out infinite;
+  }
+
+  h1 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 44pt;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(168,237,222,0.92);
+    line-height: 1;
+    text-shadow: 0 0 30px rgba(0,255,209,0.2);
+  }
+
+  .role-line {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 9pt;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 10px;
+  }
+
+  .contact-block { text-align: right; }
+
+  .contact-item {
+    font-size: 7.5pt;
+    color: var(--text-dim);
+    line-height: 1.9;
+    letter-spacing: 0.06em;
+  }
+
+  .contact-item span {
+    color: var(--cyan);
+    text-shadow: 0 0 10px #00FFD150;
+  }
+
+  /* Glowing rule */
+  .glow-rule {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--cyan), rgba(139,0,255,0.5), transparent);
+    margin: 0 52px;
+    position: relative; z-index: 10;
+    box-shadow: 0 0 8px rgba(0,255,209,0.3);
+  }
+
+  /* ═══════════════════════════
+     BODY LAYOUT
+  ═══════════════════════════ */
+  .body-layout {
+    display: grid;
+    grid-template-columns: 195px 1fr;
+    position: relative; z-index: 10;
+    min-height: calc(297mm - 160px);
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    padding: 32px 20px 32px 28px;
+    border-right: 1px solid rgba(0,255,209,0.07);
+    position: relative;
+  }
+
+  .sidebar::after {
+    content: '';
+    position: absolute; right: -1px; top: 10%; bottom: 10%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(0,255,209,0.18), rgba(139,0,255,0.12), transparent);
+  }
+
+  .s-section { margin-bottom: 26px; }
+
+  .s-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 6pt;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 12px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0,255,209,0.12);
+    text-shadow: 0 0 10px rgba(0,255,209,0.4);
+  }
+
+  .skill-row { margin-bottom: 9px; }
+
+  .skill-name {
+    font-size: 7.5pt;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+    margin-bottom: 3px;
+  }
+
+  .skill-bar {
+    height: 1px;
+    background: rgba(0,255,209,0.08);
+    position: relative;
+  }
+
+  .skill-fill {
+    height: 1px;
+    background: linear-gradient(90deg, var(--cyan), var(--violet));
+    box-shadow: 0 0 6px rgba(0,255,209,0.5);
+  }
+
+  .glow-tag {
+    display: inline-block;
+    font-size: 6.5pt;
+    color: rgba(0,255,209,0.7);
+    border: 1px solid rgba(0,255,209,0.18);
+    padding: 1px 7px;
+    margin: 2px 2px 2px 0;
+    letter-spacing: 0.06em;
+    box-shadow: 0 0 6px rgba(0,255,209,0.05);
+  }
+
+  .s-text {
+    font-size: 7.5pt;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  .s-stat {
+    font-size: 6.5pt;
+    color: rgba(0,255,209,0.5);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-top: 6px;
+    margin-bottom: 1px;
+  }
+
+  .edu-deg {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 9pt;
+    letter-spacing: 0.1em;
+    color: rgba(168,237,222,0.75);
+    text-transform: uppercase;
+  }
+
+  .edu-school {
+    font-size: 7pt;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── Main content ── */
+  .main { padding: 32px 48px 28px 36px; }
+
+  .section { margin-bottom: 26px; }
+
+  .section-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 100;
+    font-size: 6.5pt;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-shadow: 0 0 12px rgba(0,255,209,0.45);
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(0,255,209,0.2), transparent);
+  }
+
+  .summary {
+    font-size: 8.5pt;
+    line-height: 1.9;
+    color: rgba(168,237,222,0.78);
+  }
+
+  .summary strong {
+    color: var(--cyan);
+    text-shadow: 0 0 12px rgba(0,255,209,0.4);
+    font-weight: 400;
+  }
+
+  /* Panel / card — self-illuminating border */
+  .entry {
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    background: var(--void-mid);
+    box-shadow: 0 0 0 1px rgba(0,255,209,0.12), inset 0 0 20px rgba(0,0,0,0.4);
+    position: relative;
+  }
+
+  .entry::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--cyan), transparent);
+    opacity: 0.4;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .entry-title {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    font-size: 10pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(168,237,222,0.92);
+  }
+
+  .entry-date {
+    font-size: 7pt;
+    color: rgba(0,255,209,0.45);
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 8px #00FFD130;
+  }
+
+  .entry-co {
+    font-size: 7pt;
+    color: rgba(139,0,255,0.75);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+    text-shadow: 0 0 10px rgba(139,0,255,0.3);
+  }
+
+  .entry-desc {
+    list-style: none;
+    font-size: 7.5pt;
+    color: rgba(168,237,222,0.55);
+    line-height: 1.75;
+  }
+
+  .entry-desc li { padding-left: 12px; position: relative; margin-bottom: 1px; }
+  .entry-desc li::before {
+    content: '›';
+    position: absolute; left: 0;
+    color: rgba(0,255,209,0.4);
+  }
+
+  /* Footer */
+  .footer {
+    padding: 12px 52px;
+    border-top: 1px solid rgba(0,255,209,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; z-index: 10;
+  }
+
+  .footer-text {
+    font-size: 6pt;
+    color: rgba(0,255,209,0.3);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .footer-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan), 0 0 16px rgba(0,255,209,0.4);
+    animation: glow-pulse 3.5s ease-in-out infinite;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Particles -->
+  <div class="particles" aria-hidden="true">
+    <div class="p" style="left:8%;--dx:15px;background:#00FFD1;animation-duration:9s;animation-delay:0s;"></div>
+    <div class="p" style="left:15%;--dx:-8px;background:#8B00FF;animation-duration:11s;animation-delay:1.2s;"></div>
+    <div class="p" style="left:23%;--dx:20px;background:#00FFD1;animation-duration:8s;animation-delay:0.4s;"></div>
+    <div class="p" style="left:31%;--dx:-12px;background:#39FF14;animation-duration:13s;animation-delay:3s;"></div>
+    <div class="p" style="left:42%;--dx:6px;background:#00FFD1;animation-duration:10s;animation-delay:1.8s;"></div>
+    <div class="p" style="left:54%;--dx:-18px;background:#8B00FF;animation-duration:12s;animation-delay:0.7s;"></div>
+    <div class="p" style="left:63%;--dx:10px;background:#00FFD1;animation-duration:9.5s;animation-delay:4.1s;"></div>
+    <div class="p" style="left:72%;--dx:-5px;background:#39FF14;animation-duration:14s;animation-delay:2.3s;"></div>
+    <div class="p" style="left:81%;--dx:22px;background:#00FFD1;animation-duration:11.5s;animation-delay:0.9s;"></div>
+    <div class="p" style="left:89%;--dx:-14px;background:#8B00FF;animation-duration:8.5s;animation-delay:5s;"></div>
+    <div class="p" style="left:19%;--dx:18px;background:#00FFD1;animation-duration:7s;animation-delay:2.8s;"></div>
+    <div class="p" style="left:48%;--dx:-9px;background:#00FFD1;animation-duration:16s;animation-delay:1.1s;"></div>
+    <div class="p" style="left:76%;--dx:14px;background:#8B00FF;animation-duration:10.5s;animation-delay:3.6s;"></div>
+    <div class="p" style="left:35%;--dx:-20px;background:#00FFD1;animation-duration:12.5s;animation-delay:6.2s;"></div>
+    <div class="p" style="left:60%;--dx:11px;background:#39FF14;animation-duration:9s;animation-delay:4.8s;"></div>
+    <div class="p" style="left:5%;--dx:16px;background:#00FFD1;animation-duration:15s;animation-delay:2s;"></div>
+    <div class="p" style="left:93%;--dx:-10px;background:#00FFD1;animation-duration:10s;animation-delay:7s;"></div>
+    <div class="p" style="left:27%;--dx:8px;background:#8B00FF;animation-duration:11s;animation-delay:5.5s;"></div>
+  </div>
+
+  <!-- Organism shapes -->
+  <svg class="organism" style="top:80px;right:30px;width:90px;" viewBox="0 0 90 120" fill="none">
+    <ellipse cx="45" cy="40" rx="18" ry="24" stroke="#00FFD1" stroke-width="0.8"/>
+    <path d="M45 64 Q30 80 28 100" stroke="#00FFD1" stroke-width="0.6"/>
+    <path d="M45 64 Q60 80 62 100" stroke="#00FFD1" stroke-width="0.6"/>
+    <path d="M38 55 Q22 65 18 85" stroke="#00FFD1" stroke-width="0.5"/>
+    <path d="M52 55 Q68 65 72 85" stroke="#00FFD1" stroke-width="0.5"/>
+    <circle cx="45" cy="30" r="3" fill="#00FFD1" opacity="0.4"/>
+  </svg>
+
+  <svg class="organism" style="bottom:120px;left:8px;width:60px;" viewBox="0 0 60 80" fill="none">
+    <circle cx="30" cy="20" r="16" stroke="#8B00FF" stroke-width="0.8"/>
+    <path d="M22 36 Q10 55 12 75" stroke="#8B00FF" stroke-width="0.5"/>
+    <path d="M30 36 Q30 55 30 75" stroke="#8B00FF" stroke-width="0.5"/>
+    <path d="M38 36 Q50 55 48 75" stroke="#8B00FF" stroke-width="0.5"/>
+    <path d="M16 32 Q4 48 8 68" stroke="#8B00FF" stroke-width="0.4"/>
+    <path d="M44 32 Q56 48 52 68" stroke="#8B00FF" stroke-width="0.4"/>
+  </svg>
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="depth-label">// DEPTH: 3,000M · CURRICULUM VITAE · SIGNAL DETECTED</div>
+      <h1>LYRA<br>VOSS</h1>
+      <div class="role-line">Deep Systems Architect &amp; Experience Designer</div>
+    </div>
+    <div class="contact-block">
+      <div class="contact-item"><span>SIGNAL</span> lyra.voss@abysslab.io</div>
+      <div class="contact-item"><span>NODE</span> +49 151 2244 9801</div>
+      <div class="contact-item"><span>COORD</span> Berlin, 52.52°N 13.40°E</div>
+      <div class="contact-item"><span>DEPTH</span> abysslab.io/cv</div>
+    </div>
+  </div>
+
+  <div class="glow-rule"></div>
+
+  <div class="body-layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <div class="s-section">
+        <div class="s-label">Core Systems</div>
+        <div class="skill-row">
+          <div class="skill-name">Architecture &amp; Systems</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:96%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Interface Design</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:91%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Data Visualisation</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Motion &amp; Interaction</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:84%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Creative Direction</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:79%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">Research &amp; Strategy</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:74%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-label">Instruments</div>
+        <div class="glow-tag">Figma</div>
+        <div class="glow-tag">Three.js</div>
+        <div class="glow-tag">GSAP</div>
+        <div class="glow-tag">React</div>
+        <div class="glow-tag">D3.js</div>
+        <div class="glow-tag">WebGL</div>
+        <div class="glow-tag">After Effects</div>
+        <div class="glow-tag">Framer</div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-label">Transmissions</div>
+        <div class="skill-row">
+          <div class="skill-name">German</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:100%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">English</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:98%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name">French</div>
+          <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-label">Depth Log</div>
+        <span class="s-stat">// 2024</span>
+        <div class="s-text">Awwwards SOTD — Meridian Platform</div>
+        <span class="s-stat">// 2023</span>
+        <div class="s-text">Fast Company Innovation by Design</div>
+        <span class="s-stat">// 2022</span>
+        <div class="s-text">D&amp;AD Wood Pencil — Digital Craft</div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-label">Formation</div>
+        <div class="edu-deg">MSc Interaction Design</div>
+        <div class="edu-school">HfG Offenbach · 2014</div>
+        <br>
+        <div class="edu-deg">BA Digital Media</div>
+        <div class="edu-school">UdK Berlin · 2012</div>
+      </div>
+
+    </div>
+
+    <!-- Main content -->
+    <div class="main">
+
+      <div class="section">
+        <div class="section-title">Signal</div>
+        <p class="summary">
+          Digital architect with <strong>10 years</strong> building systems at the edge of sensation and logic. I design interfaces that operate where precision meets the uncanny — products that feel alive, data environments that breathe, visual systems with <strong>depth you can feel</strong>. I work best in the dark.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Expedition Log</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Principal Systems Designer</div>
+            <div class="entry-date">2021 — PRESENT</div>
+          </div>
+          <div class="entry-co">ABYSS LABORATORY · BERLIN</div>
+          <ul class="entry-desc">
+            <li>Founded studio specialising in immersive digital environments for science, culture, and data</li>
+            <li>Led design of real-time ocean monitoring platform used by 4 research institutions across Europe</li>
+            <li>Built a 3D WebGL data visualisation engine for deep-sea biodiversity datasets</li>
+            <li>Directed team of 6 across design, development, and scientific communication</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Senior Experience Designer</div>
+            <div class="entry-date">2018 — 2021</div>
+          </div>
+          <div class="entry-co">DEEPFORM STUDIO · AMSTERDAM</div>
+          <ul class="entry-desc">
+            <li>Designed award-winning interfaces for cultural institutions, luxury brands, and science communicators</li>
+            <li>Developed bespoke animation systems in GSAP and Canvas, deployed across 20+ client projects</li>
+            <li>Introduced internal design system that reduced delivery time by 38%</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">UX / Visual Designer</div>
+            <div class="entry-date">2015 — 2018</div>
+          </div>
+          <div class="entry-co">PELAGIC AGENCY · HAMBURG</div>
+          <ul class="entry-desc">
+            <li>Owned end-to-end design for environmental research and academic publishing clients</li>
+            <li>Conducted user research programmes and translated findings into validated design systems</li>
+            <li>Mentored 3 junior designers through structured critique and development cycles</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <div class="entry-title">Junior Designer</div>
+            <div class="entry-date">2014 — 2015</div>
+          </div>
+          <div class="entry-co">NOCTILUCA DIGITAL · BERLIN</div>
+          <ul class="entry-desc">
+            <li>Supported senior team on brand identity and interactive editorial projects</li>
+            <li>Built prototype animations and micro-interaction libraries for client pitches</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="section">
+        <div class="section-title">Specimen</div>
+        <div class="entry" style="box-shadow: 0 0 0 1px rgba(139,0,255,0.15), inset 0 0 20px rgba(0,0,0,0.4);">
+          <div class="entry-header">
+            <div class="entry-title" style="color:rgba(168,200,255,0.85);">Bathysphere — Ocean Data Platform</div>
+            <div class="entry-date" style="color:rgba(139,0,255,0.55);">2023</div>
+          </div>
+          <div class="entry-co" style="color:rgba(139,0,255,0.65);">END-TO-END DESIGN + FRONTEND</div>
+          <p class="entry-desc" style="list-style:none;padding:0;font-style:italic;">
+            Immersive dashboard for real-time deep-sea sensor networks. D3.js + WebGL bathymetric mapping, custom dark design system, awarded FWA Site of the Month.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-text">Lyra Voss · CV · 2024</div>
+    <div class="footer-dot"></div>
+    <div class="footer-text">// BERLIN · 52.52°N 13.40°E · ABYSS LAB</div>
+  </div>
+
+</div>
+</body>
+</html>

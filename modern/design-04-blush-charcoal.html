@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 04 — Blush & Charcoal</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --blush:#f2d5cc;
+    --rose:#d4806a;
+    --charcoal:#2c2c2c;
+    --soft-white:#fdf9f7;
+    --warm-gray:#7a7166;
+    --border:#e5ddd9;
+  }
+  body{background:var(--soft-white);color:var(--charcoal);font-family:'DM Sans',sans-serif;}
+  .cv{max-width:880px;margin:0 auto;}
+
+  /* HERO BANNER */
+  .banner{background:var(--blush);padding:64px 64px 0;display:grid;grid-template-columns:1fr 200px;gap:48px;align-items:end;}
+  .b-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+  .b-name{font-family:'Fraunces',serif;font-size:clamp(44px,7vw,80px);line-height:0.95;font-weight:700;color:var(--charcoal);margin-bottom:24px;}
+  .b-desc{font-size:14px;line-height:1.8;color:var(--warm-gray);max-width:420px;padding-bottom:40px;}
+  .b-photo{width:200px;height:220px;background:var(--rose);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:60px;color:var(--soft-white);align-self:end;}
+
+  /* ACCENT STRIP */
+  .strip{height:6px;background:linear-gradient(90deg,var(--rose),var(--blush));}
+
+  /* BODY */
+  .body{padding:56px 64px;}
+  .cols{display:grid;grid-template-columns:2fr 1fr;gap:64px;}
+  .sec-head{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--rose);margin-bottom:24px;padding-bottom:10px;border-bottom:2px solid var(--blush);}
+  .section{margin-bottom:44px;}
+
+  /* Timeline */
+  .tl-entry{margin-bottom:28px;padding-left:20px;border-left:2px solid var(--blush);position:relative;}
+  .tl-entry::before{content:'';position:absolute;left:-5px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--rose);}
+  .tl-year{font-size:11px;color:var(--rose);margin-bottom:4px;font-weight:500;}
+  .tl-title{font-family:'Fraunces',serif;font-size:19px;font-weight:700;color:var(--charcoal);margin-bottom:2px;}
+  .tl-place{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--warm-gray);margin-bottom:8px;}
+  .tl-body{font-size:13px;line-height:1.8;color:#5a5550;}
+
+  /* Right col */
+  .mini-head{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--rose);margin-bottom:18px;padding-bottom:8px;border-bottom:2px solid var(--blush);}
+  .mini-section{margin-bottom:36px;}
+  .info-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);font-size:12.5px;}
+  .info-item .k{color:var(--warm-gray);}
+  .info-item .v{font-weight:500;color:var(--charcoal);}
+  .skill-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+  .skill-row .sn{font-size:12.5px;color:var(--charcoal);}
+  .dots{display:flex;gap:4px;}
+  .dot{width:10px;height:10px;border-radius:50%;}
+  .dot.on{background:var(--rose);}
+  .dot.off{background:var(--blush);}
+  .award-item{background:var(--blush);padding:12px 16px;margin-bottom:8px;font-size:12.5px;line-height:1.5;}
+  .award-item strong{display:block;color:var(--rose);font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px;}
+  @media(max-width:700px){.cols{grid-template-columns:1fr;}.banner{grid-template-columns:1fr;padding:40px 24px 0;}.b-photo{display:none;}.body{padding:36px 24px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <div class="banner">
+    <div>
+      <div class="b-eyebrow">Portfolio · College of Education</div>
+      <h1 class="b-name">Efua<br>Darko</h1>
+      <div class="b-desc">A compassionate educator and creative curriculum developer passionate about girls' education, inclusive classrooms, and community learning in Ashanti Region schools.</div>
+    </div>
+    <div class="b-photo">ED</div>
+  </div>
+  <div class="strip"></div>
+  <div class="body">
+    <div class="cols">
+      <div>
+        <div class="section">
+          <div class="sec-head">Work Experience</div>
+          <div class="tl-entry">
+            <div class="tl-year">2023 — Present</div>
+            <div class="tl-title">Class Teacher — Grade 4 & 5</div>
+            <div class="tl-place">Kumasi Girls' Model Primary</div>
+            <div class="tl-body">Plan and teach English Language, Creative Arts and Social Studies. Developed a reading corner initiative that expanded the school library by 200 donated books within one term.</div>
+          </div>
+          <div class="tl-entry">
+            <div class="tl-year">2021 — 2023</div>
+            <div class="tl-title">Tutorial Assistant</div>
+            <div class="tl-place">Ashanti College of Education, Mampong</div>
+            <div class="tl-body">Assisted lectures in Curriculum Studies and Language Methods for 120 student-teachers. Graded assignments and provided weekly mentoring sessions for 2nd year students.</div>
+          </div>
+          <div class="tl-entry">
+            <div class="tl-year">2020 — 2021</div>
+            <div class="tl-title">Community Literacy Volunteer</div>
+            <div class="tl-place">Ghana Reads Initiative, Kwabre District</div>
+            <div class="tl-body">Ran after-school literacy sessions for 60 out-of-school girls aged 8–14 across 3 communities; trained 6 local volunteer facilitators.</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="sec-head">Education</div>
+          <div class="tl-entry">
+            <div class="tl-year">2017 — 2021</div>
+            <div class="tl-title">B.Ed. Basic Education — Language Specialisation</div>
+            <div class="tl-place">Ashanti College of Education, Mampong</div>
+            <div class="tl-body">Graduated with Distinction. Dissertation: "The role of storytelling in fostering reading comprehension in multilingual classrooms."</div>
+          </div>
+          <div class="tl-entry">
+            <div class="tl-year">2014 — 2017</div>
+            <div class="tl-title">WASSCE Certificate</div>
+            <div class="tl-place">Yaa Asantewaa Girls' SHS, Kumasi</div>
+            <div class="tl-body">General Arts — aggregate 7. Best student in Literature in English (2017).</div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="sec-head">Positions Held</div>
+          <div class="tl-entry">
+            <div class="tl-year">2020 — 2021</div>
+            <div class="tl-title">Academic Board Student Rep.</div>
+            <div class="tl-place">Ashanti College of Education</div>
+            <div class="tl-body">Sole student representative on the academic board; advocated for improved library access and led adoption of a new formative assessment policy.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="mini-section">
+          <div class="mini-head">Contact</div>
+          <div class="info-item"><span class="k">Email</span><span class="v">efua.d@edu.gh</span></div>
+          <div class="info-item"><span class="k">Phone</span><span class="v">+233 24 112 3344</span></div>
+          <div class="info-item"><span class="k">City</span><span class="v">Kumasi</span></div>
+          <div class="info-item"><span class="k">Licence</span><span class="v">GTLE Certified</span></div>
+        </div>
+        <div class="mini-section">
+          <div class="mini-head">Skills Level</div>
+          <div class="skill-row"><span class="sn">Literacy Teaching</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div></div>
+          <div class="skill-row"><span class="sn">Curriculum Design</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot off"></div></div></div>
+          <div class="skill-row"><span class="sn">Research Writing</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot off"></div></div></div>
+          <div class="skill-row"><span class="sn">ICT for Education</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot off"></div><div class="dot off"></div></div></div>
+          <div class="skill-row"><span class="sn">French Language</span><div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot off"></div><div class="dot off"></div></div></div>
+        </div>
+        <div class="mini-section">
+          <div class="mini-head">Awards</div>
+          <div class="award-item"><strong>Best Student Award</strong>Ashanti College of Education, 2021</div>
+          <div class="award-item"><strong>GEEP Scholarship</strong>Girls Education & Empowerment, 2019</div>
+          <div class="award-item"><strong>Literacy Champion</strong>Ghana Reads Initiative, 2020</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

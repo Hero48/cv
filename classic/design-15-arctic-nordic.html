@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 15</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,700;1,300&family=Yeseva+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --arctic: #F0F4F8;
+    --ice: #E2ECF4;
+    --nordic: #1B3A5C;
+    --nordic-mid: #254E7A;
+    --nordic-pale: #C8DCEE;
+    --frost: #FFFFFF;
+    --text: #0D1E2E;
+    --dim: #7A9AB4;
+    --accent: #0070CC;
+    --border: #C0D4E8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--arctic);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex; align-items: flex-start; justify-content: center;
+  }
+  .card {
+    max-width: 860px; width: 100%;
+    animation: glide 0.7s ease;
+  }
+  @keyframes glide { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
+
+  /* Ultra minimal hero */
+  .hero { padding: 56px 0 40px; border-bottom: 1px solid var(--border); }
+  .hero-inner { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: flex-end; }
+  .hero-left .label { font-size: 0.62rem; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 500; }
+  .hero-left h1 {
+    font-family: 'Yeseva One', serif;
+    font-size: 3rem; color: var(--text); line-height: 1.05; margin-bottom: 10px;
+  }
+  .hero-left .prog { font-size: 0.95rem; color: var(--dim); font-weight: 300; margin-bottom: 20px; }
+  .tag-wrap { display: flex; gap: 8px; flex-wrap: wrap; }
+  .t { background: var(--frost); border: 1px solid var(--border); color: var(--nordic); padding: 5px 14px; font-size: 0.74rem; font-weight: 500; border-radius: 2px; }
+  .t.a { background: var(--nordic); color: white; border-color: var(--nordic); }
+
+  .hero-right { text-align: right; }
+  .gpa-display { font-family: 'Yeseva One', serif; font-size: 5rem; color: var(--accent); line-height: 1; }
+  .gpa-label { font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--dim); margin-top: 4px; }
+
+  /* Three-column grid */
+  .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-top: 0; }
+  .gcol { padding: 36px 0; border-right: 1px solid var(--border); padding-right: 36px; padding-left: 0; }
+  .gcol:not(:first-child) { padding-left: 36px; }
+  .gcol:last-child { border-right: none; }
+
+  .gtitle {
+    font-size: 0.6rem; letter-spacing: 5px; text-transform: uppercase;
+    color: var(--accent); font-weight: 700; margin-bottom: 24px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--border);
+  }
+  .entry { margin-bottom: 22px; }
+  .entry .et { font-size: 0.93rem; font-weight: 700; color: var(--text); margin-bottom: 2px; line-height: 1.3; }
+  .entry .eo { font-size: 0.8rem; color: var(--accent); margin-bottom: 2px; font-weight: 300; font-style: italic; }
+  .entry .ey { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 7px; }
+  .entry .ep { font-size: 0.82rem; color: #5A7080; line-height: 1.7; font-weight: 300; }
+  .entry-div { height: 1px; background: var(--border); margin: 18px 0; }
+
+  .pos-item { padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .pos-item:last-child { border-bottom: none; }
+  .pos-item .pt { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+  .pos-item .po { font-size: 0.76rem; color: var(--dim); margin-top: 2px; font-weight: 300; }
+  .pos-item .py { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-top: 2px; }
+
+  .sk-item { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; color: var(--text); font-weight: 300; display: flex; justify-content: space-between; align-items: center; }
+  .sk-item:last-child { border-bottom: none; }
+  .sk-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+
+  .c-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.8rem; }
+  .c-item:last-child { border-bottom: none; }
+  .c-label { font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); font-weight: 600; }
+  .c-val { color: var(--text); font-weight: 300; }
+
+  .foot { padding: 20px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; margin-top: 0; }
+  .foot .fl { font-size: 0.68rem; letter-spacing: 2px; color: var(--dim); text-transform: uppercase; }
+  .foot .fr { font-size: 0.68rem; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="label">College of Education · Student Academic Profile</div>
+        <h1>Josephine Akua Asante-Boateng</h1>
+        <div class="prog">B.Ed. Early Childhood Education · Level 400 · University of Ghana, Legon</div>
+        <div class="tag-wrap">
+          <span class="t a">GPA 3.95</span>
+          <span class="t">First Class</span>
+          <span class="t">Best Student Nominee</span>
+          <span class="t">ECE Research Prize</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="gpa-display">3.95</div>
+        <div class="gpa-label">Cumulative GPA</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="gcol">
+      <div class="gtitle">Education & Background</div>
+      <div class="entry">
+        <div class="et">B.Ed. Early Childhood Education</div>
+        <div class="eo">University of Ghana, Legon</div>
+        <div class="ey">2021 – Present</div>
+        <div class="ep">Specialization in Play-Based Learning and Inclusive Early Childhood Pedagogy. Dissertation on "Father Involvement and School Readiness in Ghanaian Pre-Schools."</div>
+      </div>
+      <div class="entry-div"></div>
+      <div class="entry">
+        <div class="et">WASSCE · General Arts</div>
+        <div class="eo">Wesley Girls' High School, Cape Coast</div>
+        <div class="ey">2018 – 2021 · Aggregate 6</div>
+        <div class="ep">Electives: Economics, Literature, Government. Best Female Student in Social Sciences.</div>
+      </div>
+      <div class="entry-div"></div>
+      <div class="entry">
+        <div class="et">BECE · Wesley JHS</div>
+        <div class="eo">2015 – 2018 · Aggregate 4</div>
+      </div>
+      <div class="entry-div"></div>
+      <div class="gtitle" style="margin-top:4px">Work & Experience</div>
+      <div class="entry">
+        <div class="et">ECE Student Teacher</div>
+        <div class="eo">Legon Presec Kindergarten</div>
+        <div class="ey">Aug – Nov 2024</div>
+        <div class="ep">Delivered play-based lessons to KG1 & KG2 classes of 32 children. Designed a phonics-through-play module adopted by the school permanently.</div>
+      </div>
+      <div class="entry-div"></div>
+      <div class="entry">
+        <div class="et">ECE Programme Designer</div>
+        <div class="eo">UNICEF Ghana — Early Learning Unit</div>
+        <div class="ey">Summer 2023 (Intern)</div>
+        <div class="ep">Contributed to content development for a national school readiness assessment framework used in 120 kindergartens.</div>
+      </div>
+      <div class="entry-div"></div>
+      <div class="entry">
+        <div class="et">Sunday School Superintendent</div>
+        <div class="eo">Methodist Church — Accra Ridge Circuit</div>
+        <div class="ey">2022 – Present</div>
+        <div class="ep">Manages curriculum and trains 8 Sunday school teachers serving 150 children.</div>
+      </div>
+    </div>
+
+    <div class="gcol">
+      <div class="gtitle">Positions Held</div>
+      <div class="pos-item"><div class="pt">Faculty Student Representative</div><div class="po">UG Senate · Education Faculty</div><div class="py">2024</div></div>
+      <div class="pos-item"><div class="pt">ECE Dept. Level Rep.</div><div class="po">University of Ghana · Level 400</div><div class="py">2024</div></div>
+      <div class="pos-item"><div class="pt">ECE Students' Assoc. President</div><div class="po">University of Ghana</div><div class="py">2023–24</div></div>
+      <div class="pos-item"><div class="pt">Girls' Dormitory Prefect</div><div class="po">Wesley Girls' High School</div><div class="py">2020–21</div></div>
+      <div class="pos-item"><div class="pt">Class Academic Secretary</div><div class="po">Wesley Girls' SHS · Form 3</div><div class="py">2020</div></div>
+      <div class="pos-item"><div class="pt">Head Girl</div><div class="po">Wesley JHS, Cape Coast</div><div class="py">2017–18</div></div>
+    </div>
+
+    <div class="gcol">
+      <div class="gtitle">Special Skills</div>
+      <div class="sk-item">Play-Based Pedagogy <div class="sk-dot"></div></div>
+      <div class="sk-item">Child Development <div class="sk-dot"></div></div>
+      <div class="sk-item">Curriculum Design <div class="sk-dot"></div></div>
+      <div class="sk-item">Inclusive Education <div class="sk-dot"></div></div>
+      <div class="sk-item">Montessori Methods <div class="sk-dot"></div></div>
+      <div class="sk-item">Educational Research <div class="sk-dot"></div></div>
+      <div class="sk-item">MS Office & Canva <div class="sk-dot"></div></div>
+      <div class="sk-item">Akan Language (Twi) <div class="sk-dot"></div></div>
+      <div style="height:24px"></div>
+      <div class="gtitle" style="margin-top:0">Contact Details</div>
+      <div class="c-item"><span class="c-label">Email</span><span class="c-val">ja.asante@st.ug.edu.gh</span></div>
+      <div class="c-item"><span class="c-label">Phone</span><span class="c-val">+233 24 112 2334</span></div>
+      <div class="c-item"><span class="c-label">Location</span><span class="c-val">Accra, Greater Accra</span></div>
+      <div class="c-item"><span class="c-label">Institution</span><span class="c-val">UG Legon · Educ. Faculty</span></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span class="fl">B.Ed. Early Childhood Education · University of Ghana · 2024</span>
+    <span class="fr">First Class Candidate</span>
+  </div>
+</div>
+</body>
+</html>

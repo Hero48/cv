@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ama Owusu-Acheampong — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root{--aurora1:#6c3fc5;--aurora2:#c53f8a;--aurora3:#3fc5b4;--dark:#0f0f1a;--card:#1a1a2e;--text:#e8e0f0;--muted:#8878a8;--white:#fff;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--dark);font-family:'Manrope',sans-serif;color:var(--text);display:flex;justify-content:center;padding:32px 20px;min-height:100vh;}
+  .wrapper{width:100%;max-width:1000px;display:grid;grid-template-columns:320px 1fr;border-radius:20px;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,0.5);}
+  .sidebar{background:linear-gradient(160deg,var(--aurora1),var(--aurora2),var(--aurora3));padding:0;display:flex;flex-direction:column;}
+  .sb-top{padding:48px 36px 36px;flex:1;}
+  .initials-box{width:80px;height:80px;background:rgba(255,255,255,0.15);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;color:white;backdrop-filter:blur(10px);margin-bottom:24px;}
+  .sb-top h1{font-size:2rem;font-weight:800;color:white;line-height:1.15;letter-spacing:-0.02em;}
+  .sb-top .role{font-size:0.85rem;color:rgba(255,255,255,0.7);margin-top:10px;line-height:1.65;}
+  .sb-divider{height:1px;background:rgba(255,255,255,0.2);margin:24px 0;}
+  .sb-section{margin-bottom:24px;}
+  .sb-sh{font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:12px;}
+  .contact-item{display:flex;gap:10px;align-items:center;margin-bottom:10px;}
+  .ci-dot{width:6px;height:6px;background:rgba(255,255,255,0.7);border-radius:50%;flex-shrink:0;}
+  .ci-text{font-size:0.82rem;color:rgba(255,255,255,0.8);}
+  .skill-row{margin-bottom:10px;}
+  .skill-row .sname{font-size:0.82rem;color:rgba(255,255,255,0.8);margin-bottom:5px;}
+  .bar-bg{height:4px;background:rgba(255,255,255,0.15);border-radius:2px;}
+  .bar-fill{height:4px;border-radius:2px;background:rgba(255,255,255,0.8);}
+  .lang-item{display:flex;justify-content:space-between;font-size:0.82rem;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.75);}
+  .lang-item span:last-child{color:rgba(255,255,255,0.45);}
+  .sb-bottom{padding:28px 36px;background:rgba(0,0,0,0.2);}
+  .sb-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .sb-stat{background:rgba(255,255,255,0.1);border-radius:10px;padding:12px;text-align:center;}
+  .sb-stat .n{font-size:1.8rem;font-weight:800;color:white;}
+  .sb-stat .l{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:2px;}
+  .main{background:var(--card);padding:48px 44px;overflow-y:auto;}
+  .sh{font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+  .sh::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.06);}
+  .sec{margin-bottom:36px;}
+  .job{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;margin-bottom:12px;}
+  .job-top{display:flex;justify-content:space-between;align-items:flex-start;}
+  .job h3{font-size:1rem;font-weight:700;color:white;}
+  .yr-badge{background:rgba(108,63,197,0.3);border:1px solid rgba(108,63,197,0.5);color:#c4a8ff;padding:3px 10px;border-radius:100px;font-size:0.72rem;font-weight:600;}
+  .job .org{font-size:0.84rem;color:var(--muted);margin:5px 0 8px;}
+  .job p{font-size:0.86rem;line-height:1.68;color:rgba(232,224,240,0.65);}
+  .edu-item{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start;}
+  .edu-num{width:32px;height:32px;background:linear-gradient(135deg,var(--aurora1),var(--aurora2));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;color:white;flex-shrink:0;}
+  .edu-item h3{font-size:0.9rem;font-weight:700;color:white;}
+  .edu-item .sub{font-size:0.8rem;color:var(--muted);margin-top:2px;}
+  .edu-item .yr{font-size:0.72rem;color:#c4a8ff;font-weight:700;margin-bottom:3px;}
+  .skill-chip{display:inline-block;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:rgba(232,224,240,0.8);padding:5px 12px;border-radius:8px;font-size:0.78rem;margin:3px 3px 0 0;}
+  .pos-row{display:flex;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+  .pos-dot{width:6px;height:6px;background:linear-gradient(135deg,var(--aurora1),var(--aurora3));border-radius:50%;flex-shrink:0;}
+  .pos-row span{font-size:0.84rem;color:rgba(232,224,240,0.7);}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="sidebar">
+    <div class="sb-top">
+      <div class="initials-box">AO</div>
+      <h1>Ama Owusu-<br>Acheampong</h1>
+      <div class="role">French Language Teacher · Cultural Exchange Coordinator · Alliance Française Tutor</div>
+      <div class="sb-divider"></div>
+      <div class="sb-section">
+        <div class="sb-sh">Contact</div>
+        <div class="contact-item"><div class="ci-dot"></div><div class="ci-text">ama.owusuacheampong@gmail.com</div></div>
+        <div class="contact-item"><div class="ci-dot"></div><div class="ci-text">+233 27 001 1223</div></div>
+        <div class="contact-item"><div class="ci-dot"></div><div class="ci-text">Accra, Greater Accra</div></div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-sh">Key Skills</div>
+        <div class="skill-row"><div class="sname">French Instruction</div><div class="bar-bg"><div class="bar-fill" style="width:97%"></div></div></div>
+        <div class="skill-row"><div class="sname">TEFL Methodology</div><div class="bar-bg"><div class="bar-fill" style="width:90%"></div></div></div>
+        <div class="skill-row"><div class="sname">Cultural Programming</div><div class="bar-bg"><div class="bar-fill" style="width:88%"></div></div></div>
+        <div class="skill-row"><div class="sname">Translation (Fr/En)</div><div class="bar-bg"><div class="bar-fill" style="width:84%"></div></div></div>
+        <div class="skill-row"><div class="sname">Curriculum Design</div><div class="bar-bg"><div class="bar-fill" style="width:85%"></div></div></div>
+      </div>
+      <div class="sb-section">
+        <div class="sb-sh">Languages</div>
+        <div class="lang-item"><span>French</span><span>Near Native (C1)</span></div>
+        <div class="lang-item"><span>English</span><span>Fluent</span></div>
+        <div class="lang-item"><span>Twi</span><span>Native</span></div>
+        <div class="lang-item"><span>Spanish</span><span>Basic (A2)</span></div>
+      </div>
+    </div>
+    <div class="sb-bottom">
+      <div class="sb-stat-row">
+        <div class="sb-stat"><div class="n">8</div><div class="l">Years</div></div>
+        <div class="sb-stat"><div class="n">480</div><div class="l">Students</div></div>
+        <div class="sb-stat"><div class="n">C1</div><div class="l">DALF Level</div></div>
+        <div class="sb-stat"><div class="n">4</div><div class="l">Awards</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="sec">
+      <div class="sh">Experience</div>
+      <div class="job">
+        <div class="job-top"><h3>French Teacher & Cultural Exchange Coordinator</h3><span class="yr-badge">2020–Now</span></div>
+        <div class="org">Accra Academy JHS</div>
+        <p>Teach French to all JHS levels; coordinate annual student exchange with a partner school in Abidjan, Côte d'Ivoire. French Club membership has grown from 15 to 85 students.</p>
+      </div>
+      <div class="job">
+        <div class="job-top"><h3>French Language Tutor</h3><span class="yr-badge">2018–2020</span></div>
+        <div class="org">Alliance Française d'Accra</div>
+        <p>Taught evening and weekend French classes to adult learners at A1–B2 levels. Consistently received student rating of 4.8/5.0. Designed 3 custom course modules.</p>
+      </div>
+      <div class="job">
+        <div class="job-top"><h3>French & English Teacher</h3><span class="yr-badge">2016–2018</span></div>
+        <div class="org">Tema International School</div>
+        <p>Delivered bilingual instruction; produced school's first bilingual magazine. Organised French Week cultural festival attended by embassies and over 400 students.</p>
+      </div>
+    </div>
+    <div class="sec">
+      <div class="sh">Education</div>
+      <div class="edu-item"><div class="edu-num">1</div><div><div class="yr">2012–2016</div><h3>B.Ed. French</h3><div class="sub">University of Cape Coast — First Class Hons.</div></div></div>
+      <div class="edu-item"><div class="edu-num">2</div><div><div class="yr">2018</div><h3>DALF C1 — Diplôme Approfondi de Langue Française</h3><div class="sub">French Ministry of Education</div></div></div>
+      <div class="edu-item"><div class="edu-num">3</div><div><div class="yr">2021</div><h3>Certificate in TEFL</h3><div class="sub">British Council Ghana</div></div></div>
+      <div class="edu-item"><div class="edu-num">4</div><div><div class="yr">2009–2012</div><h3>WASSCE — General Arts</h3><div class="sub">Achimota School</div></div></div>
+    </div>
+    <div class="sec">
+      <div class="sh">Positions Held</div>
+      <div class="pos-row"><div class="pos-dot"></div><span>French Club President — UCC French Dept.</span></div>
+      <div class="pos-row"><div class="pos-dot"></div><span>Cultural Exchange Coordinator — Accra Academy JHS</span></div>
+      <div class="pos-row"><div class="pos-dot"></div><span>GES Language Committee Member, Greater Accra</span></div>
+      <div class="pos-row"><div class="pos-dot"></div><span>Alliance Française Course Designer & Senior Tutor</span></div>
+    </div>
+    <div class="sec">
+      <div class="sh">Special Skills</div>
+      <span class="skill-chip">French Language Teaching</span>
+      <span class="skill-chip">DELF/DALF Exam Prep</span>
+      <span class="skill-chip">Bilingual Curriculum Design</span>
+      <span class="skill-chip">Cultural Exchange Programming</span>
+      <span class="skill-chip">Translation & Interpretation</span>
+      <span class="skill-chip">Google Classroom</span>
+      <span class="skill-chip">Storytelling in French</span>
+      <span class="skill-chip">Community Outreach</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>

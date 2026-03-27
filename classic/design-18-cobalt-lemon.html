@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Academic Profile – Design 18</title>
+<link href="https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Bitter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cobalt: #1140A8;
+    --cobalt-dark: #0A2D80;
+    --cobalt-pale: #D4DDF8;
+    --cobalt-mist: #EEF1FC;
+    --lemon: #F5D800;
+    --lemon-pale: #FDFBCC;
+    --white: #FFFFFF;
+    --offwhite: #F8F9FF;
+    --text: #080E24;
+    --dim: #6A78B0;
+    --border: #C0CCE8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background: var(--cobalt-dark);
+    font-family: 'Chivo', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex; align-items: center; justify-content: center;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(17,64,168,0.8) 0%, transparent 50%),
+      radial-gradient(circle at 80% 10%, rgba(245,216,0,0.04) 0%, transparent 40%);
+  }
+  .card {
+    max-width: 920px; width: 100%;
+    background: var(--white);
+    box-shadow: 0 8px 0 var(--lemon), 0 40px 80px rgba(0,0,0,0.5);
+    animation: bounce 0.6s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes bounce { from { opacity:0; transform: translateY(30px) scale(0.97); } to { opacity:1; transform: translateY(0) scale(1); } }
+
+  .ribbon { background: var(--lemon); padding: 10px 52px; display: flex; justify-content: space-between; align-items: center; }
+  .ribbon .rl { font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; color: var(--cobalt-dark); font-weight: 900; }
+  .ribbon .rr { font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: var(--cobalt); font-weight: 700; }
+
+  .hero { display: grid; grid-template-columns: auto 1fr auto; gap: 0; }
+  .hero-num {
+    background: var(--cobalt);
+    padding: 52px 40px;
+    display: flex; align-items: flex-end;
+    writing-mode: vertical-rl; text-orientation: mixed;
+    transform: rotate(180deg);
+    font-size: 0.6rem; letter-spacing: 5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); font-weight: 700;
+  }
+  .hero-main { padding: 52px 52px; }
+  .hero-main .pre { font-size: 0.65rem; letter-spacing: 5px; text-transform: uppercase; color: var(--cobalt); font-weight: 700; margin-bottom: 12px; }
+  .hero-main h1 { font-size: 2.4rem; font-weight: 900; color: var(--text); line-height: 1.05; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .hero-main .prog { font-size: 0.9rem; color: var(--dim); font-weight: 300; margin-bottom: 20px; }
+  .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .badge { font-size: 0.72rem; font-weight: 700; padding: 5px 14px; }
+  .badge.b1 { background: var(--cobalt); color: white; }
+  .badge.b2 { background: var(--lemon); color: var(--cobalt-dark); }
+  .badge.b3 { border: 2px solid var(--cobalt-pale); color: var(--cobalt); }
+
+  .hero-score { background: var(--cobalt); padding: 52px 44px; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; min-width: 200px; }
+  .score-num { font-size: 5rem; font-weight: 900; color: var(--lemon); line-height: 1; }
+  .score-label { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-top: 4px; }
+  .score-sub { font-size: 0.72rem; color: rgba(255,255,255,0.6); margin-top: 8px; }
+
+  .divider { height: 3px; background: repeating-linear-gradient(90deg, var(--lemon) 0, var(--lemon) 20px, transparent 20px, transparent 28px); }
+
+  .body { display: grid; grid-template-columns: 1fr 1fr; }
+  .bcol { padding: 40px 48px; }
+  .bcol:last-child { background: var(--cobalt-mist); border-left: 3px solid var(--lemon); }
+
+  .sec { margin-bottom: 30px; }
+  .sec-h {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 18px;
+  }
+  .sec-h .num-badge { background: var(--cobalt); color: white; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 900; flex-shrink: 0; }
+  .sec-h .title { font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: var(--cobalt); font-weight: 700; }
+  .sec-h::after { content: ''; flex: 1; height: 2px; background: var(--cobalt-pale); }
+
+  .entry { margin-bottom: 18px; border-left: 4px solid var(--cobalt-pale); padding-left: 14px; }
+  .entry:hover { border-left-color: var(--lemon); transition: 0.2s; }
+  .entry .et { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .entry .eo { font-family: 'Bitter', serif; font-size: 0.82rem; font-style: italic; color: var(--cobalt); margin-bottom: 3px; }
+  .entry .ey { font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dim); margin-bottom: 6px; font-weight: 300; }
+  .entry .ep { font-size: 0.82rem; color: #4A5880; line-height: 1.65; font-weight: 300; }
+
+  .pos-grid { display: grid; gap: 8px; }
+  .pos-box { background: white; border: 2px solid var(--cobalt-pale); padding: 10px 14px; }
+  .pos-box:hover { border-color: var(--lemon); transition: 0.2s; }
+  .pos-box .pt { font-size: 0.88rem; font-weight: 700; color: var(--text); }
+  .pos-box .po { font-size: 0.74rem; color: var(--dim); font-weight: 300; margin-top: 1px; }
+  .pos-box .py { font-size: 0.62rem; color: var(--cobalt); font-weight: 900; letter-spacing: 1px; margin-top: 2px; }
+
+  .skill-list { }
+  .sk-item { display: flex; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--cobalt-pale); font-size: 0.84rem; color: var(--text); font-weight: 400; }
+  .sk-item:last-child { border-bottom: none; }
+  .sk-dot { width: 8px; height: 8px; background: var(--lemon); border: 2px solid var(--cobalt); flex-shrink: 0; }
+
+  .c-row { padding: 8px 0; border-bottom: 1px solid var(--cobalt-pale); display: flex; gap: 12px; }
+  .c-row:last-child { border-bottom: none; }
+  .c-key { font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: var(--cobalt); font-weight: 700; min-width: 60px; }
+  .c-val { font-size: 0.8rem; color: var(--text); font-weight: 300; }
+
+  .footer { background: var(--cobalt-dark); padding: 12px 48px; display: flex; justify-content: space-between; }
+  .footer span { font-size: 0.62rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.35); font-weight: 300; }
+  .footer .badge-f { background: var(--lemon); color: var(--cobalt-dark); padding: 3px 12px; font-weight: 900; font-size: 0.62rem; letter-spacing: 2px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="ribbon">
+    <span class="rl">College of Education — Student Profile</span>
+    <span class="rr">Academic Record 2024</span>
+  </div>
+  <div class="hero">
+    <div class="hero-num">University of Education, Winneba · Level 300 · B.Ed. ICT</div>
+    <div class="hero-main">
+      <div class="pre">Student Academic Profile</div>
+      <h1>Abena Sarpong-Acheampong</h1>
+      <div class="prog">B.Ed. ICT Education · Level 300 · University of Education, Winneba</div>
+      <div class="badge-row">
+        <span class="badge b1">GPA 3.89</span>
+        <span class="badge b2">Dean's List</span>
+        <span class="badge b3">ICT Champion</span>
+        <span class="badge b3">Best Student</span>
+      </div>
+    </div>
+    <div class="hero-score">
+      <div class="score-num">3.89</div>
+      <div class="score-label">GPA</div>
+      <div class="score-sub">First Class Track</div>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="body">
+    <div class="bcol">
+      <div class="sec">
+        <div class="sec-h"><div class="num-badge">01</div><div class="title">Educational Background</div></div>
+        <div class="entry">
+          <div class="et">B.Ed. ICT Education</div>
+          <div class="eo">University of Education, Winneba</div>
+          <div class="ey">2022 – Present</div>
+          <div class="ep">Focuses on web development pedagogy and educational technology integration. Current research: "Mobile App-Based Learning and Academic Performance in JHS ICT." Best Project Award at UEW Tech Expo 2023.</div>
+        </div>
+        <div class="entry">
+          <div class="et">WASSCE · Science Track</div>
+          <div class="eo">Winneba SHS</div>
+          <div class="ey">2019 – 2022 · Aggregate 7</div>
+          <div class="ep">Electives: ICT, Elective Maths, Chemistry. Regional ICT Quiz Champion 2021.</div>
+        </div>
+        <div class="entry">
+          <div class="et">BECE · Winneba RC JHS</div>
+          <div class="eo">2016 – 2019 · Aggregate 5</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><div class="num-badge">02</div><div class="title">Work & Experience</div></div>
+        <div class="entry">
+          <div class="et">ICT Student Teacher</div>
+          <div class="eo">Agona Swedru SHS, Central Region</div>
+          <div class="ey">Sept – Nov 2024</div>
+          <div class="ep">Taught Web Design and Computer Applications. Built a student project showcase website that went live on school's official domain.</div>
+        </div>
+        <div class="entry">
+          <div class="et">Coding Bootcamp Instructor</div>
+          <div class="eo">Girls in Tech Ghana — Winneba Chapter</div>
+          <div class="ey">2023 – Present</div>
+          <div class="ep">Teaches HTML, CSS, and Scratch programming to JHS girls during school vacations. Has trained 60 girls across 3 cohorts.</div>
+        </div>
+        <div class="entry">
+          <div class="et">E-Learning Content Creator</div>
+          <div class="eo">GhanaThink Foundation (Freelance)</div>
+          <div class="ey">2023 – Present</div>
+          <div class="ep">Develops interactive quiz modules and animated explainer videos for their online primary school platform.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bcol">
+      <div class="sec">
+        <div class="sec-h"><div class="num-badge">03</div><div class="title">Positions Held</div></div>
+        <div class="pos-grid">
+          <div class="pos-box"><div class="pt">ICT Dept. Rep. L300</div><div class="po">UEW Faculty of Education</div><div class="py">2024</div></div>
+          <div class="pos-box"><div class="pt">Tech Club President</div><div class="po">UEW Winneba</div><div class="py">2023–24</div></div>
+          <div class="pos-box"><div class="pt">SRC PRO</div><div class="po">UEW Students' Council</div><div class="py">2023</div></div>
+          <div class="pos-box"><div class="pt">ICT Prefect</div><div class="po">Winneba SHS</div><div class="py">2021–22</div></div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><div class="num-badge">04</div><div class="title">Special Skills</div></div>
+        <div class="skill-list">
+          <div class="sk-item"><div class="sk-dot"></div>HTML / CSS / JavaScript</div>
+          <div class="sk-item"><div class="sk-dot"></div>Scratch & App Inventor</div>
+          <div class="sk-item"><div class="sk-dot"></div>E-learning Authoring</div>
+          <div class="sk-item"><div class="sk-dot"></div>Adobe Premiere Pro</div>
+          <div class="sk-item"><div class="sk-dot"></div>Google Workspace for Edu</div>
+          <div class="sk-item"><div class="sk-dot"></div>Canva & Figma (Basic)</div>
+          <div class="sk-item"><div class="sk-dot"></div>Fante & Twi Languages</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-h"><div class="num-badge">05</div><div class="title">Contact</div></div>
+        <div class="c-row"><span class="c-key">Email</span><span class="c-val">a.sarpongage@uew.edu.gh</span></div>
+        <div class="c-row"><span class="c-key">Phone</span><span class="c-val">+233 20 678 9012</span></div>
+        <div class="c-row"><span class="c-key">Location</span><span class="c-val">Winneba, Central Region</span></div>
+        <div class="c-row"><span class="c-key">Portfolio</span><span class="c-val">abenasarpong.dev</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>B.Ed. ICT Education · UEW Winneba · 2024</span>
+    <span class="badge-f">Dean's List</span>
+  </div>
+</div>
+</body>
+</html>

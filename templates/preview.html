@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Preview Your Legacy - EduCV{% endblock %}
+
+{% block extra_style %}
+.cv-preview-container {
+    height: 800px;
+}
+{% endblock %}
+
+{% block content %}
+<section class="px-6 md:px-20 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Sidebar / Actions -->
+        <div class="lg:col-span-1 space-y-8">
+            <div class="border-l-8 border-brand-purple pl-6 mb-8">
+                <h2 class="font-headline text-5xl font-black italic mb-2">Almost There.</h2>
+                <p class="text-xl text-secondary font-medium">Behold your professional legacy.</p>
+            </div>
+
+            <div class="bg-white border-4 border-brand-black neo-shadow-lg p-8 flex flex-col gap-6">
+                <div class="flex items-center gap-4 bg-brand-gold p-4 border-2 border-brand-black neo-shadow">
+                    <span class="material-symbols-outlined text-brand-black">check_circle</span>
+                    <span class="font-black uppercase tracking-tight">AI Optimized</span>
+                </div>
+                
+                <div class="p-4 border-2 border-brand-black bg-brand-purple/10">
+                    <p class="font-bold text-lg mb-2 italic">Teacher Tip:</p>
+                    <p class="text-sm font-medium">"This template highlights your coordination skills. Perfect for level coordinator roles!"</p>
+                </div>
+
+                <hr class="border-2 border-brand-black">
+
+                <div class="flex flex-col gap-4">
+                    <p class="font-black text-2xl uppercase tracking-tighter">Total Price: <span class="text-brand-gold">GHC 10</span></p>
+                    <button id="pay-btn" class="bg-brand-gold text-brand-black px-6 py-4 font-black text-xl uppercase tracking-widest border-4 border-brand-black neo-shadow-lg hover:bg-brand-gold/80 transition-all active:translate-y-1 active:translate-x-1 active:shadow-none">
+                        Download PDF
+                    </button>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-stone-500 text-center">Powered by Paystack</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CV Preview -->
+        <div class="lg:col-span-2">
+            <div class="bg-stone-200 border-4 border-brand-black neo-shadow-lg overflow-hidden relative cv-preview-container">
+                <iframe src="{{ url_for('ai.render_cv_html') }}" class="w-full h-full border-none"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Payment Modal (Mockup for MVP) -->
+<div id="payment-modal" class="hidden fixed inset-0 z-[100] bg-brand-black/80 backdrop-blur-md flex items-center justify-center p-6">
+    <div class="bg-white border-8 border-brand-black neo-shadow-lg p-10 max-w-lg w-full flex flex-col items-center gap-8 relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-gold rotate-45"></div>
+        
+        <h3 class="font-headline text-4xl font-black uppercase text-center relative z-10 italic">Secure Your Legacy</h3>
+        <p class="text-center font-bold text-xl relative z-10 italic">Complete payment of <span class="bg-brand-gold px-2">GHC 10</span> to remove the watermark and download your PDF.</p>
+        
+        <div class="w-full space-y-4">
+            <button id="confirm-pay" class="w-full bg-brand-black text-white py-5 font-black text-xl uppercase tracking-widest border-4 border-brand-black neo-shadow hover:bg-stone-800 transition-all">
+                Pay with Mobile Money
+            </button>
+            <button id="close-modal" class="w-full bg-white text-brand-black py-3 font-bold uppercase border-2 border-brand-black">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_script %}
+<script>
+    const payBtn = document.getElementById('pay-btn');
+    const paymentModal = document.getElementById('payment-modal');
+    const closeModal = document.getElementById('close-modal');
+    const confirmPay = document.getElementById('confirm-pay');
+
+    payBtn.onclick = () => paymentModal.classList.remove('hidden');
+    closeModal.onclick = () => paymentModal.classList.add('hidden');
+    
+    confirmPay.onclick = () => {
+        confirmPay.disabled = true;
+        confirmPay.textContent = "Processing...";
+        // In a real app, redirect to Paystack or trigger popup
+        setTimeout(() => {
+            alert("Payment successful! Generating your legacy PDF...");
+            window.location.href = "{{ url_for('ai.download_pdf') }}";
+        }, 1500);
+    };
+</script>
+{% endblock %}

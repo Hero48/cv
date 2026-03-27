@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design 17 — Electric Indigo</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700;800&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --bg:#f0f0f8;
+    --indigo:#4338ca;
+    --indigo-light:#e0e7ff;
+    --indigo-deep:#1e1b4b;
+    --white:#fff;
+    --text:#1e1b4b;
+    --muted:#6366a0;
+    --border:#dde2f5;
+  }
+  body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-weight:400;}
+  .cv{max-width:920px;margin:0 auto;padding:0;}
+
+  /* NAV-STYLE HEADER */
+  .header{background:var(--indigo-deep);padding:0 64px;height:72px;display:flex;align-items:center;justify-content:space-between;}
+  .h-logo{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+  .h-nav{display:flex;gap:24px;}
+  .h-nav a{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;}
+  .h-nav a.active{color:white;}
+
+  /* HERO */
+  .hero{background:var(--indigo);padding:64px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+  .he-label{font-size:9px;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:14px;}
+  .he-name{font-size:clamp(40px,6vw,66px);font-weight:800;color:white;line-height:1;letter-spacing:-2px;margin-bottom:12px;}
+  .he-role{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:20px;}
+  .he-desc{font-size:14px;line-height:1.85;color:rgba(255,255,255,0.75);max-width:440px;}
+  .he-stats{display:flex;flex-direction:column;gap:16px;}
+  .he-stat{background:rgba(255,255,255,0.1);padding:16px 24px;min-width:120px;text-align:center;}
+  .hs-n{font-size:34px;font-weight:800;color:white;line-height:1;}
+  .hs-l{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:2px;}
+
+  /* CONTACT BAR */
+  .contact-bar{background:var(--indigo-deep);padding:12px 64px;display:flex;gap:40px;flex-wrap:wrap;}
+  .cb-item{font-size:11px;color:rgba(255,255,255,0.5);}
+  .cb-item strong{color:rgba(255,255,255,0.8);margin-right:6px;}
+
+  /* BODY */
+  .body{padding:48px 64px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px;}
+  .section{background:white;border-radius:12px;padding:28px;}
+  .section.span2{grid-column:span 2;}
+  .sec-hd{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--indigo);margin-bottom:20px;display:flex;align-items:center;gap:10px;}
+  .sec-hd::before{content:'';width:20px;height:3px;background:var(--indigo);border-radius:2px;}
+  .entry{padding:12px 0;border-bottom:1px solid var(--border);}
+  .entry:last-child{border-bottom:none;}
+  .e-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px;}
+  .e-title{font-size:14px;font-weight:700;color:var(--text);}
+  .e-yr{font-size:9px;background:var(--indigo-light);color:var(--indigo);padding:2px 8px;white-space:nowrap;font-weight:700;}
+  .e-org{font-size:10px;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:6px;}
+  .e-body{font-size:12.5px;line-height:1.8;color:#60638a;}
+  .skill-chip{display:inline-block;background:var(--indigo-light);color:var(--indigo);padding:5px 12px;border-radius:6px;font-size:11px;font-weight:700;margin:3px;}
+  @media(max-width:720px){.grid-3{grid-template-columns:1fr;}.section.span2{grid-column:1;}.hero{grid-template-columns:1fr;}.header,.contact-bar,.body{padding-left:24px;padding-right:24px;}}
+</style>
+</head>
+<body>
+<div class="cv">
+  <div class="header">
+    <div class="h-logo">CV · Portfolio</div>
+    <div class="h-nav">
+      <a href="#" class="active">Profile</a>
+      <a href="#">Experience</a>
+      <a href="#">Education</a>
+    </div>
+  </div>
+  <div class="hero">
+    <div>
+      <div class="he-label">Professional Education Profile</div>
+      <h1 class="he-name">Daniel Asare<br>Mensah</h1>
+      <div class="he-role">Religious & Moral Education Teacher</div>
+      <div class="he-desc">An engaging RME educator who fosters ethical reasoning, interfaith dialogue and moral character development in Ghanaian secondary students through contextualised, values-centred teaching.</div>
+    </div>
+    <div class="he-stats">
+      <div class="he-stat"><div class="hs-n">6</div><div class="hs-l">Yrs. Exp.</div></div>
+      <div class="he-stat"><div class="hs-n">3</div><div class="hs-l">Schools</div></div>
+    </div>
+  </div>
+  <div class="contact-bar">
+    <div class="cb-item"><strong>Email:</strong>daniel.mensah@rme.edu.gh</div>
+    <div class="cb-item"><strong>Phone:</strong>+233 20 556 7788</div>
+    <div class="cb-item"><strong>Location:</strong>Sunyani, Bono Region</div>
+    <div class="cb-item"><strong>Licence:</strong>GTLE 2019</div>
+  </div>
+  <div class="body">
+    <div class="grid-3">
+      <div class="section span2">
+        <div class="sec-hd">Work Experience</div>
+        <div class="entry">
+          <div class="e-top"><div class="e-title">RME & Social Studies Teacher</div><div class="e-yr">2021–Now</div></div>
+          <div class="e-org">Sunyani SHS, Bono Region</div>
+          <div class="e-body">Teach Religious & Moral Education and Social Studies to SHS 1–3. Founded an Ethics Debating Society that won the regional inter-school ethics debate 2022 and 2023. WASSCE RME pass rate consistently above 90%.</div>
+        </div>
+        <div class="entry">
+          <div class="e-top"><div class="e-title">RME Teacher — JHS</div><div class="e-yr">2019–2021</div></div>
+          <div class="e-org">Dormaa Ahenkro M/A JHS</div>
+          <div class="e-body">Delivered RME and Integrated Science to JHS 1–3. Organised interfaith prayer events involving Muslim, Christian and Traditional belief communities in the school.</div>
+        </div>
+        <div class="entry">
+          <div class="e-top"><div class="e-title">National Service — Teacher</div><div class="e-yr">2018–2019</div></div>
+          <div class="e-org">Wenchi M/A Basic School</div>
+          <div class="e-body">Fulfilled national service, teaching RME and English. Received district commendation for developing a peer-counselling programme for teenage students.</div>
+        </div>
+      </div>
+      <div class="section">
+        <div class="sec-hd">Education</div>
+        <div class="entry">
+          <div class="e-top"><div class="e-title">B.Ed. RME</div><div class="e-yr">2014–2018</div></div>
+          <div class="e-org">University of Education, Winneba</div>
+          <div class="e-body">Second Class Upper. Best student in Comparative Religion. Dissertation on moral education in pluralistic schools.</div>
+        </div>
+        <div class="entry">
+          <div class="e-top"><div class="e-title">WASSCE — General Arts</div><div class="e-yr">2011–2014</div></div>
+          <div class="e-org">Sunyani SHS</div>
+          <div class="e-body">Aggregate 7. School chapel prefect and debate team member.</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="section">
+        <div class="sec-hd">Leadership</div>
+        <div class="entry">
+          <div class="e-top"><div class="e-title">District RME Coordinator</div><div class="e-yr">2023</div></div>
+          <div class="e-org">GES Sunyani Municipal</div>
+          <div class="e-body">Acting coordinator for RME across 18 SHS; facilitated termly workshops for 40 teachers.</div>
+        </div>
+      </div>
+      <div class="section span2">
+        <div class="sec-hd">Core Skills</div>
+        <span class="skill-chip">Values-Based Teaching</span>
+        <span class="skill-chip">Interfaith Facilitation</span>
+        <span class="skill-chip">Moral Philosophy</span>
+        <span class="skill-chip">Comparative Religion</span>
+        <span class="skill-chip">Debate Coaching</span>
+        <span class="skill-chip">Community Peace-Building</span>
+        <span class="skill-chip">Pastoral Care</span>
+        <span class="skill-chip">Counselling Skills</span>
+        <span class="skill-chip">Research & Writing</span>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
