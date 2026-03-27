@@ -1,5 +1,5 @@
 from flask import Flask, render_template, session
-from flask_sqlalchemy import SQLAlchemy
+from database import db
 from flask_cors import CORS
 import os
 from dotenv import load_dotenv
@@ -21,12 +21,13 @@ app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=1)
 def make_session_permanent():
     session.permanent = True
 
-db = SQLAlchemy(app)
+db.init_app(app)
 
 # Register Blueprints
 from routes.main import main_bp
 from routes.ai import ai_bp
 from routes.auth import auth_bp
+
 app.register_blueprint(main_bp)
 app.register_blueprint(ai_bp)
 app.register_blueprint(auth_bp)

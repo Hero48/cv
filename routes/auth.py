@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, session
-from models import User, db
+from database import db
+from models import User
 from sqlalchemy.exc import IntegrityError
 
 auth_bp = Blueprint('auth', __name__)

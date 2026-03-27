@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, session, jsonify, send_file, url_for
 import os
-import google.generativeai as genai
+from google import genai
 import json
 import tempfile
 from services.stitcher import render_preview
@@ -8,11 +8,9 @@ from services.pdf_generator import generate_pdf
 
 ai_bp = Blueprint('ai', __name__)
 
-# Configure Gemini
-genai.configure(api_key=os.environ.get("GEMINI_API_KEY"))
-
-# Use a model that exists in 2026
-MODEL_NAME = 'gemini-3-flash-preview'
+# Configure Gemini Client
+client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+MODEL_NAME = 'gemini-2.0-flash' # Current 2026 standard
 
 @ai_bp.route('/chat')
 def chat_interview():
@@ -32,8 +30,6 @@ def chat_api():
     user_msg = request.json.get('message')
     history = session.get('chat_history', [])
     
-    model = genai.GenerativeModel(MODEL_NAME)
-    
     # System Instruction for "The Academic Rebel"
     system_instruction = """
     You are 'The Academic Rebel', a mentor for Ghanaian educators. 
@@ -50,15 +46,19 @@ def chat_api():
     Once you have enough info, say [READY] and provide a summary.
     """
     
-    # Format history for Gemini
-    messages = [{"role": "user", "parts": [system_instruction]}]
+    # Format history for the new SDK
+    # We'll just use a simple prompt for now to keep it straightforward
+    full_prompt = f"{system_instruction}\n\n"
     for msg in history:
-        messages.append({"role": msg['role'], "parts": [msg['content']]})
-    
-    messages.append({"role": "user", "parts": [user_msg]})
-    
+        role_label = "Mentor" if msg['role'] == 'model' else "Educator"
+        full_prompt += f"{role_label}: {msg['content']}\n"
+    full_prompt += f"Educator: {user_msg}\nMentor:"
+
     try:
-        response = model.generate_content(messages)
+        response = client.models.generate_content(
+            model=MODEL_NAME,
+            contents=full_prompt
+        )
         ai_content = response.text
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -69,43 +69,6 @@ def chat_api():
     
     return jsonify({"response": ai_content, "is_ready": "[READY]" in ai_content})
 
-@ai_bp.route('/refine')
-def refine_data():
-    history = session.get('chat_history', [])
-    if not history:
-        return "No chat history found", 400
-        
-    # Extract structured data using Gemini
-    model = genai.GenerativeModel(MODEL_NAME, generation_config={"response_mime_type": "application/json"})
-    
-    prompt = f"""
-    Based on the following chat history between an educator and a mentor, extract the CV details into a structured JSON object.
-    Required fields:
-    - full_name
-    - professional_summary
-    - contact (email, phone, location)
-    - experience (list of: company, role, dates, achievements[])
-    - education (list of: institution, degree, year)
-    - skills (list of strings)
-    
-    Chat History:
-    {json.dumps(history)}
-    """
-    
-    try:
-        response = model.generate_content(prompt)
-        extracted_data = json.loads(response.text)
-        session['extracted_data'] = extracted_data
-        
-        # CLEAR CHAT HISTORY TO SAVE SESSION SPACE (Browser 4KB limit)
-        # We've already extracted what we need.
-        session.pop('chat_history', None)
-        # Keep selected_template, it's small but vital
-    except Exception as e:
-        return f"Error extracting data: {str(e)}", 500
-        
-    return render_template('refine.html', data=extracted_data)
-
 @ai_bp.route('/api/extracted_data')
 def get_extracted_data():
     data = session.get('extracted_data')
@@ -115,13 +78,10 @@ def get_extracted_data():
 
 @ai_bp.route('/api/refine', methods=['POST'])
 def refine_data_api():
-    # Extract structured data using Gemini
     history = session.get('chat_history', [])
     if not history:
         return jsonify({"error": "No chat history found"}), 400
         
-    model = genai.GenerativeModel(MODEL_NAME, generation_config={"response_mime_type": "application/json"})
-    
     prompt = f"""
     Based on the following chat history between an educator and a mentor, extract the CV details into a structured JSON object.
     Required fields:
@@ -137,7 +97,14 @@ def refine_data_api():
     """
     
     try:
-        response = model.generate_content(prompt)
+        # Using the new SDK's JSON output capability
+        response = client.models.generate_content(
+            model=MODEL_NAME,
+            contents=prompt,
+            config={
+                'response_mime_type': 'application/json'
+            }
+        )
         extracted_data = json.loads(response.text)
         session['extracted_data'] = extracted_data
         session.pop('chat_history', None)
@@ -147,17 +114,14 @@ def refine_data_api():
 
 @ai_bp.route('/preview', methods=['POST'])
 def preview_cv():
-    # Update extracted_data with user changes (handles both form and json)
     data = session.get('extracted_data', {})
     if not data:
         data = {'contact': {}}
     
     if request.is_json:
-        # React frontend sends JSON
         new_data = request.json
         data.update(new_data)
     else:
-        # Traditional form
         data['full_name'] = request.form.get('full_name')
         if 'contact' not in data:
             data['contact'] = {}
@@ -177,7 +141,6 @@ def preview_cv():
 
 @ai_bp.route('/render_cv')
 def render_cv_html():
-    # This route is used by the iframe in preview.html and by Playwright
     data = session.get('extracted_data')
     template = session.get('selected_template')
     is_paid = request.args.get('is_paid', 'false').lower() == 'true'
@@ -208,6 +171,5 @@ def download_pdf():
         generate_pdf(f"file://{temp_html_path}", output_pdf)
         return send_file(output_pdf, as_attachment=True, download_name=f"CV_{data.get('full_name', 'EduCV')}.pdf")
     finally:
-        # Cleanup temp HTML file
         if os.path.exists(temp_html_path):
             os.remove(temp_html_path)
